@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content=" Job Portal" name="description"/>
+    <meta content=" Job Portal" property="og:title"/>
+    <meta content=" Job Portal" property="og:description"/>
+    <meta content=" Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Login</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+
+
+        <!-- contact area -->
+        <div class="section-full content-inner bg-white contact-style-1">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="modal fade lead-form-modal" id="car-details" role="dialog" tabindex="-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body row m-a0 clearfix">
+                                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                                         style="background-image: url(images/bg3.jpg);  background-position:center; background-size:cover;">
+                                        <div class="form-info text-white align-self-center">
+                                            <h3 class="m-b15">Create Testimony</h3>
+                                            <p class="m-b15">Please complete this form to add your testimony, We will
+                                                update the site with your testimony after it has been vetted and
+                                                approved.</p>
+                                            <ul class="list-inline m-a0">
+                                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a>
+                                                </li>
+                                                <li><a class="m-r10 text-white" href="#"><i
+                                                        class="fa fa-google-plus"></i></a></li>
+                                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a>
+                                                </li>
+                                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a>
+                                                </li>
+                                                <li><a class="m-r10 text-white" href="#"><i
+                                                        class="fa fa-twitter"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 p-a0">
+                                        <div class="lead-form browse-job text-left">
+
+                                            <form autocomplete="on" id="txtForm">
+                                                <h3 class="m-t0">Testimony</h3>
+                                                <div class="form-group">
+                                                    <input class="form-control" id="txtName"
+                                                           name='name' placeholder="Your Name"
+                                                           required="required" th:value="${seeker.fullName}"
+                                                           type="text"/>
+
+                                                    <input class="form-control"
+                                                           id="seekerId" placeholder="Your Name"
+                                                           required="required" th:value="${seeker.id}"
+                                                           type="hidden"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" id="txtProf" name="profes"
+                                                           placeholder="Your Profession" required
+                                                           th:value="${seeker.proffesionalTitile}"
+                                                           type="text"
+                                                           value=""/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                                    <textarea class="form-control" id="txtMsg"
+                                                                              placeholder="Your testimony"
+                                                                              required
+                                                                              rows="8"></textarea>
+
+                                                </div>
+                                                <div class="clearfix">
+                                                    <button class="btn-primary site-button btn-block" id="btnSubmitText"
+                                                            type="submit">Submit
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- contact area  END -->
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div class="modal fade lead-form-modal" id="car-details" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body row m-a0 clearfix">
+                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                         style="background-image: url(images/background/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Login To You Now</h3>
+                            <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                has been the industry.</p>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-a0">
+                        <div class="lead-form browse-job text-left">
+                            <form>
+                                <h3 class="m-t0">Personal Details</h3>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Name" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mobile Number" value=""/>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn-primary site-button btn-block" type="button">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src='https://www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+
+<script>
+    $(document).ready(function () {
+        $("#car-details").modal('show');
+    });
+</script>
+
+<script>
+
+
+    $('#txtForm').submit(function () {
+        //String msg,String name,String prof
+        event.preventDefault();
+
+        var msg = $('#txtMsg').val();
+        var name = $('#txtName').val();
+        var prof = $('#txtProf').val();
+        var id = $('#seekerId').val();
+
+        var modal = $('#car-details2');
+        var url = "/testimonial?msg=" + msg + "&name=" + name + "&prof=" + prof + "&id=" + id;
+        // disabled the submit button
+        $("#btnSubmitText").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSubmitText").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSubmitText").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+
+</script>
+</body>
+</html>

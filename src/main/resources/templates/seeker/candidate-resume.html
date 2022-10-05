@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> My Profile | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/uploadpic.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="skills-btn">
+                                            <a href="#" th:text="${seeker.primaryContact}?:' No Number'"
+                                               title="Primary Contact">Photoshop</a>
+                                            <a href="#" th:text="${seeker.homeTown}?:' No Home Town'" title="Home Town">Designers</a>
+                                            <a href="#" th:text="${seeker.maritalStatus}?:' No Status'"
+                                               title="Marital Status">Illustrator</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="action-inner">
+                                            <a href="#" title=""><i class="la la-envelope-o"></i><span
+                                                    th:text="${seeker.fullName}?: 'No Name'">Contact David</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="block remove-top">
+            <div class="container">
+
+                <div class="row no-gape">
+
+                    <div class="col-lg-12 column">
+
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <div class="border-title"><h3>Profile Summary</h3><a data-target="#psumary"
+                                                                                     data-toggle="modal"
+                                                                                     href="#"
+                                                                                     id="add-profile-summary"
+                                                                                     title=""><i class="la la-plus"></i>
+                                    Add P. Summary</a></div>
+                                <div class="edu-history-sec">
+
+
+                                    <div class="edu-history">
+                                        <i class="la la-graduation-cap"></i>
+                                        <div class="edu-hisinfo">
+                                            <h3 th:utext="${seeker.profileSummary}"></h3>
+                                        </div>
+                                        <ul class="action_job">
+                                            <li><span>Edit</span><a class="edit-p-summary" data-target="#psumary"
+                                                                    data-toggle="modal"
+                                                                    href="#" id="add-profile-summary"
+                                                                    title=""><i class="la la-pencil"></i></a></li>
+                                            <li><span>Delete</span><a class="delete-p-summary" href="#" title=""><i
+                                                    class="la la-trash-o"></i></a></li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                                <div class="border-title"><h3>Candidates Education</h3><a data-target="#education"
+                                                                                          data-toggle="modal"
+                                                                                          href="#"
+                                                                                          title=""><i
+                                        class="la la-plus"></i> Add Education</a></div>
+                                <div class="edu-history-sec">
+                                    <div th:each="edu:${edulist}" th:remove="tag" th:unless="${#lists.isEmpty(wlist)}">
+
+                                        <div class="edu-history">
+                                            <i class="la la-graduation-cap"></i>
+                                            <div class="edu-hisinfo">
+                                                <h3>[(${edu.institutionName})]</h3>
+                                                <i>[(${edu.yearStarted})] - [(${edu.yearGraduated})]</i>
+                                                <span>Qualication Received <i>[(${edu.qualificationReceived})]</i></span>
+                                            </div>
+                                            <ul class="action_job">
+                                                <li><span>Edit</span><a class="edit-education" href="#"
+                                                                        th:href="@{/find-education/{id}(id=${edu.id})}"
+                                                                        title=""><i class="la la-pencil"></i></a></li>
+                                                <li><span>Delete</span><a class="delete-education" href="#"
+                                                                          th:href="@{/delete-education/{id}(id=${edu.id})}"
+                                                                          title=""><i class="la la-trash-o"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="border-title"><h3>Work Experience</h3><a data-target="#employment"
+                                                                                     data-toggle="modal"
+                                                                                     href="#" title=""><i
+                                        class="la la-plus"></i> Add Experience</a></div>
+                                <div class="edu-history-sec">
+                                    <div th:each="edu:${wlist}" th:remove="tag" th:unless="${#lists.isEmpty(wlist)}">
+
+                                        <div class="edu-history style2">
+
+                                            <i></i>
+                                            <div class="edu-hisinfo">
+                                                <h3>[(${edu.companyName})] <span> [(${edu.jobTitle})]</span></h3>
+                                                <i>[(${edu.monthStartedWork})] [(${edu.yearStartedWork})] -
+                                                    [(${edu.monthStopedWork})] [(${edu.yearStartedWork})]</i>
+                                                <p>[(${edu.descriptions})]</p>
+                                            </div>
+
+                                            <ul class="action_job">
+                                                <li><span>Edit</span><a class="editWork" href="#"
+                                                                        th:href="@{/edit-work/{id}(id=${edu.id})}"
+                                                                        title=""><i class="la la-pencil"></i></a></li>
+                                                <li><span>Delete</span><a class="delete-work" href="#"
+                                                                          th:href="@{/delete-work/{id}(id=${edu.id})}"
+                                                                          title=""><i class="la la-trash-o"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="border-title"><h3>Professional Skills</h3><a class="add-itskills" href="#"
+                                                                                         title=""><i
+                                        class="la la-plus"></i> Add Skills</a></div>
+                                <div class="progress-sec">
+                                    <div th:each="edu:${skillslist}" th:remove="tag"
+                                         th:unless="${#lists.isEmpty(skillslist)}">
+                                        <div class="progress-sec with-edit">
+                                            <span>[(${edu.skill})]</span>
+                                            <div class="progressbar">
+                                                <div class="progress" style="width: 80%;"
+                                                     th:style="'width:' + ${edu.proficiency}+'%'"><span>[(${edu.proficiency})]%</span>
+                                                </div>
+                                            </div>
+                                            <ul class="action_job">
+                                                <li><span>Edit</span><a class="edit-itskills" href="#"
+                                                                        th:href="@{/findItSkills/{id}(id=${edu.id})}"
+                                                                        title=""><i class="la la-pencil"></i></a></li>
+                                                <li><span>Delete</span><a class="edit-itskills" href="#"
+                                                                          th:href="@{/deleteItSkills/{id}(id=${edu.id})}"><i
+                                                        class="la la-trash-o"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="border-title"><h3>Awards</h3><a data-target="#awards" data-toggle="modal"
+                                                                            href="#" title=""><i
+                                        class="la la-plus"></i> Add Awards</a></div>
+                                <div class="edu-history-sec">
+                                    <div th:each="edu:${awardList}" th:remove="tag"
+                                         th:unless="${#lists.isEmpty(awardList)}">
+                                        <div class="edu-history style2">
+                                            <i></i>
+                                            <div class="edu-hisinfo">
+                                                <h3>[(${edu.title})]</h3>
+                                                <i>[(${edu.fromYear})] - [(${edu.toYear})]</i>
+                                            </div>
+                                            <ul class="action_job">
+                                                <li><span>Edit</span><a class="edit-awards" href="#"
+                                                                        th:href="@{/find-award/{id}(id=${edu.id})}"
+                                                                        title=""><i class="la la-pencil"></i></a></li>
+                                                <li><span>Delete</span><a class="delete-awards" href="#"
+                                                                          th:href="@{/delete-award/{id}(id=${edu.id})}"
+                                                                          title=""><i class="la la-trash-o"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+
+<!--  MODALS -->
+
+<!--  Profile summary -->
+
+<div th:insert="summary-modal :: summary-modal"></div>
+<div th:insert="employement-modal :: employement-modal"></div>
+<div th:insert="education-modal :: education-modal"></div>
+<div th:insert="itskills-modal :: itskills-modal"></div>
+<div th:insert="awards-modal :: awards-modal"></div>
+<!--  Employment -->
+
+
+<!--  Education -->
+
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/job/jquery.scrollbar.min.js"></script>
+<script src="/js/work-experiece.js"></script>
+<script src="/js/education.js"></script>
+<script src="/js/profile-summary.js"></script>
+
+<script src="/js/it-skills.js"></script>
+<script src="/js/awards.js"></script>
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.js"></script>
+
+<script>
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/upload-seeker-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+
+    $(function () {
+        $('.lozad').Lazy();
+
+
+    });
+</script>
+</body>
+</html>
+

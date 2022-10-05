@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+
+<div th:fragment="seeker-details">
+
+    <div class="account-popup-area signup-popup-box">
+        <div class="account-popup">
+            <span class="close-popup"><i class="la la-close"></i></span>
+            <h3>Job Seeker Details</h3>
+
+            <section class="overlape">
+                <div class="block remove-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="cand-single-user">
+                                    <div class="share-bar circle">
+                                        <a class="share-google" th:href="${seeker.google}" title=""><i
+                                                class="la la-google"></i></a>
+                                        <a class="share-fb" th:href="${seeker.facebook}" title=""><i
+                                                class="fa fa-facebook"></i></a>
+                                        <a class="share-twitter" th:href="${seeker.twitter}" title=""><i
+                                                class="fa fa-twitter"></i></a>
+                                        <a class="share-linkedin" th:href="${seeker.linkedIn}" title=""><i
+                                                class="fa fa-linkedin"></i></a>
+                                    </div>
+                                    <div class="can-detail-s">
+                                        <div class="cst canditate-des">
+
+                                            <img alt=' Picture' class="lozad"
+                                                 th:data-src="@{'/uploads/' + ${seeker.picFileName}}"/>
+                                            <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                                 title="update">
+                                                <form enctype="multipart/form-data" id="picForm" method="post">
+                                                    <input class="update-flie" id="picData" name="userPic"
+                                                           onchange="udatePic()"
+                                                           type="file">
+                                                    <i class="fa fa-camera"></i>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <h3>[(${seeker.fullName})]</h3>
+                                        <span><i>[(${seeker.proffesionalTitile})]</i> at [(${seeker.currentCompany})] </span>
+                                        <input id="seekerId" th:value="${seeker.id}" type="hidden"/>
+                                        <p><a href="#" th:text="${seeker.email}"></a></p>
+
+                                        <p><i class="la la-map-marker"></i> [(${seeker.homeTown})] /
+                                            [(${seeker.countryOfOrigin})]</p>
+                                    </div>
+                                    <div class="download-cv">
+                                        <button class="flashing_effect circle btn btn-danger"
+                                                th:hidden="${not seeker.blacklisted}"
+                                                th:title="${seeker.blacklistComment}">Blacklisted
+                                        </button>
+                                        <a class="blacklist" href="#" th:hidden="${seeker.blacklisted}"
+                                           th:href="@{/findSeeker/{id}(id=${seeker.id})}" title="Blacklist Candidate">Blacklist
+                                            <i
+                                                    class="la la-times"></i></a>
+                                    </div>
+                                    <div class="share-bar circle">
+                                        <a class="share-google" th:href="@{/downloadCv/{fileId}(fileId=${seeker.id})}"
+                                           title="Download CV"><i class="la la-download"></i></a>
+                                    </div>
+
+                                </div>
+                                <ul class="cand-extralink">
+
+                                    <li><a href="#about" title="">About</a></li>
+                                    <li><a href="#education" title="">Education</a></li>
+                                    <li><a href="#experience" title="">Work Experience</a></li>
+                                    <li><a href="#portfolio" title="">Portfolio</a></li>
+                                    <li><a href="#skills" title="">Professional Skills</a></li>
+                                    <li><a href="#awards" title="">Awards</a></li>
+
+                                </ul>
+                                <div class="cand-details-sec">
+                                    <div class="row">
+                                        <div class="col-lg-8 column">
+                                            <div class="cand-details" id="about">
+                                                <h2>Candidates Profile</h2>
+                                                <p th:utext="${seeker.profileSummary}"></p>
+                                                <p class="m-b0">[(${seeker.description})]</p>
+
+                                                <div class="edu-history-sec" id="education">
+                                                    <h2>Education </h2>
+                                                    <div th:each="edu:${edulist}" th:remove="tag"
+                                                         th:unless="${#lists.isEmpty(wlist)}">
+
+                                                        <div class="edu-history">
+                                                            <i class="la la-graduation-cap"></i>
+                                                            <div class="edu-hisinfo">
+                                                                <h3>[(${edu.institutionName})]</h3>
+                                                                <i>[(${edu.yearStarted})] - [(${edu.yearGraduated})]</i>
+                                                                <span>Qualication Received <i>[(${edu.qualificationReceived})]</i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="edu-history-sec" id="experience">
+                                                    <h2>Work & Experience</h2>
+                                                    <div th:each="edu:${wlist}" th:remove="tag"
+                                                         th:unless="${#lists.isEmpty(wlist)}">
+                                                        <div class="edu-history style2">
+                                                            <i></i>
+                                                            <div class="edu-hisinfo">
+                                                                <h3>[(${edu.companyName})]
+                                                                    <span> [(${edu.jobTitle})]</span></h3>
+                                                                <i>[(${edu.monthStartedWork})]
+                                                                    [(${edu.yearStartedWork})] -
+                                                                    [(${edu.monthStopedWork})]
+                                                                    [(${edu.yearStartedWork})]</i>
+                                                                <p>[(${edu.descriptions})]</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="mini-portfolio" id="portfolio">
+                                                    <h2>Portfolio</h2>
+                                                    <div class="mp-row">
+                                                        <div class="mp-col">
+                                                            <div class="mportolio"><img alt="" src="/images/p1.jpg"/><a
+                                                                    href="#" title=""><i class="la la-search"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mp-col">
+                                                            <div class="mportolio"><img alt="" src="/images/p2.jpg"/><a
+                                                                    href="#" title=""><i class="la la-search"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mp-col">
+                                                            <div class="mportolio"><img alt="" src="/images/p3.jpg"/><a
+                                                                    href="#" title=""><i class="la la-search"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mp-col">
+                                                            <div class="mportolio"><img alt="" src="/images/p4.jpg"/><a
+                                                                    href="#" title=""><i class="la la-search"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="progress-sec" id="skills">
+                                                    <h2>Professional Skills</h2>
+                                                    <div th:each="edu:${skillslist}" th:remove="tag"
+                                                         th:unless="${#lists.isEmpty(skillslist)}">
+                                                        <div class="progress-sec">
+                                                            <span>[(${edu.skill})]</span>
+                                                            <div class="progressbar">
+                                                                <div class="progress"
+                                                                     style="width: 80%;"
+                                                                     th:style="'width:' + ${edu.proficiency}+'%'">
+                                                                    <span>[(${edu.proficiency})]%</span></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="edu-history-sec" id="awards">
+                                                    <h2>Awards</h2>
+                                                    <div th:each="edu:${awardList}" th:remove="tag"
+                                                         th:unless="${#lists.isEmpty(awardList)}">
+                                                        <div class="edu-history style2">
+                                                            <i></i>
+                                                            <div class="edu-hisinfo">
+                                                                <h3>[(${edu.title})]</h3>
+                                                                <i>[(${edu.fromYear})] - [(${edu.toYear})]</i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="companyies-fol-sec">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 column">
+                                            <div class="job-overview">
+                                                <h3>Job Overview</h3>
+                                                <ul>
+                                                    <li><i class="la la-money"></i>
+                                                        <h3>Expected Salary</h3><span
+                                                                th:text="${seeker.expectedSalary}?: 'No Specified'"> Exp. salary</span>
+                                                    </li>
+                                                    <li><i class="la la-mars-double"></i>
+                                                        <h3>Gender</h3><span
+                                                                th:text="${seeker.gender}?: 'No Specified'">Not Specified</span>
+                                                    </li>
+                                                    <li><i class="la la-thumb-tack"></i>
+                                                        <h3>Career Level</h3><span
+                                                                th:text="${seeker.educationLevel}?: 'No Specified'"> Not Specified</span>
+                                                    </li>
+                                                    <li><i class="la la-puzzle-piece"></i>
+                                                        <h3>Industry</h3><span
+                                                                th:text="${seeker.industry}?: 'No Specified'">Not Specified</span>
+                                                    </li>
+                                                    <li><i class="la la-shield"></i>
+                                                        <h3>Experience</h3><span
+                                                                th:text="${seeker.yearsOfExperience}?: 'No Specified'"> Not Specified </span>
+                                                    </li>
+                                                    <li><i class="la la-line-chart "></i>
+                                                        <h3>Qualification</h3><span
+                                                                th:text="${seeker.highestQualification}?: 'No Specified'"> Not Specified </span>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- Job Overview -->
+                                            <div class="quick-form-job">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

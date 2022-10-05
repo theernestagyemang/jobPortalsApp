@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="summary-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="EducationModalLongTitle" class="modal fade modal-bx-info editor"
+         id="psumary"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EducationModalLongTitle">Add/Edit Profile Summary</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="profile-sumary-frm" method="post">
+                        <div class="row">
+
+                            <div class="col-lg-12">
+
+                                                       <span>
+                                                           Your Profile Summary should mention the highlights of your career and education, what your professional interests are,
+                                                           and what kind of a career you are looking for. Write a meaningful summary of more than 50 characters.
+                                                       </span>
+                                <span class="pf-title">Profile Summary</span>
+                                <div class="pf-field">
+                                                           <textarea class="form-control" id="profile-summary-text"
+                                                                     name="description"
+                                                                     placeholder="Type Your profile Summary"
+                                                                     th:utext="${seeker.profileSummary}"> </textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

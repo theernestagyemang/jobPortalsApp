@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Favorite Jobs</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="bg">
+<div id="loading-area"></div>
+<div class="page-wraper">
+
+    <!-- Content -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+
+    <div class="page-content">
+        <!-- Section Banner -->
+
+        <!-- Our Job -->
+        <div class="section-full bg-white content-inner-2">
+            <div class="container">
+                <div class="d-flex job-title-bx section-head">
+                    <div class="mr-auto">
+                        <h2 class="m-b5">Save Jobs</h2>
+                        <h6 class="fw4 m-b0 alert alert-info center"><i class="fa fa-info"></i> You can save as many
+                            jobs as you want and apply for them latter, just click on the heart button</h6>
+                    </div>
+                    <div class="align-self-end">
+                        <a class="site-button button-sm" href="browse-job.html">Browse All Jobs <i
+                                class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <ul class="post-job-bx browse-job" th:each="country: ${joblist}">
+                            <li>
+                                <div class="post-bx">
+                                    <div class="d-flex m-b30">
+                                        <div class="job-post-company">
+                                            <span><img alt="" src="/images/logo/icon1.png"/></span>
+                                        </div>
+                                        <div class="job-post-info">
+                                            <h4><a href="/job-detail"
+                                                   th:href="@{/job-details(id=${country.id})}"
+                                            >[(${country.profession})]</a></h4>
+                                            <ul>
+                                                <li><i class="fa fa-map-marker"></i> [(${country.location})],
+                                                    [(${country.country})]
+                                                </li>
+                                                <li><i class="fa fa-bookmark-o"></i> [(${country.natureOfContract})]
+                                                </li>
+                                                <li><i class="fa fa-clock-o"></i> Published
+                                                    [(${timeAgo.toDuration(country.publishedDate)})]
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="job-time mr-auto">
+                                            <a href="javascript:void(0);"><span> [(${country.natureOfContract})]</span></a>
+                                        </div>
+                                        <div class="salary-bx">
+
+                                            Ghc <span
+                                                th:text="${#numbers.formatDecimal(country.renumeration, 0,'COMMA',2,'POINT')}">0.00 </span>
+                                            -
+                                            <span th:text="${#numbers.formatDecimal(country.toRenumeration, 0,'COMMA',2,'POINT')}">0.00 </span>
+                                        </div>
+                                    </div>
+                                    <label class="like-btn">
+                                        <input id="fvrite"
+                                               th:onclick="'javascript:rowClicked(\'' + ${country.id} + '\');'"
+                                               type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </li>
+
+                            <label></label>
+
+                        </ul>
+
+
+                        <div class="pagination-bx m-t30">
+                            <ul class="pagination">
+                                <li class="previous"><a th:hidden="${currentPage-1}==-1"
+                                                        th:href="@{/(page=${currentPage-1})}"><i
+                                        class="ti-arrow-left"></i>
+                                    Prev</a></li>
+                                <li th:each="i : ${#numbers.sequence(0,joblist.totalPages -1)}">
+                                    <a class="${currentPage}==${i}? 'active':''" th:href="@{/(page=${i})}"
+                                       th:text="${i}"></a>
+                                </li>
+
+                                <li class="next"><a th:hidden="${currentPage}>=${joblist.totalPages}"
+                                                    th:href="@{/(page=${currentPage+1})}">Next <i
+                                        class="ti-arrow-right"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="sticky-top">
+                            <div class="candidates-are-sys m-b30">
+                                <div class="candidates-bx" th:if="${test !=null}">
+                                    <div class="testimonial-pic radius">
+                                        <img alt="User Picture" class="lozad" height="100"
+                                             th:data-src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(test.jobSeekerId.userPicture)}"
+                                             th:if="${test.jobSeekerId !=null}" width="100">
+                                    </div>
+                                    <div class="testimonial-text">
+                                        <p>[(${test.message})]</p>
+                                    </div>
+                                    <div class="testimonial-detail">
+                                        <strong class="testimonial-name" th:if="${test.jobSeekerId !=null}">[(${test.name})] </strong>
+                                        <span class="testimonial-position">[(${test.jobSeekerId.currentLocation})], [(${test.jobSeekerId.countryOfOrigin})]</span>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quote-bx" style="background-image: url(images/bg4.jpg);">
+                                <div class="quote-info">
+                                    <h4>Make a Difference with Your Online Resume!</h4>
+                                    <p>Your resume in minutes with xjobs resume assistant is ready!</p>
+                                    <a class="site-button" href="/register">Create an Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Our Job END -->
+        <!-- Call To Action -->
+
+        <!-- Call To Action END -->
+        <!-- Our Latest Blog -->
+
+        <!-- Our Latest Blog -->
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+
+    <div class="modal fade lead-form-modal" id="car-details2" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body row m-a0 clearfix">
+                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                         style="background-image: url(images/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Create Testimony</h3>
+                            <p class="m-b15">Please complete this form to add your testimony, We will update the site
+                                with your testimony after it has been vetted and approved.</p>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-a0">
+                        <div class="lead-form browse-job text-left">
+
+                            <form autocomplete="on" id="txtForm">
+                                <h3 class="m-t0">Testimony</h3>
+                                <div class="form-group">
+                                    <input class="form-control" id="txtName"
+                                           name='name' placeholder="Your Name"
+                                           required="required"
+                                           type="text"/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="txtProf" name="profes"
+                                           placeholder="Your Profession" required type="text"
+                                           value=""/>
+                                </div>
+
+                                <div class="form-group">
+                                                                    <textarea class="form-control" id="txtMsg"
+                                                                              placeholder="Your testimony"
+                                                                              required
+                                                                              rows="3">
+                                                                    </textarea>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn-primary site-button btn-block" id="btnSubmitText" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-arrow-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><!-- SORTCODE FUCTIONS  -->
+<script>
+    function rowClicked(value) {
+        var fvrite = $("input:checkbox[id=fvrite]:checked").val();
+        if (fvrite == 'on') {
+            saveJob(value);
+        }
+
+    }
+
+
+    function saveJob(value) {
+        var url = "/save-jobs?id=" + value;
+
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        location.reload();
+                    });
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+
+            }
+
+        });
+    }
+
+    $('#txtForm').submit(function () {
+        //String msg,String name,String prof
+        event.preventDefault();
+
+        var msg = $('#txtMsg').val();
+        var name = $('#txtName').val();
+        var prof = $('#txtProf').val();
+
+        var modal = $('#car-details2');
+        var url = "/testimonial?msg=" + msg + "&name=" + name + "&prof=" + prof;
+        // disabled the submit button
+        $("#btnSubmitText").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSubmitText").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSubmitText").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+
+
+</script>
+<script>
+    function autocomplete(inp, arr) {
+        /*the autocomplete function takes two arguments,
+        the text field element and an array of possible autocompleted values:*/
+        var currentFocus;
+        /*execute a function when someone writes in the text field:*/
+        inp.addEventListener("input", function (e) {
+            var a, b, i, val = this.value;
+            /*close any already open lists of autocompleted values*/
+            closeAllLists();
+            if (!val) {
+                return false;
+            }
+            currentFocus = -1;
+            /*create a DIV element that will contain the items (values):*/
+            a = document.createElement("DIV");
+            a.setAttribute("id", this.id + "autocomplete-list");
+            a.setAttribute("class", "autocomplete-items");
+            /*append the DIV element as a child of the autocomplete container:*/
+            this.parentNode.appendChild(a);
+            /*for each item in the array...*/
+            for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    /*create a DIV element for each matching element:*/
+                    b = document.createElement("DIV");
+                    /*make the matching letters bold:*/
+                    b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                    b.innerHTML += arr[i].substr(val.length);
+                    /*insert a input field that will hold the current array item's value:*/
+                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                    /*execute a function when someone clicks on the item value (DIV element):*/
+                    b.addEventListener("click", function (e) {
+                        /*insert the value for the autocomplete text field:*/
+                        inp.value = this.getElementsByTagName("input")[0].value;
+                        /*close the list of autocompleted values,
+                        (or any other open lists of autocompleted values:*/
+                        closeAllLists();
+                    });
+                    a.appendChild(b);
+                }
+            }
+        });
+        /*execute a function presses a key on the keyboard:*/
+        inp.addEventListener("keydown", function (e) {
+            var x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) {
+                /*If the arrow DOWN key is pressed,
+                increase the currentFocus variable:*/
+                currentFocus++;
+                /*and and make the current item more visible:*/
+                addActive(x);
+            } else if (e.keyCode == 38) { //up
+                /*If the arrow UP key is pressed,
+                decrease the currentFocus variable:*/
+                currentFocus--;
+                /*and and make the current item more visible:*/
+                addActive(x);
+            } else if (e.keyCode == 13) {
+                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                e.preventDefault();
+                if (currentFocus > -1) {
+                    /*and simulate a click on the "active" item:*/
+                    if (x) x[currentFocus].click();
+                }
+            }
+        });
+
+        function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+        }
+
+        function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.remove("autocomplete-active");
+            }
+        }
+
+        function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+                if (elmnt != x[i] && elmnt != inp) {
+                    x[i].parentNode.removeChild(x[i]);
+                }
+            }
+        }
+
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+    }
+
+    /*An array containing all the country names in the world:*/
+    var countries = getItems();
+
+    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+    autocomplete(document.getElementById("myInput"), countries);
+
+    function getItems() {
+
+        var countries = ["Bahrain", "Costa Rica", "Eritrea", "Estonia", "Ethiopia", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
+
+        return countries
+    }
+</script>
+</body>
+</html>

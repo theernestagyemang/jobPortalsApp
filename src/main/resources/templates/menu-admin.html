@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<div th:fragment="header" th:remove="tag">
+    <div class="responsive-header">
+        <div class="responsive-menubar">
+            <div class="res-logo"><a href="/" title="">
+                <img alt="" class="laine-logo lozad" th:data-src="@{/images/laine.jpg}"/></a></div>
+            <div class="menu-resaction">
+                <div class="res-openmenu">
+                    <img alt="" th:src="@{/images/icon.png}"/> Menu
+                </div>
+                <div class="res-closemenu">
+                    <img alt="" th:src="@{/images/icon2.png}"/> Close
+                </div>
+            </div>
+        </div>
+        <div class="responsive-opensec">
+            <div class="btn-extars">
+                <ul class="account-btns">
+                    <li class="signin-popup"><a sec:authorize="!isAuthenticated()" title=""><i
+                            class="la la-external-link-square"></i> Login</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/logout" title=""><i
+                            class="la la-external-link-square"></i> logout</a></li>
+                </ul>
+            </div><!-- Btn Extras -->
+            <form action="/findJobs" class="res-search">
+                <input name="q" placeholder="Job title, keywords or company name" required type="text"/>
+                <button type="submit"><i class="la la-search"></i></button>
+            </form>
+            <div class="responsivemenu">
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="#" title="">Jobs</a>
+                        <ul>
+                            <li><a href="/all-jobs" title=""><i class="las la-home"></i> All Jobs</a></li>
+                            <li><a href="/manage-jobs" title=""><i class="la la-file-text"></i> Manage Jobs</a></li>
+                            <li><a href="/jobs" title=""><i class="la la-search"></i> Search Jobs</a></li>
+                            <li><a href="/rec-post-jobs" title="Post a New Job"><i class="la la-briefcase"></i>Post a
+                                New Job</a></li>
+                            <li><a href="/posted-jobs" title="All Posted Jobs"><i class="la la-money"></i> Posted
+                                Jobs</a></li>
+
+                            <li><a href="/assigned-posted-jobs" title="Jobs assigned to recruiters "><i
+                                    class="la la-paper-plane"></i>Assigned jobs </a></li>
+                            <li><a href="/filled-jobs" title=""><i class="la la-user"></i> Filled jobs</a></li>
+                            <li><a href="/job-alert-list" title=""><i class="la la-flash"></i> Job Alerts </a></li>
+                            <li><a href="/assigned-posted-jobs"><i class="la la-briefcase"></i> Recruiter Assigned Jobs</a>
+                            </li>
+                            <li><a href="/resume-request-ls"><i class="la la-bell-o"></i> Resume Request</a></li>
+
+                            <li><a href="/settings" title=""><i class="la la-gears"></i> Settings</a></li>
+                            <li><a href="/change-password" title=""><i class="la la-lock"></i> Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#" title="">Setup</a>
+                        <ul>
+                            <li><a href="/setting" title=""><i class="la la-briefcase"></i> Setting</a></li>
+                            <li><a href="/setup-address" title=""><i class="la la-briefcase"></i> Setup Address</a></li>
+                            <li><a href="/work-shop" title=""><i class="las la-universal-access"></i> Career
+                                Workshop</a></li>
+                            <li><a href="/job-categories" title=""><i class="lab la-squarespace"></i>Job Category</a>
+                            </li>
+                            <li><a href="/users" title="All Users"><i class="la la-users activ"></i> System Users</a>
+                            </li>
+                            <li><a href="/admin/about-us" title="Setup About Us"><i class="la la-users"></i> Setup About
+                                Us </a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#" title="">Subscriptions</a>
+                        <ul>
+                            <li><a href="/admin/candidate-subscriptions" title="">Candidate Packages</a></li>
+                            <li><a href="/admin/employer-subscriptions" title="">Client Packages</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#" title="">Job Seekers</a>
+                        <ul>
+                            <li><a href="/recruiter/job-seekers" title=""><i class="las la-address-book"></i> View</a>
+                            </li>
+                            <li><a href="/recruiter/search-cv" title=""> <i class="la la-search"></i> Search CV</a></li>
+                            <li><a href="/browse-by-shortlisted" title=""> <i class="la la-search"></i> Shortlisted
+                                Applicants</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="/advertise-a-job" title=""><i class="las la-address-book"></i>Employers</a></li>
+                    <li><a href="/profile" sec:authorize="isAuthenticated()" title="Profile"><i class="las la-user"></i>Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header class="stick-top forsticky" id="myHeader">
+        <div class="menu-sec">
+            <div class="container">
+                <div class="logo">
+                    <a href="/" title="">
+                        <img alt="" class="hidesticky lozad laine-logo" th:data-src="@{/images/laine.jpg}"/>
+                        <img alt="" class="showsticky lozad laine-logo" th:data-src="@{/images/laine.jpg}"/>
+                    </a>
+                </div><!-- Logo -->
+
+                <div class="btn-extars">
+
+                    <a class="post-job-btn signin-popup" href="#" sec:authorize="!isAuthenticated()" title=""><i
+                            class="la la-external-link-square"></i>Log In </a>
+                    <ul class="account-btns">
+                        <li sec:authorize="isAuthenticated()"><a href="/logout" title=""><i
+                                class="la la-external-link-square"></i> logout</a></li>
+                    </ul>
+                </div><!-- Btn Extras -->
+
+
+                <div class="wishlist-dropsec">
+                    <span><i class="la la-heart"></i><strong id="wishcount">0</strong></span>
+                    <div class="wishlist-dropdown">
+                        <ul class="shortlist-dropdown my-scrollbar">
+
+                        </ul>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+
+
+                        <li class="menu-item-has-children">
+                            <a href="#" title="">Jobs</a>
+                            <ul>
+                                <li><a href="/all-jobs" title=""><i class="las la-home"></i> All Jobs</a></li>
+                                <li><a href="/manage-jobs" title=""><i class="la la-file-text"></i> Manage 1 Jobs</a>
+                                </li>
+                                <li><a href="/jobs" title=""><i class="la la-search"></i> Search Jobs</a></li>
+                                <li><a href="/rec-post-jobs" title="Post a New Job"><i class="la la-briefcase"></i>Post
+                                    a New Job</a></li>
+                                <li><a href="/posted-jobs" title="All Posted Jobs"><i class="la la-money"></i> Posted
+                                    Jobs</a></li>
+
+                                <li><a href="/assigned-posted-jobs" title="Jobs assigned to recruiters "><i
+                                        class="la la-paper-plane"></i>Assigned jobs </a></li>
+                                <li><a href="/filled-jobs" title=""><i class="la la-user"></i> Filled jobs</a></li>
+                                <li><a href="/job-alert-list" title=""><i class="la la-flash"></i> Job Alerts </a></li>
+                                <li><a href="/assigned-posted-jobs"><i class="la la-briefcase"></i> Recruiter Assigned
+                                    Jobs</a></li>
+                                <li><a href="/resume-request-ls"><i class="la la-bell-o"></i> Resume Request</a></li>
+
+                                <li><a href="/settings" title=""><i class="la la-gears"></i> Settings</a></li>
+                                <li><a href="/change-password" title=""><i class="la la-lock"></i> Change Password</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#" title="">Setup</a>
+                            <ul>
+                                <li><a href="/setting" title=""><i class="la la-briefcase"></i> Setting</a></li>
+                                <li><a href="/setup-address" title=""><i class="la la-briefcase"></i> Setup Address</a>
+                                </li>
+                                <li><a href="/work-shop" title=""><i class="las la-universal-access"></i> Career
+                                    Workshop</a></li>
+                                <li><a href="/job-categories" title=""><i class="lab la-squarespace"></i>Job
+                                    Category</a></li>
+                                <li><a href="/users" title="All Users"><i class="la la-users activ"></i> System
+                                    Users</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#" title="">Page Settings</a>
+                                    <ul>
+                                        <li><a href="/admin/about-us" title="Setup About Us"><i class="la la-map"></i>
+                                            About Us </a></li>
+                                        <li><a href="/admin/privacy-policy" title="Setup About Us"><i
+                                                class="la la-pencil"></i> Privacy Policy</a></li>
+                                        <li><a href="/admin/tnc" title="Setup About Us"><i class="la la-briefcase"></i>
+                                            Terms And Conditions </a></li>
+                                        <li><a href="/admin/site-map" title="Setup About Us"><i class="la la-map"></i>
+                                            Site Map </a></li>
+                                        <li><a href="/admin/faq" title="Setup About Us"><i class="la la-question"></i>
+                                            FAQ </a></li>
+                                        <li><a href="/admin/resume-database-access" title="Setup About Us"><i
+                                                class="la la-database"></i> Resume Database Access </a></li>
+                                        <li><a href="/admin/report-problem" title="Setup About Us"><i
+                                                class="la la-exclamation"></i> Report A Problem </a></li>
+                                        <li><a href="/admin/careers-with-us" title="Setup About Us"><i
+                                                class="la la-wordpress"></i> Careers with Us </a></li>
+                                        <li><a href="/admin/job-posting" title="Setup About Us"><i
+                                                class="la la-joomla"></i> Job Posting </a></li>
+                                        <li><a href="/admin/resume-writting" title="Setup About Us"><i
+                                                class="la la-pencil"></i> Resume Writing </a></li>
+                                    </ul>
+
+
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="#" title="">Subscriptions</a>
+                            <ul>
+                                <li><a href="/admin/candidate-subscriptions" title="">Candidate Packages</a></li>
+                                <li><a href="/admin/employer-subscriptions" title="">Client Packages</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#" title="">Job Seekers</a>
+                            <ul>
+                                <li><a href="/recruiter/job-seekers" title=""><i class="las la-address-book"></i>
+                                    View</a></li>
+                                <li><a href="/recruiter/search-cv" title=""> <i class="la la-search"></i> Search CV</a>
+                                </li>
+                                <li><a href="/browse-by-shortlisted" title=""> <i class="la la-search"></i> Shortlisted
+                                    Applicants</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/advertise-a-job" title=""><i class="las la-address-book"></i>Employers</a></li>
+                        <li><a href="/profile" sec:authorize="isAuthenticated()" title="Profile"><i
+                                class="las la-user"></i>Profile</a></li>
+
+
+                    </ul>
+                </nav><!-- Menus -->
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>

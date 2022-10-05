@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs" name="description"/>
+    <meta content="xjobs" property="og:title"/>
+    <meta content="xjobs" property="og:description"/>
+    <meta content="xjobs" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Access Denied</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" th:href="@{/css/plugins.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/templete.css}" type="text/css">
+    <link class="skin" rel="stylesheet" th:href="@{/css/skin/skin-1.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/mycss.css}" type="text/css"/>
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+
+        <!-- inner page banner END -->
+        <div class="content-block">
+
+            <!-- Why Chose Us -->
+            <!-- Call To Action -->
+            <div class="section-full content-inner-2 call-to-action overlay-black-dark text-white text-center bg-img-fix lozad"
+                 th:data-src="@{/images/about_us.png}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="m-b10">Access Denied!</h2>
+                            <p class="m-b0">You don't have enough privilege to access this Page.</p>
+                            <a class="site-button m-t20 outline outline-2 radius-xl" href="/clientArea">Go to my
+                                Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- contact area END -->
+    </div>
+    <!-- Content END-->
+
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+						
+                        <span> © Copyright 2020  by <i class="fa fa-heart m-lr5 text-red heart"></i>
+                            <a href="https://aoholdings.net"
+                               target="_blank">Synergy Center </a> All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script th:src="@{/js/jquery.min.js}"></script><!-- JQUERY.MIN JS -->
+<script th:src="@{/plugins/bootstrap/js/popper.min.js}"></script><!-- BOOTSTRAP.MIN JS -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.min.js}"></script><!-- BOOTSTRAP.MIN JS -->
+<script th:src="@{/plugins/bootstrap-select/bootstrap-select.min.js}"></script><!-- FORM JS -->
+<script th:src="@{/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js}"></script><!-- FORM JS -->
+<script th:src="@{/plugins/magnific-popup/magnific-popup.js}"></script><!-- MAGNIFIC POPUP JS -->
+<script th:src="@{/plugins/counter/waypoints-min.js}"></script><!-- WAYPOINTS JS -->
+<script th:src="@{/plugins/counter/counterup.min.js}"></script><!-- COUNTERUP JS -->
+<script th:src="@{/plugins/imagesloaded/imagesloaded.js}"></script><!-- IMAGESLOADED -->
+<script th:src="@{/plugins/masonry/masonry-3.1.4.js}"></script><!-- MASONRY -->
+<script th:src="@{/plugins/masonry/masonry.filter.js}"></script><!-- MASONRY -->
+<script th:src="@{/plugins/owl-carousel/owl.carousel.js}"></script><!-- OWL SLIDER -->
+<script th:src="@{/js/custom.js}"></script><!-- CUSTOM FUCTIONS  -->
+<script th:src="@{/js/dz.carousel.js}"></script><!-- SORTCODE FUCTIONS  -->
+<script th:src="@{/js/jquery.lazy.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/dz.ajax.js}"></script><!-- CONTACT JS  -->
+
+<script>
+    $(function () {
+        $('.lozad').Lazy();
+    })
+</script>
+</body>
+</html>

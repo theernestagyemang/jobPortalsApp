@@ -1,0 +1,235 @@
+<div th:fragment="dashboard-header" th:remove="tag">
+    <header class="main-header bg-primary-light">
+        <div class="d-flex align-items-center logo-box justify-content-start">
+            <a class="waves-effect waves-light nav-link d-none d-md-inline-block mx-10 push-btn bg-transparent"
+               data-toggle="push-menu"
+               href="#" role="button">
+                <i data-feather="menu"></i>
+            </a>
+            <!-- Logo -->
+            <a class="logo" href="#">
+                <!-- logo-->
+                <div class="logo-lg">
+                    <span class="light-logo"><img alt="logo" class="xjobs-logo" style="height: 40px"
+                                                  th:src="@{/images/laine.jpg}"></span>
+                    <span class="dark-logo"><img alt="logo" th:src="@{/images/laine.jpg}"></span>
+                </div>
+            </a>
+        </div>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top bg-primary-light bb-1 border-danger">
+            <!-- Sidebar toggle button-->
+            <div class="app-menu">
+                <ul class="header-megamenu nav">
+                    <li class="btn-group nav-item d-md-none">
+                        <a class="waves-effect waves-light nav-link push-btn" data-toggle="push-menu" href="#"
+                           role="button">
+                            <i data-feather="menu">
+
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu r-side">
+                <ul class="nav navbar-nav">
+                    <li class="btn-group nav-item d-lg-flex d-none align-items-center">
+                        <p class="mb-0 text-fade pr-10 pt-5" id="today-date">Friday, 4th December 2020</p>
+                    </li>
+                    <li class="btn-group nav-item d-lg-inline-flex d-none">
+                        <a class="waves-effect waves-light nav-link full-screen" data-provide="fullscreen" href="#"
+                           title="Full Screen">
+                            <i data-feather="maximize"></i>
+                        </a>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li class="btn-group nav-item d-inline-flex">
+                        <a class="waves-effect waves-light nav-link full-screen" data-toggle="control-sidebar" href="#"
+                           title="Setting">
+                            <i data-feather="settings"></i>
+                        </a>
+                    </li>
+                    <!-- Notifications -->
+                    <li class="dropdown notifications-menu">
+                        <a class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" href="#"
+                           title="Notifications">
+                            <i data-feather="bell"></i>
+                        </a>
+                        <ul class="dropdown-menu animated bounceIn">
+
+                            <li class="header">
+                                <div class="p-20">
+                                    <div class="flexbox">
+                                        <div>
+                                            <h4 class="mb-0 mt-0">Notifications</h4>
+                                        </div>
+                                        <div>
+                                            <a class="text-danger" href="#">Clear All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu sm-scrol">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-info"></i> No Notifications
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">View all</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account-->
+                    <li class="dropdown user user-menu">
+                        <a class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" href="#"
+                           title="User"> <i class="fa fa-user-check"></i>
+                        </a>
+                        <ul class="dropdown-menu animated flipInX">
+                            <li class="user-body">
+                                <a class="dropdown-item" href="/recruiter/profile"><i class="fa fa-user-circle"></i>
+                                    Profile</a>
+                                <!--<a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>-->
+                                <a class="dropdown-item" href="/recruiter/profile-password"><i class="fa fa-lock"></i>
+                                    Change Password</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/logout"><i
+                                        class="fa fa-sign-out-alt text-muted mr-2"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside class="main-sidebar">
+        <!-- sidebar-->
+        <section class="sidebar">
+            <div class="user-profile px-20 pt-15 pb-10">
+                <div class="d-flex align-items-center">
+                    <div class="image">
+                        <i aria-hidden="true" class="fa fa-user-circle fa-lg"></i>
+
+                        <!--img alt="User Image" class="avatar avatar-lg bg-primary-light rounded100"
+                             id="current-user-pic" src="../static/images/user6.jpg"-->
+                    </div>
+                    <div class="info">
+                        <strong class="px-20 current-user-name"></strong>
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar menu-->
+            <ul class="sidebar-menu" data-widget="tree">
+
+                <li><a href="/admin/dashboard"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li><a href="/recruiter/applications"><i class="fa fa-file-text"></i>Applications</a></li>
+                <li><a href="/admin/users"><i class="fa fa-users"></i> Users</a></li>
+                <li><a href="/recruiter/job-seekers"><i class="fa fa-snowflake-o"></i> Job Seekers </a></li>
+
+                <li><a href="/recruiter/resume-request"><i class="fa fa-circle-o-notch"></i> Resume Request</a></li>
+
+                <li><a href="/admin/package-page"><i class="fa fa-dot-circle-o"></i>Manage Packages</a></li>
+                <li><a href="/admin/rating-page"><i class="fa fa-list-ul"></i>Manage Rating </a></li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-arrows-alt"></i> Manage Jobs
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/job-category"><i class="fa fa-play"></i> Jobs Category </a></li>
+                        <li><a href="/rec-post-jobs" title="Post a New Job"><i class="fa fa-play"></i>Post
+                            a New Job</a></li>
+                        <li><a href="/manage-jobs" title=""><i class="fa fa-play"></i> Manage Jobs</a></li>
+                        <li><a href="/recruiter/search-cv" title=""> <i class="fa fa-play"></i> Search CV</a>
+                        </li>
+<!--                        <li><a href="/jobs" title=""><i class="fa fa-play"></i> Search Jobs</a></li>-->
+                        <li><a href="/posted-jobs" title="All Posted Jobs"><i class="fa fa-play"></i> Posted
+                            Jobs</a></li>
+<!--                        <li><a href="/filled-jobs" title=""><i class="fa fa-play"></i> Filled jobs</a></li>-->
+                        <li><a href="/job-alert-list" title=""><i class="fa fa-play"></i> Job Alerts </a></li>
+<!--                        <li><a href="/assigned-posted-jobs"><i class="fa fa-play"></i> Recruiter Assigned-->
+                            Jobs</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-arrows-alt"></i> Manage Service
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/service-type"><i class="fa fa-play"></i> Service Type </a></li>
+                        <li><a href="/recruiter/resume-request"><i class="fa fa-play"></i> CV Restructuring </a></li>
+                        <li><a href="/recruiter/interview-request"><i class="fa fa-play"></i> Interview Grooming </a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-briefcase"></i> Xjob Academy
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/academy-intro"><i class="fa fa-play"></i> Main Introduction </a></li>
+                        <li><a href="/recruiter/facilitators"><i class="fa fa-play"></i> Facilitators </a></li>
+                        <li><a href="/recruiter/course-category"><i class="fa fa-play"></i> Course Category </a></li>
+                        <li><a href="/recruiter/courses"><i class="fa fa-play"></i> Courses </a></li>
+                        <li><a href="/recruiter/training-schedule"><i class="fa fa-play"></i> Training Schedule </a>
+                        </li>
+                        <li><a href="/recruiter/learning-plan"><i class="fa fa-play"></i> Learning Plan </a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-arrows-alt"></i> Assessments
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/assessment"><i class="fa fa-play"></i> Assessment Packages </a></li>
+                        <li><a href="/admin/assessment-question"><i class="fa fa-play"></i> Assessment Questions</span>
+                        </a></li>
+                        <li><a href="/admin/rounds"><i class="fa fa-play"></i> Assessment Round</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-arrows-alt"></i> Page Settings
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/about-us"><i class="fa fa-play"></i> About Us</a></li>
+                        <li><a href="/admin/privacy-policy"><i class="fa fa-play"></i>Privacy Policy </a></li>
+                        <li><a class="post-job" href="/admin/tnc"><i class="fa fa-play"></i>Terms And Conditions </a>
+                        </li>
+                        <li style="display: none"><a href="/admin/job-posting"><i class="fa fa-play"></i>Job Posting</a>
+                        </li>
+                        <li><a href="/admin/resume-writting"><i class="fa fa-play"></i>Resume Writing </a></li>
+                        <li><a href="/setup-address"><i class="fa fa-play"></i> Setup Address</a>
+                        </li>
+                        <li><a href="/settings" title=""><i class="fa fa-play"></i> Activation Settings</a></li>
+<!--                        <li><a href="/adverts" title=""><i class="fa fa-play"></i> Create Adverts</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+</div>
+

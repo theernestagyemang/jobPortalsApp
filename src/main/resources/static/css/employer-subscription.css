@@ -1,0 +1,54 @@
+
+.container-1 {
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.my-list-style {
+    list-style-type: square;
+    margin-left: 10px;
+}
+
+.main-head {
+}
+
+.my-header h4 {
+    align-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 50px;
+    margin: 5px
+}
+
+.my-footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px
+}
+
+.my-footer .btn {
+    border-radius: 16px;
+}
+
+span.what-included {
+    font-weight: bold;
+    font-color: black
+}
+
+.details {
+    margin-left: 15px
+}
+
+.category {
+    margin-top: 150px
+}
+
+.body {
+    margin-top: 10px;
+}
+       

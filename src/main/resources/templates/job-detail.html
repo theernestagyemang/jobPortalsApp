@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title> Job Detail ee| xjobs</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="CreativeLayers" name="author">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+
+        .content-to-show {
+            display: none;
+        }
+
+
+        .inner::-webkit-scrollbar-track-piece:start {
+            margin-left: 50px;
+        }
+
+        @media (orientation: portrait) {
+
+            .content-to-show {
+                display: block;
+            }
+        }
+
+        @media (orientation: landscape) and (max-width: 767px) {
+
+            .content-to-show {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body style="font-size: 14px">
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background: repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3>[(${job.profession})]</h3>
+                            <div class="job-statistic">
+                                <span><em
+                                        th:text="${job.natureOfContract}   ? ${job.natureOfContract}   : 'Not Provided'"></em></span>
+                                <p><i class="la la-map-marker"></i> <em
+                                        th:text="${job.location}   ? ${job.location}   : 'Not Provided'"></em></p>
+                                <p><i class="la la-calendar-o"></i>Posted <em
+                                        th:text="${timeAgo.toDuration(job.postedDate)} "></em></p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 column">
+                        <div class="job-single-sec">
+                            <div class="job-single-head">
+                                <div class="job-thumb">
+
+                                    <img alt="" class="c-logo lozad" data-src="/images/logo/icon1.png"
+                                         style="height: 50px;width: 80px" th:if="${!showCompany}"/>
+                                    <img class="lozad responsive" th:data-src="@{${'/uploads/' +company.fileName}}"
+                                         th:if="${showCompany}">
+
+                                </div>
+                                <div class="job-head-info">
+                                    <h4 th:text="${showCompany} ? ${job.postedBy} : 'Reputable Company'">Reputable
+                                        Company</h4>
+                                    <span th:if="${showCompany}"
+                                          th:text="${company.address}   ? ${company.address}   : 'Not Provided'"></span>
+                                    <p th:if="${showCompany}"
+                                       th:text="${company.webSite}     ? ${company.webSite}   : 'Not Provided'"><i
+                                            class="la la-unlink"></i></p>
+                                    <p th:if="${showCompany}"
+                                       th:text="${company.phoneNumber} ? ${company.phoneNumber} :  'Not Provided'"><i
+                                            class="la la-phone"></i></p>
+                                    <p th:if="${showCompany}" th:text="${company.email} ? 'No Provided'"><i
+                                            class="la la-envelope-o"></i></p>
+                                </div>
+                            </div><!-- Job Head -->
+                            <div class="job-details">
+                                <h3>Job Description</h3>
+
+
+                                <p><span th:utext="${job.jobDescription}"></span></p>
+
+                                <h3>Duties and responsibilities </h3>
+                                <ul>
+                                                                    <span th:each="req: ${dutiesList}" th:remove="tag">
+									<li>[(${req})]</li>
+                                                                    </span>
+                                </ul>
+                                <h3>Required Knowledge, Skills, and Abilities</h3>
+                                <ul>
+                                                                    <span th:each="req: ${jreqList}" th:remove="tag">
+									<li>[(${req})]</li>
+                                                                    </span>
+                                </ul>
+
+                                <h3>Special Requirements </h3>
+                                <ul>
+                                                                    <span th:each="req: ${specialReq}" th:remove="tag">
+									<li>[(${req})]</li>
+                                                                    </span>
+                                </ul>
+                                <h3>How to apply</h3>
+                                <p><span th:utext="${job.howToApply}"></span></p>
+                            </div>
+                            <div class="share-bar">
+                                <span>Share</span><a class="share-fb" href="#" title=""><i
+                                    class="fa fa-facebook"></i></a><a class="share-twitter" href="#" title=""><i
+                                    class="fa fa-twitter"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 column">
+                        <a class="apply-thisjob" href="/shortlist" th:href="@{/browse-candidates(id=${job.id})}"
+                           title="Shortlist Applicants"><i class="la la-users"></i>Shortlist Applicants</a>
+                        <div class="apply-alternative">
+
+                            <a class="jobalert" href="#" th:href="@{/rec-post-jobs(id=${job.id})}" title=""><i
+                                    class="la la-pencil"></i> Edit this Job</a>
+                            <span th:onclick="'javascript:rowClicked(\'' + ${job.id} + '\');'"><i
+                                    class="la la-heart-o addtofavorite"></i> favorite</span>
+                        </div>
+                        <div class="job-overview">
+                            <h3>Job Overview</h3>
+                            <ul>
+                                <li><i class="la la-money"></i>
+                                    <h3>Offered Salary</h3>
+                                    <span>
+                                                                        [(${#numbers.formatDecimal(job.renumeration, 0,'COMMA',2,'POINT')})] -
+                                                                        [(${#numbers.formatDecimal(job.toRenumeration, 0,'COMMA',2,'POINT')})]
+                                                                    </span>
+                                </li>
+                                <li><i class="la la-mars-double"></i>
+                                    <h3>Gender</h3><span>[(${job.gender})]</span></li>
+                                <li><i class="la la-thumb-tack"></i>
+                                    <h3>Career Level</h3><span>[(${job.category})]</span></li>
+                                <li><i class="la la-puzzle-piece"></i>
+                                    <h3>Industry</h3><span> [(${job.industry})] </span></li>
+                                <li><i class="la la-shield"></i>
+                                    <h3>Experience</h3><span> [(${job.minYearsExperience})] </span></li>
+                                <li><i class="la la-line-chart "></i>
+                                    <h3>Qualification</h3><span> [(${job.minQualification})] </span></li>
+                            </ul>
+                        </div><!-- Job Overview -->
+
+                        <div class="extra-job-info">
+                            <span><i
+                                    class="la la-file-text"></i><strong>[(${job.noNeeded})]</strong> Slot Available</span>
+                        </div>
+                        <div class="w3-card-4 content-to-show">
+                            <button class="w3-button w3-block w3-card-4 w3-left" onclick="goBack()" style="width:50%"><i
+                                    class="fa fa-eye"></i> Return To Result
+                            </button>
+                            <a class="w3-button w3-block w3-blue w3-right" style="width:50%"
+                               th:href="@{/apply-for-job(id=${job.id})}">Apply</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+    </footer>
+
+</div>
+
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/job/jquery.scrollbar.min.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/job/job-details-2.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="cv-desing">
+
+    <div class="account-popup-area signup-popup-box">
+        <div class="account-popup">
+            <span class="close-popup"><i class="la la-close"></i></span>
+            <h3>Sign Up</h3>
+            <div class="select-user">
+                <span id="job_seeker">Job Seeker</span>
+                <span id="job_employer">Employer</span>
+            </div>
+            <form class="tab-pane active" id="jobSeekerForm" method="post">
+                <h4 class="font-weight-700 m-b5">PERSONAL INFORMATION</h4>
+
+                <div class="cfield">
+
+                    <input id="fullName" name="fullName" placeholder="Full Name" required="" type="text">
+                    <i class="la la-user"></i>
+                </div>
+
+                <div class="cfield">
+                    <input id="title" name="proffesionalTitile" placeholder="Job Title" type="text">
+                </div>
+                <div class="form-group">
+                    <input id="ind-email" name="email" placeholder="Your Email Address" required type="email">
+                </div>
+                <div class="cfield">
+                    <input id="ind-password" name="user-password" placeholder="Type Password" required type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="text-left">
+                    <button class="btn btn-info " id="ind-btnSave" type="submit">
+                        <i class="" id="indSpin"></i>
+                        CREATE
+                    </button>
+                </div>
+            </form>
+
+
+            <form class="tab-pane active" id="empForm">
+                <h4 class="font-weight-700 m-b5">COMPANY INFORMATION</h4>
+
+
+                <div class="cfield">
+
+                    <input id="companyName" name="fullName" placeholder="Requester Full Name" required type="text">
+                    <i class="la la-user"></i>
+                </div>
+
+                <div class="cfield">
+                    <input id="email" name="email" placeholder="Your Email Address" required type="email">
+                </div>
+                <div class="cfield">
+                    <input id="password" name="user-password" placeholder="Type Password" required type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="text-left">
+
+                    <button class="btn btn-info " id="btnSave" type="submit">
+                        <i class="" id="compSpin"></i>
+                        CREATE
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div><!-- SIGNUP POPUP -->
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info"
+         id="cvConfirmModal2"
+         role="dialog" tabindex="-1">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title">PERSONAL INFORMATION</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="tab-pane active" id="login">
+                    <div class="modal-body">
+                        <div class="lead-form browse-job text-left">
+
+                            <div class="form-group">
+                                <span class="font-weight-700">Requester Full Name *</span>
+                                <input id="fullName" name="fullName" placeholder="Your Full Name" required=""
+                                       type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <span class="font-weight-700">E-MAIL *</span>
+                                <input class="form-control" id="em" name="email" placeholder="Your Email Address"
+                                       required="" type="email">
+                            </div>
+                            <div class="form-group">
+                                <span class="font-weight-700">Phone *</span>
+                                <input class="form-control" id="phone" name="phone" placeholder="Your Phone Number"
+                                       type="tel">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input class="btn btn-primary button-lg outline outline-2" id="btnSave" type="submit"
+                               value="CREATE"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Job Seeker Resume</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/basic.css" rel="stylesheet" type="text/css"/>
+    <link class="skin" href="/css/dropzone.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <div th:insert="header :: header"></div>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="overlay-black-dark profile-edit p-t50 p-b20" data-src="/images/banner/bnr1.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 candidate-info">
+                        <div class="candidate-detail">
+                            <div class="canditate-des text-center">
+                                <a href="javascript:void(0);">
+                                    <img alt="" class="lozad" th:data-src="@{'/uploads/' + ${seeker.picFileName}}">
+                                </a>
+                                <div class="upload-link" data-placement="right" data-toggle="tooltip" title="update">
+                                    <form enctype="multipart/form-data" id="picForm" method="post">
+                                        <input class="update-flie" id="picData" name="userPic" onchange="udatePic()"
+                                               type="file">
+                                        <i class="fa fa-camera"></i>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="text-white browse-job text-left">
+                                <h4 class="m-b0">[(${seeker.fullName})]
+                                    <a class="m-l15 font-16 text-white" data-target="#profilename" data-toggle="modal"
+                                       href="#"><i class="fa fa-pencil"></i></a>
+                                </h4>
+                                <p class="m-b15">[(${seeker.proffesionalTitile})]</p>
+                                <ul class="clearfix">
+                                    <li><i class="ti-location-pin"></i> [(${seeker.countryOfOrigin})],
+                                        [(${seeker.currentLocation})]
+                                    </li>
+                                    <li><i class="ti-mobile"></i> [(${seeker.postcode})] [(${seeker.primaryContact})]
+                                    </li>
+                                    <li><i class="ti-briefcase"></i> [(${seeker.highestQualification})]</li>
+                                    <li><i class="ti-email"></i> [(${seeker.email})]</li>
+                                </ul>
+                                <div class="progress-box m-t10">
+                                    <div class="progress-info">Profile Strength (Average)<span>70%</span></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar"
+                                             style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Browse Jobs -->
+            <div class="section-full browse-job content-inner-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 m-b30">
+                            <div class="sticky-top bg-white">
+                                <div class="candidate-info onepage">
+                                    <ul>
+                                        <li><a class="scroll-bar nav-link" href="#resume_headline_bx">
+                                            <span>Resume Headline</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#key_skills_bx">
+                                            <span>Key Skills</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#employment_bx">
+                                            <span>Employment</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#education_bx">
+                                            <span>Education</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#it_skills_bx">
+                                            <span>IT Skills</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#projects_bx">
+                                            <span>Projects</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#profile_summary_bx">
+                                            <span>Profile Summary</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#accomplishments_bx">
+                                            <span>Accomplishments</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#desired_career_profile_bx">
+                                            <span>Desired Career Profile</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#personal_details_bx">
+                                            <span>Personal Details</span></a></li>
+                                        <li><a class="scroll-bar nav-link" href="#attach_resume_bx">
+                                            <span>Attach Resume</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                            <div class="job-bx bg-white m-b30" id="resume_headline_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b15">Resume Headline</h5>
+                                </div>
+                                <p class="m-b0">[(${seeker.description})]</p>
+                                <input id="seekerId" th:value="${seeker.id}" type="hidden"/>
+                                <input id="employerId" th:value="${employer.id}" type="hidden"/>
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="key_skills_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b15">Key Skills</h5>
+                                </div>
+                                <div class="job-time mr-auto">
+                                    <div th:each="country: ${skills}" th:remove="tag">
+                                        <a href="javascript:void(0);"><span th:text="${country}"></span></a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="job-bx bg-white m-b30" id="employment_bx">
+
+                                <h2 class="w3-text-grey w3-padding-16"><i
+                                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work
+                                    Experience</h2>
+
+                                <div th:each="job : ${wlist}" th:remove="tag">
+                                    <div class="w3-container">
+                                        <h5 class="w3-opacity"><b>[(${job.jobTitle })] / [(${job.companyName})] </b>
+                                        </h5>
+
+                                        <h6 class="w3-text-teal" th:unless="${job.stillWorkThere =='No'}">
+                                            <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                                            [(${job.monthStartedWork})] [(${job.yearStartedWork})] - <span
+                                                class="w3-tag w3-blue w3-round">Current</span>
+                                        </h6>
+
+                                        <h6 class="w3-text-teal" th:unless="${job.stillWorkThere =='Yes'}">
+                                            <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                                            [(${job.monthStartedWork})] [(${job.yearStartedWork})] -
+                                            [(${job.monthStopedWork})] [(${job.yearStopedWork})]
+                                        </h6>
+                                        <p>
+                                            <label th:utext="${job.jobProfile}"/>
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="job-bx bg-white m-b30" id="education_bx">
+                                <h2 class="w3-text-grey w3-padding-16"><i
+                                        class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education
+                                </h2>
+
+                                <div th:each="job : ${edulist}" th:remove="tag">
+                                    <div class="w3-container">
+
+                                        <div class="w3-container">
+                                            <h5 class="w3-opacity"><b>[(${job.institutionName })]</b></h5>
+                                            <h6 class="w3-text-teal">
+                                                <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                                                [(${job.yearStarted})] - [(${job.yearGraduated})]
+                                            </h6>
+                                            <p>[(${job.courseDescription })]</p>
+                                        </div>
+
+                                        <hr>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="job-bx table-job-bx bg-white m-b30" id="it_skills_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b15">IT Skills</h5>
+                                </div>
+
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Skills</th>
+                                        <th>Version</th>
+                                        <th>Last Used</th>
+                                        <th>Experience</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="sk: ${skillslist}">
+                                        <td th:text="${sk.skill}"></td>
+                                        <td th:text="${sk.version}"></td>
+                                        <td th:text="${sk.lastUsed}"></td>
+                                        <td>
+                                            <span th:text="*{sk.yearExperience}?: '0'">0</span> Year(s), <span
+                                                th:text="*{sk.monthExperience}?: '0'">0</span> Month(s)
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="projects_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b15">Projects</h5>
+                                </div>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Project Title</th>
+                                        <th>Funded By</th>
+                                        <th>Client:</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="pj: ${prjList}">
+                                        <td th:text="${pj.title}"></td>
+                                        <td th:text="${pj.fundedBy}"></td>
+                                        <td th:text="${pj.client}"></td>
+                                        <td>[(${pj.startMonth})] [(${pj.startYear})]</td>
+                                        <td> [(${pj.endMonth})] [(${pj.endYear})]</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="profile_summary_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b15">Profile Summary</h5>
+                                </div>
+
+
+                                <label id="description" th:utext="${seeker.profileSummary}"></label>
+
+
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="accomplishments_bx">
+                                <h5 class="m-b10">Accomplishments</h5>
+                                <div class="list-row">
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">Online Profile</h6>
+                                        </div>
+                                        <p class="m-b0">Add link to Online profiles (e.g. Linkedin, Facebook etc.).</p>
+                                        <div class="job-time mr-auto">
+                                            <div th:each="ol : ${onlineList}" th:remove="tag">
+                                                <a href=""
+                                                   th:href="${ol.strUrl}"><span>[(${ol.socialProfile})]</span></a>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">Work Sample</h6>
+
+                                        </div>
+                                        <p class="m-b0">Add link to your Projects (e.g. Github links etc.).</p>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th>Work Title</th>
+                                                <th>URL</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="pj: ${sampleList}">
+
+                                                <td th:text="${pj.worktitle}"></td>
+                                                <td th:text="${pj.strUrl}"></td>
+                                                <td>[(${pj.frmMonth})] [(${pj.frmYear})]</td>
+                                                <td> [(${pj.toMonth})] [(${pj.toYear})]</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">White Paper / Research Publication / Journal
+                                                Entry</h6>
+                                        </div>
+
+
+                                        <div th:each="rsea : ${researchList}" th:remove="tag">
+                                            <h6 class="font-14 m-b5"><strong>Title:</strong> [(${rsea.title})]</h6>
+                                            <p class="m-b0"><strong>URL:</strong> [(${rsea.strUrl})]</p>
+                                            <p class="m-b0"><strong>Published On:</strong> [(${rsea.frmMonth})]
+                                                [(${rsea.frmYear})]</p>
+
+
+                                            <label rows="3" th:utext="${rsea.description}"></label>
+
+                                            <hr/>
+                                        </div>
+
+                                    </div>
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">Presentation</h6>
+                                        </div>
+                                        <p class="m-b0">Add links to your Online presentations (e.g. Slideshare
+                                            presentation links etc.).</p>
+
+                                        <div th:each="pre : ${preList}" th:remove="tag">
+                                            <h6 class="font-14 m-b5"><strong>Title:</strong> [(${pre.title})]</h6>
+                                            <p class="m-b0"><strong>URL:</strong> [(${pre.strUrl})]</p>
+
+
+                                            <label rows="3" th:utext="${pre.description}"></label>
+
+                                            <hr/>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">Patent</h6>
+                                        </div>
+                                        <p class="m-b0">Add details of Patents you have filed.</p>
+                                        <div th:each="pt : ${patentList}" th:remove="tag">
+                                            <h6 class="font-14 m-b5"><strong>Title:</strong> [(${pt.title})]</h6>
+                                            <p class="m-b0"><strong>URL:</strong> [(${pt.strUrl})]</p>
+                                            <p class="m-b0"><strong>Application Number:</strong>
+                                                [(${pt.applicationNumber})]</p>
+                                            <p class="m-b0"><strong>Office:</strong> [(${pt.patentOffice})]</p>
+                                            <p class="m-b0"><strong>Status:</strong> [(${pt.patentSttatus})]</p>
+
+                                            <label rows="3" th:utext="${pt.description}"></label>
+
+                                            <hr/>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="list-line">
+                                        <div class="d-flex">
+                                            <h6 class="font-14 m-b5">Certification</h6>
+                                        </div>
+                                        <p class="m-b0">Add details of Certification you have filed.</p>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Certification Body</th>
+                                                <th>Year</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="ct: ${certList}">
+                                                <td th:text="${ct.name}"></td>
+                                                <td th:text="${ct.certificateBody}"></td>
+                                                <td th:text="${ct.year}"></td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="desired_career_profile_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b30">Desired Career Profile</h5>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Industry</label>
+                                            <span class="clearfix font-13">[(${seeker.industry})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Role</label>
+                                            <span class="clearfix font-13">[(${seeker.role})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Employment Type</label>
+                                            <span class="clearfix font-13">[(${seeker.employmentType})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Availability to Join</label>
+                                            <span class="clearfix font-13">[(${seeker.availabilityStatus})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Desired Location</label>
+                                            <span class="clearfix font-13">[(${seeker.desiredLocation})]</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Functional Area</label>
+                                            <span class="clearfix font-13">[(${seeker.department})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Job Type</label>
+                                            <span class="clearfix font-13">[(${seeker.jobType})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Desired Shift</label>
+                                            <span class="clearfix font-13">[(${seeker.shift})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Expected Salary</label>
+                                            <span class="clearfix font-13"
+                                                  th:text="${#numbers.formatDecimal(seeker.expectedSalary, 0,'COMMA',2,'POINT')}"></span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Desired Industry</label>
+                                            <span class="clearfix font-13">[(${seeker.desiredIndustry})]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Details End -->
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="personal_details_bx">
+                                <div class="d-flex">
+                                    <h5 class="m-b30">Personal Details</h5>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Date of Birth</label>
+                                            <span class="clearfix font-13"> [(${#dates.format(seeker.dob, 'dd-MMM-yyyy')})]   </span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Gender</label>
+                                            <span class="clearfix font-13">[(${seeker.gender})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Marital Status</label>
+                                            <span class="clearfix font-13">[(${seeker.maritalStatus})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Passport Number</label>
+                                            <span class="clearfix font-13">[(${seeker.passportNo})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Differently Abled</label>
+                                            <span class="clearfix font-13">[(${seeker.physicallyChallenged})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Languages</label>
+                                            <span class="clearfix font-13">[(${seeker.spokenLanguages})]</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Permanent Address</label>
+                                            <span class="clearfix font-13">[(${seeker.address})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Area Pin Code</label>
+                                            <span class="clearfix font-13">[(${seeker.postcode})]</span>
+                                        </div>
+                                        <div class="clearfix m-b20">
+                                            <label class="m-b0">Hometown</label>
+                                            <span class="clearfix font-13">[(${seeker.homeTown})]</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Details End -->
+                            </div>
+                            <div class="job-bx bg-white m-b30" id="attach_resume_bx">
+                                <h5 class="m-b10">Download Resume</h5>
+
+                                <label class="like-btn ">
+                                    <input class="tooltip" id="cvChange" name="fav"
+                                           th:onclick="'javascript:rowClicked(\'' + ${seeker.id} + '\');'"
+                                           title="Shortlist Candidate"
+                                           type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Browse Jobs END -->
+        </div>
+
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div>
+        <div th:insert="passwordChange :: passwordChange"></div>
+    </div>
+
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dropzone.js"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+<script src=" js/change-password.js"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/download-cv.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+<script>
+    $(function () {
+        var data = [
+            'css',
+            'html',
+            'php',
+            'jquery'
+        ];
+
+        $(".tags_input").tagComplete({
+            keylimit: 1,
+            hide: false,
+            autocomplete: {
+                data: data
+            }
+        });
+
+
+        jQuery('.nav-link').on('click', function () {
+            jQuery('.nav-link').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+
+
+    });
+
+</script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.js"></script>
+<script>
+    $('#pSummary').summernote({
+        placeholder: 'Please type your message here',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+
+
+    });
+</script>
+
+<script type='text/javascript'>
+
+    function rowClicked(value) {
+        var url = "/authenticated";
+
+        $.get(url, function (data) {
+            if (!data) {
+                swal("Unauthenticated!", "You must login!", "error");
+
+            } else {
+                saveJob(value);
+            }
+        });
+
+    }
+
+
+    function saveJob(value) {
+        var url = "/save-cv/" + value;
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                if (data) {
+                    swal({
+                        title: "Success!",
+                        text: "Your cv has been saved successfully!",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    });
+                } else {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, We couldn't save your cv!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!"
+                    });
+                }
+
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't save your cv!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+
+            }
+
+        });
+    }
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/update-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+</script>
+
+
+</body>
+</html>

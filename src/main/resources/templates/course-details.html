@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title> Training Details | xjobs</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="CreativeLayers" name="author">
+
+    <!-- Styles -->
+
+
+    <link href="/css/icons.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/colors/colors.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/notify.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <link href="/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .main-text {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .my-tooltip {
+            position: relative;
+
+        }
+
+        .my-tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .my-tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .my-tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .img_advert {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100%;
+            height: 300px;
+            max-width: 100%;
+
+            display: block;
+
+            margin-left: auto;
+
+            margin-right: auto;
+            width: 80%;
+        }
+
+        .img_advert:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+        .card-pricing.popular {
+            z-index: 1;
+            border: 3px solid #007bff;
+        }
+
+        .card-pricing .list-unstyled li {
+            padding: .5rem 0;
+            color: #6c757d;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0c5db9;
+        }
+
+        .profile-card {
+            position: relative;
+            font-family: sans-serif;
+            width: 220px;
+            height: 220px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 50%;
+            box-shadow: 0 0 22px #3336;
+            transition: .6s;
+            margin: 0 25px;
+        }
+
+        .profile-card:hover .img {
+            transform: translateY(-60px);
+        }
+
+        .profile-card:hover img {
+            border-radius: 10px;
+        }
+
+        .caption {
+            text-align: center;
+            transform: translateY(-80px);
+            opacity: 0;
+            transition: .6s;
+        }
+
+        .profile-card:hover .caption {
+            opacity: 1;
+        }
+
+        .caption h3 {
+            font-size: 21px;
+            font-family: sans-serif;
+        }
+
+        .caption p {
+            font-size: 15px;
+            color: #0c52a1;
+            font-family: sans-serif;
+            margin: 2px 0 9px 0;
+        }
+
+        .caption .social-links a {
+            color: #333;
+            margin-right: 15px;
+            font-size: 21px;
+            transition: .6s;
+        }
+
+        .social-links a:hover {
+            color: #0c52a1;
+        }
+
+        .profile-card .img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: .6s;
+            z-index: 99;
+        }
+
+        .img img {
+            box-shadow: 0 0 5px #3336;
+            transition: .6s;
+        }
+
+        #traing {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+        .bg-gradient {
+            background: #C9D6FF;
+            background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+            background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+        }
+
+        ul li {
+            margin-bottom: 1.4rem;
+        }
+
+        .pricing-divider {
+            border-radius: 20px;
+            background: #C64545;
+            padding: 1em 0 4em;
+            position: relative;
+        }
+
+        .blue .pricing-divider {
+            background: #2D5772;
+        }
+
+        .green .pricing-divider {
+            background: #1AA85C;
+        }
+
+        .red b {
+            color: #C64545
+        }
+
+        .blue b {
+            color: #2D5772
+        }
+
+        .green b {
+            color: #1AA85C
+        }
+
+        .pricing-divider-img {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+        }
+
+        .deco-layer {
+            -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+        }
+
+        .btn-custom {
+            background: #C64545;
+            color: #fff;
+            border-radius: 20px
+        }
+
+        .img-float {
+            width: 50px;
+            position: absolute;
+            top: -3.5rem;
+            right: 1rem
+        }
+
+        .princing-item {
+            transition: all 150ms ease-out;
+        }
+
+        .princing-item:hover {
+            transform: scale(1.05);
+        }
+
+        .princing-item:hover .deco-layer--1 {
+            -webkit-transform: translate3d(15px, 0, 0);
+            transform: translate3d(15px, 0, 0);
+        }
+
+        .princing-item:hover .deco-layer--2 {
+            -webkit-transform: translate3d(-15px, 0, 0);
+            transform: translate3d(-15px, 0, 0);
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup" style="background-color: #f5f6f6;">
+
+    <div th:insert="index-menu2 :: index-menu2"></div>
+
+    <!--    <p th:text="${trainingSchedule.training_cost}">Text ...</p>-->
+    <!--    <td th:text="${message.text}">Text ...</td>-->
+
+    <!--        <a th:text="${firstArticle.name}" th:href="${firstArticle.url}"></a>-->
+
+    <!--        <a th:text="${training.location}" th:href="${training.location}"></a>-->
+    <main class="mt-5" id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div>
+            <div class="container">
+                <p class="p-4"></p>
+                <div class="text-center">
+                    <h2 class="py-2">Details of the course</h2>
+                </div>
+
+            </div>
+            <!-- End Breadcrumbs -->
+        </div>
+        <!-- ======= Cource Details Section ======= -->
+        <section class="course-details" id="course-details">
+            <div class="container mt-2" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <img alt="img" class="img-fluid" style="height: 450px; width:100%"
+                             th:src="@{'/uploads/'+${course.picture}}">
+                    </div>
+                    <div class="col-lg-4" style="background-color: #eef1ff;">
+                        <div>
+                            <ul class="list-check primary">
+                                <li><span style="margin-right: 4rem">Title:</span><span
+                                        th:text="${course.courseTitle}"/></li>
+
+                                <li><span style="margin-right: 3.5rem">Price:</span>
+                                    <span th:if="${course.price != 0}">
+                                        <span th:text="${course.price}"/> GHS
+                                    </span>
+                                    <span th:unless="${course.price != 0}">
+                                        <span class="text-success">Free</span>
+                                    </span>
+                                </li>
+                                <li><span style="margin-right: 2.5rem">Category:</span><span
+                                        th:text="${course.courseCategory.name}"/></li>
+
+                                <div class="job-grid  mt-auto" style="background-color: #eef1ff;"
+                                     th:if="${course.price == 0}">
+                                    <a th:href="@{'/payment/course/'+ ${course.id}}" th:if="${user == null}">
+                                        Take This Course
+                                    </a>
+                                    <a th:href="@{'/seeker/course-detail/'+${course.id}}" th:if="${user != null}">
+                                        View Course Contents
+                                    </a>
+                                </div>
+
+                                <div class="job-grid  mt-auto" style="background-color: #eef1ff;"
+                                     th:unless="${course.price == 0}">
+                                    <a id="btn-apply" th:href="@{'/payment/course/'+ ${course.id}}">Buy this Course</a>
+                                </div>
+
+                            </ul>
+                        </div>
+                        <!--                        <div class="card border-0 p-1" style="background-color: #eef1ff;">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <div class="course-info d-flex justify-content-between align-items-center m-1">-->
+                        <!--                                    <h5>Title:</h5>-->
+                        <!--                                    <p><span th:text="${course.courseTitle}"/></p>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="course-info d-flex justify-content-between align-items-center m-1">-->
+                        <!--                                    <h5>Course Category</h5>-->
+                        <!--                                    <span th:text="${course.category}"/>-->
+                        <!--                                </div>-->
+
+                        <!--                                <div class="m-1">-->
+                        <!--                                    <span th:if="${course.price != 0}">-->
+                        <!--                                        <h5>Price</h5>-->
+                        <!--                                        <span th:text="${course.price}"/>-->
+                        <!--                                    </span>-->
+                        <!--                                    <span th:unless="${course.price != 0}">-->
+                        <!--                                        <h5 class="text-success">Free</h5>-->
+                        <!--                                    </span>-->
+                        <!--                                </div>-->
+
+                        <!--                                <div class="course-info d-flex justify-content-between align-items-center ">-->
+                        <!--                                    <h5>Course Category</h5>-->
+                        <!--                                    <p th:text="${course.courseCategory.name}"/>-->
+                        <!--                                </div>-->
+
+
+                        <!--                                <div class="job-grid  mt-auto"  style="background-color: #eef1ff;" th:if="${course.price == 0}">-->
+                        <!--                                    <a th:if="${user == null}" th:href="@{'/payment/course/'+ ${course.id}}">-->
+                        <!--                                        Take This Course-->
+                        <!--                                    </a>-->
+                        <!--                                    <a th:if="${user != null}" th:href="@{'/seeker/course-detail/'+${course.id}}">-->
+                        <!--                                        View Course Contents-->
+                        <!--                                    </a>-->
+                        <!--                                </div>-->
+
+                        <!--                                <div class="job-grid  mt-auto"  style="background-color: #eef1ff;" th:unless="${course.price == 0}">-->
+                        <!--                                    <a id="btn-apply" th:href="@{'/payment/course/'+ ${course.id}}">Buy this Course</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Cource Details Section -->
+
+        <!-- ======= Cource Details Tabs Section ======= -->
+        <section class="cource-details-tabs" id="cource-details-tabs">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-12 pt-2 mt-lg-0">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="tab-1">
+                                <div class="row">
+                                    <div class="col-lg-12 details order-2 order-lg-1">
+                                        <h3>Course Description</h3>
+                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
+                                            dila parde sonata raqer a videna mareta paulona marka</p>
+                                        <p th:text="${course.description}"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Cource Details Tabs Section -->
+
+    </main><!-- End #main -->
+
+
+    <!--    <section>-->
+    <!--        <div class="block">-->
+    <!--            <div data-velocity="-.1" style="background: url(images/resource/parallax2.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color red"></div>&lt;!&ndash; PARALLAX BACKGROUND IMAGE &ndash;&gt;-->
+    <!--            <div class="container">-->
+    <!--                <div class="row">-->
+    <!--                    <div class="col-lg-12">-->
+    <!--                        <div class="heading light">-->
+    <!--                            <h2>Xjobs Site Stats</h2>-->
+    <!--                            <span>Here we list our site stats and how many people we’ve helped find a job and companies have found <br />recruits. It's a pretty awesome stats area!</span>-->
+    <!--                        </div>&lt;!&ndash; Heading &ndash;&gt;-->
+    <!--                        <div class="stats-sec">-->
+    <!--                            <div class="row">-->
+    <!--                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--                                    <div class="stats">-->
+    <!--                                        <span id="posted-jobs">0</span>-->
+    <!--                                        <h5>Jobs Posted</h5>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--                                    <div class="stats">-->
+    <!--                                        <span id="filled-jobs">0</span>-->
+    <!--                                        <h5>Jobs Filled</h5>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--                                    <div class="stats">-->
+    <!--                                        <span id="companies">0</span>-->
+    <!--                                        <h5>Companies</h5>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--                                    <div class="stats">-->
+    <!--                                        <span id="members">0</span>-->
+    <!--                                        <h5>Members</h5>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+<!-- LOGIN POPUP -->
+
+
+<!-- SIGNUP POPUP -->
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/job/jquery.scrollbar.min.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/counter.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/statistics.js"></script>
+<div th:insert="login-template :: login"></div>
+<script src="/js/login.js"></script>
+<script src="/js/registration.js"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
+<script src="/js/social-media.js"></script>
+<script src="/js/app-hubtel-payment.js"></script>
+<script src="/js/app-academy.js"></script>
+<script src="/js/jquery.number.min.js"></script>
+</body>
+</html>
+

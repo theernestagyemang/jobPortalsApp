@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="xjobss, Job Portal" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Applied Applicants </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+
+
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+
+    <link href="/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/plugins/bootstrap-select/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- contact area -->
+        <div class="overlay-black-dark profile-edit p-t50 p-b20" style="background-image:url(images/banner/bnr1.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 candidate-info">
+                        <div class="candidate-detail">
+                            <div class="canditate-des text-center">
+                                <a href="javascript:void(0);">
+                                    <img alt=""
+                                         th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(seeker.userPicture)}">
+                                </a>
+                                <div class="upload-link" data-placement="right" data-toggle="tooltip" title="update">
+                                    <form enctype="multipart/form-data" id="picForm" method="post">
+                                        <input class="update-flie" id="picData" name="userPic" onchange="udatePic()"
+                                               type="file">
+                                        <i class="fa fa-camera"></i>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="text-white browse-job text-left">
+                                <h4 class="m-b0">[(${seeker.fullName})]
+                                    <a class="m-l15 font-16 text-white" data-target="#profilename" data-toggle="modal"
+                                       href="#"><i class="fa fa-pencil"></i></a>
+                                </h4>
+                                <p class="m-b15">[(${seeker.proffesionalTitile})]</p>
+                                <ul class="clearfix">
+                                    <li><i class="ti-location-pin"></i> [(${seeker.countryOfOrigin})],
+                                        [(${seeker.currentLocation})]
+                                    </li>
+                                    <li><i class="ti-mobile"></i> [(${seeker.postcode})] [(${seeker.primaryContact})]
+                                    </li>
+                                    <li><i class="ti-briefcase"></i> [(${seeker.highestQualification})]</li>
+                                    <li><i class="ti-email"></i> [(${seeker.email})]</li>
+                                </ul>
+                                <div class="progress-box m-t10">
+                                    <div class="progress-info">Profile Strength (Average)<span>70%</span></div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar"
+                                             style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+
+                        <div class="pending-info text-white p-a25">
+                            <h5>Recommended Action</h5>
+                            <ul class="list-check secondry">
+                                <li><a href="javascript:void(0);" style="color: white"
+                                       th:href="@{/downloadCv/{fileId}(fileId=${seeker.id})}">Download CV</a></li>
+                                <li><a data-target="#keyskills" data-toggle="modal" href="javascript:void(0);"
+                                       style="color: white">Send SMS</a></li>
+                                <li><a data-target="#shortlist" data-toggle="modal" href="javascript:void(0);"
+                                       style="color: white">Shortlist</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="content-block">
+            <!-- Browse Jobs -->
+            <div class="section-full bg-white p-t50 p-b20">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xl-3 col-lg-4 m-b30">
+                            <div class="sticky-top">
+                                <div class="candidate-info company-info">
+                                    <div class="candidate-detail text-center">
+                                        <div class="canditate-des">
+                                            <a href="javascript:void(0);">
+                                                <img alt="User Pic" style="height: 148px"
+                                                     th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employer.companyLog)}">
+                                            </a>
+                                            <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                                 title="update">
+                                                <form enctype="multipart/form-data" id="picForm" method="post">
+
+                                                    <input class="update-flie" id="picData" name="userPic"
+                                                           onchange="udatePic()"
+                                                           type="file">
+                                                    <i class="fa fa-camera"></i>
+                                                    <input id="seekerId" th:value="${employer.id}" type="hidden"/>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="candidate-title">
+                                            <h4 class="m-b5"><a
+                                                    href="javascript:void(0);">[(${employer.companyName})]</a></h4>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li><a href="/company-profile">
+                                            <i aria-hidden="true" class="fa fa-user-o"></i>
+                                            <span>Company Profile</span></a></li>
+                                        <li><a href="/company-post-jobs">
+                                            <i aria-hidden="true" class="fa fa-file-text-o"></i>
+                                            <span>Post A Job</span></a></li>
+                                        <li><a href="/company-transactions">
+                                            <i aria-hidden="true" class="fa fa-random"></i>
+                                            <span>Transactions</span></a></li>
+                                        <li><a class="active" href="/company-manage-job">
+                                            <i aria-hidden="true" class="fa fa-briefcase"></i>
+                                            <span>Manage jobs</span></a></li>
+                                        <li><a href="/company-resume">
+                                            <i aria-hidden="true" class="fa fa-id-card-o"></i>
+                                            <span>Resume</span></a></li>
+                                        <li><a href="/jobs-change-password">
+                                            <i aria-hidden="true" class="fa fa-key"></i>
+                                            <span>Change Password</span></a></li>
+                                        <li><a href="/logout">
+                                            <i aria-hidden="true" class="fa fa-sign-out"></i>
+                                            <span>Log Out</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-9 col-lg-8 m-b30">
+                            <div class="job-bx-title clearfix">
+
+                                <h5 class="font-weight-700 pull-left text-uppercase">Selected Job:
+                                    [(${job.profession})] </h5>
+                                <input id="selectedJobId" th:value="${job.id}" type="hidden"/>
+                                <input id="selectedJobSeekerId" th:value="${seeker.id}" type="hidden"/>
+
+                            </div>
+                            <div class="job-bx job-profile">
+                                <div class="job-bx-title clearfix">
+                                    <h5 class="font-weight-700 pull-left text-uppercase">Candidate's Basic
+                                        Information</h5>
+                                    <a class="site-button left-arrow button-sm float-right" href="#"
+                                       th:href="@{/candidate-cv(id = ${seeker.id}, jobId = ${job.id}) }">Candidate's
+                                        CV</a>
+                                </div>
+
+                                <div class="row m-b30">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Your Name:</label>
+                                            <input class="form-control" id="fullName" placeholder="Your Name"
+                                                   th:value="${seeker.fullName}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Professional title:</label>
+                                            <input class="form-control" id="profTitle" placeholder="Professional title"
+                                                   th:value="${seeker.proffesionalTitile}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Languages:</label>
+                                            <input class="form-control" id="languages" placeholder="Spoken Languages"
+                                                   th:value="${seeker.spokenLanguages}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            <input class="form-control col-md-6" id="dob"
+                                                   placeholder="Date of Birth" th:value="${seeker.dob}" type="hidden">
+                                            <input class="form-control" id="age" placeholder="Date of Birth"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Current Salary($):</label>
+                                            <input class="form-control" id="curSalary" placeholder="Current Salary"
+                                                   th:value="${seeker.currentSalary}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Expected Salary:</label>
+                                            <input class="form-control" id="extSalary" placeholder="Expected Salary"
+                                                   th:value="${seeker.expectedSalary}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>Description:</label>
+                                            <textarea class="form-control" id="description"
+                                                      th:value="${seeker.description}"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Level Of Education:</label>
+                                            <input class="form-control" id="levelOfEducation"
+                                                   placeholder="Level Of Education:"
+                                                   th:value="${seeker.educationLevel}" type="text">
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Marital Status:</label>
+                                            <input class="form-control" id="maritalStatus" placeholder="Marital Status"
+                                                   th:value="${seeker.maritalStatus}" type="text">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Years of Experience:</label>
+                                            <input class="form-control" id="yearsOfExperience"
+                                                   placeholder="Years of Experience"
+                                                   th:value="${seeker.yearsOfExperience}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Highest Position:</label>
+                                            <input class="form-control" id="highestPosition"
+                                                   placeholder="Highest Position"
+                                                   th:value="${seeker.highestQualification}" type="text">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="job-bx-title clearfix">
+                                    <h5 class="font-weight-700 pull-left text-uppercase">Contact Information</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Phone:</label>
+                                            <input class="form-control" id="phone" placeholder="Phone"
+                                                   th:value="${seeker.primaryContact}"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address:</label>
+                                            <input class="form-control" id="email" placeholder="Email"
+                                                   th:value="${seeker.email}"
+                                                   type="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Country:</label>
+                                            <input class="form-control" id="country" placeholder="Country Name"
+                                                   th:value="${seeker.countryOfOrigin}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Postcode:</label>
+                                            <input class="form-control" id="postCode" placeholder="Post code"
+                                                   th:value="${seeker.postcode}" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>City:</label>
+                                            <input class="form-control" id="city" placeholder="City"
+                                                   th:value="${seeker.currentLocation}"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Full Address:</label>
+                                            <input class="form-control" id="address" placeholder="Your full address"
+                                                   th:value="${seeker.address}" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a class="site-button left-arrow button-sm float-right" href="#"
+                                   th:href="@{/candidate-cv(id = ${seeker.id}, jobId = ${job.id}) }">Candidate's CV</a>
+
+                                <br/>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Browse Jobs END -->
+        </div>
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div aria-hidden="true" aria-labelledby="KeyskillsModalLongTitle" class="modal fade modal-bx-info editor"
+         id="keyskills"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="KeyskillsModalLongTitle">Send SMS</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>It is the first thing recruiters notice in your profile. Write concisely what makes you unique
+                        and right person for the job you are looking for.</p>
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <input class="form-control tags_input" id="keySkillsDesc"
+                                           th:value="${seeker.keySkills}"
+                                           type="text"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="site-button" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="site-button" id="keyskillsBtn" onclick="keySkills()" type="button">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="KeyskillsModalLongTitle" class="modal fade modal-bx-info editor"
+         id="shortlist"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="KeyskillsModalLongTitle">Shortlist Applicant</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You have selected to shortlist this applicant.</p>
+
+                    <p>If this was the action that you wanted to do,please confirm your choice, or cancel and return to
+                        the page.</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="site-button" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="keyskillsBtn" onclick="shortlistCandidate()" type="button">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src=" js/jquery.dataTables.min.js"></script>
+
+<script type='text/javascript'>
+    var table = $('#datatables').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        select: true,
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+        },
+        dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+</script>
+
+<script type='text/javascript'>
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/update-emp-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+
+
+    function shortlistCandidate() {
+
+        //Integer seekerId,Integer jobId
+        var jobId = $('#selectedJobId').val();
+        var value = $('#selectedJobSeekerId').val();
+        var url = "/emp-shortlist-candidate?seekerId=" + value + "&jobId=" + jobId;
+        var modal = $('#shortlist');
+
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Applicant shortlisted!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't shortlist this applicant!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+    }
+
+    function submitForm() {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+
+        var telphone = $('#telephone').val();
+        var email = $('#email').val();
+        var username = $('#username').val();
+        var role = $('#roles').val();
+        var fn = $('#fn').val();
+        var ln = $('#ln').val();
+        var password = $('#password').val();
+
+        // fn ln username password telphone email role,Long id staffId
+
+        var url = "/create-user?fn=" + fn + "&ln=" + ln + "&username=" + username + "&password=" + password +
+            "&telphone=" + telphone + "&email=" + email + "&role=" + role;
+
+        console.log(url);
+        var modal = $('#signupModal');
+
+        //String ,String ,String ,String ,String role
+        // disabled the submit button
+        $("#btnSubmit").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "User update was successful!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSubmit").prop("disabled", false);
+
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update user!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!",
+
+
+                });
+
+                $("#savBtn").prop("disabled", false);
+
+            }
+
+        });
+
+
+    }
+
+    var dob = $('#dob').val();
+    if (dob != '') {
+
+        var today = new Date();
+        var birthDate = new Date($('#dob').val());
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        $('#age').val(age + ' years old')
+
+    }
+</script>
+</body>
+</html>

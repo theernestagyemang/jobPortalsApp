@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Hibernate Search | Netgloo Blog</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+
+<body>
+
+<ol>
+    <li th:each="user : ${searchResults}">
+        <b><span th:text="${user.fullName}"></span></b> -
+        <span th:text="${user.currentLocation}"></span> -
+        <span th:text="${user.proffesionalTitile}"></span>
+    </li>
+</ol>
+
+
+<br/>
+<hr/>
+Proudly handcrafted by <a href='http://netgloo.com/en'>Netgloo</a>
+
+</body>
+
+</html>

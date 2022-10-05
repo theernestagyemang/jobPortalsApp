@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/sample_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:03:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <title>XJobs | Service Requests</title>
+
+    <style>
+        .btn-outline {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title">CV Restructuring Requested</h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="cartTable">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Entry Date</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Telephone</th>
+                                            <th>Transaction Id</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="country: ${list}">
+
+                                            <td th:text="${country.id}">001457</td>
+                                            <td th:text="${country.jobSeeker.fullName}">Johen Doe</td>
+                                            <td th:text="${country.appliedDate}">14 Nov 2020</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mr-25 h-60 w-60 rounded text-center b-1">
+                                                        <img alt=""
+                                                             class="align-self-center"
+                                                             th:data-src="@{'/uploads/' + ${country.companyFileName}}">
+                                                    </div>
+                                                    <span class="text-fade font-weight-600 font-size-16">
+													[[${country.company}]]. <br><small th:text="${country.appliedDate}"> Date </small>
+												</span>
+                                                </div>
+                                            </td>
+                                            <td th:text="${country.jobType}">Full Time</td>
+                                            <td th:text="${country.position}">Project Manager</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-items-2">
+                                                    <button class="waves-effect waves-circle btn btn-circle btn-success btn-xs"
+                                                            type="button">
+                                                        <i class="la la-phone"></i></button>
+                                                    <button class="waves-effect waves-circle btn btn-circle btn-warning btn-xs"
+                                                            type="button">
+                                                        <i class="la la-envelope"></i></button>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge badge-secondary-light"
+                                                      th:text="${country.jobStatus}"> </span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+    <div th:insert="dashboard-sidebar :: dashboard-sidebar"></div>
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+<script src="/js/vendors.min.js"></script>
+<script src="/assets/icons/feather-icons/feather.min.js"></script>
+<!-- Joblly App -->
+<script src="/js/template.js"></script>
+
+<script src="/assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="/assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="/js/app-request-cv.js"></script>
+<script src="/assets/vendor_components/PACE/pace.min.js"></script>
+
+</body>
+
+</html>

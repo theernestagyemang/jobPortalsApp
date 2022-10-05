@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="login">
+
+    <div class="account-popup-area signup-popup-box">
+        <div class="account-popup">
+            <span class="close-popup"><i class="la la-close"></i></span>
+            <h3>Sign Up</h3>
+
+            <div class="select-user">
+                <h6>Please select</h6>
+                <span id="job_seeker">Job Seeker</span>
+                <span id="job_employer">Employer</span>
+            </div>
+            <form class="tab-pane active" id="jobSeekerForm" method="post">
+                <h4 class="font-weight-700 m-b5">PERSONAL INFORMATION</h4>
+
+                <div class="cfield">
+
+                    <input id="fullName" name="fullName" placeholder="Full Name" required="" type="text">
+                    <i class="la la-user"></i>
+                </div>
+
+                <div class="cfield">
+                    <input id="title" name="proffesionalTitile" placeholder="Job Title" type="text">
+                </div>
+
+                <div class="cfield">
+                    <input id="telephone" name="telephone" placeholder="Telephone" required type="text">
+                </div>
+                <div class="form-group">
+                    <input id="ind-email" name="email" placeholder="Your Email Address" required type="email">
+                </div>
+                <div class="cfield">
+                    <input id="ind-password" name="user-password" placeholder="Type Password" required type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="cfield">
+                    <input id="confirm-password" name="user-password-confirm" placeholder="Confirm Password" required
+                           type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="text-left">
+                    <button class="btn btn-info " id="ind-btnSave" type="submit">
+                        <i class="" id="indSpin"></i>
+                        CREATE
+                    </button>
+                </div>
+
+            </form>
+
+            <form class="tab-pane active" id="empForm">
+                <h4 class="font-weight-700 m-b5">COMPANY INFORMATION</h4>
+
+
+                <div class="cfield">
+                    <input id="companyName" name="fullName" placeholder="Requester Full Name" required type="text">
+                    <i class="la la-user"></i>
+                </div>
+
+                <div class="cfield">
+                    <input id="companyTelephone" name="fullName" placeholder="Telephone" required type="text">
+                    <i class="la la-user"></i>
+                </div>
+
+                <div class="cfield">
+                    <input id="email" name="email" placeholder="Your Email Address" required type="email">
+                </div>
+                <div class="cfield">
+                    <input id="password" name="user-password" placeholder="Type Password" required type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="cfield">
+                    <input id="confirm-password1" name="user-password-confirm" placeholder="Confirm Password" required
+                           type="password">
+                    <i class="la la-key"></i>
+                </div>
+                <div class="text-left">
+
+                    <button class="btn btn-info " id="btnSave" type="submit">
+                        <i class="" id="compSpin"></i>
+                        CREATE
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div><!-- SIGNUP POPUP -->
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info" id="cvConfirmModal"
+         role="dialog" tabindex="-1">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="cvRestrucher-header">PERSONAL INFORMATION</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form class="tab-pane active" id="cv-restructure">
+                    <div class="modal-body">
+                        <div class="lead-form browse-job text-left">
+
+                            <div class="form-group">
+                                <span class="font-weight-700">Requester 1 Full Name *</span>
+                                <input class="form-control" id="requesterFullName" name="name"
+                                       placeholder="Your Full Name"
+                                       required="" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <span class="font-weight-700">E-MAIL *</span>
+                                <input class="form-control" id="requesterEmail" name="email"
+                                       placeholder="Your Email Address"
+                                       required="" type="email">
+                            </div>
+                            <div class="form-group">
+                                <span class="font-weight-700">Phone *</span>
+                                <input class="form-control" id="requesterPhone" name="phone"
+                                       placeholder="Your Phone Number"
+                                       type="text">
+                            </div>
+
+                            <div class="form-group" id="divGrp">
+                                <span class="font-weight-700">Service Type *</span>
+
+                                <select class="chosen form-control serviceType" id="serviceType">
+
+<!--                                    <option value="">-&#45;&#45;&#45;&#45; Please Select &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+<!--                                    <option value="CV Redesign">CV Redesign</option>-->
+<!--                                    <option value="Interview Grooming">Interview Grooming</option>-->
+<!--                                    <option value="Assessment Test">Assessment Test</option>-->
+                                </select>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary button-lg outline outline-2" id="btnSave2" type="submit">
+                            <i aria-hidden="true" class="save-spin" id="save-sp"></i>
+                            CREATE
+
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info"
+         id="empConfirmModal"
+         role="dialog" tabindex="-1">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title">COMPANY INFORMATION</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="tab-pane active" id="login2">
+                    <div class="modal-body">
+
+
+                        <div class="cfield">
+                            <span class="font-weight-700">Service Type *</span>
+                            <select class="chosen form-control" id="serviceType2">
+                                <option value="">----- Please Select ----------</option>
+                                <option value="Job Advert">Job Advert @ Ghc 100 per month</option>
+                                <option value="CV Downloads">CV Downloads @ Ghc 500 per month</option>
+                                <option value="General Assessment for existing">General Assessment for existing staff @
+                                    Ghc 25 per staff
+                                </option>
+                                <option value="Customized Assessment for hiring staff">Customized Assessment for hiring
+                                    staff
+                                </option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span class="font-weight-700">Requester Full Name *</span>
+                            <input id="requesterFullName2" name="name" placeholder="Your Full Name" required=""
+                                   type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <span class="font-weight-700">E-MAIL *</span>
+                            <input class="form-control" id="requesterEmail2" name="email"
+                                   placeholder="Your Email Address"
+                                   required="" type="email">
+                        </div>
+                        <div class="form-group">
+                            <span class="font-weight-700">Phone *</span>
+                            <input class="form-control" id="requesterPhone2" name="phone"
+                                   placeholder="Your Phone Number"
+                                   type="text">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <input class="btn btn-primary button-lg outline outline-2" id="btnEmployerSave" type="submit"
+                               value="CREATE"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+<script>
+    $.get("/service-types", function (data) {
+        $(".serviceType").empty();
+        $('.serviceType').append($('<option>').val("default").text("----- Please Select ----------"));
+        // console.log(data)
+        $.each(data, function (idx, elem) {
+            $('.serviceType').append($('<option>', {
+                value: elem.id,
+                text: elem.name
+            }));
+        });
+    });
+
+
+    // fetch('/service-types')
+    //     .then(response => {
+    //         //handle response
+    //         console.log(response);
+    //     })
+    //     .then(data => {
+    //         //handle data
+    //         console.log(data);
+    //     })
+    //     .catch(error => {
+    //         console.log(error)
+    //     });
+</script>
+</div>
+</body>
+</html>

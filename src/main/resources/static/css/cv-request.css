@@ -1,0 +1,132 @@
+
+.my-tooltip {
+    position: relative;
+
+}
+
+.my-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.my-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.my-tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.img_advert {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto;
+    width: 80%;
+}
+
+.bg-gray {
+    background-color: #eef1ff;
+}
+
+.p-a25 {
+    padding: 25px;
+}
+
+.img_advert:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.list-circle,
+.list-angle-right,
+.list-arrow,
+.list-check,
+.list-checked,
+.list-icon-box,
+.list-chevron-circle,
+.list-hand-point,
+.list-cup,
+.list-pen,
+.list-heart,
+.list-star {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-circle li,
+.list-angle-right li,
+.list-arrow li,
+.list-check li,
+.list-checked li,
+.list-icon-box li,
+.list-chevron-circle li,
+.list-hand-point li,
+.list-cup li,
+.list-pen li,
+.list-heart li,
+.list-star li {
+    padding: 5px 5px 5px 30px;
+    position: relative;
+    font-weight: 500;
+}
+
+.list-circle li:before,
+.list-angle-right li:before,
+.list-arrow li:before,
+.list-check li:before,
+.list-checked li:before,
+.list-icon-box li:before,
+.list-chevron-circle li:before,
+.list-hand-point li:before,
+.list-cup li:before,
+.list-pen li:before,
+.list-heart li:before,
+.list-star li:before {
+    font-family: "themify";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    display: block;
+    font-size: 15px;
+    color: #777;
+}
+
+.list-check li:before {
+    content: "\e64c";
+}
+
+.list-checked li:before {
+    content: "\e64d";
+    font-family: 'themify';
+    font-size: 15px;
+}
+       

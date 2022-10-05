@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Shortlisted Candidates| xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap-grid.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/icons.css}">
+    <link rel="stylesheet" th:href="@{/css/job/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/job/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/responsive.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/chosen.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/colors/colors.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/font-awesome.min.css}" type="text/css"/>
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" th:src="@{/images/loader.jpg}"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"
+                 th:data-src="@{/images/slide1.jpg}"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3 th:if="${user != null}" th:text="'Welcome ' + ${user.fullName}">Welcome </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec">
+                                <ul>
+
+                                    <li><a href="/manage-jobs" title=""><i class="la la-file-text"></i> Manage Jobs</a>
+                                    </li>
+                                    <li><a href="/rec-post-jobs" title="Post a New Job"><i class="la la-briefcase"></i>Post
+                                        a New Job</a></li>
+                                    <li><a href="/posted-jobs" title="All Posted Jobs"><i class="la la-money"></i>
+                                        Posted Jobs</a></li>
+                                    <li><a href="/users" title="All Users"><i class="la la-users activ"></i> System
+                                        Users</a></li>
+                                    <li><a href="/assigned-posted-jobs" title="Jobs assigned to recruiters "><i
+                                            class="la la-paper-plane"></i>Assigned jobs </a></li>
+                                    <li><a href="/filled-jobs" title=""><i class="la la-user"></i>Filled jobs</a></li>
+                                    <li><a href="/job-alert-list" title=""><i class="la la-flash"></i>Job Alerts </a>
+                                    </li>
+                                    <li><a href="/rec-profile"><i class="la la-user-o"></i> Profile</a></li>
+                                    <li><a href="/assigned-posted-jobs"><i class="la la-briefcase"></i> Recruiter
+                                        Assigned Jobs</a></li>
+                                    <li><a href="/resume-request-ls"><i class="la la-bell-o"></i> Resume Request</a>
+                                    </li>
+                                    <li><a href="/setup-address" title=""><i class="la la-book"></i>Setup-address</a>
+                                    </li>
+                                    <li><a href="/job-categories" title=""><i class="lab la-squarespace"></i>Job
+                                        Category</a></li>
+                                    <li><a href="/employers" title=""><i class="las la-building"></i>Employers</a></li>
+                                    <li><a href="/candidates" title=""><i class="las la-user-plus"></i>Job Seekers</a>
+                                    </li>
+                                    <li><a href="/work-shop" title=""><i class="las la-universal-access"></i>Career
+                                        Workshop</a></li>
+                                    <li><a href="/change-password" title=""><i class="la la-lock"></i>Change
+                                        Password</a></li>
+                                    <li><a href="/logout" title="logout of the system"><i class="la la-unlink"></i>Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <h3>Shortlisted Candidates for <a class="badge badge-info"
+                                                                  th:href="@{/job-detail(id=${job.id})}">[(${job})]</a>
+                                </h3>
+
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Profession</td>
+                                        <td>Contact</td>
+                                        <td>Education</td>
+                                        <td class="text-center">Actions</td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr th:each="country: ${shorlisted}">
+
+                                        <td th:if="country" th:text="${country.id}"></td>
+                                        <td>
+                                            <h4><a th:href="@{/seeker-profile(id=${country.jobSeekerId.id})}">[(${country.jobSeekerId.fullName})]</a>
+                                            </h4>
+                                            <ul>
+                                                <li><i class="fa fa-map-marker"></i>
+                                                    [(${country.jobSeekerId.proffesionalTitile})],
+                                                    [(${country.jobSeekerId.currentLocation})]
+                                                </li>
+                                            </ul>
+
+                                        </td>
+                                        <td>
+                                            <a class="badge badge-success" href="#">
+                                                [(${country.jobSeekerId.primaryContact})] </a>
+                                            <ul style="list-style-type: none;color: blue;font-size: 12px">
+                                                <li><i class="fa fa-phone"></i>
+                                                    <a th:href="'tel:' + ${country.jobSeekerId.primaryContact}"
+                                                       title="Phone Call">Phone Call</a>
+                                                </li>
+                                                <li><i class="fa fa-file-text-o"></i>
+                                                    <a th:href="'tel:' + ${country.jobSeekerId.primaryContact}"
+                                                       title="Send SMS">Send SMS</a>
+                                                </li>
+                                                <li><i class="fa fa-envelope"></i>
+                                                    <a th:href="'mailto:' + ${country.jobSeekerId.email}"
+                                                       title="Send Email">Send Email</a>
+                                                </li>
+
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a href="#">[(${country.jobSeekerId.educationLevel})]</a>
+                                        </td>
+
+                                        <td class="td-actions text-right" th:if="country">
+                                            <a class="btn btn-success btn-sm"
+                                               rel="tooltip"
+                                               th:href="@{/seeker-profile(id=${country.jobSeekerId.id})}"
+                                               title="View Profile ">
+                                                <i class="la la-file"></i>
+                                            </a>
+
+                                            <a class="btn btn-danger btn-sm blacklist" data-request-type="delete"
+                                               href="#" th:href="@{/findSeeker/{id}(id=${country.jobSeekerId.id})}"
+                                               title="Blacklist Job Seeker">
+                                                <i class="fa fa-thumbs-o-down"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+<div class="account-popup-area signup-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>Sign Up</h3>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="Email" type="text"/>
+                <i class="la la-envelope-o"></i>
+            </div>
+            <div class="dropdown-field">
+                <select class="chosen" data-placeholder="Please Select Specialism">
+                    <option>Web Development</option>
+                    <option>Web Designing</option>
+                    <option>Art & Culture</option>
+                    <option>Reading & Writing</option>
+                </select>
+            </div>
+            <div class="cfield">
+                <input placeholder="Phone Number" type="text"/>
+                <i class="la la-phone"></i>
+            </div>
+            <button type="submit">Signup</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- SIGNUP POPUP -->
+
+<script th:src="@{/js/job/jquery.min.js}" type="text/javascript"></script>
+<script data-cfasync="false" th:src="@{/css/job/email-decode.min.js}"></script>
+<script th:src="@{/js/job/modernizr.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/cript.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/wow.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/slick.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/parallax.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/select-chosen.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.lazy.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/jquery.scrollbar.min.js}" type="text/javascript"></script>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade modal-bx-info" id="myModal10" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" class="close" data-dismiss="modal" type="button"><i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to do this?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-link" data-dismiss="modal" type="button">Never mind</button>
+                <a class="btn btn-success btn-link" href="" id="delRef">Yes
+                    <div class="ripple-container"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="deleteConfirmModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Blacklist Candidate</h4>
+            </div>
+            <form id="blacklistForm" method="post">
+                <div class="modal-body">
+                    <p>You have selected to blacklist this candidate (<em id="seekerName" style="color:red"></em>).</p>
+                    <p>
+                        If this was the action that you wanted to do,
+                        please type your comment and confirm your choice, or cancel and return to the page.
+                    </p>
+
+                    <span class="pf-title">Comment</span>
+                    <div class="pf-field">
+                        <textarea id="msg" maxlength="50" name="msg" placeholder="Type your comment here" required
+                                  rows="3"></textarea>
+                        <input id="seekerId" type="hidden"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="deleteConfirm" type="submit">Blacklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/change-password.js"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+
+<script type='text/javascript'>
+
+    function submitForm() {
+
+        var telphone = $('#telephone').val();
+        var email = $('#email').val();
+        var username = $('#username').val();
+        var role = $('#roles').val();
+        var fn = $('#fn').val();
+        var ln = $('#ln').val();
+        var password = $('#password').val();
+
+        // fn ln username password telphone email role,Long id staffId
+
+        var url = "/create-user?fn=" + fn + "&ln=" + ln + "&username=" + username + "&password=" + password +
+            "&telphone=" + telphone + "&email=" + email + "&role=" + role;
+
+        console.log(url);
+        var modal = $('#signupModal');
+
+        //String ,String ,String ,String ,String role
+        // disabled the submit button
+        $("#btnSubmit").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "User update was successful!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSubmit").prop("disabled", false);
+
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update user!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!",
+
+
+                });
+
+                $("#savBtn").prop("disabled", false);
+
+            }
+
+        });
+
+
+    }
+
+    $(function () {
+
+        $("a.blacklist").on("click", function (e) {
+            e.preventDefault();
+            var modal = $('#deleteConfirmModal');
+            modal.data('url', $(this).attr('href'));
+            var url = $(this).attr('href');
+
+            $.get(url, function (data, status) {
+                $("#seekerId").val(data.id);
+                $("#seekerName").html(data.fullName);
+            });
+
+            var url =
+                modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+        $("#blacklistForm").on("submit", function (e) {
+            e.preventDefault();
+
+            var tx = $("#msg").val();
+            var seekerId = $("#seekerId").val();
+            var modal = $('#deleteConfirmModal');
+
+            var url = "/blacklist?tx=" + tx + "&id=" + seekerId;
+            $("#deleteConfirm").prop("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                url: url,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    switch (data) {
+                        case "FAILED":
+                        case "ERROR":
+                            swal("Unsuccessful", "Could not blacklist candidate", "error");
+                            break;
+                        case "SUCCESS":
+                            swal({
+                                title: "Success!",
+                                text: "Candiate blacklisted!",
+                                type: "success",
+                                icon: "success",
+                                button: "Ok!"
+                            })
+                                .then((value) => {
+                                    $("#deleteConfirm").prop("disabled", false);
+
+                                });
+                            modal.modal('hide');
+                    }
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!", text: "Sorry, We couldn't update user!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!",
+                    });
+
+                    $("#deleteConfirm").prop("disabled", false);
+
+                }
+
+            });
+        });
+    });
+</script>
+</body>
+</html>

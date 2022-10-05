@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Saved Jobs | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/basic.css" rel="stylesheet" type="text/css"/>
+    <link class="skin" href="/css/dropzone.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background:   repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3>Saved jobs</h3>
+                            <h6 class="float-right">Welcome [(${seeker.fullName})]</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block remove-top">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec">
+                                <ul>
+                                    <li><a href="/candidate-dashboard" title=""><i class="la la-dashboard"></i>Candidate
+                                        Dashboard</a></li>
+                                    <li><a href="/personal-details" title=""><i class="la la-user"></i>Personal Details</a>
+                                    </li>
+                                    <li><a href="/my-profile" title=""><i class="la la-file-text"></i>My Profile</a>
+                                    </li>
+                                    <li><a href="/seeker/my-courses" title=""><i class="la la-paper-plane"></i>My
+                                        Courses</a></li>
+                                    <li><a href="/seeker/my-trainings" title=""><i class="la la-users"></i>My Trainings</a>
+                                    </li>
+                                    <li><a href="/seeker/current-assessment" title=""><i class="la la-file-text"></i>Current
+                                        Assessments</a></li>
+                                    <li><a href="/seeker/completed-assessments" title=""><i class="la la-briefcase"></i>Completed
+                                        Assessments</a></li>
+                                    <li><a href="/applied-job" title=""><i class="la la-paper-plane"></i>Applied Job</a>
+                                    </li>
+                                    <li><a href="#" title=""><i class="la la-money"></i>Saved Job</a></li>
+                                    <li><a href="/jobs-alerts" title=""><i class="la la-briefcase"></i>Job Alerts</a>
+                                    </li>
+                                    <li><a href="/cover-letter" title=""><i class="la la-file-text"></i>Cover Letter</a>
+                                    </li>
+                                    <li><a href="/change-password" title=""><i class="la la-lock"></i>Change
+                                        Password</a></li>
+                                    <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <div th:each="sv : ${savedJobs}" th:remove="tag">
+                                    <div class="job-listing wtabs">
+                                        <div class="job-title-sec">
+                                            <div class="c-logo"><img alt="" src="/images/logo/icon1.png"
+                                                                     style="width: 50px; height: 50px"/></div>
+                                            <h3>
+                                                <a href="/job-details" th:href="@{/job-details(id=${sv.jobsId.id})}">
+                                                    <em th:text="${sv.jobsId.postedBy} ?:'Not specified'"></em>
+                                                </a>
+
+                                            </h3>
+                                            <div class="job-lctn">
+                                                <i class="fa fa-map-marker"></i>
+                                                <em th:text="${sv.jobsId.country} ?:'Not specified'"></em>,
+                                                <em th:text="${sv.jobsId.location} ?:'Not specified'"></em>
+
+                                            </div>
+                                            <div class="job-lctn"><i class="fa fa-money"></i>
+                                                [(${#numbers.formatDecimal(sv.jobsId.renumeration,
+                                                0,'COMMA',2,'POINT')})]
+                                            </div>
+
+                                        </div>
+                                        <div class="job-list-del">
+                                            <a class="applyjob" href="/findJob"
+                                               th:href="@{/findJob-db/{id}(id=${sv.jobsId.id})}"
+                                               title="Apply for this job">
+                                                <i class="la la-check"></i> </a>
+
+                                            <a href="#" title=""><i class="la la-trash-o"></i></a>
+                                        </div>
+                                    </div><!-- Job -->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="profile-sidebar">
+    <span class="close-profile"><i class="la la-close"></i></span>
+    <div class="can-detail-s">
+        <div class="cst"><img alt="" src="/images/resource/es1.jpg"/></div>
+        <h3>David CARLOS</h3>
+        <span><i>UX / UI Designer</i> at Atract Solutions</span>
+        <p><a class="__cf_email__" data-cfemail="1a79687f7b6e736c7f767b637f68692a22225a7d777b737634797577"
+              href="/cdn-cgi/l/email-protection">[email&#160;protected]</a></p>
+        <p>Member Since, 2017</p>
+        <p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
+    </div>
+    <div class="tree_widget-sec">
+        <ul>
+            <li><a href="/my-profile" title=""><i class="la la-file-text"></i>My Profile</a></li>
+            <li><a href="/my-resume" title=""><i class="la la-briefcase"></i>My Resume</a></li>
+            <li><a href="/shortlist" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
+            <li><a href="/applied-jobs" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
+            <li><a href="/jobs-alert" title=""><i class="la la-user"></i>Job Alerts</a></li>
+            <li><a href="candidates_cv_cover_letter" title=""><i class="la la-file-text"></i>Cv & Cover Letter</a></li>
+            <li><a href="/change-password" title=""><i class="la la-flash"></i>Change Password</a></li>
+            <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
+        </ul>
+    </div>
+</div><!-- Profile Sidebar -->
+
+<div class="view-resumesec">
+    <div class="view-resumes">
+        <span class="close-resume-popup"><i class="la la-close"></i></span>
+        <h3>13 Times Viewed By 8 Companies.</h3>
+        <div class="job-listing wtabs">
+            <div class="job-title-sec">
+                <div class="c-logo"><img alt="" src="/images/resource/l1.png"/></div>
+                <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                <span>Massimo Artemisis</span>
+                <div class="job-lctn">Sacramento, California</div>
+            </div>
+            <span class="date-resume">11.02.2017</span>
+        </div><!-- Job -->
+        <div class="job-listing wtabs">
+            <div class="job-title-sec">
+                <div class="c-logo"><img alt="" src="/images/resource/l2.png"/></div>
+                <h3><a href="#" title="">C Developer (Senior) C .Net</a></h3>
+                <span>Massimo Artemisis</span>
+                <div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
+            </div>
+            <span class="date-resume">11.02.2017</span>
+        </div><!-- Job -->
+        <div class="job-listing wtabs">
+            <div class="job-title-sec">
+                <div class="c-logo"><img alt="" src="/images/resource/l3.png"/></div>
+                <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                <span>Massimo Artemisis</span>
+                <div class="job-lctn">Sacramento, California</div>
+            </div>
+            <span class="date-resume">11.02.2017</span>
+        </div><!-- Job -->
+        <div class="job-listing wtabs">
+            <div class="job-title-sec">
+                <div class="c-logo"><img alt="" src="/images/resource/l4.png"/></div>
+                <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                <span>Massimo Artemisis</span>
+                <div class="job-lctn">Sacramento, California</div>
+            </div>
+            <span class="date-resume">11.02.2017</span>
+        </div><!-- Job -->
+    </div>
+</div>
+
+<div class="follow-companiesec">
+    <div class="follow-companies">
+        <span class="close-follow-company"><i class="la la-close"></i></span>
+        <h3>Follow Companies.</h3>
+        <ul id="scrollbar">
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l1.png"/></div>
+                        <h3><a href="#" title="">Web Designer / Developer</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l2.png"/></div>
+                        <h3><a href="#" title="">Tix Dog</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l3.png"/></div>
+                        <h3><a href="#" title="">StarHealth</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l4.png"/></div>
+                        <h3><a href="#" title="">Altes Bank</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l3.png"/></div>
+                        <h3><a href="#" title="">StarHealth</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+            <li>
+                <div class="job-listing wtabs">
+                    <div class="job-title-sec">
+                        <div class="c-logo"><img alt="" src="/images/resource/l4.png"/></div>
+                        <h3><a href="#" title="">Altes Bank</a></h3>
+                        <div class="job-lctn">Sacramento, California</div>
+                    </div>
+                    <a class="go-unfollow" href="#" title="">Unfollow</a>
+                </div><!-- Job -->
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info" id="exampleModalLong"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo-img">
+                    <img alt="" src="/images/logo/icon2.png" style="height: 50px;width: 50px">
+                </div>
+                <h5 class="modal-title"><span id="cname">Company Name</span></h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="job-info-box">
+                    <input id="cxtJobId" type="hidden" value="0"/>
+
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" id="chkPassport" name="colorCheckbox" type="checkbox">
+                        <label class="custom-control-label" for="chkPassport">Use my saved CV <span></span> </label>
+                    </div>
+                    <div class="red box" id="uploadDiv">
+                        <form action="/file-upload" class="dropzone"
+                              id="my-awesome-dropzone">
+                            <input name="id" type="hidden"/>
+                        </form>
+                    </div>
+                    <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                    <a class="btn btn-primary" href="/apply-for-job" id="applyBtn">Apply for this Job</a>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/dropzone.js"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/job/jquery.scrollbar.min.js" type="text/javascript"></script>
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<div th:insert="passwordChange :: passwordChange"></div>
+<script type="text/javascript">
+    $(function () {
+
+        $("#passform").on("submit", function (e) {
+            e.preventDefault();
+
+            var password = $("#password").val();
+            var url = "/change-password?pass" + password;
+            $.post(url, function (data) {
+                if (data) {
+                    alert("password changed");
+                } else {
+                    alert("No password changed");
+                }
+
+            });
+        });
+
+        $("#txtConfirmPassword").keyup(function () {
+            if ($("#password").val() != $("#txtConfirmPassword").val()) {
+                $("#msg").html("Password do not match").css("color", "red");
+                $("#btnUpdatepass").prop("disabled", true);
+            } else {
+                $("#msg").html("Password matched").css("color", "green");
+                $("#btnUpdatepass").prop("disabled", false);
+            }
+        });
+
+        $("#password").keyup(function () {
+
+            if ($("#txtConfirmPassword").val() != "") {
+
+                if ($("#password").val() != $("#txtConfirmPassword").val()) {
+                    $("#msg").html("Password do not match").css("color", "red");
+                    $("#btnUpdatepass").prop("disabled", true);
+                } else {
+                    $("#msg").html("Password matched").css("color", "green");
+                    $("#btnUpdatepass").prop("disabled", false);
+                }
+            }
+
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+<script>
+    $(function () {
+        $("#chkPassport").click(function () {
+
+            if ($(this).is(":checked")) {
+                $("#uploadDiv").hide();
+            } else {
+
+                $("#uploadDiv").show();
+            }
+        });
+
+        $('a.applyjob').click(function (e) {
+            e.preventDefault();
+
+            var url = $(this).attr('href');
+
+            $.get(url, function (data, status) { //Declare a GET that takes in href
+                $('#cxtJobId').val(data.id);
+                $('#cname').html(data.profession);
+            });
+            //cxtJobId cname
+            var modal = $('#exampleModalLong');
+            modal.data('url', url);
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+    });
+    $('#applyBtn').on('click', function (e) {
+        e.preventDefault();
+
+        $("#applyBtn").prop("disabled", true);
+        var jobId = $('#cxtJobId').val();
+        var url2 = "/apply-job?id=" + jobId;
+        var modal = $('#exampleModalLong');
+
+        $.ajax({
+            type: "POST",
+            url: url2,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                if (data) {
+                    swal({
+                        title: "Success!",
+                        text: "Your application has been successfully Submitted!",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    })
+                        .then((value) => {
+                            $("#applyBtn").prop("disabled", false);
+                            location.reload();
+                        });
+                    modal.modal('hide');
+                } else {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, We couldn't submit your application!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!"
+                    });
+
+                    $("#applyBtn").prop("disabled", false);
+                }
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't submit your application!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#applyBtn").prop("disabled", false);
+
+            }
+
+        });
+
+
+    });
+
+</script>
+</body>
+</html>
+

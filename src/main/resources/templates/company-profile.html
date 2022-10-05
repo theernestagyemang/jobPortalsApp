@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> Profile | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/uploadpic.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-employer :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax" data-velocity="-.1"
+                 style="background: url(images/bnr1.jpg) repeat scroll 50% 422.28px transparent;"></div>
+            <!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="skills-btn">
+                                            <a href="#" th:text="${employer.phoneNumber}?' No Number'"
+                                               title="Primary Contact">Photoshop</a>
+                                            <a href="#" th:text="${employer.country}?' No Home Town'" title="Home Town">Designers</a>
+                                            <a href="#" th:text="${employer.location}?' No Status'"
+                                               title="Marital Status">Illustrator</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="action-inner">
+                                            <a href="#" title=""><i class="la la-envelope-o"></i><span
+                                                    th:text="${employer.companyName}?: 'No Name'">Contact David</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="overlape">
+        <div class="block remove-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="cand-single-user">
+                            <div class="share-bar circle">
+                                <a class="share-google" th:href="${employer.google}" title=""><i
+                                        class="la la-google"></i></a>
+                                <a class="share-fb" th:href="${employer.facebook}" title=""><i
+                                        class="fa fa-facebook"></i></a>
+                                <a class="share-twitter" th:href="${employer.twitter}" title=""><i
+                                        class="fa fa-twitter"></i></a>
+                            </div>
+                            <div class="can-detail-s">
+                                <div class="cst canditate-des">
+
+                                    <img alt=' Picture' class="lozad"
+                                         th:data-src="@{'/uploads/' + ${employer.fileName}}"/>
+                                    <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                         title="update">
+                                        <form enctype="multipart/form-data" id="picForm" method="post">
+                                            <input class="update-flie" id="picData" name="userPic" onchange="udatePic()"
+                                                   type="file">
+                                            <i class="fa fa-camera"></i>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <h3>[(${employer.companyName})]</h3>
+                                <span><i>[(${employer.location})]</i> at [(${employer.country})] </span>
+                                <input id="employerId" th:value="${employer.id}" type="hidden"/>
+                                <p><a href="#" th:text="${employer.email}"></a></p>
+
+                                <p><i class="la la-map-marker"></i> [(${employer.location})] / [(${employer.country})]
+                                </p>
+                            </div>
+                            <div class="download-cv">
+                                <a href="/my-resume" th:href="@{/update-employer-profile(id=${employer.id})}" title="">Update
+                                    Profile <i class="la la-pencil"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="cand-details-sec">
+                            <div class="row">
+                                <div class="col-lg-8 column">
+                                    <div class="cand-details" id="about">
+                                        <h2>Company About</h2>
+                                        <p th:utext="${employer.description}"></p>
+
+                                        <div class="companyies-fol-sec">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 column">
+                                    <div class="job-overview">
+                                        <h3>Company Information</h3>
+                                        <ul>
+                                            <li><i class="la la-file-text"></i>
+                                                <h3>Posted Jobs</h3><span th:text="${postedJobs}">4</span></li>
+                                            <li><i class="la la-map"></i>
+                                                <h3>Locations</h3><span th:text="${employer.location}?:' No location'">United States, San Diego</span>
+                                            </li>
+                                            <li><i class="la la-bars"></i>
+                                                <h3>Categories</h3><span th:text="${employer.category}?:' No location'">Arts, Design, Media</span>
+                                            </li>
+                                            <li><i class="la la-clock-o"></i>
+                                                <h3>Since</h3><span th:text="${employer.foundedDate}?:' No location'">2002</span>
+                                            </li>
+                                        </ul>
+
+                                    </div><!-- Job Overview -->
+                                    <div class="quick-form-job">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+
+<div class="account-popup-area education-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+
+        <form id="eduFrm">
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="dropdown-field">
+                <select class="chosen" data-placeholder="Please Select Education Level">
+                    <option>Web Development</option>
+                    <option>Web Designing</option>
+                    <option>Art & Culture</option>
+                    <option>Reading & Writing</option>
+                </select>
+            </div>
+            <div class="cfield">
+                <select id="educationLevel">
+                    <option value="Doctorate Degree">Doctorate Degree/PhD</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Masters Degree">Masters Degree</option>
+                    <option value="Bachelors Degree">Bachelors Degree</option>
+                    <option value="Post-Graduation Degree">Post-Graduation Degree</option>
+                    <option value="HND">HND</option>
+                    <option value="SHS">SHS</option>
+                    <option value="JHS">JHS</option>
+                    <option value="Other Professional Qualifications/Diploma">Other Professional
+                        Qualifications/Diploma
+                    </option>
+                </select>
+            </div>
+            <div class="cfield">
+                <div class="form-group">
+                    <input class="form-control" id="course" placeholder="Select Course" type="text">
+                </div>
+            </div>
+            <div class="cfield">
+                <input class="form-control" id="nameOfSchool" maxlength="50" placeholder="Select University/Institute"
+                       type="text">
+            </div>
+            <div class="cfield">
+                <input class="form-control" id="gradYear" maxlength="15" placeholder="Year of Graduation" type="text">
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+<div class="account-popup-area signup-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>Sign Up</h3>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="Email" type="text"/>
+                <i class="la la-envelope-o"></i>
+            </div>
+            <div class="dropdown-field">
+                <select class="chosen" data-placeholder="Please Select Specialism">
+                    <option>Web Development</option>
+                    <option>Web Designing</option>
+                    <option>Art & Culture</option>
+                    <option>Reading & Writing</option>
+                </select>
+            </div>
+            <div class="cfield">
+                <input placeholder="Phone Number" type="text"/>
+                <i class="la la-phone"></i>
+            </div>
+            <button type="submit">Signup</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- SIGNUP POPUP -->
+
+<div class="coverletter-popup">
+    <div class="cover-letter">
+        <i class="la la-close close-letter"></i>
+        <h3>Ali TUFAN - UX / UI Designer</h3>
+        <p>My name is Ali TUFAN I am thrilled to be applying for the [position] role in your company. After reviewing
+            your job description, it’s clear that you’re looking for an enthusiastic applicant that can be relied upon
+            to fully engage with the role and develop professionally in a self-motivated manner. Given these
+            requirements, I believe I am the perfect candidate for the job.</p>
+    </div>
+</div>
+
+<div class="contactus-popup">
+    <div class="contact-popup">
+        <i class="la la-close close-contact"></i>
+        <h3>Send Message to “Ali TUFAN”</h3>
+        <form>
+            <div class="popup-field">
+                <input placeholder="Tera Planer" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="popup-field">
+                <input placeholder="demo@jobhunt.com" type="text"/>
+                <i class="la la-envelope-o"></i>
+            </div>
+            <div class="popup-field">
+                <input placeholder="+90 538 845 09 85" type="text"/>
+                <i class="la la-phone"></i>
+            </div>
+            <div class="popup-field">
+                <textarea placeholder="Message"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/job/jquery.scrollbar.min.js" type="text/javascript"></script>
+
+
+<script>
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#employerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/upload-employer-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+
+    $(function () {
+        $('.lozad').Lazy();
+
+        $('#myHeader').removeClass("forsticky");
+
+
+    });
+</script>
+</body>
+</html>
+

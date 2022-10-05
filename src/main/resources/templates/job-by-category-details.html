@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> Job Details | xjobs</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+</head>
+<body>
+
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background: repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header wform">
+                            <div class="job-search-sec">
+                                <div class="job-search">
+                                    <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
+                                    <form action="/findJobs">
+                                        <div class="row">
+                                            <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input name="q" placeholder="Job title, keywords or company name"
+                                                           type="text"/>
+                                                    <i class="la la-keyboard-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input id="mylocation" placeholder="Type a location" type="text"/>
+
+                                                    <i class="la la-map-marker"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                                <button type="submit"><i class="la la-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="filterbar">
+                            <h5>Jobs & Vacancies</h5>
+
+                        </div>
+                        <div class="job-grid-sec">
+                            <div class="row">
+                                <div class="post-job-bx browse-job" th:each="country: ${jreqList}" th:remove="tag">
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="job-grid border">
+                                            <div class="job-title-sec">
+
+                                                <h3><a href="/job-detail"
+                                                       th:href="@{/job/details/{transactionId}(transactionId=${country.transactionId})}"
+                                                       th:text="${country.profession}">Profession</a></h3>
+                                                <span th:text="${country.showCompanyName} ? ${country.postedBy} : 'Reputable Company'">Reputable Company</span>
+
+                                                <span class="fav-job"><i class="la la-heart-o"
+                                                                         th:onclick="'javascript:rowClicked(\'' + ${country.id} + '\');'"></i></span>
+                                            </div>
+                                            <span class="job-lctn">[(${country.location})], [(${country.country})]</span>
+                                            <a class="apply-now-btn"
+                                               href="#"
+                                               th:href="@{/seeker/apply/{transactionId}(transactionId=${country.transactionId})}"
+                                               title="">APPLY NOW
+                                            </a>
+                                        </div><!-- JOB Grid -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:insert="pagination :: paginationbar"></div>
+
+                        <!-- Pagination -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/apply-now.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/job/job-by-category.js"></script>
+<script src="/js/job/control-job-application.js"></script>
+
+
+</body>
+</html>
+

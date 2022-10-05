@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Workshop | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/dropzone.css" rel="stylesheet" type="text/css">
+
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+
+        .dropzone {
+            border: 2px dashed #dedede;
+            border-radius: 5px;
+            background: #f5f5f5;
+        }
+
+        .dropzone i {
+            font-size: 5rem;
+        }
+
+        .dropzone .dz-message {
+            color: rgba(0, 0, 0, .54);
+            font-weight: 500;
+            font-size: initial;
+            text-transform: uppercase;
+        }
+
+
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;
+        }
+
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-admin :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3 th:if="${user != null}" th:text="'Welcome ' + ${user.fullName}">Welcome </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <div class="col-lg-12 column">
+                        <div class="padding-left">
+                            <div class="container">
+                                <div class="block">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3 column">
+                                                <div class="widget">
+                                                    <div class="about_widget">
+                                                        <div class="link_widgets">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <a href="/about-us">About Us</a>
+                                                                    <a href="/tnc">Terms & Conditions</a>
+                                                                    <a href="/privacy-policy">Privacy Policy</a>
+                                                                    <a href="/careers-with-us" style="display: none">Careers
+                                                                        with Us</a>
+                                                                    <a href="/site-map" style="display: none">Site
+                                                                        Map</a>
+                                                                    <a href="/contact">Contact Us</a>
+                                                                    <a href="/faq">FAQs</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div><!-- About Widget -->
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 column">
+                                                <div class="widget">
+                                                    <h3 class="footer-title">Employers</h3>
+                                                    <div class="link_widget">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <a href="/services"> Services</a>
+                                                                <a href="/subscription-list"> Subscribe</a>
+                                                                <a href="/search-jobs"> Request CV</a>
+                                                                <a href="/post-job"> Post Job</a>
+                                                                <a href="/job-posting">Job Posting</a>
+                                                                <a href="/report-problem">Report a Problem</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 column">
+                                                <div class="widget">
+                                                    <h3 class="footer-title">Job seekers </h3>
+                                                    <div class="link_widgets">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <a href="/job-seekers"> Subscribe</a>
+                                                                <a href="/search-jobs">Search job</a>
+                                                                <a href="/cv-restructuring"> CV Restructuring</a>
+                                                                <a href="/interview-grooming">Interview grooming</a>
+                                                                <a href="/free-job-alerts"> Create Job Alert</a>
+                                                                <a href="/report-problem">Report a Problem</a>
+                                                                <a href="/resume-writing">Resumé Writing</a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 column">
+                                                <div class="widget">
+                                                    <h3 class="footer-title">Find Jobs</h3>
+                                                    <div class="link_widgets">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <a href="/all-jobs">Browse All Jobs</a>
+                                                                <a href="/category-jobs">Jobs by Category</a>
+                                                                <a href="/category-designations-jobs">Jobs by
+                                                                    Designation</a>
+                                                                <a href="/category-location-jobs">Jobs by Location</a>
+                                                                <a href="/category-skill-jobs">Jobs by Skills</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="ProfilenameModalLongTitle" class="modal fade browse-job modal-bx-info editor"
+     id="deleteConfirmModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Deleting Event</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to delete this event.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return to the page.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="deleteConfirm" type="button">Delete Event</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="ProfilenameModalLongTitle" class="modal fade browse-job modal-bx-info editor"
+     id="advertDlg"
+     role="dialog" tabindex="-1">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="ProfilenameModalLongTitle">Events Details</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/upload-wk-file" class="dropzone dz-clickable" id="my-awesome-dropzone">
+
+                </form>
+                <form id="frm" method="post">
+                    <div class="form-group">
+                        <input class="form-control" id="title" name="title" placeholder="Title" type="text">
+                        <input id="catId" name="catId" type="hidden" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="caption" name="caption" placeholder="Caption" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="eventDate" name="eventDate" placeholder="Event Date"
+                               type="date">
+                    </div>
+
+
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" name="message" placeholder="Your Message"
+                                  rows="3"></textarea>
+                    </div>
+                    <button class="site-button" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="site-button" id="btnSav" type="submit">Save</button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div th:insert="passwordChange :: passwordChange"></div>
+
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/job/jquery.scrollbar.min.js"></script>
+<script src="/js/dz/dropzone.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/menus.js"></script>
+
+<script>
+    $(function () {
+        $('.lozad').Lazy();
+
+        $('.editBtn').on('click', function (evt) {
+
+            evt.preventDefault();
+            var href = $(this).attr('href');
+
+            $.get(href, function (user, status) { //Declare a GET that takes in href
+
+                $('#id').html(user.id);
+                $('#username').html(user.username);
+                $('#fullName').html(user.fullName);
+
+                $('#userType').html(user.userType);
+                $('#Username2').html(user.active);
+                $('#roles').html(user.roles);
+
+
+                $('#userId').html(user.id);
+                $('#staffId').html(user.staffId);
+                $('#email').html(user.email);
+                $('#fn').html(user.fn);
+                $('#ln').html(user.ln);
+                $('#telephone').html(user.telephone);
+            });
+
+        });
+
+        $('a.confirm-action').click(function (e) {
+            e.preventDefault();
+            var modal = $('#deleteConfirmModal');
+            modal.data('url', $(this).attr('href'));
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+        $('a.edit-action').click(function (e) {
+            e.preventDefault();
+            var modal = $('#advertDlg');
+            modal.data('url', $(this).attr('href'));
+            var href = modal.data('url');
+
+            $.get(href, function (user, status) { //Declare a GET that takes in href
+
+                $('#catId').val(user.id);
+                $('#title').val(user.client);
+                $('#message').val(user.message);
+                $('#caption').val(user.caption);
+                $('#eventDate').val(user.eventDate);
+
+            });
+            modal.modal('show');
+        });
+
+        $('a.advertBtn').click(function (e) {
+            e.preventDefault();
+            var modal = $('#advertDlg');
+            modal.data('url', $(this).attr('href'));
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+
+        $('#deleteConfirm').click(function () {
+
+            var modal = $('#deleteConfirmModal');
+            var url = modal.data('url');
+
+            $.get(url, function (assessment, status) { //Declare a GET that takes in href
+                swal({
+                    title: "Success!",
+                    text: "Event deleted successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            });
+
+            modal.modal('hide');
+
+
+        });
+
+        $('a.advertBtn').click(function (e) {
+            e.preventDefault();
+            var modal = $('#advertDlg');
+            modal.data('url', $(this).attr('href'));
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+        $(document).ready(function () {
+
+            $('#frm').submit(function (e) {
+
+                e.preventDefault();
+
+
+                var modal = $('#advertDlg');
+
+                var title = $('#title').val();
+                var message = $('#message').val();
+                var caption = $('#caption').val();
+                var eventDate = $('#eventDate').val();
+
+                var catId = parseInt($('#catId').val());
+
+
+                var url = "/work-shop?title=" + title + "&message=" + message + "&caption=" + caption + "&id=" + catId + "&eventDate=" + eventDate;
+                // disabled the submit button
+                $("#btnSav").prop("disabled", true);
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+
+                    success: function (data) {
+                        switch (data) {
+                            case "ALREADY-EXIST":
+                                swal({
+                                    title: "Unsuccessful!",
+                                    text: "Horizontal Event already exist!",
+                                    type: "error",
+                                    icon: "danger",
+                                    button: "Ok!"
+                                });
+                                break;
+                            case "FAILED":
+                                swal({
+                                    title: "Unsuccessful!",
+                                    text: "Sorry, We couldn't add your Events!",
+                                    type: "error",
+                                    icon: "danger",
+                                    button: "Ok!"
+                                });
+                                break;
+                            case "SUCCESS":
+                                swal({
+                                    title: "Success!",
+                                    text: "Events added successfully!",
+                                    type: "success",
+                                    icon: "success",
+                                    button: "Ok!"
+                                })
+                                    .then((value) => {
+                                        $("#btnSav").prop("disabled", false);
+                                        location.reload();
+                                    });
+                                break;
+                        }
+
+                    },
+                    error: function (e) {
+                        swal({
+                            title: "Unsuccessful!",
+                            text: "Sorry, We couldn't add your Events!",
+                            type: "error",
+                            icon: "danger",
+                            button: "Ok!"
+                        });
+
+                        $("#btnSav").prop("disabled", false);
+
+                    }
+
+                });
+
+                modal.modal('hide');
+            });
+
+
+        });
+    });//Document.ready
+</script>
+
+
+</body>
+</html>
+

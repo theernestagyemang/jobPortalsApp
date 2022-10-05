@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Personal Details | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3 th:if="${seeker.fullName !=null}" th:text="'Welcome ' + ${seeker.fullName}">Welcome</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec">
+                                <ul>
+                                    <li><a href="/candidate-dashboard" title=""><i class="la la-dashboard"></i>Candidate
+                                        Dashboard</a></li>
+                                    <li><a href="/personal-details" title=""><i class="la la-user"></i>Personal Details</a>
+                                    </li>
+                                    <li><a href="/my-profile" title=""><i class="la la-file-text"></i>My Profile</a>
+                                    </li>
+                                    <li><a href="/saved-jobs" title=""><i class="la la-money"></i>Saved Job</a></li>
+                                    <li><a href="/applied-job" title=""><i class="la la-paper-plane"></i>Applied Job</a>
+                                    </li>
+                                    <li><a href="/jobs-alerts" title=""><i class="la la-briefcase"></i>Job Alerts</a>
+                                    </li>
+                                    <li><a href="/cover-letter" title=""><i class="la la-file-text"></i>Cover Letter</a>
+                                    </li>
+                                    <li><a href="/change-password" title=""><i class="la la-lock"></i>Change
+                                        Password</a></li>
+                                    <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget">
+
+                        </div>
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <h3>Personal Details <em class="pull-right"> Step 2/13 </em></h3>
+                                <div class="coverletter-sec">
+
+                                    <form action="/personal-detailsx" id="frm" method="post">
+
+                                        <div class="row m-b30">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span class="pf-title">Your Name:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="fullName" maxlength="50"
+                                                               name="fullName"
+                                                               placeholder="Your Name" required
+                                                               th:value="${seeker.fullName}" type="text">
+                                                        <input id="seekerId" name="id" th:value="${seeker.id}"
+                                                               type="hidden"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span class="pf-title">Professional title:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="profTitle"
+                                                               maxlength="50" name="profTitle"
+                                                               placeholder="Professional title"
+                                                               th:value="${seeker.proffesionalTitile}"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Gender:</span>
+                                                    <div class="pf-field">
+                                                        <select class="chosen" id="gender" name="gender"
+                                                                required th:field="${seeker.gender}">
+                                                            <option value="">Please select One---</option>
+                                                            <option value="Female">Female</option>
+                                                            <option value="Male">Male</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Languages:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="languages" maxlength="50"
+                                                               name="languages" placeholder="Spoken Languages"
+                                                               required th:value="${seeker.spokenLanguages}"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Date of Birth</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="dob"
+                                                               name="dob" placeholder="Date of Birth" required
+                                                               th:value="${seeker.dob}" type="date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Current Salary(Ghc):</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="curSalary" min="0"
+                                                               name="curSalary"
+                                                               placeholder="Current Salary" required
+                                                               th:value="${seeker.currentSalary}" type="number">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Expected Salary (Min):</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="extMinSalary"
+                                                               name="extMinSalary" placeholder="Expected Salary"
+                                                               th:value="${seeker.expMinSalary}" type="number">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Expected Salary (Max):</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="extMaxSalary"
+                                                               name="extMaxSalary" placeholder="Max Expected Salary"
+                                                               th:value="${seeker.expectedSalary}" type="number">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Level Of Education:</span>
+                                                    <div class="pf-field">
+                                                        <select class="chosen" id="educationLevel" name="educationLevel"
+                                                                required
+                                                                th:field="${seeker.educationLevel}">
+                                                            <option value="">Please select One---</option>
+                                                            <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                                            <option value="Masters's Degree">Masters's Degree</option>
+                                                            <option value="Doctorate Degree">Doctorate Degree</option>
+                                                            <option value="Associate Degree">Associate Degree</option>
+                                                            <option value="Phd">Phd</option>
+                                                            <option value="HND">HND</option>
+                                                            <option value="SHS">SHS</option>
+                                                            <option value="JHS">JHS</option>
+                                                            <option value="Other Professional Certificate">Other
+                                                                Professional Certificate
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Marital Status:</span>
+                                                    <div class="pf-field">
+                                                        <select class="chosen" id="maritalStatus" name="maritalStatus"
+                                                                required th:field="${seeker.maritalStatus}">
+                                                            <option value="">Please select One---</option>
+                                                            <option value="Married">Married</option>
+                                                            <option value="Divorced">Divorced</option>
+                                                            <option value="Separated">Separated</option>
+                                                            <option value="Single">Single</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Years of Experience:</span>
+                                                    <div class="pf-field">
+                                                        <select class="chosen" id="yearsOfExperience"
+                                                                name="yearsOfExperience"
+                                                                required th:field="${seeker.yearsOfExperience}">
+                                                            <option disabled selected value="none"></option>
+                                                            <option value="1 Years">1 Years</option>
+                                                            <option value="2 Years">2 Years</option>
+                                                            <option value="3 Years">3 Years</option>
+                                                            <option value="4Years">4 Years</option>
+                                                            <option value="5 Years">5 Years</option>
+                                                            <option value="6 Years">6 Years</option>
+                                                            <option value="7 Years">7 Years</option>
+                                                            <option value="8 Years">8 Years</option>
+                                                            <option value="9 Years">9 Years</option>
+                                                            <option value="10 Years">10 Years</option>
+                                                            <option value="10 Years +">10 Years +</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Highest Position:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="highestPosition" maxlength="50"
+                                                               name="highestPosition" placeholder="Highest Position"
+                                                               required
+                                                               th:value="${seeker.highestQualification}" type="text">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="job-bx-title clearfix">
+                                            <h5 class="font-weight-700 pull-left text-uppercase">Contact
+                                                Information</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Phone:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="phone" maxlength="20"
+                                                               name="phone" placeholder="Phone" required
+                                                               th:value="${seeker.primaryContact}" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Email Address:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="email" maxlength="49"
+                                                               name="email" placeholder="Email" readonly
+                                                               th:value="${seeker.email}" type="email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Country:</span>
+                                                    <div class="pf-field">
+                                                        <select class="chosen" id="country" name="country"
+                                                                required th:field="${seeker.countryOfOrigin}">
+                                                            <option disabled selected value="none"> Select an Option
+                                                            </option>
+
+                                                            <option id="pass1" th:each="country: ${countrylist}"
+                                                                    th:text="${country}"
+                                                                    th:value="${country}"/>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Postcode:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="postCode" maxlength="20"
+                                                               name="postCode" placeholder="Post code"
+                                                               th:value="${seeker.postcode}" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>City:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="city" maxlength="50"
+                                                               name="city" placeholder="City"
+                                                               th:value="${seeker.currentLocation}" type="text">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Full Address:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="address"
+                                                               maxlength="50" name="address"
+                                                               placeholder="Your full address"
+                                                               th:value="${seeker.address}"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="job-bx-title clearfix">
+                                            <h5 class="font-weight-700 pull-left text-uppercase"></h5>
+                                        </div>
+
+                                        <div class="row" style="display: none">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Facebook:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="facebook" maxlength="30"
+                                                               name="facebook" placeholder="facebook"
+                                                               required th:value="${seeker.facebook}"
+                                                               type="hidden">
+                                                        <i class="la la-facebook"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Twitter</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="twitter" maxlength="30"
+                                                               name="twitter"
+                                                               placeholder="twitter" th:value="${seeker.twitter}"
+                                                               type="hidden">
+                                                        <i class="la la-twitter"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Google:</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="google" maxlength="30"
+                                                               name="google" placeholder="google"
+                                                               th:value="${seeker.google}"
+                                                               type="hidden">
+                                                        <i class="la la-google"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <span>Linkedin</span>
+                                                    <div class="pf-field">
+                                                        <input class="form-control" id="linkedIn" maxlength="30"
+                                                               name="linkedIn"
+                                                               placeholder="Linkedin" th:value="${seeker.linkedIn}"
+                                                               type="hidden">
+                                                        <i class="la la-linkedin"></i>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <button class="site-button mb-3" type="submit"><i
+                                                class="las la-arrow-right"></i> Next
+                                        </button>
+                                        <button class="site-button mb-3" id="btnBack" type="button"><i
+                                                class="las la-arrow-left"></i> Back
+                                        </button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+    </footer>
+
+</div>
+
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dropzone.js"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnBack").on("click", function (e) {
+            e.preventDefault();
+            window.location.href = "/my-resume";
+        })
+        if (!$("#extMaxSalary").val()) {
+            $("#extMaxSalary").val(0.0);
+        }
+        if (!$("#extMinSalary").val()) {
+            $("#extMinSalary").val(0.0);
+        }
+
+
+        if (!$("#curSalary").val()) {
+            $("#curSalary").val(0.0);
+        }
+
+
+        $('.lozad').Lazy();
+
+        $("#passform").on("submit", function (e) {
+            e.preventDefault();
+
+            var password = $("#password").val();
+            var url = "/change-password?pass" + password;
+            $.post(url, function (data) {
+                if (data) {
+                    alert("password changed");
+                } else {
+                    alert("No password changed");
+                }
+
+            });
+        });
+
+        $("#txtConfirmPassword").keyup(function () {
+            if ($("#password").val() != $("#txtConfirmPassword").val()) {
+                $("#msg").html("Password do not match").css("color", "red");
+                $("#btnUpdatepass").prop("disabled", true);
+            } else {
+                $("#msg").html("Password matched").css("color", "green");
+                $("#btnUpdatepass").prop("disabled", false);
+            }
+        });
+
+        $("#password").keyup(function () {
+
+            if ($("#txtConfirmPassword").val() != "") {
+
+                if ($("#password").val() != $("#txtConfirmPassword").val()) {
+                    $("#msg").html("Password do not match").css("color", "red");
+                    $("#btnUpdatepass").prop("disabled", true);
+                } else {
+                    $("#msg").html("Password matched").css("color", "green");
+                    $("#btnUpdatepass").prop("disabled", false);
+                }
+            }
+
+        });
+
+
+    });
+
+    function profileSummary() {
+        window.location.href = "/my-resume";
+    }
+
+    function submitForm() {
+        $("#frm").submit();
+    }
+</script>
+
+
+</body>
+</html>
+ 

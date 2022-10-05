@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/sample_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:03:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <title>XJobs | Job Applications</title>
+
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title">Job Applications</h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div id="main-panel"></div>
+
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+    <div th:insert="dashboard-sidebar :: dashboard-sidebar"></div>
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+<!-- Page Content overlay -->
+
+
+<!-- Vendor JS -->
+<!-- Vendor JS -->
+<script src="/js/vendors.min.js"></script>
+<script src="/js/pages/chat-popup.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+
+<script src="../../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+<script src="../../assets/vendor_components/moment/min/moment.min.js"></script>
+<script src="../assets/vendor_components/fullcalendar/fullcalendar.js"></script>
+
+<!-- Joblly App -->
+<script src="/js/template.js"></script>
+<script src="/js/pages/dashboard.js"></script>
+<script src="/js/pages/calendar-dash.js"></script>
+<script src="/js/pages/app-main.js"></script>
+
+
+<script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/pages/data-table.js"></script>
+
+<script>
+    $(function () {
+
+
+        var jobSeekerUrl = "/public/findJobSeeker/1"
+
+
+        $.get(jobSeekerUrl, function (seeker) {
+            var main = document.getElementById("main-panel");
+            main.innerHTML = `<section class="content">
+
+		  <div class="row">
+			<div class="col-lg-12">
+				<div class="box">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-4 col-sm-6">
+								<div class="box box-body b-1 text-center no-shadow">
+									<img src="/uploads/${seeker.picFileName}"id="product-image" class="img-fluid" alt="" />
+								</div>
+								<div class="pro-photos">
+									<div class="photos-item item-active">
+										<img src="../images/product/product-6.png" alt="" >
+									</div>
+									<div class="photos-item">
+										<img src="../images/product/product-7.png" alt="" >
+									</div>
+									<div class="photos-item">
+										<img src="../images/product/product-8.png" alt="" >
+									</div>
+									<div class="photos-item">
+										<img src="../images/product/product-9.png" alt="" >
+									</div>
+        
+                                                                
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="col-md-8 col-sm-6">
+								<h2 class="box-title mt-0">Proffesional Title: <span>${seeker.proffesionalTitile}  </span></h2>
+								<div class="list-inline">
+                                                                        Experience: ${seeker.yearsOfExperience}
+									
+								</div>
+								<h3 class="pro-price mb-0 mt-20">Profile Sumary </h3>
+								<hr>
+								<p> ${seeker.profileSummary}</p>
+								<div class="row">
+									<div class="col-sm-12">
+										
+										<div class="input-group">
+                                                                                            
+											<ul class="icolors">
+                                                                                            
+                                                                                                <li class="bg-primary rounded-circle"><a style="color:white" href="${seeker.google}" title="" class="la la-google"> </a></li>
+                                                                                                <li class="bg-primary rounded-circle"><a style="color:white" href="${seeker.facebook}" title="" class="la la-facebook"></a></li>
+                                                                                                <li class="bg-primary rounded-circle"><a style="color:white" href="${seeker.twitter}" title="" class="la la-twitter"></a></li>
+                                                                                                <li class="bg-primary rounded-circle "><a style="color:white" href="${seeker.linkedIn}" title="" class="la la-linkedin"></a></li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								<hr>
+								<div class="gap-items">
+									<button class="btn btn-success"><i class="la la-users"></i> Shortlist!</button>
+									<button class="btn btn-primary"><i class="la la-download"></i> Download CV</button>
+								</div>
+        
+								<h4 class="box-title mt-20">Educational History</h4>
+        
+                                                                    <div class="vtabs customvtab">
+                                                                        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                                                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home3" role="tab" aria-expanded="true"><span class="hidden-sm-up"><i class="ion-home"></i></span> <span class="hidden-xs-down">Educational History</span> </a> </li>
+                                                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile3" role="tab" aria-expanded="false"><span class="hidden-sm-up"><i class="ion-person"></i></span> <span class="hidden-xs-down">Work Experience</span></a> </li>
+                                                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages3" role="tab" aria-expanded="false"><span class="hidden-sm-up"><i class="ion-email"></i></span> <span class="hidden-xs-down">Professional Skills</span></a> </li>
+                                                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-expanded="false"><span class="hidden-sm-up"><i class="ion-email"></i></span> <span class="hidden-xs-down">Awards </span></a> </li>
+                                                                        </ul>
+
+                                                                        <div class="tab-content">
+                                                                                <div class="tab-pane active" id="home3" role="tabpanel" aria-expanded="true">
+                                                                                        <div class="p-15">
+                                                                                              ${
+                seeker.edulist.length === 0 ?
+                    '<div> --No Educational History Data Provided-- </div>' :
+                    seeker.edulist.map(edu => `
+
+
+                                                                                                            <div class="edu-hisinfo">
+                                                                                                                <h3>${edu.institutionName}</h3>
+                                                                                                                <i>${edu.yearStarted} - ${edu.yearGraduated}</i>
+                                                                                                                <span style="color:red">, Qualication Received: <i> ${edu.qualificationReceived} </i></span>
+                                                                                                            </div>
+
+                                                                                                `).join('\n')
+            }
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="profile3" role="tabpanel" aria-expanded="false">
+                                                                                        <div class="p-15">
+                                                                                            ${
+                seeker.wlist.length === 0 ?
+                    '<div> --No Work And Experience Data Provided-- </div>' :
+                    seeker.wlist.map(edu => `
+                                                                                                           <div class="edu-history style2">
+                                                                                                                    <i></i>
+                                                                                                                    <div class="edu-hisinfo">
+                                                                                                                            <h3>${edu.companyName}</h3> 
+                                                                                                                             <i>${edu.jobTitle} </i><br/>
+                                                                                                                            <i>${edu.monthStartedWork} ${edu.yearStartedWork} - ${edu.monthStopedWork} ${edu.yearStartedWork}</i>
+                                                                                                                            <p>${edu.descriptions}</p>
+                                                                                                                    </div>
+                                                                                                            </div>
+                                                                                               `).join('\n')
+            }
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="messages3" role="tabpanel" aria-expanded="false">
+                                                                                        <div class="p-15">
+                                                                                                ${
+                seeker.skillslist.length === 0 ?
+                    '<div> --No Professional Skills Data Provided-- </div>' :
+                    seeker.skillslist.map(item => `
+                                                                                                               <div class="progress-sec">
+                                                                                                                <span>${item.skill}</span>
+                                                                                                                <div class="progressbar"> <div class="progress" style="width: ${item.proficiency}%"><span>${item.proficiency}%</span></div> </div>
+                                                                                                                </div>
+                                                                                                   `).join('\n')
+            }
+                                                                                        </div>
+                                                                                </div>
+        
+                                                                                <div class="tab-content">
+                                                                                    <div class="tab-pane active" id="messages4" role="tabpanel" aria-expanded="true">
+                                                                                            <div class="p-15">
+                                                                                                ${
+                seeker.awardList.length === 0 ?
+                    '<div> --No Awards Data Provided-- </div>' :
+                    seeker.awardList.map(edu => `
+                                                                                                            <div class="edu-history style2">
+                                                                                                                    <i></i>
+                                                                                                                    <div class="edu-hisinfo">
+                                                                                                                            <h3>${edu.title}</h3>
+                                                                                                                            <i>${edu.fromYear} - ${edu.toYear}</i>
+                                                                                                                    </div>
+                                                                                                            </div>
+                                                                                                `).join('\n')
+            }
+                                                                                            </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+
+                                                                    
+								<hr>
+                                                                
+                                                                
+									
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<h4 class="box-title mt-40">General Info</h4>
+								<div class="table-responsive">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td width="390">Email</td>
+												<td>  ${seeker.email}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Primary Contact</td>
+												<td>  ${seeker.primaryContact}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Proffesional Titile</td>
+												<td>  ${seeker.proffesionalTitile}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Current Location </td>
+												<td>  ${seeker.currentLocation}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Current Company </td>
+												<td>  ${seeker.currentCompany}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Employment Type </td>
+												<td>  ${seeker.employmentType}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Date of Birth </td>
+												<td>  ${seeker.dob}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Marital Status </td>
+												<td>  ${seeker.maritalStatus}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Key Skills  </td>
+												<td>  ${seeker.keySkills}  </td>
+											</tr>
+                                                                                      
+											<tr>
+												<td width="390">Highest Qualification</td>
+												<td>  ${seeker.highestQualification}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Highest Qualification</td>
+												<td>  ${seeker.gender}  </td>
+											</tr>
+                                                                                        <tr>
+												<td width="390">Expected Salary</td>
+												<td>  ${seeker.expectedSalary.toLocaleString()}  </td>
+											</tr>
+											
+											<tr>
+												<td width="390">Career Level</td>
+												<td> ${seeker.educationLevel}  </td>
+											</tr>
+											<tr>
+												<td width="390">Industry</td>
+												<td> ${seeker.industry} </td>
+											</tr>
+											<tr>
+												<td width="390">Qualification </td>
+												<td> ${seeker.highestQualification} </td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+
+		</section>`
+
+        })
+    })
+</script>
+
+
+</body>
+
+</html>

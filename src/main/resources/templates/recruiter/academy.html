@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/sample_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:03:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet" type="text/css">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <title>XJobs | Courses List</title>
+
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination a {
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            border-radius: 5px;
+        }
+
+        .pagination a {
+            transition: background-color .3s;
+        }
+    </style>
+
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div>
+        <header class="main-header bg-primary-light">
+            <div class="d-flex align-items-center logo-box justify-content-start">
+                <a class="waves-effect waves-light nav-link d-none d-md-inline-block mx-10 push-btn bg-transparent"
+                   data-toggle="push-menu"
+                   href="#" role="button">
+                    <i data-feather="menu"></i>
+                </a>
+                <!-- Logo -->
+                <a class="logo" href="/">
+                    <!-- logo-->
+                    <div class="logo-lg">
+                        <span class="light-logo"><img alt="logo" class="xjobs-logo" src="/images/laine.jpg"
+                                                      style="height: 40px"></span>
+                        <span class="dark-logo"><img alt="logo" src="/images/laine.jpg"></span>
+                    </div>
+                </a>
+            </div>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top bg-primary-light bb-1 border-danger">
+                <!-- Sidebar toggle button-->
+                <div class="app-menu">
+                    <ul class="header-megamenu nav">
+                        <li class="btn-group nav-item d-md-none">
+                            <a class="waves-effect waves-light nav-link push-btn" data-toggle="push-menu" href="#"
+                               role="button">
+                                <i data-feather="menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-custom-menu r-side">
+                    <ul class="nav navbar-nav">
+                        <li class="btn-group nav-item d-lg-flex d-none align-items-center">
+                            <p class="mb-0 text-fade pr-10 pt-5" id="today-date">Friday, 4th December 2020</p>
+                        </li>
+                        <li class="btn-group nav-item d-lg-inline-flex d-none">
+                            <a class="waves-effect waves-light nav-link full-screen" data-provide="fullscreen" href="#"
+                               title="Full Screen">
+                                <i data-feather="maximize"></i>
+                            </a>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li class="btn-group nav-item d-inline-flex">
+                            <a class="waves-effect waves-light nav-link full-screen" data-toggle="control-sidebar"
+                               href="#" title="Setting">
+                                <i data-feather="settings"></i>
+                            </a>
+                        </li>
+                        <!-- Notifications -->
+                        <li class="dropdown notifications-menu">
+                            <a class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" href="#"
+                               title="Notifications">
+                                <i data-feather="bell"></i>
+                            </a>
+                            <ul class="dropdown-menu animated bounceIn">
+
+                                <li class="header">
+                                    <div class="p-20">
+                                        <div class="flexbox">
+                                            <div>
+                                                <h4 class="mb-0 mt-0">Notifications</h4>
+                                            </div>
+                                            <div>
+                                                <a class="text-danger" href="#">Clear All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu sm-scrol">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-info"></i> No Notifications
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">View all</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account-->
+                        <li class="dropdown user user-menu">
+                            <a class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" href="#"
+                               title="User">
+                                <i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
+                            </a>
+                            <ul class="dropdown-menu animated flipInX">
+                                <li class="user-body">
+                                    <a class="dropdown-item" href="/profile"><i class="ti-user text-muted mr-2"></i>
+                                        Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i>
+                                        Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/logout"><i class="ti-lock text-muted mr-2"></i>
+                                        Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <!-- sidebar-->
+            <section class="sidebar">
+                <div class="user-profile px-20 pt-15 pb-10">
+                    <div class="d-flex align-items-center">
+                        <div class="image">
+                            <img alt="User Image"
+                                 class="avatar avatar-lg bg-primary-light rounded100" id="current-user-pic"
+                                 src="../images/avatar/avatar-13.png">
+                        </div>
+                        <div class="info">
+                            <a class="dropdown-toggle px-20 current-user-name" data-toggle="dropdown" href="#">Johen
+                                Doe</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/profile"><i class="ti-user"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-inline profile-setting mt-20 mb-0 d-flex justify-content-between">
+                        <li><a data-placement="top" data-toggle="tooltip" href="#" title="Notification"><i
+                                data-feather="bell"></i></a></li>
+                        <li><a data-placement="top" data-toggle="tooltip" href="#" title="Chat"><i
+                                data-feather="message-square"></i></a></li>
+                        <li><a data-placement="top" data-toggle="tooltip" href="#" title="Logout"><i
+                                data-feather="log-out"></i></a></li>
+                    </ul>
+                </div>
+                <!-- sidebar menu-->
+                <ul class="sidebar-menu" data-widget="tree">
+
+                    <li><a href="/admin/dashboard"><i class="icon-Layout-4-blocks"><span class="path1"></span><span
+                            class="path2"></span></i><span>Dashboard</span></a></li>
+                    <li><a href="/recruiter/jobs"><i class="icon-Briefcase"><span class="path1"></span><span
+                            class="path2"></span></i><span>Manage Jobs</span></a></li>
+
+                    <li><a href="/recruiter/applications"><i class="icon-File"><span class="path1"></span><span
+                            class="path2"></span><span class="path3"></span></i><span>Applications</span></a></li>
+                    <li><a href="/admin/users"><i class="icon-Add-user"><span class="path1"></span><span
+                            class="path2"></span></i><span>User List</span></a></li>
+                    <li><a href="/recruiter/job-seekers"><i class="icon-Add-user"><span class="path1"></span><span
+                            class="path2"></span></i><span>Job Seekers </span></a></li>
+                    <li><a href="/recruiter/facilitators"><i class="icon-Add-user"><span class="path1"></span><span
+                            class="path2"></span></i><span>Facilitators </span></a></li>
+                    <li><a href="/recruiter/profile"><i class="icon-User"><span class="path1"></span><span
+                            class="path2"></span></i><span>Profile</span></a></li>
+                    <li><a href="/recruiter/resume-request"><i class="icon-Chat"><span class="path1"></span><span
+                            class="path2"></span></i><span>Resume Request</span></a></li>
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="icon-Layout-grid" span><span class="path1"></span><span class="path2"></span></i>
+                            <span>Page Settings</span>
+                            <span class="pull-right-container">
+                          <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/admin/about-us"><i class="icon-Commit"><span class="path1"></span><span
+                                    class="path2"></span></i>About Us</a></li>
+                            <li><a href="/admin/privacy-policy"><i class="icon-Commit"><span class="path1"></span><span
+                                    class="path2"></span></i> Privacy Policy </a></li>
+                            <li><a class="post-job" href="/admin/tnc"><i class="icon-Commit"><span class="path1"></span><span
+                                    class="path2"></span></i>Terms And Conditions </a></li>
+                            <li style="display: none"><a href="/admin/job-posting"><i class="icon-Commit"><span
+                                    class="path1"></span><span class="path2"></span></i>Job Posting</a></li>
+                            <li><a href="/admin/resume-writting"><i class="icon-Commit"><span class="path1"></span><span
+                                    class="path2"></span></i> Resume Writing </a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="/change-password"><i class="icon-Layout-4-blocks"><span class="path1"></span><span
+                            class="path2"></span></i><span>Change Password</span></a></li>
+
+
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title"> Courses</h3>
+
+                    </div>
+                    <a class="btn btn-success mt-10 d-block text-center pull-right" data-target="#myModal2"
+                       data-toggle="modal"
+                       href="javascript:void(0)">+ Add New Courses</a>
+
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="cartTable">
+                                        <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Course Title</th>
+                                            <th>Category</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+
+                                            <td>10</td>
+                                            <td>888@gmail.com</td>
+                                            <td>
+
+                                                <a>Applicant</a>
+                                            </td>
+
+                                            <td class="td-actions">
+
+
+                                                <a class="btn btn-info btn-sm editBtn2" data-id="10" rel="tooltip"
+                                                   title="Edit Course"> <i class="fa fa-edit"></i> </a>
+                                                <a class="btn btn-danger btn-sm delete-user" data-id="10"
+                                                   data-request-type="delete"
+                                                   href=""> <i
+                                                        class="fa fa-trash"></i></a>
+
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div>
+        <footer class="main-footer">
+            <div class="pull-right d-none d-sm-inline-block">
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">V 1.7</a>
+                    </li>
+                </ul>
+            </div>
+            &copy; 2020 <a href="https://aoholdings.net/">Synergy Center </a>. All Rights Reserved.
+        </footer>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in" id="myModal2" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add Course</h4>
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                </div>
+
+                <form class="userFrm" id="add-user-form" method="post">
+                    <div class="modal-body">
+
+
+                        <div class="form-group">
+                            <label class="col-md-12">Category</label>
+                            <div class="col-md-12">
+                                <input class="form-control" id="courseCategory" placeholder="Course Category"
+                                       required type="text">
+                            </div>
+
+                            <label class="col-md-12">Course Title</label>
+                            <div class="col-md-12">
+                                <input class="form-control" id="courseTitle" placeholder="Last Name" required
+                                       type="text">
+                            </div>
+
+                            <input id="userId" type="hidden" value="0">
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-save" type="submit">Add</button>
+                        <button class="btn btn-default float-right" data-dismiss="modal" type="button">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- Control Sidebar -->
+
+        <!-- /.control-sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- ./side demo panel -->
+
+    <!-- Sidebar -->
+
+    <!-- Page Content overlay -->
+
+
+    <!-- Vendor JS -->
+    <!-- Vendor JS -->
+    <script src="/js/vendors.min.js"></script>
+    <script src="../../assets/icons/feather-icons/feather.min.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+    <script src="../../assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+    <script src="/js/job/app-globaljs.js"></script>
+    <script src="/js/job/app-courses.js"></script>
+
+    <script src="../../assets/vendor_components/PACE/pace.min.js"></script>
+
+
+</body>
+
+</html>

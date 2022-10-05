@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> Candidate Profile | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap-grid.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/icons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/job/animate.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/job/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/responsive.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/chosen.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/colors/colors.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/font-awesome.min.css}" type="text/css"/>
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link class="skin" rel="stylesheet" th:href="@{/css/sweet-alert.min.css}" type="text/css"/>
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/uploadpic.css}" type="text/css">
+    <style>
+
+        .flashing_effect {
+
+            font-size: 16px;
+            font-family: arial;
+            background: #FF00000;
+            padding: 12px 15px;
+            color: #fff;
+            font-family: arial;
+            padding: 12px 15px;
+            border: 0;
+            border-radius: 5px;
+            animation-name: flashing;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes flashing {
+
+            0% {
+                opacity: 1.0;
+            }
+            25% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            75% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" th:src="@{/images/loader.jpg}"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"
+                 th:data-src="@{/images/bnr1.jpg}"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="skills-btn">
+                                            <a href="#" th:text="${seeker.primaryContact}?:' No Number'"
+                                               title="Primary Contact">Photoshop</a>
+                                            <a href="#" th:text="${seeker.homeTown}?:' No Home Town'" title="Home Town">Designers</a>
+                                            <a href="#" th:text="${seeker.maritalStatus}?:' No Status'"
+                                               title="Marital Status">Illustrator</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="action-inner">
+                                            <a href="#" title=""><i class="la la-paper-plane"></i>Save Resume</a>
+                                            <a href="#" title=""><i class="la la-envelope-o"></i><span
+                                                    th:text="${seeker.fullName}?: 'No Name'">Contact David</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="overlape">
+        <div class="block remove-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="cand-single-user">
+                            <div class="share-bar circle">
+                                <a class="share-google" th:href="${seeker.google}" title=""><i class="la la-google"></i></a>
+                                <a class="share-fb" th:href="${seeker.facebook}" title=""><i class="fa fa-facebook"></i></a>
+                                <a class="share-twitter" th:href="${seeker.twitter}" title=""><i
+                                        class="fa fa-twitter"></i></a>
+                                <a class="share-linkedin" th:href="${seeker.linkedIn}" title=""><i
+                                        class="fa fa-linkedin"></i></a>
+                            </div>
+                            <div class="can-detail-s">
+                                <div class="cst canditate-des">
+
+                                    <img alt=' Picture' class="lozad"
+                                         th:data-src="@{'/uploads/' + ${seeker.picFileName}}"/>
+                                    <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                         title="update">
+                                        <form enctype="multipart/form-data" id="picForm" method="post">
+                                            <input class="update-flie" id="picData" name="userPic" onchange="udatePic()"
+                                                   type="file">
+                                            <i class="fa fa-camera"></i>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <h3>[(${seeker.fullName})]</h3>
+                                <span><i>[(${seeker.proffesionalTitile})]</i> at [(${seeker.currentCompany})] </span>
+                                <input id="seekerId" th:value="${seeker.id}" type="hidden"/>
+                                <p><a href="#" th:text="${seeker.email}"></a></p>
+
+                                <p><i class="la la-map-marker"></i> [(${seeker.homeTown})] /
+                                    [(${seeker.countryOfOrigin})]</p>
+                            </div>
+                            <div class="download-cv">
+                                <button class="flashing_effect circle btn btn-danger"
+                                        th:hidden="${not blacklisted}" th:title="${seeker.blacklistComment}">
+                                    Blacklisted
+                                </button>
+                                <a class="blacklist" href="#" th:hidden="${blacklisted}"
+                                   th:href="@{/findSeeker/{id}(id=${seeker.id})}" title="Blacklist Candidate">Blacklist
+                                    <i
+                                            class="la la-times"></i></a>
+                            </div>
+                            <div class="share-bar circle">
+                                <a class="share-google" th:href="@{/downloadCv/{fileId}(fileId=${seeker.id})}"
+                                   title="Download CV"><i class="la la-download"></i></a>
+                            </div>
+
+                        </div>
+                        <ul class="cand-extralink">
+
+                            <li><a href="#about" title="">About</a></li>
+                            <li><a href="#education" title="">Education</a></li>
+                            <li><a href="#experience" title="">Work Experience</a></li>
+                            <li><a href="#portfolio" title="">Portfolio</a></li>
+                            <li><a href="#skills" title="">Professional Skills</a></li>
+                            <li><a href="#awards" title="">Awards</a></li>
+
+                        </ul>
+                        <div class="cand-details-sec">
+                            <div class="row">
+                                <div class="col-lg-8 column">
+                                    <div class="cand-details" id="about">
+                                        <h2>Candidates Profile</h2>
+                                        <p th:utext="${seeker.profileSummary}"></p>
+                                        <p class="m-b0">[(${seeker.description})]</p>
+
+                                        <div class="edu-history-sec" id="education">
+                                            <h2>Education </h2>
+                                            <div th:each="edu:${edulist}" th:remove="tag"
+                                                 th:unless="${#lists.isEmpty(edulist)}">
+
+                                                <div class="edu-history">
+                                                    <i class="la la-graduation-cap"></i>
+                                                    <div class="edu-hisinfo">
+                                                        <h3>[(${edu.institutionName})]</h3>
+                                                        <i>[(${edu.yearStarted})] - [(${edu.yearGraduated})]</i>
+                                                        <span>Qualication Received <i>[(${edu.qualificationReceived})]</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="edu-history-sec" id="experience">
+                                            <h2>Work & Experience</h2>
+                                            <div th:each="edu:${wlist}" th:remove="tag"
+                                                 th:unless="${#lists.isEmpty(wlist)}">
+                                                <div class="edu-history style2">
+                                                    <i></i>
+                                                    <div class="edu-hisinfo">
+                                                        <h3>[(${edu.companyName})] <span> [(${edu.jobTitle})]</span>
+                                                        </h3>
+                                                        <i>[(${edu.monthStartedWork})] [(${edu.yearStartedWork})] -
+                                                            [(${edu.monthStopedWork})] [(${edu.yearStartedWork})]</i>
+                                                        <p>[(${edu.descriptions})]</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="mini-portfolio" id="portfolio">
+                                            <h2>Portfolio</h2>
+                                            <div class="mp-row">
+                                                <div class="mp-col">
+                                                    <div class="mportolio"><img alt="" src="/images/p1.jpg"/><a href="#"
+                                                                                                                title=""><i
+                                                            class="la la-search"></i></a></div>
+                                                </div>
+                                                <div class="mp-col">
+                                                    <div class="mportolio"><img alt="" src="/images/p2.jpg"/><a href="#"
+                                                                                                                title=""><i
+                                                            class="la la-search"></i></a></div>
+                                                </div>
+                                                <div class="mp-col">
+                                                    <div class="mportolio"><img alt="" src="/images/p3.jpg"/><a href="#"
+                                                                                                                title=""><i
+                                                            class="la la-search"></i></a></div>
+                                                </div>
+                                                <div class="mp-col">
+                                                    <div class="mportolio"><img alt="" src="/images/p4.jpg"/><a href="#"
+                                                                                                                title=""><i
+                                                            class="la la-search"></i></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-sec" id="skills">
+                                            <h2>Professional Skills</h2>
+                                            <div th:each="edu:${skillslist}" th:remove="tag"
+                                                 th:unless="${#lists.isEmpty(skillslist)}">
+                                                <div class="progress-sec">
+                                                    <span>[(${edu.skill})]</span>
+                                                    <div class="progressbar">
+                                                        <div class="progress"
+                                                             style="width: 80%;"
+                                                             th:style="'width:' + ${edu.proficiency}+'%'"><span>[(${edu.proficiency})]%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="edu-history-sec" id="awards">
+                                            <h2>Awards</h2>
+                                            <div th:each="edu:${awardList}" th:remove="tag"
+                                                 th:unless="${#lists.isEmpty(awardList)}">
+                                                <div class="edu-history style2">
+                                                    <i></i>
+                                                    <div class="edu-hisinfo">
+                                                        <h3>[(${edu.title})]</h3>
+                                                        <i>[(${edu.fromYear})] - [(${edu.toYear})]</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="companyies-fol-sec">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 column">
+                                    <div class="job-overview">
+                                        <h3>Job Overview</h3>
+                                        <ul>
+                                            <li><i class="la la-money"></i>
+                                                <h3>Expected Salary</h3><span
+                                                        th:text="${seeker.expectedSalary}?: 'No Specified'"> Exp. salary</span>
+                                            </li>
+                                            <li><i class="la la-mars-double"></i>
+                                                <h3>Gender</h3><span th:text="${seeker.gender}?: 'No Specified'">Not Specified</span>
+                                            </li>
+                                            <li><i class="la la-thumb-tack"></i>
+                                                <h3>Career Level</h3><span
+                                                        th:text="${seeker.educationLevel}?: 'No Specified'"> Not Specified</span>
+                                            </li>
+                                            <li><i class="la la-puzzle-piece"></i>
+                                                <h3>Industry</h3><span th:text="${seeker.industry}?: 'No Specified'">Not Specified</span>
+                                            </li>
+                                            <li><i class="la la-shield"></i>
+                                                <h3>Experience</h3><span
+                                                        th:text="${seeker.yearsOfExperience}?: 'No Specified'"> Not Specified </span>
+                                            </li>
+                                            <li><i class="la la-line-chart "></i>
+                                                <h3>Qualification</h3><span
+                                                        th:text="${seeker.highestQualification}?: 'No Specified'"> Not Specified </span>
+                                            </li>
+                                        </ul>
+                                    </div><!-- Job Overview -->
+                                    <div class="quick-form-job">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="deleteConfirmModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Blacklist Candidate</h4>
+            </div>
+            <form id="blacklistForm" method="post">
+                <div class="modal-body">
+                    <p>You have selected to blacklist this candidate (<em id="seekerName" style="color:red"></em>).</p>
+                    <p>
+                        If this was the action that you wanted to do,
+                        please type your comment and confirm your choice, or cancel and return to the page.
+                    </p>
+
+                    <span class="pf-title">Comment</span>
+                    <div class="pf-field">
+                        <textarea id="msg" maxlength="50" name="msg" placeholder="Type your comment here" required
+                                  rows="3"></textarea>
+                        <input id="seekerId" type="hidden"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="deleteConfirm" type="submit">Blacklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/js/job/jquery.min.js}" type="text/javascript"></script>
+<script data-cfasync="false" th:src="@{/css/job/email-decode.min.js}"></script>
+<script th:src="@{/js/job/modernizr.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/cript.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/wow.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/slick.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/parallax.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/select-chosen.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.lazy.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/jquery.scrollbar.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/sweetAlert.js}"></script><!-- SORTCODE FUCTIONS  -->
+<script th:src="@{/js/job/candidate-profile.js}" type="text/javascript"></script>
+<script src="/js/job/app-globaljs.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+
+<div th:fragment="job-details-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info"
+         id="myIndividualModalDialog"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">JOB APPLICATION</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 column">
+
+                            <div id="submitBox">
+                                <div class="job-single-sec">
+                                    <div class="job-single-head2">
+                                        <div class="job-title2"><h3>[(${job.profession})]</h3></div>
+                                        <ul class="tags-jobs">
+                                            <li><i class="la la-map-marker"></i> [(${job.location})], [(${job.country})]
+                                            </li>
+                                            <li><i class="la la-money"></i>Salary : <span>
+                                                                        [(${#numbers.formatDecimal(job.renumeration, 0,'COMMA',2,'POINT')})] -
+                                                                        [(${#numbers.formatDecimal(job.toRenumeration, 0,'COMMA',2,'POINT')})]</span>
+                                            </li>
+                                            <li><i class="la la-calendar-o"></i> Deadline: [(${job.expireDate})]</li>
+
+                                        </ul>
+                                        <input id="transactionId" th:value="${job.transactionId}" type="hidden"/>
+
+                                    </div><!-- Job Head -->
+
+                                    <div class="job-overview">
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" id="chkPassport" name="colorCheckbox"
+                                                   type="checkbox">
+                                            <label class="custom-control-label" for="chkPassport">Use my saved CV
+                                                <span></span> </label>
+                                            <a class="downloadCv showAnchor" href="/downloadCv/1"
+                                               sec:authorize="isAuthenticated()"
+                                               th:href="@{/seeker/downloadCVByEmail/{email}(email=${#authentication.getPrincipal().getUsername()})}">Download
+                                                CV</a>
+                                        </div>
+                                        <br/>
+                                        <div class="red box" id="uploadDiv">
+                                            <br/>
+                                            <form action="/file-upload" class="dropzone"
+                                                  id="my-awesome-dropzone">
+                                                <input name="id" type="hidden"/>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="job-single-head style2">
+
+                                    <a class="apply-job-btn site-button" href="#" id="applyForthisJobModal"
+                                       th:hidden="${priv}"
+                                       title="Apply for this job"><i class="la la-paper-plane"></i>Apply for this
+                                        job</a>
+                                    <a class="viewall-jobs" href="/all-jobs" title="">View all Jobs</a>
+
+                                </div><!-- Job Head -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

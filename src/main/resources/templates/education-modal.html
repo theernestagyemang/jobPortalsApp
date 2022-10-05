@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="education-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="EducationModalLongTitle" class="modal fade modal-bx-info editor"
+         id="education"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EducationModalLongTitle">Education</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="add-education-frm">
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Educational eLevel</span>
+                                    <select class="chosen" id="educationLevel" name="educationLevel">
+                                        <option value="Doctorate Degree">Doctorate Degree/PhD</option>
+                                        <option value="PhD">PhD</option>
+                                        <option value="Masters Degree">Masters Degree</option>
+                                        <option value="Bachelors Degree">Bachelors Degree</option>
+                                        <option value="Post-Graduation Degree">Post-Graduation Degree</option>
+                                        <option value="HND">HND</option>
+                                        <option value="SHS">SHS</option>
+                                        <option value="JHS">JHS</option>
+                                        <option value="Other Professional Qualifications/Diploma">Other Professional
+                                            Qualifications/Diploma
+                                        </option>
+
+                                    </select>
+                                    <input id="schooId" type="hidden" value="0"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Course</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="course" name="course"
+                                               placeholder="Select Course"
+                                               type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">University/Institute</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="nameOfSchool"
+                                               maxlength="50" name="nameOfSchool"
+                                               placeholder="Select University/Institute" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Start Year</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="gradYear" maxlength="15" name="gradYear"
+                                               placeholder="Start Year" type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Year of Graduation</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="gradYear" maxlength="15"
+                                               name="gradYear" placeholder="Year of Graduation" type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" type="reset"><i class="la la-times"></i>
+                            Cancel
+                        </button>
+                        <button class="btn btn-success" id="schoolBtn3" type="submit"><i class="la la-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

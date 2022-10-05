@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Contact Us</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+
+    <!-- header -->
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+
+        <div class="main-bar">
+            <div class="container clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                    <a href="/"><img alt="" class="logo lozad" data-src="/images/laine.jpg"
+                                     style="padding-top: 0px;padding-bottom: 0;border-radius: 20px;height: 45px"></a>
+                </div>
+                <!-- nav toggle button -->
+                <!-- nav toggle button -->
+                <button aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation" class="navbar-toggler collapsed navicon justify-content-end"
+                        data-target="#navbarNavDropdown"
+                        data-toggle="collapse" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+                <!-- extra nav -->
+
+                <div class="extra-nav">
+                    <div class="extra-cell">
+                        <a class="badge badge-success" sec:authorize="isAuthenticated()" style="color: white">
+                            Logged-in as <span sec:authentication="name"></span></a>
+                        <a href="/login" rel="bookmark" sec:authorize="!isAuthenticated()" title="login"><i
+                                class="fa fa-lock"></i> login </a>
+                        <a href="/logout" rel="bookmark" sec:authorize="isAuthenticated()" title="logout"><i
+                                class="fa fa-lock"></i> logout </a>
+                        <a class="site-button" href="/register" sec:authorize="!isAuthenticated()"><i
+                                class="fa fa-user"></i> Register</a>
+
+                    </div>
+                </div>
+                <!-- main nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+
+
+                        <li><a class="active" href="/all-jobs" title=""><i class="las la-home"></i> Jobs</a></li>
+                        <li><a class="active" href="/about-us" title=""><i class="las la-briefcase"></i> About Us</a>
+                        </li>
+                        <li><a href="/contact">Contact Us</a></li>
+
+                        <li class="showlogin hidden-lg">
+                            <a href="/logout" rel="bookmark" title="logout"><i class="fa fa-lock"></i> login </a>
+                        </li>
+                        <li class="showlogin hidden-lg">
+                            <a href="/register"><i class="fa fa-user"></i> Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle lozad" data-src="/images/contactUs.png">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Contact Us</h1>
+                    <!-- Breadcrumb row -->
+                    <div class="breadcrumb-row">
+                        <ul class="list-inline">
+                            <li><a href="/">Home</a></li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                    <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="section-full content-inner bg-white contact-style-1">
+
+            <div class="container">
+                <div class="row">
+                    <!-- right part start -->
+                    <div th:each="user : ${list}" th:remove="tag">
+                        <div class="col-lg-4 col-md-6 d-lg-flex d-md-flex">
+                            <div class="p-a30 border m-b30 contact-area border-1 align-self-stretch radius-sm">
+                                <h4 class="m-b10">[(${user.location})]</h4>
+                                <p>If you have any questions simply use the following contact details.</p>
+
+
+                                <ul class="no-margin">
+                                    <li class="icon-bx-wraper left m-b30">
+                                        <div class="icon-bx-xs border-1"><a class="icon-cell" href="#"><i
+                                                class="ti-location-pin"></i></a></div>
+                                        <div class="icon-content">
+                                            <h6 class="text-uppercase m-tb0 dez-tilte">Address:</h6>
+                                            <span th:utext="${user.address}"/>
+                                        </div>
+                                    </li>
+                                    <li class="icon-bx-wraper left  m-b30">
+                                        <div class="icon-bx-xs border-1"><a class="icon-cell" href="#"><i
+                                                class="ti-email"></i></a></div>
+                                        <div class="icon-content">
+                                            <h6 class="text-uppercase m-tb0 dez-tilte">Email:</h6>
+                                            <p>[(${user.email})]</p>
+                                        </div>
+                                    </li>
+                                    <li class="icon-bx-wraper left">
+                                        <div class="icon-bx-xs border-1"><a class="icon-cell" href="#"><i
+                                                class="ti-mobile"></i></a></div>
+                                        <div class="icon-content">
+                                            <h6 class="text-uppercase m-tb0 dez-tilte">PHONE</h6>
+                                            <p>[(${user.phone})]</p>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+
+
+                                <div class="m-t20">
+                                    <ul class="dez-social-icon dez-social-icon-lg">
+                                        <li><a class="fa fa-facebook bg-primary" target="_blank"
+                                               th:href="${company.facebook}"></a></li>
+                                        <li><a class="fa fa-twitter bg-primary" target="_blank"
+                                               th:href="${company.twitter}"></a></li>
+                                        <li><a class="fa fa-linkedin bg-primary" target="_blank"
+                                               th:href="${company.linkin}"></a></li>
+                                        <li><a class="fa fa-google-plus bg-primary" target="_blank"
+                                               th:href="${company.google}"></a></li>
+                                        <li><a class="fa fa-instagram bg-primary" target="_blank"
+                                               th:href="${company.instagram}"></a></li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="p-a30 m-b30 radius-sm bg-gray clearfix">
+
+                            <h4>Send Us A Message</h4>
+
+                            <div class="dzFormMsg"></div>
+
+                            <form action='/create-message' class="dzForm" id="frm" method="post">
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input class="form-control" id="dzName" name="dzName"
+                                                       placeholder="Your Name"
+                                                       required type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input class="form-control" id="dzEmail" name="dzEmail"
+                                                       placeholder="Your Email Address"
+                                                       required type="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <textarea class="form-control" id="dzMessage" name="dzMessage"
+                                                          placeholder="Your Message..."
+                                                          required rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button class="site-button " name="submit" type="submit" value="Submit"><span>Submit</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Left part END -->
+                    <div class="col-lg-12 col-md-12 d-lg-flex m-b30">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact area  END -->
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div th:insert="modal :: modal"></div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src='https://www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- CONTACT JS  -->
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDK4pScrS3TXgiTp5AeHIXHIHv40JT5vc&callback=initMap&libraries=&v=weekly"></script>
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const laine = {lat: 5.5603798, lng: -0.2104095};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 17,
+            center: laine,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: laine,
+            map: map,
+        });
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+<script type='text/javascript'>
+
+    $('.dzForm').submit(function () {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+
+        var name = $('#dzName').val();
+        var email = $('#dzEmail').val();
+        var message = $('#dzMessage').val();
+
+        var url = "/create-message?name=" + name + "&email=" + email + "&message=" + message;
+
+        // disabled the submit button
+        $("#btnSave").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your message is successfully delivered, We will contact you shortly!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't deliver your message, Try again next time!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

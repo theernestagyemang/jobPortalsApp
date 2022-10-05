@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+
+<body>
+<div th:fragment="oheader">
+
+    <div class="responsive-header">
+        <div class="responsive-menubar">
+            <div class="res-logo"><a href="/" title=""><img alt="" class="lozad laine-logo"
+                                                            th:data-src="@{/images/laine.jpg}"/></a></div>
+            <div class="menu-resaction">
+                <div class="res-openmenu">
+                    <img alt="" class="lozad" th:data-src="@{/images/icon.png}"/> Menu
+                </div>
+                <div class="res-closemenu">
+                    <img alt="" class="lozad" th:data-src="@{/images/icon2.png}"/> Close
+                </div>
+            </div>
+        </div>
+        <div class="responsive-opensec">
+            <div class="btn-extars">
+                <a class="post-job-btn" href="#" title=""><i class="la la-plus"></i>Post Jobs</a>
+                <ul class="account-btns">
+                    <li>
+                    <li><a class="signup-popup" href="#" sec:authorize="!isAuthenticated()" title=""><i
+                            class="las la-sign-in"></i> Sign Up</a></li>
+                    <li class="signin-popup"><a sec:authorize="!isAuthenticated()" title=""><i
+                            class="la la-external-link-square"></i> Login</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/logout" title=""><i
+                            class="la la-external-link-square"></i> logout</a></li>
+                </ul>
+            </div><!-- Btn Extras -->
+            <form class="res-search">
+                <input placeholder="Job title, keywords or company name" type="text"/>
+                <button type="submit"><i class="la la-search"></i></button>
+            </form>
+            <div class="responsivemenu">
+                <ul>
+                    <li><a class="active" href="/about-us" title=""><i class="las la-briefcase"></i> About Us</a></li>
+                    <li><a href="/assessment" title=""><i class="las la-briefcase"></i> Assessment </a></li>
+                    <li><a href="/academy" title=""><i class="las la-briefcase"></i> Academy </a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#" title=""> <i class="las la-home"></i> Jobs</a>
+                        <ul id="jobs">
+                            <li><a href="/all-jobs">Browse All Jobs</a></li>
+                            <li><a href="/category-jobs">Jobs by Category</a></li>
+                            <li><a href="/jobs-by-qualifications">Jobs by Qualifications</a></li>
+                            <li><a href="/category-location-jobs">Jobs by Location</a></li>
+                            <li><a href="/category-skill-jobs">Jobs by Skills</a>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="#" title=""> <i class="las la-users"></i> Services</a>
+                        <ul id="jobs">
+                            <li class="menu-item-has-children">
+
+                                <a href="#" title="">Job Seekers</a>
+                                <ul>
+                                    <li><a href="/job-seekers" title="Checkout our packages and plance"> <i
+                                            class="las la-address-book"></i> Subscribe</a></li>
+                                    <li><a href="/search-jobs" title="Search Jobs"> <i class="las la-search"></i> Search
+                                        job</a></li>
+                                    <li><a href="/cv-restructuring" title=""> <i class="las la-book"> </i> CV
+                                        Restructuring</a></li>
+                                    <li><a href="/interview-grooming" title="Interview grooming">Interview grooming</a>
+                                    </li>
+                                    <li><a href="/free-job-alerts" title="Create Job Alert"> <i class="las la-bell"></i>
+                                        Create Job Alert</a></li>
+                                    <li><a href="/report-problem">Report a Problem</a></li>
+                                    <li style="display: none"><a href="/resume-writing">Resumé Writing</a></li>
+                                </ul>
+
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#" title="">Employers</a>
+                                <ul>
+                                    <li><a href="/services" title="Our Services"> <i class="las la-address-book"></i>Services</a>
+                                    </li>
+                                    <li><a href="/subscription-list" title="subscription"> <i class="las la-user"></i>
+                                        Subscribe</a></li>
+                                    <li><a href="/cv-request" title="Request for CV"><i class="las la-search"></i>
+                                        Request CV</a></li>
+                                    <li><a href="/post-job" title=""> <i class="las la-book"> </i> Post Job</a></li>
+                                    <li><a href="/report-problem"><i class="las la-exclamation"> </i>Report a
+                                        Problem</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="menu-item-has-children">
+                        <a href="#" title=""> <i class="las la-briefcase"></i> Profile</a>
+                        <ul id="profile-menu">
+                            <li><a href="/profile" sec:authorize="isAuthenticated()" title="Profile"><i
+                                    class="las la-user"></i>Profile</a></li>
+                            <li><a href="/seeker/upload-cv" title="Upload CV"> <i class="las la-address-book"></i>
+                                Upload CV</a></li>
+                            <li><a href="/my-resume" title="Update Profile"> <i class="las la-user"></i> Update Profile</a>
+                            </li>
+                            <li><a href="/seeker/candidate-resume" title="My Resume"> <i class="las la-user"></i> My
+                                Resume</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header class="gradient">
+        <div class="menu-sec">
+            <div class="container">
+                <div class="logo">
+                    <a href="/" title=""><img alt="" class="lozad laine-logo" th:data-src="@{/images/laine.jpg}"/></a>
+                </div><!-- Logo -->
+                <div class="btn-extars">
+                    <ul class="account-btns">
+                        <li><a class="signup-popup" href="#" title="Sign Up"><i class="la la-key"></i> Sign Up</a></li>
+                        <li><a class="signin-popup" href="#" title="Login"><i class="la la-external-link-square"></i>
+                            Login</a></li>
+                    </ul>
+                </div><!-- Btn Extras -->
+                <nav>
+                    <ul>
+                        <li><a class="active" href="/about-us" title=""><i class="las la-briefcase"></i> About Us</a>
+                        </li>
+                        <li><a href="/assessment" title=""><i class="las la-briefcase"></i> Assessment </a></li>
+                        <li><a href="/academy" title=""><i class="las la-briefcase"></i> Academy </a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#" title=""> <i class="las la-home"></i> Jobs</a>
+                            <ul id="jobs">
+                                <li><a href="/all-jobs">Browse All Jobs</a></li>
+                                <li><a href="/category-jobs">Jobs by Category</a></li>
+                                <li><a href="/jobs-by-qualifications">Jobs by Qualifications</a></li>
+                                <li><a href="/category-location-jobs">Jobs by Location</a></li>
+                                <li><a href="/category-skill-jobs">Jobs by Skills</a>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#" title=""> <i class="las la-users"></i> Services</a>
+                            <ul id="jobs">
+                                <li class="menu-item-has-children">
+
+                                    <a href="#" title="">Job Seekers</a>
+                                    <ul>
+                                        <li><a href="/job-seekers" title="Checkout our packages and plance"> <i
+                                                class="las la-address-book"></i> Subscribe</a></li>
+                                        <li><a href="/search-jobs" title="Search Jobs"> <i class="las la-search"></i>
+                                            Search job</a></li>
+                                        <li><a href="/cv-restructuring" title=""> <i class="las la-book"> </i> CV
+                                            Restructuring</a></li>
+                                        <li><a href="/interview-grooming" title="Interview grooming">Interview
+                                            grooming</a></li>
+                                        <li><a href="/free-job-alerts" title="Create Job Alert"> <i
+                                                class="las la-bell"></i> Create Job Alert</a></li>
+                                        <li><a href="/report-problem">Report a Problem</a></li>
+                                        <li style="display: none"><a href="/resume-writing">Resumé Writing</a></li>
+                                    </ul>
+
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#" title="">Employers</a>
+                                    <ul>
+                                        <li><a href="/services" title="Our Services"> <i
+                                                class="las la-address-book"></i>Services</a></li>
+                                        <li><a href="/subscription-list" title="subscription"> <i
+                                                class="las la-user"></i> Subscribe</a></li>
+                                        <li><a href="/cv-request" title="Request for CV"><i class="las la-search"></i>
+                                            Request CV</a></li>
+                                        <li><a href="/post-job" title=""> <i class="las la-book"> </i> Post Job</a></li>
+                                        <li><a href="/report-problem"><i class="las la-exclamation"> </i>Report a
+                                            Problem</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-item-has-children">
+                            <a href="#" title=""> <i class="las la-briefcase"></i> Profile</a>
+                            <ul id="profile-menu">
+                                <li><a href="/profile" sec:authorize="isAuthenticated()" title="Profile"><i
+                                        class="las la-user"></i>Profile</a></li>
+                                <li><a href="/seeker/upload-cv" title="Upload CV"> <i class="las la-address-book"></i>
+                                    Upload CV</a></li>
+                                <li><a href="/my-resume" title="Update Profile"> <i class="las la-user"></i> Update
+                                    Profile</a></li>
+                                <li><a href="/seeker/candidate-resume" title="My Resume"> <i class="las la-user"></i> My
+                                    Resume</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav><!-- Menus -->
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>

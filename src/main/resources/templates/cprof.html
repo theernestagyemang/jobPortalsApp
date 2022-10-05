@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Profile</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css"/>
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <link class="skin" href="https://cdn.datatables.net/1.10.21/css/dataTables.material.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="def-header :: header"></div>
+    </header>
+
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Browse Jobs -->
+            <div class="section-full bg-white p-t50 p-b20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 m-b30">
+                            <div class="sticky-top">
+                                <div class="candidate-info company-info">
+                                    <div class="candidate-detail text-center">
+                                        <div class="canditate-des">
+                                            <a href="javascript:void(0);">
+                                                <img alt="Company Pic" style="height: 148px"
+                                                     th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(employer.companyLog)}">
+                                            </a>
+                                            <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                                 title="update">
+                                                <form enctype="multipart/form-data" id="picForm" method="post">
+
+                                                    <input class="update-flie" id="picData" name="userPic"
+                                                           onchange="udatePic()"
+                                                           type="file">
+                                                    <i class="fa fa-camera"></i>
+                                                    <input id="seekerId" th:value="${employer.id}" type="hidden"/>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="candidate-title">
+                                            <h4 class="m-b5"><a
+                                                    href="javascript:void(0);">[(${employer.companyName})]</a></h4>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li><a href="/company-profile">
+                                            <i aria-hidden="true" class="fa fa-user-o"></i>
+                                            <span>Company Profile</span></a></li>
+                                        <li><a href="/company-post-jobs">
+                                            <i aria-hidden="true" class="fa fa-file-text-o"></i>
+                                            <span>Post A Job</span></a></li>
+                                        <li><a href="/company-transactions">
+                                            <i aria-hidden="true" class="fa fa-random"></i>
+                                            <span>Transactions</span></a></li>
+                                        <li><a class="active" href="/company-manage-job">
+                                            <i aria-hidden="true" class="fa fa-briefcase"></i>
+                                            <span>Manage jobs</span></a></li>
+                                        <li><a href="/company-resume">
+                                            <i aria-hidden="true" class="fa fa-id-card-o"></i>
+                                            <span>Resume</span></a></li>
+                                        <li><a data-target="#car-details" data-toggle="modal" href="/change-password">
+                                            <i aria-hidden="true" class="fa fa-key"></i>
+                                            <span>Change Password</span></a></li>
+                                        <li><a href="/logout">
+                                            <i aria-hidden="true" class="fa fa-sign-out"></i>
+                                            <span>Log Out</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 m-b30">
+
+
+                            <!-- Modal -->
+                            <div aria-hidden="true" aria-labelledby="exampleModalLongTitle"
+                                 class="modal fade modal-bx-info" id="exampleModalLong"
+                                 role="dialog" tabindex="-1">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="logo-img">
+                                                <img alt="" src="/images/logo/icon2.png">
+                                            </div>
+                                            <h5 class="modal-title">Company Name</h5>
+                                            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-striped table-bordered display"
+                                                   id="assessmentTable">
+                                                <thead>
+                                                <tr>
+
+                                                    <th>Full Name</th>
+                                                    <th>Gender</th>
+                                                    <th>DOB</th>
+                                                    <th>Email</th>
+                                                    <th>Contact</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody id="wbodychange">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-dismiss="modal" type="button">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal End -->
+
+                            <h5 class="font-weight-700 pull-left text-uppercase">Manage jobs</h5>
+                            <table class="table-job-bx cv-manager company-manage-job mdl-data-table" id="job-table">
+                                <thead id="datatable">
+                                <tr>
+
+                                    <th>Job Title</th>
+                                    <th>Applications</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="country: ${joblist}">
+
+                                    <td class="job-name">
+                                        <a th:href="@{/com-job-details(id=${country.id})}">[(${country.jobTitle})]</a>
+                                        <ul class="job-post-info">
+                                            <li><i class="fa fa-map-marker"></i> [(${country.jobCity})],
+                                                [(${country.country})]
+                                            </li>
+                                            <li><i class="fa fa-bookmark-o"></i> [(${country.jobType})]</li>
+                                            <li><i class="fa fa-filter"></i>[(${country.category})]</li>
+                                        </ul>
+                                    </td>
+                                    <td class="application text-primary" th:if="${country.jobseekers.size() ==0}">0
+                                        Application
+                                    </td>
+                                    <td class="application text-primary" th:if="${country.jobseekers.size() >0}">
+                                        <a href="javascript:void(0);"
+                                           th:href="@{/applied-applicants(id=${country.id})}"><i class="ti-user"></i>
+                                            [(${country.jobseekers.size()})] Applications</a>
+
+                                    </td>
+                                    <td class="expired pending">
+                                        <a class="expired pending" data-target="#exampleModalLong"
+                                           data-toggle="modal"
+                                           href="javascript:void(0);"
+                                           th:onclick="'loadTable(\'' + ${country.id} + '\');'">
+                                            [(${country.jobStatus})]
+                                        </a>
+                                    </td>
+                                    <td class="job-links">
+                                        <a data-target="#exampleModalLong" data-toggle="modal"
+                                           href="javascript:void(0);">
+                                            <i class="fa fa-eye"></i></a>
+                                        <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Browse Jobs END -->
+        </div>
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div>
+        <div th:insert="passwordChange :: passwordChange"></div>
+    </div>
+
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+
+<script src="/js/change-password.js"></script>
+
+<script src=" https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.material.min.js"></script>
+
+<script type='text/javascript'>
+
+    $(document).ready(function () {
+        $('#job-table').DataTable({
+            autoWidth: false,
+            columnDefs: [
+                {
+                    targets: ['_all'],
+                    className: 'mdc-data-table__cell'
+                }
+            ]
+        });
+    });
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/update-com-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+
+
+    $('#jobform').submit(function () {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+
+        var jobTitle = $('#jobTitle').val();
+        var jobTags = $('#jobTags').val();
+        var jobType = $("#jobType option:selected").text();
+        var experience = $('#experience').val();
+        var category = $('#category').val();
+        var renumeration = $('#renumeration').val();
+        var toRenumeration = $('#toRenumeration').val();
+        var region = $('#region').val();
+        var jobCountry = $('#jobCountry').val();
+        var city = $('#city').val();
+
+        var howToApply = $('#howToApply').val();
+        var jobDescription = $('#jobDescription').val();
+        var slot = $('#slot').val();
+        var expDate = $('#expDate').val();
+        var id = $('#seekerId').val();
+
+
+        var url = "/create-job?jobTitle=" + jobTitle + "&jobTags=" + jobTags + "&jobType=" + jobType + "&experience=" + experience + "&id=" + id +
+            "&category=" + category + "&renumeration=" + renumeration + "&toRenumeration=" + toRenumeration + "&region=" + region +
+            "&jobCountry=" + jobCountry + "&city=" + city + "&howToApply=" + howToApply + "&jobDescription=" + jobDescription + "&slot=" + slot + "&expDate=" + expDate;
+        // disabled the submit button
+        $("#btnSave").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+</script>
+<script>
+    function loadTable(value) {
+
+        $('#assessmentTable').DataTable({
+            "ajax": {
+                url: "/findShortListed/" + value,
+
+                "dataSrc": ""
+            },
+            "columns": [
+                {"data": "fullName"},
+                {"data": "gender"},
+                {"data": "dob"},
+                {"data": "email"},
+                {"data": "primaryContact"}
+            ]
+        });
+
+
+    }
+</script>
+</body>
+</html>

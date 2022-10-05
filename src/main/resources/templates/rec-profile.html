@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Profile </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+
+
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+
+    <link href="/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/plugins/bootstrap-select/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom fullwidth">
+        <div th:insert="admin-header :: header"></div>
+    </header>
+
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Browse Jobs -->
+            <div class="section-full bg-white p-t50 p-b20">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xl-3 col-lg-4 m-b30">
+                            <div class="sticky-top">
+                                <div class="candidate-info">
+                                    <div class="candidate-detail text-center">
+
+                                        <div class="canditate-des">
+                                            <a href="javascript:void(0);">
+                                                <img alt="" style="height: 148px" th:if="${emp !=null}"
+                                                     th:src="'data:image/jpeg;base64,' + ${imgUtil.getImgData(emp.employeePicture)}">
+                                            </a>
+                                            <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                                 title="update">
+                                                <form enctype="multipart/form-data" id="picForm" method="post">
+
+                                                    <input class="update-flie" id="picData" name="userPic"
+                                                           onchange="udatePic()"
+                                                           type="file">
+                                                    <i class="fa fa-camera"></i>
+
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="candidate-title">
+                                            <div class="">
+                                                <h4 class="m-b5"><a href="javascript:void(0);" th:if="${emp !=null}">[(${emp.firstName})]
+                                                    [(${emp.surname})]</a></h4>
+                                                <p class="m-b0"><a href="javascript:void(0);" th:if="${emp !=null}">[(${emp.jobrole})]</a>
+                                                </p>
+                                                <input id="seekerId" th:if="${emp !=null}" th:value="${emp.employeeid}"
+                                                       type="hidden"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li><a href="/manage-jobs" title=""><i class="fa fa-file-text"></i> <span>Manage Jobs</span></a>
+                                        </li>
+                                        <li><a href="/rec-post-jobs" title="Post a New Job"><i
+                                                class="fa fa-briefcase"></i><span>Post a New Job</span></a></li>
+                                        <li><a href="/posted-jobs" title="All Posted Jobs"><i class="fa fa-money"></i>
+                                            <span>Posted Jobs</span></a></li>
+                                        <li><a href="/users" title="All Users"><i class="fa fa-users"></i> <span>System Users</span></a>
+                                        </li>
+                                        <li><a href="/assigned-posted-jobs" title="Jobs assigned to recruiters "><i
+                                                class="fa fa-paper-plane"></i><span>Assigned jobs </span></a></li>
+                                        <li><a href="/filled-jobs" title=""><i
+                                                class="fa fa-user"></i><span>Filled jobs</span></a></li>
+                                        <li><a href="/job-alert-list" title=""><i class="fa fa-flash"></i><span>Job Alerts</span>
+                                        </a></li>
+                                        <li><a class="active" href="/rec-profile"><i aria-hidden="true"
+                                                                                     class="fa fa-user-o"></i> <span>Profile</span></a>
+                                        </li>
+                                        <li><a href="/assigned-posted-jobs"><i aria-hidden="true"
+                                                                               class="fa fa-briefcase"></i> <span>Recruiter Assigned Jobs</span></a>
+                                        </li>
+                                        <li><a href="/resume-request-ls"><i aria-hidden="true" class="fa fa-bell-o"></i>
+                                            <span>Resume Request</span></a></li>
+                                        <li><a data-target="#car-details" data-toggle="modal" href="/change-password"><i
+                                                aria-hidden="true" class="fa fa-key"></i>
+                                            <span>Change Password</span></a></li>
+                                        <li><a href="/logout"><i aria-hidden="true" class="fa fa-sign-out"></i> <span>Log Out</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-9 col-lg-8 m-b30">
+                            <div class="job-bx job-profile">
+                                <div class="job-bx-title clearfix">
+                                    <h5 class="font-weight-700 pull-left text-uppercase">Basic Information</h5>
+                                    <a class="site-button right-arrow button-sm float-right" href="/">Back</a>
+                                </div>
+                                <form id="profileForm" method="post">
+                                    <div class="row m-b30">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Your First Name:</label>
+                                                <input class="form-control" id="firstName" placeholder="First Name"
+                                                       th:value="${emp.firstName}" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Your Middle Name:</label>
+                                                <input class="form-control" id="otherName" placeholder="Middle Name"
+                                                       th:value="${emp.otherName}" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Your Surname:</label>
+                                                <input class="form-control" id="surname" placeholder="Surname"
+                                                       th:value="${emp.surname}" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Professional title:</label>
+                                                <input class="form-control" disabled id="jobrole"
+                                                       placeholder="Professional title" th:value="${emp.jobrole}"
+                                                       type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone:</label>
+                                                <input class="form-control" id="mobileno" placeholder="Phone Number"
+                                                       th:value="${emp.mobileno}" type="telephone">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Email:</label>
+                                                <input class="form-control" id="email" placeholder="Your Email"
+                                                       th:value="${emp.email}" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Date of Birth</label>
+                                                <input class="form-control" id="dob" placeholder="Date of Birth"
+                                                       th:value="${emp.dob}" type="date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Your current Location</label>
+                                                <input class="form-control" id="currentLocation"
+                                                       placeholder="Your current Location"
+                                                       th:value="${emp.currentLocation}"
+                                                       type="text">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <label>Description:</label>
+                                                <textarea class="form-control" id="description"
+                                                          th:value="${emp.description}"></textarea>
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="form-group">
+                                                <label>Marital Status:</label>
+                                                <select class="form-control" id="maritalStatus"
+                                                        th:value="${emp.maritalstatus}">
+                                                    <option value="">Please select One---</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Divorced">Divorced</option>
+                                                    <option value="Separated">Separated</option>
+                                                    <option value="Single">Single</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="form-group">
+                                                <label>Gender:</label>
+                                                <select class="form-control" id="gender" th:value="${emp.gender}">
+                                                    <option value="">Please select One---</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Male">Male</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="job-bx-title clearfix">
+                                        <h5 class="font-weight-700 pull-left text-uppercase">Contact Information</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone:</label>
+                                                <input class="form-control" id="phone" placeholder="Phone"
+                                                       th:value="${emp.mobileno}"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Email Address:</label>
+                                                <input class="form-control" id="email" placeholder="Email"
+                                                       th:value="${emp.email}"
+                                                       type="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Country:</label>
+                                                <select id="country" th:value="${emp.nationality}"/>
+                                                <option disabled hidden selected value="none">
+                                                    Select an Option
+                                                </option>
+
+                                                <option id="pass1" th:each="country: ${countryList}"
+                                                        th:text="${country}"
+                                                        th:value="${country}"/>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>City:</label>
+                                                <input class="form-control" id="city" placeholder="City" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label>Full Address:</label>
+                                                <input class="form-control" id="address" placeholder="Your full address"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="site-button m-b30" type="submit">Save Setting</button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Browse Jobs END -->
+        </div>
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <div>
+        <div th:insert="passwordChange :: passwordChange"></div>
+    </div>
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src=" js/jquery.dataTables.min.js"></script>
+
+<script src=" js/change-password.js"></script>
+
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+<script type='text/javascript'>
+
+    $('#profileForm').submit(function () {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+
+        var firstName = $('#firstName').val();
+        var surname = $('#surname').val();
+        var otherName = $('#otherName').val();
+        var address = $('#address').val();
+        var dob = $('#dob').val();
+        var description = $('#description').val();
+        var nationality = $("#country option:selected").text();
+        var maritalStatus = $("#maritalStatus option:selected").text();
+        var gender = $('#gender').val();
+        var mobileno = $('#mobileno').val();
+        var email = $('#email').val();
+        var currentLocation = $('#currentLocation').val();
+        var id = $('#seekerId').val();
+
+        alert(otherName + " ID " + id);
+
+
+        var url = "/update-rec-profile?firstName=" + firstName + "&surname=" + surname + "&otherName=" + otherName + "&address=" + address + "&dob=" + dob +
+            "&description=" + description + "&nationality=" + nationality + "&maritalStatus=" + maritalStatus + "&id=" + id +
+            "&gender=" + gender + "&mobileno=" + mobileno + "&email=" + email + "&currentLocation=" + currentLocation;
+
+        // disabled the submit button
+        $("#btnSave").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/update-emp-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="subscription">
+
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade modal-bx-info" id="cvConfirmModal"
+         role="dialog" tabindex="-1">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title">PERSONAL INFORMATION</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="tab-pane active" id="login">
+                    <div class="modal-body">
+                        <div class="lead-form browse-job text-left">
+
+                            <div class="form-group">
+                                <span class="font-weight-700">Please Choose Service Type *</span>
+                                <select class="form-control" id="serviceType">
+
+                                    <option value="0">----- Please Select ----------</option>
+                                    <option value="1">Job Advert</option>
+                                    <option value="2">CV Downloads</option>
+                                    <option value="3">General Assessment for existing staff</option>
+                                    <option value="4">Customized Assessment for hiring staff</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="font-weight-700">Requester Full Name *</span>
+                                <input class="form-control input-fi" id="requesterFullName" name="name"
+                                       placeholder="Your Full Name"
+                                       required type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <span class="font-weight-700">E-MAIL *</span>
+                                <input class="form-control" id="requesterEmail" name="email"
+                                       placeholder="Your Email Address"
+                                       required type="email">
+                            </div>
+                            <div class="form-group">
+                                <span class="font-weight-700">Phone *</span>
+                                <input class="form-control" id="requesterPhone" name="phone"
+                                       placeholder="Your Phone Number"
+                                       required type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <span class="font-weight-700">Name of Company/Firm *</span>
+                                <input class="form-control" id="requesterComp" name="company"
+                                       placeholder="Your Company Name"
+                                       required type="text">
+                            </div>
+
+                            <!-- Staff Side  -->
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input class="btn btn-primary button-lg outline outline-2" id="btnSave2" type="submit"
+                               value="CREATE"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

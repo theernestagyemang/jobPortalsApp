@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="post-job-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade bs-example-modal-lg" role="dialog"
+         style="display: none;" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Post Job</h4>
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" id="job-frm">
+                        <div class="box-body">
+                            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> COMPANY INFORMATION </h4>
+                            <hr class="my-15">
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input class="form-control stc" placeholder="Company Name" required type="text">
+                                <input id="employeeid" name="id" type="hidden"/>
+                                <input id="jobId" name="jobId" type="hidden" value="0"/>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <table class="table table-hover" id="mytable" style="width: 100%">
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="companyName">Company Name</label>
+                                        <input class="form-control stc"
+                                               data-validation-required-message="This field is required"
+                                               id="companyName"
+                                               placeholder="Company Name"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email </label>
+                                        <input class="form-control" id="compEmail" placeholder="Email" required
+                                               type="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Company Phone</label>
+                                        <input class="form-control" id="compPhone" placeholder="Company Phone"
+                                               required type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>City </label>
+                                        <input class="form-control" id="compCity" placeholder="City" required
+                                               type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Address </label>
+                                        <input class="form-control" id="compAddress" placeholder="Address" required
+                                               type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Company Profile </label>
+                                        <input class="form-control" id="comDescription" placeholder="Company Profile"
+                                               required type="text">
+                                    </div>
+                                </div>
+
+                                <br/><br/>
+                            </div>
+                            <h4 class="box-title text-info"><i class="ti-save mr-15"></i> JOB DETAILS</h4>
+                            <hr class="my-15">
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Job Category </label>
+                                        <select class="form-control" id="category" required>
+                                            <option>Interested in</option>
+                                            <option>design</option>
+                                            <option>development</option>
+                                            <option>illustration</option>
+                                            <option>branding</option>
+                                            <option>video</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Job Title </label>
+                                        <input class="form-control" id="jobTitle" placeholder="Job Title" required
+                                               type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Slot Available </label>
+                                        <input class="form-control" id="slot" placeholder="Slot Available" required
+                                               type="number">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Job Type </label>
+                                        <select class="form-control select2" id="jobType" required style="width: 100%;">
+                                            <option value="">---Please select Type---</option>
+                                            <option value="Full Time">Full Time</option>
+
+                                            <option value="Part Time">Part Time</option>
+                                            <option value="Internship">Internship</option>
+                                            <option value="Freelance">Freelance</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Minimum Salary(Ghc) </label>
+                                        <input class="form-control" id="renumeration" placeholder="Minimum Salary(Ghc)"
+                                               required type="number">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Maximum Salary(Ghc) </label>
+                                        <input class="form-control" id="toRenumeration"
+                                               placeholder="Maximum Salary(Ghc)"
+                                               required type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input class="form-control" id="myInput" placeholder="Minimum Salary(Ghc)"
+                                               required type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Region </label>
+                                        <select class="form-control select2" id="region" name="region">
+                                            <option value="Bono East Region">Bono East Region - Techiman</option>
+                                            <option value="Oti Region">Oti Region - Dambai</option>
+                                            <option value="Ahafo Region">Ahafo Region - Goaso</option>
+                                            <option value="Bono Region">Bono Region - Sunyani</option>
+                                            <option value="North East Region">North East Region - Nalerigu</option>
+                                            <option value="Savannah Region">Savannah Region - Damango</option>
+                                            <option value=" Western North Region"> Western North Region- Sefwi Wiawso
+                                            </option>
+
+                                            <option value="Western Region">Western Region - Sekondi</option>
+                                            <option value="Volta Region">Volta Region - Ho</option>
+                                            <option value="Greater Accra Region">Greater Accra Region - Accra</option>
+                                            <option value="Eastern Region">Eastern Region - Koforidua</option>
+                                            <option value="Ashanti Region">Ashanti Region - Kumasi</option>
+                                            <option value="Central Region">Central Region - Cape Coast</option>
+                                            <option value="Northern Region">Northern Region - Tamale</option>
+                                            <option value="Upper East Region">Upper East Region - Bolgatanga</option>
+                                            <option value="Upper West Region"> Upper West Region - Wa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>City/Location/Town </label>
+                                        <input class="form-control" id="jobTown" placeholder="City/Location/Town "
+                                               required type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Experience</label>
+                                        <select class="form-control select2" id="experience" name="experience">
+                                            <option value="1 Year">1 Years</option>
+                                            <option value="2 Years">2 Years</option>
+                                            <option value="3 Years">3 Years</option>
+                                            <option value="4 Years">4 Years</option>
+                                            <option value="5 Years">5 Years</option>
+                                            <option value="6 Years">6 Years</option>
+                                            <option value="7 Years">7 Years</option>
+                                            <option value="8 Years">8 Years</option>
+                                            <option value="9 Years">9 Years</option>
+                                            <option value="10 Years">10 Years</option>
+                                            <option value="10 Years +">10 Years +</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Minimum Qualification </label>
+                                        <select class="form-control js-example-basic-single1" id="minQualification"
+                                                name="minQualification">
+                                            <option value="">----Please select Min Qualification-----</option>
+                                            <option value="Bachelors Degreee">Bachelors Degree</option>
+                                            <option value="Doctorate Degree">Doctorate Degree</option>
+                                            <option value="Phd">Phd</option>
+                                            <option value="Masters Degree">Masters Degree</option>
+                                            <option value="Senior High School">Senior High School</option>
+                                            <option value="Junior High School">Junior High School</option>
+                                            <option value="Other Professional Qualification">Other Professional
+                                                Qualification
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Special Requirements</label>
+                                        <input class="form-control tags_input" id="prefSkills" name="prefSkills"
+                                               title="Please comma separated list of Preferred Skills"
+                                               type="text"/>
+                                        <i><span class="text-muted text-gray-dark ">Please type comma separated list of Preferred Skills</span></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Job Descriptionf </label>
+                                <textarea class="textarea" id="jobDescription" placeholder="Type Job Description here"
+                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                            </div>
+
+
+                            <div class="form-group tags-default">
+                                <label>Required Knowledge, Skills, and Abilities</label>
+                                <input class="form-control tags_input" data-role="tagsinput" id="jobTags"
+                                       maxlength="2147483647"
+                                       name="jobTags" style="color:black"
+                                       type="text"/>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Expiry Date </label>
+                                        <input class="form-control" id="expDate" placeholder="Expiry Date" required
+                                               type="date">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>How to Apply </label>
+                                        <input class="form-control" id="howToApply" placeholder="How to Apply"
+                                               required type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="demo-checkbox">
+                                <input class="filled-in chk-col-primary" id="job-alert-check" type="checkbox"/>
+                                <label for="job-alert-check">Show 1 Company Name during job advertisement</label>
+
+                                <input class="filled-in chk-col-success" id="publish" type="checkbox"/>
+                                <label for="publish">Publish this Job after posting</label>
+
+
+                            </div>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button class="btn btn-rounded btn-warning btn-outline mr-1" type="button">
+                                <i class="ti-trash"></i> Cancel
+                            </button>
+                            <button class="btn btn-rounded btn-primary btn-outline rt" type="submit">
+                                <i class="ti-save-alt"></i> Save
+                            </button>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger text-left" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+</body>
+</html>

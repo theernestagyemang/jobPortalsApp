@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>CV Request | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+    <link href="/css/notify.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/cv-request.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="index-menu2 :: index-menu2"></div>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-featured-sec" style="height: 450px">
+                            <div class="new-slide">
+                                <img class="lozad" data-src="/images/job_list.png">
+                            </div>
+                            <div class="job-search-sec">
+                                <div class="job-search">
+                                    <h3 style="color:goldenrod">CV Request </h3>
+                                    <span>Find Jobs, Employment & Career Opportunities</span>
+                                    <form action="/findJobs">
+                                        <div class="row">
+                                            <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input name="q" placeholder="Job title, keywords or company name"
+                                                           type="text"/>
+                                                    <i class="la la-keyboard-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input id="mylocation" placeholder="Type a location" type="text"/>
+                                                    <i class="la la-map-marker"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                                <button type="submit"><i class="la la-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block remove-bottom" id="subPage">
+            <div class="parallax scrolly-invisible lozad" data-src="jobhunt/images/resource/parallax5.jpg"
+                 data-velocity="-.2"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="content-block">
+                <!-- Browse Jobs -->
+                <div class="section-full browse-job content-inner-2">
+                    <div class="container">
+                        <div class="job-bx bg-white">
+                            <div class="row">
+
+                                <div class="col-lg-6 bg-gray">
+                                    <h1>CV REQUEST </h1>
+                                    <div class="p-a25">
+
+                                        <ul class="list-check primary">
+                                            <li>Is your company getting frustrated with searching for new CVs for new
+                                                roles?
+                                            </li>
+                                            <li>Do you still struggle to meet deadlines in finding the best-fit CVs of
+                                                candidates?
+                                            </li>
+                                            <li>Are the CVs you receive a top-notch?</li>
+                                            <li>Are you getting the experienced candidate you need?</li>
+                                            <li>Is your screening and short-listing taking hours and days just to screen
+                                                resumes?
+                                            </li>
+                                        </ul>
+                                        <div class="dez-divider bg-gray-dark"></div>
+                                        <h6 class="font-14">Why xjobs</h6>
+                                        <p class="m-b10"><strong class="text-black m-r10">800,000+ </strong> Jobs</p>
+                                        <p class="m-b10"><strong class="text-black m-r10">100,000+</strong> CV searches
+                                            daily</p>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+
+                                    <p>
+                                        We at L’aine Services Limited are at your service!
+                                    </p>
+                                    <p>We are poised in providing your company with quality and effective CVs in a fast
+                                        pace to win your employers over. </p>
+                                    <a class="btn btn-rounded btn-primary" href="/employer/search-cv" id="cv-request"
+                                       title="">Request Now</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Browse Jobs END -->
+
+            </div>
+    </section>
+
+    <section>
+        <div class="block double-gap-top double-gap-bottom">
+
+            <div class="parallax scrolly-invisible layer color lozad" data-src="/images/testimonial.jpg"
+                 data-velocity="-.1" style="background-repeat: repeat-y scroll 50% 422.28px transparent;"></div>
+            <!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="simple-text-block">
+                            <h3>Make a Difference with Your Online Resumé</h3>
+                            <span>Your resumé in minutes with xjobs resumé assistant is ready!</span>
+                            <a class="signin-popup" href="#" title="">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="simple-text">
+                            <h3>How may we help you?</h3>
+                            <span>We're here to help. Check out our <a href="/faq">FAQs</a>, send us an email at <a
+                                    href="/faq" id="adabraka-email">email</a> or call us at  <a href="#" id="comp-tel">  555-5555</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+
+</div>
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="basicSubModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="paymentForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel"> Subscription</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please review your invoice and click on Pay Now to make payment.</p>
+
+                    <div class="material-datatables" id="printTable">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+
+
+                                    <div class="pull-left m-t-30">
+                                        <address>
+                                            <strong>L'aine Services Limited</strong><br/>
+                                            Adabraka-Accra<br/>
+                                            <b>APPLICANT DETAILS :</b><br/>
+                                            <span id="applicantName">#</span><br/>
+                                            <em id="applicantEmail">#</em>
+                                        </address>
+                                    </div>
+                                    <div class="pull-right m-t-30">
+                                        <ul>
+                                            <li>Invoice Date: <em id="orderDate">Jun 15, 2015</em></li>
+                                            <li>Invoice Status: <span class="badge badge-danger"
+                                                                      id="status">Pending</span></li>
+                                            <li class="m-t-10">Invoice ID:<em id="transactionId">#</em></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table m-t-30">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Description</th>
+                                            <th>Unit Cost</th>
+                                            <th>COT</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td id="description">Payment for Basic Subscription</td>
+                                            <td id="amount">2000</td>
+                                            <td id="cot">252.50</td>
+                                            <td id="ttTotal">2.5</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <a class="btn btn-primary btn-sm print-basic" href="#"><i class="fa fa-print"></i></a>
+
+                    <a class="ttlr_inline" data-amount="1"
+                       data-currency="GHS"
+                       data-custom_description="Payment for Subscription"
+                       data-customer_email="email@customer.com"
+                       data-pay_button_text="Pay Now"
+                       data-payment_method="both"
+                       data-transid="000000000000"
+                       id="payBtn"
+                       th:data-APIKey="${apiKey}"
+                       th:data-redirect_url="${url}">
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script src="/js/job/category-jobs.js"></script>
+<script src="/js/job/control-job-application.js"></script>
+
+
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/jquery.min.js"></script>
+
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/notify.min.js"></script>
+<div th:insert="login-template :: login"></div>
+<script src="/js/login.js"></script>
+<script src="/js/registration.js"></script>
+<script src="/js/statistics.js"></script>
+<script src="/js/index.js"></script>
+
+
+</body>
+</html>
+

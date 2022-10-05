@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Applicants | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap-grid.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/icons.css}">
+    <link rel="stylesheet" th:href="@{/css/job/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/job/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/responsive.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/chosen.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/colors/colors.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/bootstrap.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/job/font-awesome.min.css}" type="text/css"/>
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" rel="stylesheet" th:href="@{/js/job/sweetalert.css}" type="text/css"/>
+
+
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" th:src="@{/images/loader.jpg}"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-admin :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-velocity="-.1"
+                 style="background: repeat scroll 50% 422.28px transparent;"
+                 th:data-src="@{/images/bnr1.jpg}"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3>Welcome </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="search_widget_job">
+                                <div class="field_w_search">
+                                    <input class="searchBox" placeholder="Search Keywords" type="text"/>
+                                    <i class="la la-search btn-search"></i>
+                                </div><!-- Search Widget -->
+                                <div class="field_w_search">
+                                    <input placeholder="All Locations" type="text"/>
+                                    <i class="la la-map-marker"></i>
+                                </div><!-- Search Widget -->
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="sb-title open">Specialism</h3>
+                            <div class="specialism_widget">
+                                <div class="simple-checkbox scrollbar ">
+
+                                    <div th:each="spec : ${specialization}" th:remove="tag">
+                                        <p><input class="spealism" name="spealism" th:data="${spec.specialization}"
+                                                  th:id="${spec.key}"
+                                                  type="checkbox">
+                                            <label th:for="${spec.key}">[[${spec.specialization}]]
+                                                ([[${spec.count}]])</label></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <input id="jobId" th:value="${job.id}" type="hidden"/>
+                            <input id="jobTitle" th:if="${job.jobTitle}" th:value="${job.jobTitle}" type="hidden">
+
+                            <div class="emply-resume-sec">
+
+                                <div th:each="country:${seeker}" th:remove="tag" th:unless="${#lists.isEmpty(seeker)}">
+
+                                    <div class="emply-resume-list">
+                                        <div class="emply-resume-thumb" title="Click to view details">
+                                            <a href="#" th:onclick="'javascript:openModal(' + ${country.id} + ')'">
+                                                <img alt='Job Seeker Pic'
+                                                     class="thumb-nail lozad"
+                                                     th:data-src="@{'/uploads/' + ${country.picFileName}}"/>
+                                            </a>
+                                        </div>
+                                        <div class="emply-resume-info">
+                                            <h3><a href="#"
+                                                   id="candidateFullName"
+                                                   th:onclick="'javascript:openModal(' + ${country.id} + ')'">[(${country.fullName})]</a>
+                                            </h3>
+                                            <span><i>[(${country.proffesionalTitile})] </i> at [(${country.currentCompany})]</span>
+                                            <p><i class="la la-map-marker"></i>[(${country.currentLocation})] </p>
+                                            <p th:text="${country.description}">Description</p>
+                                        </div>
+
+                                        <div class="shortlists">
+
+                                            <a class="start-shortlist" href="#" th:seeker-id="${country.id}"
+                                               th:seeker-name="${country.fullName}"
+                                               title="">Shortlist <i class="la la-plus"></i></a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Emply List -->
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+<div class="account-popup-area signup-popup-box">
+    <div class="account-popup" style="width: 60%; ">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3 id="myDetails">Job Seeker Details</h3>
+
+        <section class="overlape " style="text-align: left;">
+            <div class="job-seeker-details">
+
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+<!-- SIGNUP POPUP -->
+
+
+<div class="contactus-popup">
+    <div class="contact-popup">
+        <i class="la la-close close-contact"></i>
+        <h3>Send Message to “Ali TUFAN”</h3>
+        <form>
+            <div class="popup-field">
+                <input placeholder="Tera Planer" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="popup-field">
+                <input placeholder="demo@jobhunt.com" type="text"/>
+                <i class="la la-envelope-o"></i>
+            </div>
+            <div class="popup-field">
+                <input placeholder="+90 538 845 09 85" type="text"/>
+                <i class="la la-phone"></i>
+            </div>
+            <div class="popup-field">
+                <textarea placeholder="Message"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="KeyskillsModalLongTitle" class="modal fade modal-bx-info editor" id="shortlist"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="KeyskillsModalLongTitle">Shortlist Applicant</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to shortlist this applicant.</p>
+
+                <p>If this was the action that you wanted to do,please confirm your choice, or cancel and return to the
+                    page.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button class="site-button" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="shortlistConfirm" type="button">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade modal-bx-info" id="myModal10" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" class="close" data-dismiss="modal" type="button"><i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to do this?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-link" data-dismiss="modal" type="button">Never mind</button>
+                <a class="btn btn-success btn-link" href="" id="delRef">Yes
+                    <div class="ripple-container"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/job/jquery.min.js}" type="text/javascript"></script>
+<script data-cfasync="false" th:src="@{/css/job/email-decode.min.js}"></script>
+<script th:src="@{/js/job/modernizr.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/cript.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/wow.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/slick.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/parallax.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/select-chosen.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.lazy.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/jquery.scrollbar.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/job-seeker-details.js}" type="text/javascript"></script>
+<script th:src="@{/js/job/sweetalert.js}"></script>
+
+<script type='text/javascript'>
+    function removeItemOnce(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        return arr;
+    }
+
+    function shortlistSelectedApplicant(seekerId, jobId) {
+        var url = `/shortlist-candidate?seekerId=${seekerId}&jobId=${jobId}`;
+        $.post(url, function (data) {
+            switch (data) {
+                case "SHORTLISTED":
+                    swal('Error!', 'Candidate already shortlisted', "error");
+                    break;
+
+                case "SUCCESS":
+                    swal('Shortlisted!', 'Candidate has been shortlisted', "success");
+                    break;
+                default:
+                    swal('Error!', 'Somer error occured, we couldnt shortlist this candidate', "error");
+                    break;
+
+            }
+        })
+    }
+
+    //Shortlist candidates
+    $(".start-shortlist").on('click', function () {
+        var jobseekerName = $(this).attr("seeker-name");
+        var jobseekerId = $(this).attr("seeker-id");
+        var jobId = $("#jobId").val();
+
+        var selectedJob = $("#jobTitle").val();
+
+        swal({
+                title: "Shortlist applicant ?",
+                text: `You are shortlisting ${jobseekerName} for ${selectedJob}!`,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, go ahead!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    shortlistSelectedApplicant(jobseekerId, jobId);
+
+                } else {
+                    swal("Cancelled", "Candidates not shortlisted :)", "error");
+                }
+            });
+
+
+    });
+
+    function openShortlistModal(jobseekerId) {
+
+        var jobId = $("#jobId").val();
+        var selectedJob = $("#jobTitle").val();
+
+        swal({
+                title: "Shortlist applicant ?",
+                text: `You are shortlisting this candidate for ${selectedJob}!`,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, go ahead!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    shortlistSelectedApplicant(jobseekerId, jobId);
+
+                } else {
+                    swal("Cancelled", "Candidates not shortlisted :)", "error");
+                }
+            });
+
+
+    }
+
+    function findJobSeeker(fruits) {
+        var url = `/findJobSeekerBySpecialization?q=${fruits}`;
+        $(".emply-resume-sec").empty();
+        $.get(url, function (data) {
+            if (data) {
+                $.each(data, function (idx, elem) {
+                    var markup = `<div class="emply-resume-list">
+                                                <div class="emply-resume-thumb">
+                                                    <img src="/uploads/${elem.picFileName}" alt='Picture' class="thumb-nail lozad"/>
+                                                </div>
+                                                <div class="emply-resume-info">
+                                                        <h3><a onclick="openModal(${elem.id} )" href="#" >${elem.fullName}</a></h3>
+                                                        <span><i>${elem.proffesionalTitile} </i> at ${elem.currentCompany}</span>
+                                                        <p><i class="la la-map-marker"></i>${elem.currentLocation} </p>
+                                                        <p>${elem.description}</p>
+                                                </div>
+
+                                                <div class="shortlists">
+
+                                                    <a href="#" title="" onclick="openShortlistModal( ${elem.id})"
+                                                       class="shortlist-5x">Shortlist <i class="la la-plus"></i></a>
+
+                                                </div>
+
+                                        </div>`;
+                    $(".emply-resume-sec").append(markup);
+                });
+
+            }
+        });
+    }
+
+    function shortlistApplicant(val) {
+        var url = `/emp-shortlist-candidates?seekerId=${val}&jobId=${jobid}`
+        var modal = $('#shortlist');
+        modal.data('url', url);
+        modal.data('request_type', $(this).data('request-type'));
+        modal.modal('show');
+    }
+
+    var jobid = $("#jobId").val();
+    $(function () {
+
+        $('.lozad').Lazy();
+
+        let fruits = [];
+        $('.spealism').click(function () {
+
+            var desc = $(this).attr("data");
+
+            if (this.checked === false) {
+                removeItemOnce(fruits, desc);
+                findJobSeeker(fruits);
+            }
+
+            if (this.checked === true) {
+                fruits.push(desc);
+                findJobSeeker(fruits);
+            }
+
+        });
+
+        $('a.shortlist-action').click(function (e) {
+            e.preventDefault();
+            var modal = $('#shortlist');
+            modal.data('url', $(this).attr('href'));
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+        function deleteRows() {
+            $(".emply-resume-sec").empty();
+        }
+
+        $(".btn-search").on('click', function () {
+            deleteRows();
+
+            var searchTerm = $(".searchBox").val();
+            var url = `/find-jobseeker?q=${searchTerm}`;
+
+            $.get(url, function (data) {
+                if (data) {
+                    $.each(data, function (idx, elem) {
+                        var markup = `<div class="emply-resume-list">
+                                                <div class="emply-resume-thumb">
+                                                    <img src="/uploads/${elem.picFileName}" alt='Picture' class="thumb-nail lozad"/>
+                                                </div>
+                                                <div class="emply-resume-info">
+                                                        <h3><a href="#" onclick="openModal(${elem.id} )">${elem.fullName}</a></h3>
+                                                        <span><i>${elem.proffesionalTitile} </i> at ${elem.currentCompany}</span>
+                                                        <p><i class="la la-map-marker"></i>${elem.currentLocation} </p>
+                                                        <p>${elem.description}</p>
+                                                </div>
+
+                                                <div class="shortlists">
+
+                                                    <a href="#"   onclick="openShortlistModal( ${elem.id})">Shortlist <i class="la la-plus"></i></a>
+
+                                                </div>
+
+                                        </div>`;
+                        $(".emply-resume-sec").append(markup);
+                    });
+
+                }
+            })
+        });
+
+
+        $('#shortlistConfirm').click(function () {
+
+            $("#shortlistConfirm").prop("disabled", true);
+            var modal = $('#shortlist');
+            var url = modal.data('url');
+
+            $.get(url, function (assessment, status) { //Declare a GET that takes in href
+                swal({
+                    title: "Success!",
+                    text: "Applicant shortlisted!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#shortlistConfirm").prop("disabled", false);
+
+                    });
+                modal.modal('hide');
+            });
+
+            modal.modal('hide');
+        });
+
+    });
+
+
+    function udatePic() {
+
+        var form = $('#picForm')[0];
+        var data = new FormData(form);
+        var id = $('#seekerId').val();
+
+        data.append(id, id);
+
+        $.ajax({
+            type: "POST",
+            url: '/update-emp-pic?id=' + id,
+            enctype: 'multipart/form-data',
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                location.reload();
+            }
+
+        });
+    }
+
+    function shortlistCandidate() {
+
+        //Integer seekerId,Integer jobId
+        var jobId = $('#selectedJobId').val();
+        var value = $('#selectedJobSeekerId').val();
+        var url = "/emp-shortlist-candidate?seekerId=" + value + "&jobId=" + jobId;
+        var modal = $('#shortlist');
+
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Applicant shortlisted!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSave").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't shortlist this applicant!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+    }
+
+    function submitForm() {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+
+        var telphone = $('#telephone').val();
+        var email = $('#email').val();
+        var username = $('#username').val();
+        var role = $('#roles').val();
+        var fn = $('#fn').val();
+        var ln = $('#ln').val();
+        var password = $('#password').val();
+
+        // fn ln username password telphone email role,Long id staffId
+
+        var url = "/create-user?fn=" + fn + "&ln=" + ln + "&username=" + username + "&password=" + password +
+            "&telphone=" + telphone + "&email=" + email + "&role=" + role;
+
+        console.log(url);
+        var modal = $('#signupModal');
+
+        //String ,String ,String ,String ,String role
+        // disabled the submit button
+        $("#btnSubmit").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "User update was successful!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#btnSubmit").prop("disabled", false);
+
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update user!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!",
+
+
+                });
+
+                $("#savBtn").prop("disabled", false);
+
+            }
+
+        });
+
+
+    }
+
+</script>
+</body>
+</html>
+

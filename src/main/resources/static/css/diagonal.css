@@ -1,0 +1,110 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 10, 2020, 12:22:14 PM
+    Author     : Admin
+*/
+
+
+div.diagonal {
+    background: #da1d00;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
+    height: 300px;
+    padding: 70px;
+    position: relative;
+    margin: 30px;
+    float: left;
+}
+
+div.diagonal2 {
+    background: #da1d00;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
+    height: 300px;
+    padding: 70px;
+    position: relative;
+    margin: 30px;
+    background: #da1d00 url(http://www.remcokalf.nl/background.jpg) left top;
+    background-size: cover;
+    float: left;
+}
+
+div.diagonal3 {
+    background: #da1d00;
+    color: #da1d00;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 432px;
+    height: 432px;
+    padding: 4px;
+    position: relative;
+    margin: 30px;
+    float: left;
+}
+
+div.inside {
+    background: #fff;
+    color: #da1d00;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 292px;
+    height: 292px;
+    padding: 70px;
+    position: relative;
+}
+
+div.diagonal:before,
+div.diagonal2:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 80px solid #fff;
+    border-right: 80px solid transparent;
+    width: 0;
+}
+
+div.diagonal3:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-bottom: 80px solid #da1d00;
+    border-right: 80px solid transparent;
+    width: 0;
+    z-index: 1;
+}
+
+div.inside:before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    border-top: 74px solid #fff;
+    border-right: 74px solid transparent;
+    width: 0;
+    z-index: 2;
+}
+
+
+#grey {
+    width: 100%;
+    height: 400px;
+    background: #ccc;
+    position: relative;
+    margin-top: 100px;
+}
+
+#grey:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 80px solid #fff;
+    border-right: 80px solid #ccc;
+    width: 400px;
+}

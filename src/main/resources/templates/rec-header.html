@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<header th:fragment="header">
+
+
+    <!-- header -->
+    <header class="site-header mo-left header fullwidth">
+        <!-- main header -->
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix">
+                <div class="container clearfix">
+                    <!-- website logo -->
+                    <div class="logo-header mostion">
+                        <a href="/"><img alt="" class="logo lozad" data-src="/images/laine.jpg"
+                                         style="border-radius: 25px"></a>
+                    </div>
+                    <!-- nav toggle button -->
+                    <!-- nav toggle button -->
+                    <button aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation" class="navbar-toggler collapsed navicon justify-content-end"
+                            data-target="#navbarNavDropdown"
+                            data-toggle="collapse" type="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </button>
+                    <!-- extra nav -->
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+                            <a class="site-button" href="/rec-post-jobs" style="color: #FFFFFF"><i
+                                    class="fa fa-user"></i> Post A Job</a>
+                            <a class="site-button" href="/logout" rel="bookmark" style="color: #FFFFFF"
+                               title="logout"><i class="fa fa-lock"></i> logout </a>
+                        </div>
+                    </div>
+                    <!-- main nav -->
+                    <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                        <ul class="nav navbar-nav">
+
+
+                            <li class="active"><a class="dez-page" href="/rec-profile" style="color: #FFFFFF">My
+                                Profile </a></li>
+                            <li><a class="dez-page" href="/adverts" style="color: #FFFFFF">Create Advert</a></li>
+                            <li>
+                                <a href="#" style="color: #FFFFFF">My Account <i class="fa fa-chevron-down"></i></a>
+                                <ul class="sub-menu">
+
+
+                                    <li><a class="dez-page" href="#">Job Seekers <i class="fa fa-angle-right"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a class="dez-page" href="/all-job-seekers">All Job Seekers</a></li>
+                                            <li><a class="dez-page" href="/find-job-seeker">Find Job Seeker <span
+                                                    class="new-page">New</span></a></li>
+                                            <li><a class="dez-page" href="/browse-by-shortlisted">browse Shortlisted
+                                                <span class="new-page">New</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dez-page" href="#">Jobs<i class="fa fa-angle-right"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a class="dez-page" href="/assigned-posted-jobs">Assigned jobs <span
+                                                    class="new-page">New</span></a></li>
+                                            <li><a class="dez-page" href="#">Filled jobs <span
+                                                    class="new-page">New</span></a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a class="dez-page" data-target="#car-details" data-toggle="modal"
+                                           href="/rec-change-password">Change Password</a></li>
+                                </ul>
+
+                            </li>
+
+                            <li class="showlogin hidden-lg">
+                                <a href="/logout" rel="bookmark" style="color: #FFFFFF" title="logout"><i
+                                        class="fa fa-lock"></i> login </a>
+                            </li>
+                            <li class="showlogin hidden-lg">
+                                <a href="/register" style="color: #FFFFFF"><i class="fa fa-user"></i> Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- main header END -->
+    </header>
+    <!-- header END -->
+
+
+</header>
+</body>
+</html>

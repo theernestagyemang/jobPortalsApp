@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="employement-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="EmploymentModalLongTitle" class="modal fade modal-bx-info editor"
+         id="employment"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EmploymentModalLongTitle">Add/Edit Employment</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="employment-frm">
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6">
+                                <span class="pf-title">Your Designation</span>
+                                <div class="pf-field">
+                                    <input class="form-control" id="employment-designation" name="designation"
+                                           placeholder="Enter Your Designation" required type="text">
+                                    <input id="seekerId" th:value="${seeker.id}" type="hidden"/>
+                                    <input id="eduId" type="hidden" value="0"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <span class="pf-title">Your Organization</span>
+                                <div class="pf-field">
+                                    <input class="form-control" id="employment-name" maxlength="50" name="org"
+                                           placeholder="Enter Your Organization" required type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <span class="pf-title">Is this your current company?</span>
+                                <div class="pf-field">
+                                    <select class="chosen" id="curComp" name="curComp">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Started Working From</span>
+                                    <div class="row">
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+
+                                            <select class="chosen" id="employement-start-month" name="startMonth">
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">Jun</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 pf-field">
+                                            <input class="form-control" id="employment-start-year" name="startYear"
+                                                   placeholder="Year Started Work"
+                                                   type="number"/>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Worked Till</span>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                            <select class="chosen" id="employment-end-month"
+                                                    name="employment-end-month">
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">Jun</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 pf-field">
+                                            <input class="form-control" id="employment-end-year"
+                                                   name="employment-end-year"
+                                                   placeholder="Year Ended Work"
+                                                   type="number"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Describe your Job Profile</span>
+                                    <div class="pf-field">
+                                        <textarea class="form-control" id="employment-job-profile"
+                                                  name="employment-job-profile" placeholder="Type Description"
+                                                  required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" type="reset"><i class="la la-times"></i>Cancel
+                        </button>
+                        <button class="btn btn-success" id="employment-btn" type="submit"><i class="la la-save"></i>
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

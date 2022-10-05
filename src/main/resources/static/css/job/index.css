@@ -1,0 +1,105 @@
+
+#categoriesBtn {
+    display: flex;
+    flex-direction: row;
+    /* Below sets up your display method: flex-start|flex-end|space-between|space-around */
+    justify-content: flex-start;
+    /* Below removes bullets and cleans white-space */
+    list-style: none;
+    padding-left: 15px;
+    /* Bonus: forces no word-wrap */
+    white-space: nowrap;
+}
+
+#categoriesBtn li {
+    padding-right: 30px;
+}
+
+.listLine {
+    border-radius: 10px;
+}
+
+#more {
+    border-radius: 10px;
+    color: #FB236A;
+}
+
+#more :hover {
+    color: white;
+    background: #FB236A;
+    border-radius: 5px
+}
+
+.listLine a {
+    color: #FB236A;
+    border-radius: 10px
+}
+
+.listLine a:hover {
+    color: white;
+    background: #FB236A;
+    border-radius: 5px
+}
+
+.banner-img {
+    height: 600px;
+}
+
+.category-color {
+    background-color: #0F36A5;
+    color: white;
+}
+
+a.category-color :hover {
+    color: white;
+}
+
+@media (orientation: portrait) {
+    .find-cand {
+        width: 100px;
+        padding-left: 50px;
+    }
+
+    .banner-img {
+        height: 100%;
+        width: 100%;
+        padding-top: 0;
+    }
+
+}
+
+.content-to-show {
+    display: none;
+}
+
+@media (orientation: portrait) {
+    .content-to-hide {
+        display: none; /* visibility: none; */
+    }
+
+    .content-to-show {
+        display: block;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 767px) {
+    .content-to-hide {
+        display: none; /* visibility: none; */
+    }
+
+    .content-to-show {
+        display: block;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 767px) {
+    .find-cand {
+        width: 100%;
+    }
+
+    .banner-img {
+        height: 100%;
+        width: 100%;
+    }
+}
+        

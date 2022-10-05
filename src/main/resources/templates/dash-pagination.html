@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment='dash-pagination'>
+
+
+    <div class="pagination pagination-centered" th:if="${page !=null}">
+
+        <a th:class="${page.firstPage}? 'disabled' : ''" th:if="${page.firstPage}">←</a>
+        <a th:class="${page.firstPage}? 'disabled' : ''" th:href="@{${page.url}(page=1,max=${page.size})}"
+           th:if="${not page.firstPage}">← </a>
+
+
+        <a th:class="${page.hasPreviousPage}? '' : 'disabled'" th:if="${not page.hasPreviousPage}">«</a>
+        <a th:class="${page.hasPreviousPage}? '' : 'disabled'"
+           th:href="@{${page.url}(page=${page.number-1},max=${page.size})}"
+           th:if="${page.hasPreviousPage}" title="Go to previous page">«</a>
+
+
+        <em th:each="item : ${page.items}" th:remove="tag">
+            <a th:class="${item.current}? 'active' : ''" th:if="${item.current}" th:text="${item.number}">1</a>
+            <a th:class="${item.current}? 'active' : ''" th:href="@{${page.url}(page=${item.number},max=${page.size})}"
+               th:if="${not item.current}"><span
+                    th:text="${item.number}">1</span></a>
+        </em>
+
+
+        <a th:class="${page.hasNextPage}? '' : 'disabled'" th:if="${not page.hasNextPage}">»</a>
+        <a th:class="${page.hasNextPage}? '' : 'disabled'"
+           th:href="@{${page.url}(page=${page.number+1},max=${page.size})}"
+           th:if="${page.hasNextPage}" title="Go to next page">»</a>
+
+
+        <a th:class="${page.lastPage}? 'disabled' : ''" th:if="${page.lastPage}"> →</a>
+        <a th:class="${page.lastPage}? 'disabled' : ''"
+           th:href="@{${page.url}(page=${page.totalPages},max=${page.size})}"
+           th:if="${not page.lastPage}"> →</a>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/jobs-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:06:53 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>xjobs - Job Details</title>
+    <!-- Vendors Style-->
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <!-- Style-->
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link href="../../plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .btn-outline {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Green */
+        .btn-success {
+            border-color: #04AA6D;
+            color: green;
+        }
+
+        .btn-success:hover {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        /* Blue */
+        .btn-info {
+            border-color: #2196F3;
+            color: dodgerblue;
+        }
+
+        .btn-info:hover {
+            background: #2196F3;
+            color: white;
+        }
+
+        /* Orange */
+        .btn-warning {
+            border-color: #ff9800;
+            color: orange;
+        }
+
+        .warning:hover {
+            background: #ff9800;
+            color: white;
+        }
+
+        /* Red */
+        .danger {
+            border-color: #f44336;
+            color: red;
+        }
+
+        .btn-danger:hover {
+            color: white
+        }
+
+
+        .danger:hover {
+            background: #f44336;
+            color: white;
+        }
+
+        /* Gray */
+        .default {
+            border-color: #e7e7e7;
+            color: black;
+        }
+
+        .default:hover {
+            background: #e7e7e7;
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-md-flex align-items-center justify-content-between">
+                    <div>
+                        <a class="waves-effect waves-light btn active btn-outline btn-primary" href="#">Jobs</a>
+                        <a class="waves-effect waves-light btn btn-outline btn-primary mx-lg-10"
+                           style=" border-color: #2196F3;"
+                           th:href="@{/recruiter/candidates(trx=${job.transactionId})}">Candidates</a>
+                        <a class="waves-effect waves-light btn btn-outline btn-primary" href="mailbox.html"
+                           style="display: none">Messages</a>
+                    </div>
+                    <a class="waves-effect waves-light btn btn-danger mt-10 mt-md-0 post-job" href="#">Post A Jobs</a>
+
+                </div>
+            </div>
+            <!-- Main content -->
+            <section class="content" id="main-section">
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <a class="mb-15 d-block" href="/recruiter/jobs"><i class="fa fa-angle-left"></i> Back to
+                                    all jobs</a>
+                                <div class="d-md-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h4 class="mb-0">[(${job.profession})]</h4>
+                                        <span th:text="${details.natureOfContract}"></span>
+                                        <p class="text-fade" th:text="'Location: ' + ${details.location}">Globel Inc. -
+                                            Miami, Florida</p>
+                                    </div>
+                                    <a class="waves-effect waves-light btn btn-outline btn-danger mt-10 mt-md-0 unpublish"
+                                       href="#"
+                                       th:href="@{/publish-jobs/{id}/{pu} (id=${job.id},pu=2)}"
+                                       th:if="${job.published}">Unpublish
+                                        this job</a>
+                                    <a class="waves-effect waves-light btn btn-outline btn-success mt-10 mt-md-0 publish "
+                                       th:href="@{/publish-jobs/{id}/{pu} (id=${job.id},pu=1)}"
+                                       th:if="${not job.published}">Publish
+                                        this job</a>
+                                </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Candidates</h4>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="text-center b-1 p-30">
+                                            <h6 class="mt-0">Awaiting Review</h6>
+                                            <h1 class="mb-0"
+                                                th:text="${#numbers.formatInteger(applications, 1,'COMMA')}">0</h1>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="text-center b-1 p-30">
+                                            <h6 class="mt-0">Total (Excluding Rejected)</h6>
+                                            <h1 class="mb-0"
+                                                th:text="${#numbers.formatInteger(job.jobseekers.size, 1,'COMMA')}"></h1>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-right">
+                                        <p class="text-fade mt-15">0 Rejected</p>
+                                    </div>
+                                    <div class="col-12">
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Job Description</h4>
+
+                                        <p th:utext="${job.jobDescription}"></p>
+                                        <input id="jobCategory" th:value="${job.category}" type="hidden"/>
+
+                                        <h4>Required Knowledge, Skills, and Abilities</h4>
+                                        <ul>
+                                                                            <span th:each="req: ${jreqList}"
+                                                                                  th:remove="tag">
+                                                                                <li>[(${req})]</li>
+                                                                            </span>
+                                        </ul>
+
+                                        <h3>Special Requirements </h3>
+                                        <ul>
+                                                                            <span th:each="req: ${specialReq}"
+                                                                                  th:remove="tag">
+                                                                                <li>[(${req})]</li>
+                                                                            </span>
+                                        </ul>
+                                        <h4>How to apply</h4>
+                                        <p><span th:utext="${job.howToApply}"></span></p>
+
+
+                                        <p>Expire Start Date: [[${job.jobType}]] </p>
+                                        <p>Job Types: [[${job.jobType}]], [[${job.category}]] </p>
+                                        <p>Salary: From [[${job.renumeration}]] - [[${job.toRenumeration}]]</p>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 class="mb-25">How to Apply </h4>
+
+                                        <h4 th:utext="${job.howToApply}"></h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <a class="waves-effect waves-light btn btn-block btn-primary mb-15 edit-job" href="#"
+                                   th:job-id="${job.id}">Edit Job</a>
+                                <div class="media-list media-list-hover media-list-divided">
+                                    <a class="media media-single rounded-0" href="#">
+                                        <span class="title mx-0 unpublish">Close Job </span>
+                                        <span class="badge badge-pill badge-secondary-light mx-0"><i
+                                                class="fa fa-arrow-right"></i></span>
+                                    </a>
+                                    <a class="media media-single rounded-0" href="#">
+                                        <span class="title mx-0">View Cost & Performance </span>
+                                        <span class="badge badge-pill badge-secondary-light mx-0"><i
+                                                class="fa fa-arrow-right"></i></span>
+                                    </a>
+                                    <a class="media media-single rounded-0"
+                                       th:href="@{/recruiter/search-cv2(q=${job.transactionId})}">
+                                        <span class="title mx-0">Find Candidates for this Job</span>
+                                        <span class="badge badge-pill badge-secondary-light mx-0"><i
+                                                class="fa fa-arrow-right"></i></span>
+                                    </a>
+                                </div>
+                                <a class="waves-effect waves-light btn btn-block btn-outline btn-success my-15" href="#"
+                                   style="border-color: #04AA6D;"
+                                   th:href="@{/recruiter/search-cv2(q=${job.transactionId})}">Add Candidate</a>
+                                <div>
+                                    <p><strong>Views:</strong> <a
+                                            th:text="${#numbers.formatInteger(views, 1,'COMMA')}"></a></p>
+                                    <p class="text-primary"><strong>Candidates:</strong> [[${job.jobseekers.size}]] </p>
+                                    <p><strong>Status:</strong> <strong id="lblStatus">[[${job.published ?
+                                        'Open':'Closed'}]]</strong> <span class="badge badge-primary-light"></span></p>
+                                    <p><strong th:text="'Created: ' + ${job.postedDate}">Created:</strong></p>
+                                </div>
+                                <a class="waves-effect waves-light btn btn-block btn-outline btn-danger my-15"
+                                   style="border-color: #f44336; "
+                                   th:href="@{/job/details/{transactionId}(transactionId=${job.transactionId})}">View
+                                    Public job page</a>
+                                <p class="text-fade">Promote this job for more candidates:</p>
+
+
+                                <a class="p-5 bg-facebook text-white d-inline-block mb-10 rounded"
+                                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"><i
+                                        class="fa fa-facebook-f"></i> Share </a>
+                                <a class="p-5 bg-twitter text-white d-inline-block mb-10 rounded" href="#"><i
+                                        class="fa fa-twitter"></i> Tweet</a>
+                                <a class="p-5 bg-linkedin text-white d-inline-block mb-10 rounded" href="#"><i
+                                        class="fa fa-linkedin-square"></i> Share</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+
+<!-- Page Content overlay -->
+
+<script src="/js/vendors.min.js"></script>
+<script src="/js/pages/chat-popup.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+<script src="../../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/pages/app-main.js"></script>
+<script src="/js/app-jobs.js"></script>
+<script src="/js/template.js"></script>
+<script src="../assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+<script src="/js/app-create-job.js"></script>
+
+
+<script src="../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+<script src="../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="../../assets/vendor_components/select2/dist/js/select2.full.js"></script>
+
+<script src="/js/pages/validation.js"></script>
+<script src="/js/pages/form-validation.js"></script>
+<script src="../../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+
+
+<script src="../assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+<script src="../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+<script src="../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="../assets/vendor_components/select2/dist/js/select2.full.js"></script>
+<script src="../assets/vendor_plugins/iCheck/icheck.min.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="../../plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+<!-- Joblly App -->
+
+</body>
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/jobs-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:06:53 GMT -->
+</html>

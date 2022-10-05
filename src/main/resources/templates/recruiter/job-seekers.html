@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet">
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <title>XJobs | Job Seekers</title>
+    <style>
+        .search-box {
+            position: absolute;
+            top: 1%;
+            left: 23%;
+            transform: translate (-50%, -50%);
+            background: #2f3640;
+            height: 60px;
+            border-radius: 40px;
+            padding: 10px;
+            width: 440px
+        }
+
+        .search-btn {
+            float: right;
+            color: #e84118;
+            width: 50px;
+            height: 40px;
+            border-radius: 70px;
+            background: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .search-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: white;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0px;
+        }
+
+        .search-box:hover > .search-txt {
+            width: 240px;
+            padding: 0 6px;
+        }
+
+        .search-box:hover > .search-btn {
+            background: white;
+        }
+    </style>
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title">Job Seekers</h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <form action="/recruiter/job-seekers" id="fnd">
+                                <div class="search-box">
+                                    <input id="searchTerm" name="q" placeholder="Search here...." style="border: none;
+                                                                                            background: none;
+                                                                                            outline: none;
+                                                                                            float: left;
+                                                                                            padding: 0;
+                                                                                            color: white;
+                                                                                            font-size: 16px;
+                                                                                            transition: 0.4s;
+                                                                                            line-height: 40px;
+                                                                                            width: 80%;"
+                                           th:value="${searchTerm}"
+                                           type="text"/>
+                                    <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 80px">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="datatables">
+                                        <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Current company</td>
+                                            <td>Salary</td>
+                                            <td>Qualification</td>
+                                            <td></td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="country: ${joblist}">
+                                            <td>
+                                                <div class="table-list-title">
+                                                    <h4>
+                                                        <a th:href="@{/recruiter/job-seeker-details(q=${country.transactionId})}"
+                                                           th:text="${country.fullName}"></a>
+                                                    </h4>
+                                                </div>
+                                            </td>
+                                            <td class="application text-primary">
+                                                <span> [(${country.currentCompany})]</span>
+                                            </td>
+
+                                            <td>
+                                                <span>Min Sal: [(${#numbers.formatDecimal(country.expMinSalary, 0,'COMMA',2,'POINT')})]   </span><br/>
+                                                <span>Max Sal: [(${#numbers.formatDecimal(country.expectedSalary, 0,'COMMA',2,'POINT')})] </span>
+                                            </td>
+                                            <td>
+                                                <span class="status active">[(${country.highestQualification})]</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-rounded btn-primary dropdown-toggle"
+                                                            data-toggle="dropdown" type="button">Actions
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item blacklist" href="#"
+                                                           th:data-id="${country.id}"
+                                                           th:href="@{/findSeeker/{id}(id=${country.id})}"
+                                                           title="Blacklist"><i class="la la-times"
+                                                                                style="color:red"></i>Blacklist</a>
+                                                        <a class="dropdown-item" href="#"
+                                                           th:href="@{/recruiter/job-seeker-details(q=${country.transactionId})}"
+                                                           title="View Details"> <i class="la la-eye"></i> View Details</a>
+                                                        <a class="dropdown-item open-coverletter" href="#"
+                                                           th:href="@{/findSeeker/{id}(id=${country.id})}" title=""><i
+                                                                class="la la-file-text"></i> View Cover Letter</a>
+                                                        <a class="dropdown-item download-cv" href="#"
+                                                           th:href="@{/downloadCv/{id}(id=${country.id})}" title=""><i
+                                                                class="la la-cloud-download"></i> Download CV</a>
+
+                                                    </div>
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="pull-right" th:insert="dash-pagination :: dash-pagination"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+    <div th:insert="dashboard-sidebar :: dashboard-sidebar"></div>
+    <div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="deleteConfirmModal" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel">Blacklist Candidate</h4>
+                </div>
+                <form id="blacklistForm" method="post">
+                    <div class="modal-body">
+                        <p>You have selected to blacklist this candidate (<em id="seekerName" style="color:red"></em>).
+                        </p>
+                        <p>
+                            If this was the action that you wanted to do,
+                            please type your comment and confirm your choice, or cancel and return to the page.
+                        </p>
+
+                        <span class="pf-title">Comment</span>
+                        <div class="pf-field">
+                            <textarea class="form-control" id="msg" maxlength="50" name="msg"
+                                      placeholder="Type your comment here" required rows="3"></textarea>
+                            <input id="seekerId" type="hidden"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-danger" id="deleteConfirm" type="submit">Blacklist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="coverLetter" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel"> Candidate Cover Letter</h4>
+                </div>
+
+                <div class="modal-body">
+                    <span class="pf-title">Cover Letter</span>
+                    <div class="pf-field">
+                        <textarea class="form-control" id="cv" maxlength="50" name="cv" placeholder="Cover Letter"
+                                  readonly
+                                  required rows="3"></textarea>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal" type="button">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+<!-- Page Content overlay -->
+
+<script src="/js/vendors.min.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="/js/pages/data-table.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="/js/job/app-jobseekers.js"></script>
+<script src="../../assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+
+
+</body>
+
+</html>

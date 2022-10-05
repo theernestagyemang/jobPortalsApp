@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer class="footer" th:fragment="footer">
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/basic.css" rel="stylesheet" type="text/css"/>
+    <link class="skin" href="/css/dropzone.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/summernote-lite.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css" rel="stylesheet">
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .finish {
+            position: relative;
+            background-color: #fff;
+            animation: bounce .3s ease-in;
+        }
+
+        .finish:before {
+            content: "Success";
+            position: absolute;
+            background: url(check-solid.svg) no-repeat;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 31px;
+            height: 31px;
+            line-height: 31px;
+            top: 8px;
+        }
+
+        .active2 {
+            font-size: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-left-color: red;
+            animation: rotate 1.4s ease 0.5s infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-5 col-lg-4 col-md-12 col-sm-12">
+                    <div class="widget">
+
+                        <img alt="" class="lozad m-b15 rcorners1" data-src="/images/laine.jpg"
+                             style="border-radius: 25px;height: 50px"
+                             width="180"/>
+
+                        <p class="text m-b20">
+                            The impact of L'AÎNÉ services limited in human resource development in Ghana is huge.
+                            The company plays the role of an eldest to many HR institutions in the country,
+                            living up to its name, L'AÎNÉ, which is a french word for <span style="font-weight: bold;">eldest</span>
+                            or <span style="font-weight: bold;">first born</span>.
+
+
+                        </p>
+                        <p class="text m-b20"> We offer a wide range of services across a lot of industry sectors
+                            through the following
+                            offerings; job placement, outsourcing of staff to other companies, training, organisational
+                            development, career counselling, grooming, interview preparation, production of
+                            management training videos and payrolling. These have been tailor-made into five main
+                            brands;
+                        </p>
+                        <div class="subscribe-form m-b20">
+                            <form class="dzSubscribe" method="post" onsubmit="submitApplication();">
+                                <div class="dzSubscribeMsg"></div>
+                                <div class="input-group">
+                                    <input class="form-control" id="eml" name="dzEmail"
+                                           placeholder="Your Email Address" required="required" type="email">
+                                    <span class="input-group-btn">
+                                                    <button class="site-button radius-xl" id="dzBtn" name="submit"
+                                                            type="submit" value="Submit"><i class="chk"
+                                                                                            id="chk"></i> Subscribe</button>
+                                                </span>
+                                </div>
+                            </form>
+
+                        </div>
+                        <ul class="list-inline m-a0">
+                            <li><a class="site-button white facebook circle " href="javascript:void(0);"><i
+                                    class="fa fa-facebook"></i></a></li>
+                            <li><a class="site-button white google-plus circle " href="javascript:void(0);"><i
+                                    class="fa fa-google-plus"></i></a></li>
+                            <li><a class="site-button white linkedin circle " href="javascript:void(0);"><i
+                                    class="fa fa-linkedin"></i></a></li>
+                            <li><a class="site-button white instagram circle " href="javascript:void(0);"><i
+                                    class="fa fa-instagram"></i></a></li>
+                            <li><a class="site-button white twitter circle " href="javascript:void(0);"><i
+                                    class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-12">
+                    <div class="widget border-0">
+                        <h5 class="m-b30 text-white"></h5>
+
+                        <br/>
+                        <ul class="list-2 list-line">
+
+                            <li><a href="http://www.laineservices.com/" target="_blank">Home</a></li>
+                            <li><a href="http://www.laineservices.com/about/" target="_blank">About us</a></li>
+                            <li><a href="http://www.laineservices.com/contact/" target="_blank">Contact</a></li>
+                            <li><a href="/seeker-testimonial">Testimonials</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
+                    <div class="widget border-0">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer bottom part -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+						
+                        <span> © Copyright 2020  by <i class="fa fa-heart m-lr5 text-red heart"></i>
+                            <a href="http://synergyosl.com" target="_blank">Synergy OSL </a> All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type='text/javascript'>
+
+        function submitApplication() {
+
+            $('#dzBtn').addClass("active2");
+            $('#dzBtn').removeClass("site-button");
+
+            var dzEmail = $('#eml').val();
+            var url = "/job-alert-subscription?dzEmail=" + dzEmail;
+            $.ajax({
+                type: "POST",
+                url: url,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    switch (data) {
+                        case "FAILED":
+                            $("#ind-btnSave").prop("disabled", false);
+                            $('#dzBtn').addClass("site-button");
+                            $('.dzSubscribeMsg').addClass("alert alert-danger");
+                            $('.dzSubscribeMsg').html("Sorry, could not submit your subscription, please try again");
+                            $('#dzBtn').addClass("site-button");
+                            $('#dzBtn').removeClass("active2");
+                            break;
+                        case "EMAIL_EXIST":
+                            $('.dzSubscribeMsg').html("You have already subscribed");
+                            $('.dzSubscribeMsg').addClass("alert alert-danger");
+                            $('#dzBtn').addClass("site-button");
+                            $('#dzBtn').removeClass("active2")
+                            break;
+
+                        case "SUCCESS":
+                            $('#dzBtn').addClass("site-button");
+                            $('#dzBtn').removeClass("active2");
+                            $('.dzSubscribeMsg').html("Submitted Successfully");
+                            $('.dzSubscribeMsg').removeClass("alert alert-danger");
+                            $('.dzSubscribeMsg').addClass("alert alert-success");
+                            break;
+
+                    }
+
+                },
+                error: function (data) {
+                    $('.dzSubscribeMsg').html("Fatal Error:");
+                    $('#dzBtn').html("Fatal Error");
+                }
+
+            });
+
+        }
+
+        function home() {
+
+        }
+    </script>
+</footer>
+
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+
+
+</body>
+</html>

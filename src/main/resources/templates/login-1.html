@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs- Job Portal</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- Content -->
+    <div class="page-content bg-gray login-form-bx browse-job login-style2">
+        <div class="section-full">
+            <!-- Login Page -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7 box-skew d-flex">
+                        <div class="login-2 p-a30 seth d-flex align-self-center m-auto wow fadeInRight"
+                             data-wow-delay="0.8s">
+                            <div class="tab-content nav">
+                                <div style="color:red;margin:10px 0px;"
+                                     th:if="${#request.getParameter('error') == 'true'}">
+                                    Login Failed!!!<br/>
+                                    Reason :
+                                    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+                                          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                                                                        Static summary
+                                                                 </span>
+
+
+                                </div>
+                                <form autocomplete="on" class="tab-pane active col-12 p-a0 " method='POST' name='f'
+                                      th:action="@{/j_spring_security_check}">
+                                    <p class="font-weight-600 text-center">If you have an account with us, please log
+                                        in.</p>
+                                    <div class="form-group">
+                                        <label>E-Mail Address*</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name='username'
+                                                   placeholder="Your Email Address" required="required"
+                                                   type="text" value=''>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password *</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name="password"
+                                                   placeholder="Password" type="password"
+                                                   value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="text-left">
+                                        <button class="site-button">login</button>
+                                        <a class="site-button-link forget-pass pull-right m-t15" data-toggle="tab"
+                                           href="#forgot-password"><i
+                                                class="fa fa-unlock-alt"></i> Forgot Password</a>
+                                    </div>
+                                </form>
+                                <form class="tab-pane fade col-12 p-a0" id="forgot-password">
+                                    <p>We will send you an email to reset your password. </p>
+                                    <div class="form-group">
+                                        <label>E-Mail address *</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name="dzName" placeholder="Your Email Address"
+                                                   required="" type="email">
+                                        </div>
+                                    </div>
+                                    <div class="text-left">
+                                        <a class="site-button outline gray" data-toggle="tab" href="#login">Back</a>
+                                        <button class="site-button pull-right">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5 d-flex box-skew1">
+                        <div class="text-white max-w400 align-self-center">
+                            <div class="logo">
+                                <a href="/"><img alt="Logo" src="/images/laine_logo2.jpg"></a>
+                            </div>
+                            <h2 class="m-b10">Login Now</h2>
+                            <p class="m-b15">! It is easy and done in 1 minute and gives you
+                                access to special discounts and much more!
+                            </p>
+                            <a class="btn btn-primary pull-right" href="/register">
+                                <strong>Register now</strong>
+                            </a>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Page END -->
+        </div>
+        <footer class="login-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+						<span class="float-left text-black-light"> © Copyright 2020  by <i
+                                class="fa fa-heart m-lr5 text-red heart"></i>
+						<a class="text-primary" href="http://synergyosl.com">SynergyOSL </a></span>
+                        <span class="float-right">All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Content END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/wow/wow.js"></script><!-- WOW JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+</body>
+</html>

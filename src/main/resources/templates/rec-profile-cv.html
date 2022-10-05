@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<title>xjobs - Job Seeker Profile</title>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="/css/cv.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Roboto", sans-serif
+    }
+</style>
+<style>
+    .pony {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 4rem;
+    }
+
+
+</style>
+<body class="w3-light-grey">
+<header class="site-header mo-left header-dark fullwidth">
+    <div th:insert="rec-header :: header"></div>
+</header>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding" id="GFG">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+
+            <div class="sticky w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img alt="Avatar" src="/images/20002.png" style="width:100%">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2>[(${seeker.fullName})]</h2>
+                    </div>
+                </div>
+
+
+                <div class="pony sticky-top bg-white ">
+                    <div class="candidate-info onepage">
+                        <ul>
+                            <li><a class="scroll-bar nav-link" href="#resume_headline_bx">
+                                <span>Resume Headline</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#key_skills_bx">
+                                <span>Key Skills</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#employment_bx">
+                                <span>Employment</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#education_bx">
+                                <span>Education</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#it_skills_bx">
+                                <span>IT Skills</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#projects_bx">
+                                <span>Projects</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#profile_summary_bx">
+                                <span>Profile Summary</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#accomplishments_bx">
+                                <span>Accomplishments</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#desired_career_profile_bx">
+                                <span>Desired Career Profile</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#personal_details_bx">
+                                <span>Personal Details</span></a></li>
+                            <li><a class="scroll-bar nav-link" href="#attach_resume_bx">
+                                <span>Attach Resume</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>[(${seeker.proffesionalTitile})]
+                    </p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>[(${seeker.currentLocation})]
+                    </p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>[(${seeker.email})]</p>
+                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>[(${seeker.primaryContact})]
+                    </p>
+                </div>
+
+
+            </div>
+            <br>
+
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+            <div class="job-bx bg-white m-b30" id="resume_headline_bx">
+
+                <div class="d-flex">
+                    <h5 class="m-b15">Resume Headline</h5>
+                    <a class="site-button add-btn button-sm" data-target="#resumeheadline"
+                       data-toggle="modal" href="javascript:void(0);"><i
+                            class="fa fa-pencil m-r5"></i> Edit</a>
+                </div>
+                <p class="m-b0">[(${seeker.description})]</p>
+
+
+            </div>
+            <div class="w3-container w3-card w3-white w3-margin-bottom" id="employment_bx">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+
+                <div th:each="job : ${wlist}" th:remove="tag">
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>[(${job.jobTitle })] / [(${job.companyName})] </b></h5>
+
+                        <h6 class="w3-text-teal" th:unless="${job.stillWorkThere =='No'}">
+                            <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                            [(${job.monthStartedWork})] [(${job.yearStartedWork})] - <span
+                                class="w3-tag w3-blue w3-round">Current</span>
+                        </h6>
+
+                        <h6 class="w3-text-teal" th:unless="${job.stillWorkThere =='Yes'}">
+                            <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                            [(${job.monthStartedWork})] [(${job.yearStartedWork})] - [(${job.monthStopedWork})]
+                            [(${job.yearStopedWork})]
+                        </h6>
+                        <p>
+                            <label th:utext="${job.jobProfile}"/>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom" id="education_bx">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+
+                <div th:each="job : ${edulist}" th:remove="tag">
+                    <div class="w3-container">
+
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>[(${job.institutionName })]</b></h5>
+                            <h6 class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                                [(${job.yearStarted})] - [(${job.yearGraduated})]
+                            </h6>
+                            <p>[(${job.courseDescription })]</p>
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+
+                <div th:each="job : ${edulist}" th:remove="tag">
+                    <div class="w3-container">
+
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>[(${job.institutionName })]</b></h5>
+                            <h6 class="w3-text-teal">
+                                <i class="fa fa-calendar fa-fw w3-margin-right "></i>
+                                [(${job.yearStarted})] - [(${job.yearGraduated})]
+                            </h6>
+                            <p>[(${job.courseDescription })]</p>
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+            <div class="job-bx bg-white m-b30" id="key_skills_bx">
+                <div class="d-flex">
+                    <h5 class="m-b15">Key Skills</h5>
+                    <a class="site-button add-btn button-sm" data-target="#keyskills" data-toggle="modal"
+                       href="javascript:void(0);"><i class="fa fa-pencil m-r5"></i> Edit</a>
+                </div>
+                <div class="job-time mr-auto">
+                    <div th:each="country: ${skills}" th:remove="tag">
+                        <a href="javascript:void(0);"><span th:text="${country}"></span></a>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-primary btn-sm" href="javascript:window.print()"><i class="fa fa-print"></i></a>
+            <input onclick="printDiv()" type="button" value="click">
+            <!-- End Right Column -->
+        </div>
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+
+<footer class="site-footer" style="margin-top:40px">
+    <div th:insert="footer :: footer"></div>
+</footer>
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dropzone.js"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+<script src=" js/change-password.js"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+
+
+<script>
+    function printDiv() {
+        var divContents = document.getElementById("GFG").innerHTML;
+        var a = window.open('', '', 'height=500, width=500');
+        a.document.write('<html lang="en">');
+        a.document.write('<body > <h1>Div contents are <br>');
+        a.document.write(divContents);
+        a.document.write('</body></html>');
+        a.document.close();
+        a.print();
+    }
+</script>
+</body>
+</html>

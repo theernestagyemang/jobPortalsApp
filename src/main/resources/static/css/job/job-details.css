@@ -1,0 +1,111 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 18, 2021, 4:44:42 PM
+    Author     : AlhassanHussein
+*/
+
+.dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dz-header {
+    text-align: center;
+}
+
+.dropzone i {
+    font-size: 5rem;
+}
+
+.dropzone .dz-message {
+    color: rgba(0, 0, 0, .54);
+    font-weight: 500;
+    font-size: initial;
+    text-transform: uppercase;
+}
+
+
+.dropzone i {
+    font-size: 5rem;
+}
+
+.dropzone .dz-message {
+    color: rgba(0, 0, 0, .54);
+    font-weight: 500;
+    font-size: initial;
+    text-transform: uppercase;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+li {
+    display: inline;
+
+}
+
+li a {
+    color: white;
+}
+
+#alertBox {
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.whyIssue {
+    padding: 10px
+}
+
+.content-to-show {
+    display: none;
+}
+
+
+.inner::-webkit-scrollbar-track-piece:start {
+    margin-left: 50px;
+}
+
+@media (orientation: portrait) {
+
+    .content-to-show {
+        display: block;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 767px) {
+
+    .content-to-show {
+        display: block;
+    }
+}
+            

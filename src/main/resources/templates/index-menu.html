@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="header" th:remove="tag">
+    <div class="responsive-header">
+        <div class="responsive-menubar">
+            <div class="res-logo"><a href="/" title="">
+                <img alt="" src="/images/laine.jpg"
+                     style="padding-top: 0;padding-bottom: 0;border-radius: 20px;height: 45px"/></a></div>
+            <div class="menu-resaction">
+                <div class="res-openmenu">
+                    <img alt="" src="/images/icon.png"/> Menu
+                </div>
+                <div class="res-closemenu">
+                    <img alt="" src="/images/icon2.png"/> Close
+                </div>
+            </div>
+        </div>
+        <div class="responsive-opensec">
+            <div class="btn-extars">
+                <a class="post-job-btn" href="/post-job" title=""><i class="la la-plus"></i>Post Jobs</a>
+                <ul class="account-btns">
+                    <li><a href="/register" sec:authorize="!isAuthenticated()" title=""><i
+                            class="las la-battery-three-quarters"></i> Sign Up</a></li>
+                    <li class="signin-popup"><a sec:authorize="!isAuthenticated()" title=""><i
+                            class="la la-external-link-square"></i> Login</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/logout" title=""><i
+                            class="la la-external-link-square"></i> logout</a></li>
+                </ul>
+            </div><!-- Btn Extras -->
+            <form class="res-search">
+                <input placeholder="Job title, keywords or company name" type="text"/>
+                <button type="submit"><i class="la la-search"></i></button>
+            </form>
+
+            <!--FOR SMALL SCREEN-->
+            <div class="responsivemenu">
+                <ul>
+                    <li><a class="active" href="/" title=""><i class="las la-home"></i> Home</a></li>
+                    <li><a href="/all-jobs" title=""><i class="las la-home"></i> Jobs</a></li>
+                    <li><a href="/about" title=""><i class="las la-home"></i> About Us</a></li>
+                    <li><a href="/contact-us" title=""><i class="las la-home"></i> Contact Us</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header class="stick-top forsticky" id="myHeader">
+        <div class="menu-sec">
+            <div class="container">
+                <div class="logo">
+                    <a href="/" title="">
+                        <img alt="" class="hidesticky lozad" data-src="/images/laine.jpg"
+                             style="padding-top: 0;padding-bottom: 0;border-radius: 20px;height: 45px"/>
+                        <img alt="" class="showsticky lozad" data-src="/images/laine.jpg"
+                             style="padding-top: 0;padding-bottom: 0;border-radius: 20px;height: 45px"/></a>
+                </div><!-- Logo -->
+                <div class="btn-extars">
+
+                    <ul class="account-btns">
+                        <li class="signin-popup" sec:authorize="!isAuthenticated()">
+                            <a class="post-job-btn" href="#" title="">Log In</a>
+                        </li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="post-job-btn" href="/logout" title="">logout</a>
+                        </li>
+                    </ul>
+                </div><!-- Btn Extras -->
+                <nav>
+                    <ul>
+                        <li><a class="active" href="/" title=""><i class="las la-home"></i> Home</a></li>
+                        <li><a href="/all-jobs" title="All Jobs">Jobs</a></li>
+                        <li><a href="/about-us" title="All Jobs">About Us</a></li>
+                        <li><a href="/contact-us" title="All Jobs">Contact Us</a></li>
+                    </ul>
+                </nav><!-- Menus -->
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>

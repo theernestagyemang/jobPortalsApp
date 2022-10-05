@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment='paginationbar'>
+    <div class='pagination pagination-centered'>
+        <ul th:if="${page !=null}">
+            <li th:class="${page.firstPage}? 'disabled' : ''">
+                <span th:if="${page.firstPage}">← First</span>
+                <a th:href="@{${page.url}(page=1,max=${page.size})}" th:if="${not page.firstPage}">← First</a>
+            </li>
+
+            <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+                <span th:if="${not page.hasPreviousPage}">«</span>
+                <a th:href="@{${page.url}(page=${page.number-1},max=${page.size})}" th:if="${page.hasPreviousPage}"
+                   title="Go to previous page">«</a>
+            </li>
+
+            <li th:class="${item.current}? 'active' : ''" th:each="item : ${page.items}">
+                <a th:if="${item.current}" th:text="${item.number}">1</a>
+                <a th:href="@{${page.url}(page=${item.number},max=${page.size})}" th:if="${not item.current}"><em
+                        th:text="${item.number}">1</em></a>
+            </li>
+
+            <li th:class="${page.hasNextPage}? '' : 'disabled'">
+                <span th:if="${not page.hasNextPage}">»</span>
+                <a th:href="@{${page.url}(page=${page.number+1},max=${page.size})}" th:if="${page.hasNextPage}"
+                   title="Go to next page">»</a>
+            </li>
+
+            <li th:class="${page.lastPage}? 'disabled' : ''">
+                <span th:if="${page.lastPage}">Last →</span>
+                <a th:href="@{${page.url}(page=${page.totalPages},max=${page.size})}" th:if="${not page.lastPage}">Last
+                    →</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

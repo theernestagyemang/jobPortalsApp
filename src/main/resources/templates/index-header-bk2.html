@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+<!-- header -->
+
+<div class="sticky-header main-bar-wraper navbar-expand-lg" th:fragment="header">
+    <div class="top-header-area">
+        <div class="h-100 d-md-flex justify-content-between align-items-center">
+            <div class="email-address">
+                <a href="mailto:enquiries@laineservices.com" id="hod-email" style="color: #FFFFFF">Head Office:
+                    enquiries@laineservices.com </a>|
+                <a href="mailto:hrconsulting@laineservices.com" id="adabraka-email" style="color: #FFFFFF">Adabraka:
+                    hrconsulting@laineservices.com </a>|
+            </div>
+
+            <div class="phone-number d-flex">
+                <div class="icon">
+                    <img alt="" src="/images/phone-call.png">
+                </div>
+                <div class="number">
+                    <a href="tel:+233-302717039" id="company-address">0302-717039 / 0302-249832 / 0302-249833 /
+                        0552588889</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-bar clearfix">
+        <div class="container clearfix">
+            <!-- website logo -->
+            <div class="logo-header mostion">
+                <a href="/"><img alt="" class="lozad logo" data-src="/images/laine.jpg"
+                                 style="padding-top: 0px;padding-bottom: 0;border-radius: 20px"></a>
+            </div>
+            <!-- nav toggle button -->
+            <!-- nav toggle button -->
+            <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler collapsed navicon justify-content-end" data-target="#navbarNavDropdown"
+                    data-toggle="collapse"
+                    type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+            <!-- extra nav -->
+            <div class="extra-nav">
+                <div class="extra-cell">
+                    <a href="/register" style="color: #FFFFFF"><i class="fa fa-user"></i> Sign Up</a> |
+                    <a href="/logout" rel="bookmark" style="color: #FFFFFF" title="logout"><i class="fa fa-lock"></i>
+                        login </a>
+                </div>
+            </div>
+            <!-- main nav -->
+            <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+
+                    <li><a href="/" style="color: #FFFFFF">Home </a></li>
+                    <li><a href="/contact" style="color: #FFFFFF">Contact Us</a></li>
+                    <li>
+                        <a href="#" style="color: #FFFFFF">Browse Page <i class="fa fa-chevron-down"></i></a>
+                        <ul class="sub-menu">
+
+                            <li><a class="dez-page" href="free-job-alerts">free job alerts <span
+                                    class="new-page">New</span></a></li>
+                            <li><a class="dez-page" href="/register">register </a></li>
+                            <li><a class="dez-page" href="/contact">Contact Us</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li class="showlogin hidden-lg">
+                        <a href="/logout" rel="bookmark" style="color: #FFFFFF" title="logout"><i
+                                class="fa fa-lock"></i> login </a>
+                    </li>
+                    <li class="showlogin hidden-lg">
+                        <a href="/register" style="color: #FFFFFF"><i class="fa fa-user"></i> Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- header END -->
+
+
+</body>
+</html>

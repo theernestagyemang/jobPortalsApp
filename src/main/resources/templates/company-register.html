@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Register</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link class="skin" href="/css/loading-css.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content">
+        <!-- inner page banner -->
+
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="section-full content-inner browse-job shop-account">
+            <!-- Product -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 m-b30">
+                        <div class="p-a30 job-bx max-w500 radius-sm bg-white m-auto">
+
+                            <div class="tab-content">
+                                <form class="tab-pane active" id="login">
+                                    <h4 class="font-weight-700 m-b5">COMPANY INFORMATION</h4>
+
+                                    <div class="form-group">
+                                        <label class="font-weight-700">Full Name *</label>
+                                        <input class="form-control" id="companyName" name="fullName"
+                                               placeholder="Requester Full Name" required="" type="text">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="font-weight-700">E-MAIL *</label>
+                                        <input class="form-control" id="email" name="email"
+                                               placeholder="Your Email Address" required="" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="font-weight-700">Password *</label>
+                                        <input class="form-control " id="password" name="user-password"
+                                               placeholder="Type Password" required="" type="password">
+                                    </div>
+                                    <div class="text-left">
+                                        <input class="site-button button-lg outline outline-2" id="btnSave"
+                                               type="submit" value="CREATE"/>
+
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Product END -->
+
+        </div>
+        <!-- contact area  END -->
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div class="modal fade lead-form-modal" id="car-details" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body row m-a0 clearfix">
+                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                         style="background-image: url(images/background/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Login To You Now</h3>
+                            <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                has been the industry.</p>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-a0">
+                        <div class="lead-form browse-job text-left">
+                            <form>
+                                <h3 class="m-t0">Personal Details</h3>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Name" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mobile Number" value=""/>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn-primary site-button btn-block" type="button">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <div class="modal"><!-- Place at bottom of page --></div>
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+
+<script type='text/javascript'>
+
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () {
+            $body.addClass("loading");
+        },
+        ajaxStop: function () {
+            $body.removeClass("loading");
+        }
+    });
+
+
+    $('#login').submit(function () {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        var companyName = $('#companyName').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        // comp,String email,String password
+        var url = "/register-company?comp=" + companyName + "&email=" + email + "&password=" + password;
+
+        // disabled the submit button
+        $("#btnSave").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                switch (data) {
+                    case "EMAIL-EXIST":
+                        swal({
+                            title: "Unsuccessful!",
+                            text: "Sorry, your email is unavailable, please try again with another email!",
+                            type: "error",
+                            icon: "danger",
+                            button: "Ok!"
+                        });
+                        $("#btnSave").prop("disabled", false);
+                        break;
+                    case "FAILED":
+                        swal({
+                            title: "Unsuccessful!",
+                            text: "Sorry, We couldn't create your account, Try again next time!",
+                            type: "error",
+                            icon: "danger",
+                            button: "Ok!"
+                        });
+
+                        $("#btnSave").prop("disabled", false);
+                        break;
+                    case "SUCCESS":
+                        swal({
+                            title: "Success!",
+                            text: "Your account registration is successful pending activation, Please check your email to activate your account!",
+                            type: "success",
+                            icon: "success",
+                            button: "Ok!"
+                        })
+                            .then((value) => {
+                                $("#btnSave").prop("disabled", false);
+                                location.reload();
+                            });
+                        break;
+
+                }
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't create your account, Try again next time!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#btnSave").prop("disabled", false);
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+
+</html>

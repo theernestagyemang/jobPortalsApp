@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Subscription | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/notify.min.css" rel="stylesheet" type="text/css"/>
+
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div>
+        <div th:insert="other-menu :: oheader"></div>
+    </div>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading">
+                            <h2>Buy Our Plans And Packages</h2>
+                            <input id="seekerId" th:value="${seeker.id}" type="hidden"/>
+                        </div><!-- Heading -->
+                        <div class="plans-sec">
+                            <div class="row">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-4">
+                                    <div class="pricetable">
+                                        <div class="pricetable-head">
+                                            <h3>Basic</h3>
+                                            <h2><i>GhC</i>[(${#numbers.formatDecimal(basic.amout,
+                                                0,'COMMA',2,'POINT')})] </h2>
+
+                                        </div><!-- Price Table -->
+                                        <ul>
+                                            <div th:each="user : ${basicMsg}" th:remove="tag">
+                                                <li th:text="${user}"> job posting</li>
+                                            </div>
+
+
+                                        </ul>
+                                        <a class="basic-subsicription" href="#"
+                                           th:href="@{/jobseeker-basic-subscribe/{transactionId}(transactionId=${basic.transactionId})}"
+                                           title="">BUY NOW</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="pricetable active">
+                                        <div class="pricetable-head">
+                                            <h3 th:text="${premium.name}">Pro Jobs</h3>
+                                            <h2><i>GhC</i>[(${#numbers.formatDecimal(premium.amout,
+                                                0,'COMMA',2,'POINT')})] </h2>
+                                        </div><!-- Price Table -->
+                                        <ul>
+                                            <div th:each="req: ${proMsg}" th:remove="tag">
+                                                <li th:text="${req}"> job posting</li>
+                                            </div>
+                                        </ul>
+                                        <a class="prof-subsicription" href="#"
+                                           th:href="@{/jobseeker-subscribe/{transactionId}(transactionId=${premium.transactionId})}"
+                                           title="">BUY NOW</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="terms-conditions">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div th:insert="login-template :: login"></div>
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="basicModal"
+     role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel">Basic Subscription</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You have selected to subscribe to Basic Subscription.</p>
+                    <p>
+                        If this was the action that you wanted to do,
+                        please confirm your choice, or cancel and return to the page.
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="basicConfirm" type="button">Subscribe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="basicSubModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="paymentForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel"> Subscription</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please review your invoice and click on Pay Now to make payment.</p>
+
+                    <div class="material-datatables" id="printTable">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+
+
+                                    <div class="pull-left m-t-30">
+                                        <address>
+                                            <strong>L'aine Services Limted</strong><br/>
+                                            Adabraka-Accra<br/>
+                                            <b>APPLICANT DETAILS :</b><br/>
+                                            <span id="applicantName">#</span><br/>
+                                            <em id="applicantEmail">#</em>
+                                        </address>
+                                    </div>
+                                    <div class="pull-right m-t-30">
+                                        <ul>
+                                            <li>Invoice Date: <em id="orderDate">Jun 15, 2015</em></li>
+                                            <li>Invoice Status: <span class="badge badge-danger"
+                                                                      id="status">Pending</span></li>
+                                            <li class="m-t-10">Invoice ID:<em id="transactionId">#</em></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table m-t-30">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Description</th>
+                                            <th>Unit Cost</th>
+                                            <th>COT</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td id="description">Payment for Basic Subscription</td>
+                                            <td id="amount">2000</td>
+                                            <td id="cot">252.50</td>
+                                            <td id="ttTotal">2.5</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <a class="btn btn-primary btn-sm print-basic" href="#"><i class="fa fa-print"></i></a>
+
+                    <a class="ttlr_inline" data-amount="1"
+                       data-currency="GHS"
+                       data-custom_description="Payment for Subscription"
+                       data-customer_email="email@customer.com"
+                       data-pay_button_text="Pay Now"
+                       data-payment_method="both"
+                       data-transid="000000000000"
+                       id="payBtn"
+                       th:data-APIKey="${apiKey}"
+                       th:data-redirect_url="${url}">
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Modal Box End -->
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="professionalModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Professional Subscription</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to subscribe to Professional Subscription.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return to the page.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="profConfirm" type="button">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="extendedModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Extended Subscription</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to subscribe to Extended Subscription.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return to the page.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="extendedConfirm" type="button">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/notify.min.js"></script>
+<script src="/js/signup.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+
+        $("#forgot-password").toggle(1000);
+        $('.lozad').Lazy();
+
+
+        $("#empForm").click(function () {
+            $("#jobSeekerForm").toggle(1000);
+            $("#empForm").toggle(1000);
+        });
+        $("#jobSeekerForm").click(function () {
+            $("#jobSeekerForm").toggle(1000);
+            $("#empForm").toggle(1000);
+        });
+
+
+    });//End of document.ready
+
+
+    function rowClicked(value) {
+        var url = "/authenticated";
+
+        $.get(url, function (data) {
+            if (!data) {
+                swal("Unauthenticated!", "You must login!", "error");
+
+            } else {
+                saveJob(value);
+            }
+        });
+    }
+
+
+    $(".forget-pass").click(function () {
+        $("#tggl").toggle(1000);
+        $("#forgot-password").toggle(1000);
+    });
+
+    $(".back").click(function () {
+        $("#tggl").toggle(1000);
+        $("#forgot-password").toggle(1000);
+    });
+</script>
+<script src="/js/jquery.number.min.js" type="text/javascript"></script>
+<script src="https://test.theteller.net/checkout/resource/api/inline/theteller_inline.js"
+        type="text/javascript"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.lozad').Lazy();
+    });
+</script>
+<script>
+    function createTellerPayment(url) {
+        $.post(url, function (data, status) { //Declare a GET that takes in href
+
+            var email = data.seekerEmail;
+            var total = data.total;
+            var txId = data.invoiceNumber;
+
+            $("#status").html(data.invoiceStatus);
+            $("#transactionId").html(data.invoiceNumber);
+            $("#amount").html($.number(data.amt, 2));
+            $("#cot").html($.number(data.cot, 2));
+            $("#ttTotal").html($.number(data.total, 2));
+            $("#applicantName").html("Name: " + data.seekerName);
+            $("#applicantEmail").html("Email: " + data.seekerEmail);
+            $("#orderDate").html(data.invoiceDate);
+            $("#description").html(data.description);
+
+            $("a.ttlr_inline").attr("data-transid", txId);
+            $("a.ttlr_inline").attr("data-amount", total);
+            $("a.ttlr_inline").attr("data-customer_email", email);
+
+
+            var modal2 = $('#basicSubModal');
+            modal2.modal('show');
+
+        });
+    }
+
+    $('a.basic-subsicription').click(function (e) {
+        e.preventDefault();
+        var modal = $('#basicModal');
+        modal.data('url', $(this).attr('href'));
+        modal.data('request_type', $(this).data('request-type'));
+        modal.modal('show');
+    });
+
+    $('a.prof-subsicription').click(function (e) {
+        e.preventDefault();
+        var modal = $('#professionalModal');
+        modal.data('url', $(this).attr('href'));
+        modal.data('request_type', $(this).data('request-type'));
+        modal.modal('show');
+    });
+
+    $('a.extended-subsicription').click(function (e) {
+        e.preventDefault();
+        var modal = $('#extendedModal');
+        modal.data('url', $(this).attr('href'));
+        modal.data('request_type', $(this).data('request-type'));
+        modal.modal('show');
+    });
+
+
+    $('#basicConfirm').click(function () {
+
+        var modal = $('#basicModal');
+        var url = modal.data('url');
+
+        $.post(url, function (data) {
+            switch (data) {
+                case "SUCCESS":
+                    swal({
+                        title: "Success!",
+                        text: "Your subscription is successful, your profile has been updated !",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    });
+                    break;
+                case "INVALID-SUBSCRIPTION":
+                    swal("INVALID SUBSCRIPTION!", "Sorry you have choosen an invalid Subscribtion!", "error");
+                    break;
+
+                case "INVALID-USER":
+                    swal("INVALID USER!", "Sorry we could not authenticate your credential, Please try again next time!", "error");
+                    break;
+                case "ALREADY_SUBSCRIBED":
+                    swal("Error!", "Sorry you have already subscribed to this subscribtion!", "error");
+                    break;
+
+                default:
+                    swal("Error!", "Sorry your subscribtion failed, Please try again next time!", "error");
+            }
+        });
+        $("#basicConfirm").prop("disabled", true);
+
+        $("#basicConfirm").prop("disabled", false);
+        modal.modal('hide');
+
+
+    });
+
+
+    $('#profConfirm').click(function () {
+
+        var modal = $('#professionalModal');
+        var empId = $("#seekerId").val();
+        var basic = "Professional";
+        var url = modal.data('url');
+        alert(url);
+        $("#profConfirm").prop("disabled", true);
+        createTellerPayment(url);
+
+        $("#profConfirm").prop("disabled", false);
+        modal.modal('hide');
+    });
+
+    $('#extendedConfirm').click(function () {
+
+        var modal = $('#extendedModal');
+        $("#extendedConfirm").prop("disabled", true);
+
+        var empId = $("#seekerId").val();
+        var basic = "Premium";
+        var url = modal.data('url');
+
+        createTellerPayment(url);
+
+        $("#extendedConfirm").prop("disabled", false);
+        modal.modal('hide');
+    });
+</script>
+
+
+<script>
+
+
+    function printData() {
+        var divToPrint = document.getElementById("printTable");
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+
+    $('a.print-basic').on('click', function () {
+        printData();
+    })
+
+
+    function payWithPaystack() {
+
+        var handler = PaystackPop.setup({
+            key: 'pk_test_4d7049e8b351933835efd32bc30b80494b494ac6', // Replace with your public key
+            email: document.getElementById('email-address').value,
+            amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+            currency: 'GHS', // Use GHS for Ghana Cedis or USD for US Dollars
+            firstname: document.getElementById('first-name').value,
+            lastname: document.getElementById('last-name').value,
+            reference: '1589999', // Replace with a reference you generated
+            callback: function (response) {
+                //this happens after the payment is completed successfully
+                var reference = response.reference;
+                alert('Payment complete! Reference: ' + reference);
+                // Make an AJAX call to your server with the reference to verify the transaction
+            },
+            onClose: function () {
+                alert('Transaction was not completed, window closed.');
+            },
+        });
+        handler.openIframe();
+    }
+
+</script>
+</body>
+</html>
+ 
+

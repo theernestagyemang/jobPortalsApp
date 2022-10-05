@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Job Seekers | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/notify.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .my-tooltip {
+            position: relative;
+
+        }
+
+        .my-tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .my-tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .my-tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .img_advert {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 100%;
+            height: 300px;
+            max-width: 100%;
+
+            display: block;
+
+            margin-left: auto;
+
+            margin-right: auto;
+            width: 80%;
+        }
+
+        .img_advert:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-featured-sec">
+                            <div class="new-slide">
+                                <img class="lozad" data-src="/images/bnr1.jpg">
+                            </div>
+                            <div class="job-search-sec">
+                                <div class="job-search">
+                                    <h3 style="color:goldenrod">The Easiest Way to Get Your New Job</h3>
+                                    <span>Find Jobs, Employment & Career Opportunities</span>
+                                    <form action="/findJobs">
+                                        <div class="row">
+                                            <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input name="q" placeholder="Job title, keywords or company name"
+                                                           type="text"/>
+                                                    <i class="la la-keyboard-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input id="mylocation" placeholder="Type a location" type="text"/>
+
+                                                    <i class="la la-map-marker"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                                <button type="submit"><i class="la la-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="or-browser">
+                                        <span>Browse job offers by</span>
+                                        <a href="#scroll-here" title="">Category</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="scroll-to">
+                                <a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block remove-bottom">
+            <div class="parallax scrolly-invisible"
+                 data-velocity="-.2"
+                 style="background: url(images/resource/parallax5.jpg) repeat scroll 50% 422.28px transparent;"></div>
+            <!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading">
+                            <h2>Buy Our Plans And Packages</h2>
+                        </div><!-- Heading -->
+                        <div class="plans-sec">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="pricetable active style2">
+                                        <div class="pricetable-head">
+                                            <h3>Basic (Free) Package</h3>
+                                            <h2><i>Ghc</i>[(${#numbers.formatDecimal(basic.amout,
+                                                0,'COMMA',0,'POINT')})]</h2>
+                                            <span>Unlimited</span>
+                                        </div><!-- Price Table -->
+                                        <ul>
+                                            <div th:each="user : ${proMsg}" th:remove="tag">
+                                                <li th:text="${user}">Assessment</li>
+                                            </div>
+
+                                        </ul>
+
+                                        <a href="#" id="basicSup" th:data-id="${basic.id}" title="">BUY NOW</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="pricetable style2">
+                                        <div class="pricetable-head">
+                                            <h3>Premium Subscribers</h3>
+                                            <h2><i>Ghc</i>[(${#numbers.formatDecimal(premium.amout,
+                                                0,'COMMA',0,'POINT')})]</h2>
+                                            <span>1 Year</span>
+                                        </div><!-- Price Table -->
+                                        <ul>
+                                            <div th:each="user : ${extendedMsg}" th:remove="tag">
+                                                <li th:text="${user}">Assessment</li>
+                                            </div>
+                                        </ul>
+                                        <a href="#" id="premiumSub" th:data-id="${premium.id}" title="">BUY NOW</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="simple-text">
+                            <h3>How may we help you?</h3>
+                            <span>We're here to help. Check out our <a href="/faq">FAQs</a>, send us an email at <a
+                                    href="/faq" id="adabraka-email">email</a> or call us at  <a href="#" id="comp-tel">  555-5555</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+
+</div>
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info editor" id="basicSubModal"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <form id="paymentForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="deleteLabel"> Subscription</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please review your invoice and click on Pay Now to make payment.</p>
+
+                    <div class="material-datatables" id="printTable">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+
+
+                                    <div class="pull-left m-t-30">
+                                        <address>
+                                            <strong>L'aine Services Limted</strong><br/>
+                                            Adabraka-Accra<br/>
+                                            <b>APPLICANT DETAILS :</b><br/>
+                                            <span id="applicantName">#</span><br/>
+                                            <em id="applicantEmail">#</em>
+                                        </address>
+                                    </div>
+                                    <div class="pull-right m-t-30">
+                                        <ul>
+                                            <li>Invoice Date: <em id="orderDate">Jun 15, 2015</em></li>
+                                            <li>Invoice Status: <span class="badge badge-danger"
+                                                                      id="status">Pending</span></li>
+                                            <li class="m-t-10">Invoice ID:<em id="transactionId">#</em></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table m-t-30">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Description</th>
+                                            <th>Unit Cost</th>
+                                            <th>COT</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td id="description">Payment for Basic Subscription</td>
+                                            <td id="amount">2000</td>
+                                            <td id="cot">252.50</td>
+                                            <td id="ttTotal">2.5</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <a class="btn btn-primary btn-sm print-basic" href="#"><i class="fa fa-print"></i></a>
+
+                    <a class="ttlr_inline" data-amount="1"
+                       data-currency="GHS"
+                       data-custom_description="Payment for Subscription"
+                       data-customer_email="email@customer.com"
+                       data-pay_button_text="Pay Now"
+                       data-payment_method="both"
+                       data-transid="000000000000"
+                       id="payBtn"
+                       th:data-APIKey="${apiKey}"
+                       th:data-redirect_url="${url}">
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<!-- LOGIN POPUP -->
+
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
+<script src="/js/notify.min.js"></script>
+<div th:insert="login-template :: login"></div>
+<script src="/js/login.js"></script>
+<script src="/js/jquery.number.min.js" type="text/javascript"></script>
+<script src="https://test.theteller.net/checkout/resource/api/inline/theteller_inline.js"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#forgot-password").toggle(1000);
+        var url88 = "/find-address";
+
+        $.get(url88, function (data, status) {
+            console.log(data.hodEmail);
+            $('#comp-tel').html(data.companyAddress);
+            $('#adabraka-email').html(data.hodEmail);
+        });
+
+        $('.lozad').Lazy();
+
+        $('#login').submit(function (event) {
+            //stop submit the form, we will post it manually.
+            event.preventDefault();
+
+            var name = $('#requesterFullName').val();
+            var email = $('#requesterEmail').val();
+            var tel = $('#requesterPhone').val();
+            var serviceType = $('#serviceType').val();
+
+            // name,String email, String tel 
+            var url = "/create-cv-request?name=" + name + "&email=" + email + "&tel=" + tel + "&serviceType=" + serviceType;
+
+            var modal = $('#cvConfirmModal');
+
+            // disabled the submit button
+            $("#btnSave").prop("disabled", true);
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    if (data) {
+                        modal.modal('hide');
+                        swal({
+                            title: "Success!",
+                            text: "Your request has been submitted Successfully, We will get back to you shortly!",
+                            type: "success",
+                            icon: "success",
+                            button: "Ok!"
+                        }).then((value) => {
+                            $("#btnSave").prop("disabled", false);
+                        });
+                    } else {
+                        swal({
+                            title: "Unsuccessful!",
+                            text: "Sorry, we couldn't submit your request, Try again next time!",
+                            type: "error",
+                            icon: "danger",
+                            button: "Ok!"
+                        });
+
+                        $("#btnSave").prop("disabled", false);
+                        modal.modal('hide');
+                    }
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, we couldn't submit your request, Try again next time!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!"
+                    });
+                    $("#btnSave").prop("disabled", false);
+                }
+
+            });
+
+        });
+
+        $("#empForm").toggle(1000);
+
+
+        $("#empForm").click(function () {
+            $("#jobSeekerForm").toggle(1000);
+            $("#empForm").toggle(1000);
+        });
+        $("#jobSeekerForm").click(function () {
+            $("#jobSeekerForm").toggle(1000);
+            $("#empForm").toggle(1000);
+        });
+
+        $("#basicSup, #premiumSub").on('click', function (e) {
+            e.preventDefault();
+            var dataId = $(this).attr("data-id");
+
+            Swal.fire({
+                title: 'Please provide your email or xjobs username',
+                input: 'text',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Look up',
+                showLoaderOnConfirm: true,
+                preConfirm: (login) => {
+                    $.ajax(`/subscribe-by-email/${dataId}/?email=${login}&option=1`, {
+                        dataType: 'json',
+                        timeout: 500,
+                        success: function (data, status, xhr) {
+                            createTellerPayment(data);
+                        },
+                        error: function (error, status) {
+                            var st = error.status;
+
+                            if (st === 406) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: `Invalid Email`,
+                                    footer: "<a href='/faq'>Why do I have this issue?</a>"
+                                })
+                            }
+
+                        }
+                    });
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                }
+            })
+        });
+
+    });//End of document.ready
+
+</script>
+<script type="text/javascript">
+    function rowClicked(value) {
+        var url = "/authenticated";
+
+        $.get(url, function (data) {
+            if (!data) {
+                swal("Unauthenticated!", "You must login!", "error");
+
+            } else {
+                saveJob(value);
+            }
+        });
+
+    }
+
+
+    function saveJob(value) {
+        var url = "/save-jobs?id=" + value;
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                });
+
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+
+            }
+
+        });
+    }
+
+    function createTellerPayment(data) {
+
+        var email = data.seekerEmail;
+        var total = data.total;
+        var txId = data.invoiceNumber;
+
+        $("#status").html(data.invoiceStatus);
+        $("#transactionId").html(data.invoiceNumber);
+        $("#amount").html($.number(data.amt, 2));
+        $("#cot").html($.number(data.cot, 2));
+        $("#ttTotal").html($.number(data.total, 2));
+        $("#applicantName").html("Name: " + data.seekerName);
+        $("#applicantEmail").html("Email: " + data.seekerEmail);
+        $("#orderDate").html(data.invoiceDate);
+        $("#description").html(data.description);
+
+        $("a.ttlr_inline").attr("data-transid", txId);
+        $("a.ttlr_inline").attr("data-amount", total);
+        $("a.ttlr_inline").attr("data-customer_email", email);
+
+        var modal2 = $('#basicSubModal');
+        modal2.modal('show');
+
+    }
+</script>
+</body>
+</html>
+

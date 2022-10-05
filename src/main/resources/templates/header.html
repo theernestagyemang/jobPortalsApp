@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+
+<!-- header -->
+<div th:fragment="header" th:remove="tag">
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+
+        <div class="main-bar">
+            <div class="container clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                    <a href="/"><img alt="" class="logo lozad" data-src="/images/laine.jpg"
+                                     style="padding-top: 0px;padding-bottom: 0;border-radius: 20px;height: 45px"></a>
+                </div>
+                <!-- nav toggle button -->
+                <!-- nav toggle button -->
+                <button aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation" class="navbar-toggler collapsed navicon justify-content-end"
+                        data-target="#navbarNavDropdown"
+                        data-toggle="collapse" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+                <!-- extra nav -->
+
+                <div class="extra-nav">
+                    <div class="extra-cell">
+                        <a class="badge badge-success" sec:authorize="isAuthenticated()" style="color: white">
+                            Logged-in as <span sec:authentication="name"></span></a>
+                        <a href="/login" rel="bookmark" sec:authorize="!isAuthenticated()" title="login"><i
+                                class="fa fa-lock"></i> login </a>
+                        <a href="/logout" rel="bookmark" sec:authorize="isAuthenticated()" title="logout"><i
+                                class="fa fa-lock"></i> logout </a>
+                        <a class="site-button" href="/register" sec:authorize="!isAuthenticated()"><i
+                                class="fa fa-user"></i> Register</a>
+
+
+                    </div>
+                </div>
+                <!-- main nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                    <ul class="nav navbar-nav">
+
+
+                        <li><a href="/">Home </a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/about-us">About Us </a></li>
+                        <li><a href="/company-dashboard">Dashboard </a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- header END -->
+
+
+</body>
+</html>

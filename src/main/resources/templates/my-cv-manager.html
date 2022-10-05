@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Manange CV</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <div th:insert="header :: header"></div>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Browse Jobs -->
+            <div class="section-full bg-white p-t50 p-b20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 m-b30">
+                            <div class="sticky-top">
+                                <div class="candidate-info">
+                                    <div class="candidate-detail text-center">
+                                        <div class="canditate-des">
+                                            <a href="javascript:void(0);">
+                                                <img alt="" src="/images/team/pic1.jpg">
+                                            </a>
+                                            <div class="upload-link" data-placement="right" data-toggle="tooltip"
+                                                 title="update">
+                                                <input class="update-flie" type="file">
+                                                <i class="fa fa-camera"></i>
+                                            </div>
+                                        </div>
+                                        <div class="candidate-title">
+                                            <div class="">
+                                                <h4 class="m-b5"><a href="javascript:void(0);">David Matin</a></h4>
+                                                <p class="m-b0"><a href="javascript:void(0);">Web developer</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li><a href="jobs-profile.html">
+                                            <i aria-hidden="true" class="fa fa-user-o"></i>
+                                            <span>Profile</span></a></li>
+                                        <li><a href="jobs-my-resume.html">
+                                            <i aria-hidden="true" class="fa fa-file-text-o"></i>
+                                            <span>My Resume</span></a></li>
+                                        <li><a href="jobs-saved-jobs.html">
+                                            <i aria-hidden="true" class="fa fa-heart-o"></i>
+                                            <span>Saved Jobs</span></a></li>
+                                        <li><a href="jobs-applied-job.html">
+                                            <i aria-hidden="true" class="fa fa-briefcase"></i>
+                                            <span>Applied Jobs</span></a></li>
+                                        <li><a href="jobs-alerts.html">
+                                            <i aria-hidden="true" class="fa fa-bell-o"></i>
+                                            <span>Job Alerts</span></a></li>
+                                        <li><a class="active" href="jobs-cv-manager.html">
+                                            <i aria-hidden="true" class="fa fa-id-card-o"></i>
+                                            <span>CV Manager</span></a></li>
+                                        <li><a href="jobs-change-password.html">
+                                            <i aria-hidden="true" class="fa fa-key"></i>
+                                            <span>Change Password</span></a></li>
+                                        <li><a href="index.html">
+                                            <i aria-hidden="true" class="fa fa-sign-out"></i>
+                                            <span>Log Out</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 m-b30">
+                            <div class="job-bx clearfix">
+                                <div class="job-bx-title clearfix">
+                                    <h5 class="font-weight-700 pull-left text-uppercase">CV Manager</h5>
+                                    <div class="float-right">
+                                        <span class="select-title">Sort by freshness</span>
+                                        <select>
+                                            <option>Last 2 Months</option>
+                                            <option>Last Months</option>
+                                            <option>Last Weeks</option>
+                                            <option>Last 3 Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <ul class="cv-manager">
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic1.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">Alexander Weir</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 11 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic2.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">Jennifer Wood</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 10 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic3.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">Melissa Hassib</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 09 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic1.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">Joseph Macfarlan</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 08 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic2.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">Henry Crooks</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 07 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex float-left">
+                                            <div class="job-post-company">
+                                                <a href="javascript:void(0);"><span>
+													<img alt="" src="/images/testimonials/pic3.jpg"/>
+												</span></a>
+                                            </div>
+                                            <div class="job-post-info">
+                                                <h6><a href="javascript:void(0);">James Rogers</a></h6>
+                                                <ul>
+                                                    <li><i class="fa fa-map-marker"></i> Sacramento, California</li>
+                                                    <li><i class="fa fa-bookmark-o"></i> Full Time</li>
+                                                    <li><i class="fa fa-clock-o"></i> 06 days ago</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="job-links action-bx">
+                                            <a href="files/pdf-sample.pdf" target="blank"><i class="fa fa-download"></i></a>
+                                            <a href="javascript:void(0);"><i class="ti-trash"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pagination-bx float-right">
+                                    <ul class="pagination">
+                                        <li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i>
+                                            Prev</a></li>
+                                        <li class="active"><a href="javascript:void(0);">1</a></li>
+                                        <li><a href="javascript:void(0);">2</a></li>
+                                        <li><a href="javascript:void(0);">3</a></li>
+                                        <li class="next"><a href="javascript:void(0);">Next <i
+                                                class="ti-arrow-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Browse Jobs END -->
+        </div>
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div class="modal fade lead-form-modal" id="car-details" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body row m-a0 clearfix">
+                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                         style="background-image: url(images/background/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Login To You Now</h3>
+                            <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                has been the industry.</p>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-a0">
+                        <div class="lead-form browse-job text-left">
+                            <form>
+                                <h3 class="m-t0">Personal Details</h3>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Name" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mobile Number" value=""/>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn-primary site-button btn-block" type="button">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-4 col-md-12 col-sm-12">
+                        <div class="widget">
+                            <img alt="" class="m-b15" src="/images/logo-white.png" width="180"/>
+                            <p class="text-capitalize m-b20">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry has been the industry's standard dummy text ever since the.</p>
+                            <div class="subscribe-form m-b20">
+                                <form action="script/mailchamp.php" class="dzSubscribe" method="post">
+                                    <div class="dzSubscribeMsg"></div>
+                                    <div class="input-group">
+                                        <input class="form-control" name="dzEmail" placeholder="Your Email Address"
+                                               required="required" type="email">
+                                        <span class="input-group-btn">
+											<button class="site-button radius-xl" name="submit" type="submit"
+                                                    value="Submit">Subscribe</button>
+										</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul class="list-inline m-a0">
+                                <li><a class="site-button white facebook circle " href="javascript:void(0);"><i
+                                        class="fa fa-facebook"></i></a></li>
+                                <li><a class="site-button white google-plus circle " href="javascript:void(0);"><i
+                                        class="fa fa-google-plus"></i></a></li>
+                                <li><a class="site-button white linkedin circle " href="javascript:void(0);"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                                <li><a class="site-button white instagram circle " href="javascript:void(0);"><i
+                                        class="fa fa-instagram"></i></a></li>
+                                <li><a class="site-button white twitter circle " href="javascript:void(0);"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-12">
+                        <div class="widget border-0">
+                            <h5 class="m-b30 text-white">Frequently Asked Questions</h5>
+                            <ul class="list-2 list-line">
+                                <li><a href="javascript:void(0);">Privacy & Seurty</a></li>
+                                <li><a href="javascript:void(0);">Terms of Serice</a></li>
+                                <li><a href="javascript:void(0);">Communications</a></li>
+                                <li><a href="javascript:void(0);">Referral Terms</a></li>
+                                <li><a href="javascript:void(0);">Lending Licnses</a></li>
+                                <li><a href="javascript:void(0);">Support</a></li>
+                                <li><a href="javascript:void(0);">How It Works</a></li>
+                                <li><a href="javascript:void(0);">For Employers</a></li>
+                                <li><a href="javascript:void(0);">Underwriting</a></li>
+                                <li><a href="javascript:void(0);">Contact Us</a></li>
+                                <li><a href="javascript:void(0);">Lending Licnses</a></li>
+                                <li><a href="javascript:void(0);">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
+                        <div class="widget border-0">
+                            <h5 class="m-b30 text-white">Find Jobs</h5>
+                            <ul class="list-2 w10 list-line">
+                                <li><a href="javascript:void(0);">US Jobs</a></li>
+                                <li><a href="javascript:void(0);">Canada Jobs</a></li>
+                                <li><a href="javascript:void(0);">UK Jobs</a></li>
+                                <li><a href="javascript:void(0);">Emplois en Fnce</a></li>
+                                <li><a href="javascript:void(0);">Jobs in Deuts</a></li>
+                                <li><a href="javascript:void(0);">Vacatures China</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer bottom part -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+						<span> © Copyright 2020  by <i class="fa fa-heart m-lr5 text-red heart"></i>
+						<a href="javascript:void(0);">DexignZone </a> All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+</body>
+</html>

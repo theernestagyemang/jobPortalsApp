@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>xjobs || Add Positions</title>
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="all,follow" name="robots">
+    <!-- Bootstrap CSS-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google fonts - Roboto for copy, Montserrat for headings-->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <!-- owl carousel-->
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.css" rel="stylesheet">
+    <!-- theme stylesheet-->
+    <link href="/css/style.default.css" id="theme-stylesheet" rel="stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link href="/css/custom.css" rel="stylesheet">
+    <!-- Favicon-->
+    <link href="favicon.png" rel="shortcut icon">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<!-- navbar-->
+<header class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="../index.xhtml">
+                <img alt="logo" class="hidden-xs hidden-sm img-rounded" src="img/lainesmall.png"/>
+                <img alt="logo" class="visible-xs visible-sm" src="img/logo-small.png"/><span class="sr-only">Go to homepage</span></a>
+                <div class="navbar-buttons">
+                    <button class="navbar-toggle navbar-btn" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">Menu<i class="fa fa-align-justify"></i></button>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse navbar-right sticky" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="job_list.xhtml">Jobs</a></li>
+                    <li><a href="about.xhtml">About us</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Client zone <b
+                            class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="client-dashboard.xhtml">Dashboard</a></li>
+                            <li><a href="client-applicants.xhtml">Applicants</a></li>
+                            <li><a href="client-job.xhtml">Post a new job</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.xhtml">Contact</a></li>
+                    <li>
+                        <h:form id="frmlogin">
+                            <h:commandLink action="#{login.doLogout}" class="btn navbar-btn btn-white sign-in"
+                                           value="Logout"
+                            ><i class="fa fa-sign-out"></i></h:commandLink>
+
+                        </h:form>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" id="closeBtnAlert" th:if="${msg_success}">
+                    <button class="close" id="closeBtn" type="button">
+                        <i class="material-icons">clear</i>
+                    </button>
+                    <span th:text="${msg_success}"></span>
+                </div>
+                <div class="alert alert-danger" id="closeBtnAlert2" th:if="${msg_error}" th:text="${p_error}">
+                    <button class="close" id="closeBtn2" type="button">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box">
+                    <h3 class="heading">Position List</h3>
+
+                    <table cellspacing="0" class="table table-striped table-no-bordered table-hover" id="datatables"
+                           style="width:100%" width="100%">
+                        <thead>
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Name Of Position</th>
+                            <th class="disabled-sorting text-text">Actions</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Name Of Position</th>
+                            <th class="text-left">Actions</th>
+                        </tr>
+                        </tfoot>
+
+                        <tbody>
+
+                        <tr th:each="country: ${positionList}">
+
+                            <td th:if="country !=null" th:text="${country.id}"></td>
+                            <td th:if="country !=null" th:text="${country.nameOfPosition}"></td>
+
+                            <td class="td-actions text-left" th:if="country">
+                                <a class="on-default"
+                                   style="color: blue"
+                                   th:onclick="'javascript:rowClicked(\'' + ${country.id} + '\');'"><i
+                                        class="fa fa-search"></i></a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+
+                    <form method="post" th:action="@{/positions}" th:object="${positions}">
+                        <div class="form-group">
+                            <label for="email">Name</label>
+                        </div>
+
+
+                        <input class="form-control" id="nameOfPosition"
+                               placeholder="Name" th:field="*{nameOfPosition}"
+                               type="text">
+                        <br/>
+                        <div class="pull-right">
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-plus-circle "></i> Add
+                            </button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer__block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h4>About L'AÎNÉ Jobs</h4>
+                    <p>
+                        The impact of L'AÎNÉ Services Limited in Human Resource Development in Ghana is huge.
+                        The company plays the role of an eldest to many HR institutions in the country,
+                        living up to its name, L'AÎNÉ, which is a French word for ELDEST or FIRST BORN.
+
+
+                    </p>
+                    <p> We offer a wide range of services across a lot of industry sectors through the following
+                        offerings; job placement, outsourcing of staff to other companies, training, organisational
+                        development, career counselling, grooming, interview preparation, production of
+                        management training videos and payrolling. These have been tailor-made into five main brands;
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h4>L'AÎNÉ Services</h4>
+                    <ul>
+                        <li><a href="http://www.laineservices.com/">Home</a></li>
+                        <li><a href="http://www.laineservices.com/about/">About us</a></li>
+                        <li><a href="http://www.laineservices.com/contact/">Contact</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4>Our offices</h4>
+                    <p> Telephone: 0302-717039 / 0302-716983 / 0302-716986</p>
+                    <h5>Accra Central</h5>
+                    <p> Telephone + 233 244 789 879</p>
+                    <h5>Tema</h5>
+                    <p> Telephone + 233 244 789 879</p>
+                    <h5>Adabraka Branch</h5>
+                    <p> Telephone: 0302-717039 / 0302-716983 / 0302-716986</p>
+                    <h5>Kumasi Branch</h5>
+                    <p> Telephone + 233 244 789 879</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <h4>Client zone</h4>
+                    <ul>
+                        <li><a data-target="#login-modal" data-toggle="modal" href="#">Login or Register</a></li>
+                        <li><a data-target="#login-modal" data-toggle="modal" href="#">Dashboard</a></li>
+                        <li><a data-target="#login-modal" data-toggle="modal" href="#">Post a new job</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h4>Let's be Friends</h4>
+                    <p class="social"><a class="external facebook" data-animate-hover="pulse" href="#"><i
+                            class="fa fa-facebook"></i></a><a class="external gplus" data-animate-hover="pulse"
+                                                              href="#"><i
+                            class="fa fa-google-plus"></i></a><a class="external twitter" data-animate-hover="pulse"
+                                                                 href="#"><i class="fa fa-twitter"></i></a><a
+                            class="email" data-animate-hover="pulse" href="#"><i class="fa fa-envelope"></i></a></p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h4>News and Updates</h4>
+                    <p>Sign up to get weekly portion of fresh jobs and news from us.</p>
+                    <h:form class="footer__newsletter">
+                        <div class="input-group">
+                            <b:inputText class="form-control" id="emailSub" placeholder="Enter your email address"
+                                         required="true" requiredMessage="Please email is required"
+                                         type="email"
+                                         validatorMessage="Invalid email format" value="#{job.sub.email}">
+                                <f:validateRegex
+                                        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                            </b:inputText>
+                            <span class="input-group-btn">
+                                <b:commandButton action="#{job.subscribeForEmail()}" class="btn btn-default"
+                                                 type="button"
+                                                 update="subMsg" value=""><i class="fa fa-send"></i>
+                                </b:commandButton>
+                            </span>
+                        </div>
+                        <b:messages id="subMsg"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy;2019 L'ane Services</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="credit pull-right">Design by <a class="external" href="http://synergyosl.com">Synergy
+                        OSL</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Javascript files-->
+<script src="/js/jquery-1.12.4.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+<!---->
+<script>
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $().ready(function () {
+
+            $('.table tbody').on('click', '.deleteBtn', function (evt) {
+
+                evt.preventDefault();
+                var href = $(this).attr('href');//Content or the request we sending to the server
+
+                $('#myModal10 #delRef').attr('href', href);
+            });
+
+
+            $('#closeBtn').on('click', function () {
+                $('#closeBtnAlert').hide();
+            });
+            $('#closeBtn2').on('click', function () {
+                $('#closeBtnAlert2').hide();
+            });
+
+
+        });
+    });
+</script>
+</body>
+</html>

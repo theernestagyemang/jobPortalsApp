@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<header th:fragment="header">
+
+
+    <header class="header">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="../index">
+                    <img alt="logo" class="hidden-xs hidden-sm img-rounded" src="img/lainesmall.png"/>
+                    <img alt="logo" class="visible-xs visible-sm" src="img/logo-small.png"/><span class="sr-only">Go to homepage</span></a>
+                    <div class="navbar-buttons">
+                        <button class="navbar-toggle navbar-btn" data-target=".navbar-collapse" data-toggle="collapse"
+                                type="button">Menu<i class="fa fa-align-justify"></i></button>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse navbar-right sticky" id="navigation">
+                    <ul class="nav navbar-nav">
+
+                        <li class="active"><a href="dashboard">Dashboard</a></li>
+                        <li><a href="notifications">Notifications 0 </a></li>
+
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Jobs <b
+                                class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li><a href="/job-request-list">View Job Request</a></li>
+                                <li><a href="/publish-jobs">Publish Job</a></li>
+                                <li><a href="/all-published-jobs">All Published Jobs</a></li>
+
+                                <li><a href="/job-list">Job Listing By Date</a></li>
+                                <li><a href="/job-seekers-list">Job Seekers List</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> User <b class="caret"></b>
+                                <img alt="user pic" class="photo img-responsive img-circle"
+                                     src="img/avatar.jpg"/>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="edit-profile"><i class="fa fa-pencil"></i> Edit Profile</a></li>
+                                <li><a href="change-password"><i class="fa fa-lock"></i> Change Password</a></li>
+                                <li>
+
+                                    <a href="/login"><i class="fa fa-sign-out"></i> Logout</a>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- *** LOGIN MODAL ***_________________________________________________________
+    -->
+    <div aria-hidden="true" aria-labelledby="Login" class="modal fade" id="login-modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                    <h4 class="modal-title" id="Login">Customer login</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="card card-login card-hidden">
+
+                        <div class="card-header">
+
+                            <div th:if="${msg}">
+                                <div class="alert alert-success">
+                                    <span th:text="${msg}"></span>
+                                </div>
+                            </div>
+
+                            <div style="color:red;margin:10px 0px;" th:if="${#request.getParameter('error') == 'true'}">
+                                Login Failed!!!<br/>
+                                Reason :
+                                <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+                                      th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                                  Static summary
+                           </span>
+
+                                <a href="/recover-pass" style="color:blue; font-style: italic">(Reset password)</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <form autocomplete="on" method='POST' name='f' th:action="@{/j_spring_security_check}">
+                        <div class="form-group">
+
+                            <input class="form-control" id="username"
+                                   name='username' placeholder="email"
+                                   required="required" type="text"
+                                   value=''/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="password" name="password" placeholder="Password..."
+                                   type="password">
+                        </div>
+                        <p class="text-center">
+                            <input class="btn btn-rose btn-link btn-lg" type="submit" value="Sign In"/>
+                            <button class="btn btn-primary" type="button"><i class="fa fa-sign-in"></i> Log in</button>
+                        </p>
+                    </form>
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="client-register"><strong>Register now</strong></a>! It is
+                        easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+
+
+</header>
+</body>
+</html>

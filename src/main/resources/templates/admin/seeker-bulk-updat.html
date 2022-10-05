@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Job Seekers Upload | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="/css/dropzone.css" rel="stylesheet" type="text/css"/>
+    <style>
+
+        .dropzone {
+            background: white;
+            border-radius: 5px;
+            border: 2px dashed rgb(0, 135, 247);
+            border-image: none;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dz-header {
+            text-align: center;
+        }
+
+        .dropzone i {
+            font-size: 5rem;
+        }
+
+        .dropzone .dz-message {
+            color: rgba(0, 0, 0, .54);
+            font-weight: 500;
+            font-size: initial;
+            text-transform: uppercase;
+        }
+
+
+        .dropzone i {
+            font-size: 5rem;
+        }
+
+        .dropzone .dz-message {
+            color: rgba(0, 0, 0, .54);
+            font-weight: 500;
+            font-size: initial;
+            text-transform: uppercase;
+        }
+
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        li {
+            display: inline;
+
+        }
+
+        li a {
+            color: white;
+        }
+
+        #alertBox {
+            border-radius: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" th:src="@{/images/loader.jpg}"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-employer :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-velocity="-.1"
+                 style="background: repeat scroll 50% 422.28px transparent;"
+                 th:data-src="@{/images/slide1.jpg}"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3 th:if="${user != null}" th:text="'Welcome ' + ${user.fullName}">Welcome </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec">
+                                <ul>
+
+                                    <li><a href="/company-dashboard" title=""><i class="la la-dashboard"></i>Company
+                                        Dashboard</a></li>
+                                    <li><a href="/company-profile" title=""><i class="la la-file-text"></i>Company
+                                        Profile</a></li>
+                                    <li><a href="/candidates" title=""><i class="la la-users"></i>Job Seekers</a></li>
+                                    <li><a href="/company-manage-job" title=""><i class="la la-briefcase"></i>Manage
+                                        Jobs</a></li>
+                                    <li><a href="/company-transactions" title=""><i class="la la-money"></i>Transactions</a>
+                                    </li>
+                                    <li><a href="/company-resume" title=""><i class="la la-paper-plane"></i>Resumes</a>
+                                    </li>
+                                    <li><a href="/comp-subscription" title=""><i class="la la-user"></i>Packages</a>
+                                    </li>
+                                    <li><a href="/company-post-jobs" title=""><i class="la la-file-text"></i>Post a New
+                                        Job</a></li>
+                                    <li><a href="/change-password" title=""><i class="la la-lock"></i>Change
+                                        Password</a></li>
+                                    <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-lg-9 ">
+                        <div class="row">
+                            <div class="col-lg-4 ">
+
+                                <div class="red box" id="uploadDiv">
+                                    Job Seekers
+                                    <br/>
+                                    <form action="/admin/upload-bulk-seekers" class="dropzone"
+                                          id="my-awesome-dropzone">
+                                        <input name="id" type="hidden"/>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 ">
+                                <div class="red box" id="uploadDiv">
+                                    Jobs
+                                    <br/>
+                                    <form action="/admin/upload-bulk-jobs-update" class="dropzone"
+                                          id="my-awesome-dropzone">
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 ">
+
+                                <div class="red box" id="uploadDiv">
+                                    Education Histories
+                                    <br/>
+                                    <form action="/admin/upload-bulk-education-update" class="dropzone"
+                                          id="my-awesome-dropzone">
+                                        <input name="id" type="hidden"/>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 ">
+                                <div class="red box" id="uploadDiv">
+                                    IT Skills
+                                    <br/>
+                                    <form action="/admin/upload-bulk-skills-update" class="dropzone"
+                                          id="my-awesome-dropzone">
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 ">
+                                <div class="red box" id="uploadDiv">
+                                    Work History
+                                    <br/>
+                                    <form action="/admin/upload-bulk-workhistory-update" class="dropzone"
+                                          id="my-awesome-dropzone">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="deleteConfirmModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Blacklist Candidate</h4>
+            </div>
+            <form id="blacklistForm" method="post">
+                <div class="modal-body">
+                    <p>You have selected to blacklist this candidate (<em id="seekerName" style="color:red"></em>).</p>
+                    <p>
+                        If this was the action that you wanted to do,
+                        please type your comment and confirm your choice, or cancel and return to the page.
+                    </p>
+
+                    <span class="pf-title">Comment</span>
+                    <div class="pf-field">
+                        <textarea id="msg" maxlength="50" name="msg" placeholder="Type your comment here" required
+                                  rows="3"></textarea>
+                        <input id="seekerId" type="hidden"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="deleteConfirm" type="submit">Blacklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade" id="coverLetter" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel"> Candidate Cover Letter</h4>
+            </div>
+
+            <div class="modal-body">
+                <span class="pf-title">Cover Letter</span>
+                <div class="pf-field">
+                    <textarea id="cv" maxlength="50" name="cv" placeholder="Cover Letter" readonly required
+                              rows="3"></textarea>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="../../modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/job/jquery.scrollbar.min.js" type="text/javascript"></script>
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+
+<script src="/js/dropzone.js"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+<script src="/js/job/dropzone.js?v=6"></script>
+
+
+<script>
+    $(function () {
+
+        $('.lozad').Lazy();
+        if ($('#searchTerm').val() === "0") {
+            $('#searchTerm').val("");
+        }
+
+
+        $("a.blacklist").on("click", function (e) {
+            e.preventDefault();
+            var modal = $('#deleteConfirmModal');
+            modal.data('url', $(this).attr('href'));
+            var url = $(this).attr('href');
+
+            $.get(url, function (data, status) {
+                $("#seekerId").val(data.id);
+                $("#seekerName").html(data.fullName);
+            });
+
+            var url =
+                modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+
+        $("#blacklistForm").on("submit", function (e) {
+            e.preventDefault();
+
+            var tx = $("#msg").val();
+            var seekerId = $("#seekerId").val();
+            var modal = $('#deleteConfirmModal');
+
+            var url = "/blacklist?tx=" + tx + "&id=" + seekerId;
+            $("#deleteConfirm").prop("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                url: url,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    switch (data) {
+                        case "FAILED":
+                        case "ERROR":
+                            swal("Unsuccessful", "Could not blacklist candidate", "error");
+                            break;
+                        case "SUCCESS":
+                            swal({
+                                title: "Success!",
+                                text: "Candiate blacklisted!",
+                                type: "success",
+                                icon: "success",
+                                button: "Ok!"
+                            })
+                                .then((value) => {
+                                    $("#deleteConfirm").prop("disabled", false);
+
+                                });
+                            modal.modal('hide');
+                    }
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!", text: "Sorry, We couldn't update user!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!",
+                    });
+
+                    $("#deleteConfirm").prop("disabled", false);
+
+                }
+
+            });
+        });
+
+
+        $("a.open-coverletter").on("click", function (e) {
+            e.preventDefault();
+            var modal = $('#coverLetter');
+            modal.data('url', $(this).attr('href'));
+            var url = $(this).attr('href');
+
+            $.get(url, function (data, status) {
+                $("#cv").val(data.coverLetter);
+                $("#seekerName").html(data.fullName);
+            });
+
+
+            modal.data('request_type', $(this).data('request-type'));
+            modal.modal('show');
+        });
+    });
+
+    function findShortlisted(val) {
+        var url = "/findShortlisted/" + val;
+        var shortlist = 0;
+        $.get(url, function (data) {
+            shortlist = data;
+        });
+        return shortlist;
+    }
+</script>
+</body>
+</html>
+

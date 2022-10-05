@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>xjobs - Job Details</title>
+    <!-- Vendors Style-->
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <!-- Style-->
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="/css/mycss2.css" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link href="../../plugins/tagcomplete/tagcomplete.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-md-flex align-items-center justify-content-between">
+                    <div>
+                        <a class="waves-effect waves-light btn btn-outline btn-primary"
+                           th:href="@{/recruiter/jobs-details(trx=${job.transactionId})}">Jobs</a>
+                        <a class="waves-effect waves-light btn btn-outline btn-primary mx-lg-10 active" href="#"
+                           style=" border-color: #2196F3;">Candidates</a>
+                    </div>
+                    <a class="waves-effect waves-light btn btn-danger mt-10 mt-md-0 post-job" href="#">Post A Jobs</a>
+
+                </div>
+            </div>
+            <!-- Main content -->
+            <section class="content" id="main-section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div>
+                                    <ul class="nav nav-pills nav-fill">
+                                        <li class="nav-item b-1">
+                                            <a class="nav-link text-center candidate" data-id="Shortlisted"
+                                               href="#" id="shortlistedCand"> [(${#numbers.formatInteger(shortlisted,
+                                                1,'COMMA')})] <br>Shortlisted</a>
+                                        </li>
+                                        <li class="nav-item b-1">
+                                            <a class="nav-link text-center candidate" data-id="Pending" href="#">[(${#numbers.formatInteger(awaitingReview,
+                                                1,'COMMA')})] <br>Awaiting Review</a>
+                                        </li>
+                                        <li class="nav-item b-1">
+                                            <a class="nav-link text-center candidate" data-id="Hired" href="#">[(${#numbers.formatInteger(hired,
+                                                1,'COMMA')})] <br>Hired</a>
+                                        </li>
+
+                                        <li class="nav-item b-1">
+                                            <a class="nav-link text-center candidate" data-id="Rejected" href="#">[(${#numbers.formatInteger(rejected,
+                                                1,'COMMA')})] <br>Rejected</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-body px-0">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="example2">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Telephone</th>
+                                            <th>Apply Date</th>
+                                            <th><i class="fa fa-lock mr-5"></i>Interested?</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+    <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+<!-- Page Content overlay -->
+
+<script src="/js/vendors.min.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+<script src="../../assets/vendor_components/moment/min/moment.min.js"></script>
+<script src="../../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/app-jobs.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/candidates.js"></script>
+
+<script src="../../assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+
+
+<!-- Joblly App -->
+<script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/app-create-job.js"></script>
+<script src="../../assets/vendor_plugins/iCheck/icheck.min.js"></script>
+
+<script src="../../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+<script src="../../assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="../../assets/vendor_components/select2/dist/js/select2.full.js"></script>
+
+<script src="/js/pages/validation.js"></script>
+<script src="/js/pages/form-validation.js"></script>
+<script src="../../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="../../plugins/tagcomplete/tagcomplete.js"></script><!-- TAGCOMPLETE -->
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+
+.my-scrollbar {
+    overflow: scroll;
+    height: 232px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.removeFromList {
+    cursor: pointer;
+}
+
+.js-details-popup {
+    position: relative;
+    float: left;
+    width: 60%;
+    background: #ffffff;
+    z-index: 1;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+
+    left: 50%;
+    margin-left: -230px;
+    margin-top: 140px;
+    margin-bottom: 60px;
+    text-align: center;
+    padding: 40px 60px;
+}
+
+.js-details-popup3 {
+    margin: auto;
+    float: left;
+    width: 50%;
+    background: #ffffff;
+    z-index: 1;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+
+
+    margin-top: 140px;
+    margin-bottom: 60px;
+    text-align: center;
+    padding: 10px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #00abf0;
+
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+     
+            
+            

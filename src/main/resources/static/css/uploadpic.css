@@ -1,0 +1,61 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 11, 2020, 8:01:55 PM
+    Author     : Admin
+*/
+
+.canditate-des {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #2E55FA;
+    outline-offset: 3px;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+}
+
+.canditate-des .upload-link {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 24, 128, 0.1);
+    border-radius: 100%;
+    color: #2E55FA;
+    overflow: hidden;
+}
+
+.upload-link:hover {
+    cursor: pointer;
+}
+
+.profile-edit .canditate-des .upload-link {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.update-flie {
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+    width: 100px;
+    cursor: pointer;
+    left: 0;
+}
+
+.tooltip {
+    border-radius: 5px;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-family: roboto;
+    z-index: 99;
+}

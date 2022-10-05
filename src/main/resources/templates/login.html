@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs - Login</title>
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]-->
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+    <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/><!-- BOOTSTRAP.MIN JS -->
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- Content -->
+    <div class="page-content bg-gray login-form-bx browse-job login-style2">
+        <div class="section-full">
+            <!-- Login Page -->
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-7 box-skew d-flex">
+
+                        <div class="login-2 p-a30 seth d-flex align-self-center m-auto wow fadeInRight"
+                             data-wow-delay="0.8s">
+
+                            <div class="tab-content nav">
+                                <div th:if="${msg}">
+                                    <div class="alert alert-success">
+                                        <span th:text="${msg}"></span>
+                                    </div>
+                                </div>
+
+                                <div th:if="${errorMessage}">
+                                    <div class="alert alert-danger">
+                                        <span th:text="${errorMessage}"></span>
+                                    </div>
+                                </div>
+                                <div style="background: red; padding:2%; color: white;width:100%"
+                                     th:if="${#request.getParameter('error') == 'true'}">
+                                    Login Failed!<br/>
+                                    Wrong Credentials
+
+
+                                </div>
+                                <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="login" method='POST'
+                                      name='f' th:action="@{/j_spring_security_check}">
+                                    <p class="font-weight-600 text-center">If you have an account with us, please log
+                                        in.</p>
+                                    <div class="form-group">
+                                        <label>E-Mail Address*</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name='username'
+                                                   placeholder="Your Email Address" required="required"
+                                                   type="text" value=''>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password *</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name="password"
+                                                   placeholder="Password" type="password"
+                                                   value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Remember Me</label>
+                                        <input name="remember-me" type="checkbox"/>
+
+                                    </div>
+                                    <div class="text-left">
+                                        <button class="site-button" style="background:#1F1D60;color:white">Login
+                                        </button>
+                                        <a class="site-button-link forget-pass pull-right m-t15" data-toggle="tab"
+                                           href="#forgot-password" style="color: #1F1D60;">
+                                            <i class="fa fa-unlock"></i> Forgot Password</a>
+                                    </div>
+                                </form>
+                                <form action="#" class="tab-pane fade col-12 p-a0" id="forgot-password" method="post"
+                                      role="form" th:action="@{/forgot}">
+
+                                    <p>We will send you an email to reset your password. </p>
+                                    <div class="form-group">
+                                        <label>E-Mail address *</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="email"
+                                                   name="email" placeholder="Enter Email"
+                                                   required="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="text-left">
+                                        <a class="site-button outline gray" data-toggle="tab" href="#login">Back</a>
+                                        <button class="site-button pull-right" style="background:#1F1D60">Submit
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-7 d-flex box-skew1">
+
+                        <div class="text-white max-w400 align-self-center">
+                            <div class=" hidden-md hidden-xs logo">
+                                <a href="/"><img alt="Logo" class="fadeshow1 lozad" data-src="/images/laine.jpg"
+                                                 style="border-radius: 10px"></a>
+
+                            </div>
+
+                            <h2 class="m-b10">Register Now</h2>
+
+                            <p class="m-b15 fadeshow1">
+                                ! It is easy and done in 1 minute and gives you
+                                access to special experience and much more!
+
+                            </p>
+
+                            <div class="row">
+                                <div class="col-lg-12 col-lg-6">
+                                    <a class="btn btn-xs btn-info pull-right" href="/">
+                                        <strong><i class="fa fa-home"></i> Home</strong>
+                                    </a>
+                                    <a class="btn btn-xs  btn-primary pull-right" href="/register#register-tab">
+                                        <strong><i class="fa fa-user"></i> Register now</strong>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <ul class="list-inline m-a0">
+                                        <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a>
+                                        </li>
+                                        <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Login Page END -->
+
+        </div>
+
+        <footer class="login-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                            <span class="float-left text-black-light"> © Copyright 2021  by <i
+                                    class="fa fa-heart m-lr5 text-red heart"></i>
+                            <a class="text-primary" href="https://aoholdings.net">Synergy Center </a></span>
+                        <span class="float-right">All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Content END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/wow/wow.js"></script><!-- WOW JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><!-- SORTCODE FUCTIONS  -->
+<script>
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+</script>
+
+
+</body>
+</html>

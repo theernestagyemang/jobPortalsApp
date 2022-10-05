@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title> Employers | xjobs</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="CreativeLayers" name="author">
+
+    <!-- Styles -->
+
+
+    <link href="/css/icons.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/colors/colors.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/notify.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-employer :: header"></div>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-featured-sec style2">
+                            <ul class="main-slider-sec style2 text-arrows">
+                                <li class="slideHome"><img alt="" class="lozad" data-src="/images/mslider3.jpg"/></li>
+                            </ul>
+                            <div class="job-search-sec">
+                                <div class="job-search style2">
+                                    <h3>We’re here to make hiring a little easier. <br/>Let’s give it a try.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading">
+                            <h2>Ready to hire?</h2>
+                            <span>We've got you covered</span>
+                        </div><!-- Heading -->
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="browse-all-cat">
+                            <a class="style2" href="/products" title="">See Products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading">
+                            <h2>How It Works</h2>
+                            </span>
+                        </div><!-- Heading -->
+                        <div class="how-to-sec">
+                            <div class="how-to">
+                                <span class="how-icon"><i class="la la-user"></i></span>
+                                <h3>Register an account</h3>
+                                <p>Post a job to tell us about your project. We'll quickly match you with the right
+                                    freelancers.</p>
+                            </div>
+                            <div class="how-to">
+                                <span class="how-icon"><i class="la la-file-archive-o"></i></span>
+                                <h3>Specify & choose your product</h3>
+                                <p>Browse profiles, reviews, and proposals then interview top candidates. </p>
+                            </div>
+                            <div class="how-to">
+                                <span class="how-icon"><i class="la la-list"></i></span>
+                                <h3>Post job</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--	<section>-->
+    <!--		<div class="block">-->
+    <!--			<div data-velocity="-.1" class="parallax scrolly-invisible layer color red"></div>&lt;!&ndash; PARALLAX BACKGROUND IMAGE &ndash;&gt;-->
+    <!--			<div class="container">-->
+    <!--				<div class="row">-->
+    <!--					<div class="col-lg-12">-->
+    <!--						<div class="heading light">-->
+    <!--							<h2>Xjobs Site Stats</h2>-->
+    <!--							<span>Here we list our site stats and how many people we’ve helped find a job and companies have found <br />recruits. It's a pretty awesome stats area!</span>-->
+    <!--						</div>&lt;!&ndash; Heading &ndash;&gt;-->
+    <!--						<div class="stats-sec">-->
+    <!--							<div class="row">-->
+    <!--								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--									<div class="stats">-->
+    <!--										<span id="posted-jobs">18</span> -->
+    <!--										<h5>Jobs Posted</h5>-->
+    <!--									</div>-->
+    <!--								</div>-->
+    <!--								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--									<div class="stats">-->
+    <!--										<span id="filled-jobs">38</span>-->
+    <!--										<h5>Jobs Filled</h5>-->
+    <!--									</div>-->
+    <!--								</div>-->
+    <!--								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--									<div class="stats">-->
+    <!--										<span id="companies">67</span>-->
+    <!--										<h5>Companies</h5>-->
+    <!--									</div>-->
+    <!--								</div>-->
+    <!--								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+    <!--									<div class="stats">-->
+    <!--										<span id="members">92</span>-->
+    <!--										<h5>Members</h5>-->
+    <!--									</div>-->
+    <!--								</div>-->
+    <!--							</div>-->
+    <!--						</div>-->
+    <!--					</div>-->
+    <!--				</div>-->
+    <!--			</div>-->
+    <!--		</div>-->
+    <!--	</section>-->
+
+
+    <section>
+        <div class="block no-padding">
+            <div class="container fluid parallax scrolly-invisible layer color red">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="simple-text">
+                            <h3>How may we help you?</h3>
+                            <span>We're here to help. Check out our <a href="/faq">FAQs</a>, send us an email at <a
+                                    href="/faq" id="adabraka-email">email</a> or call us at  <a href="#" id="comp-tel">(800) 555-5555</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="social-links">
+
+                            <a class="fb-color" href="#" id="facebook" title=""><i class="fa fa-facebook"></i> Facebook</a>
+                            <a class="tw-color" href="#" id="twitter" title=""><i class="fa fa-twitter"></i> Twitter</a>
+                            <a class="in-color" href="#" id="instagram" title=""><i class="fa fa-instagram"></i>
+                                Instagram</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+<!-- SIGNUP POPUP -->
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/statistics.js" type="text/javascript"></script>
+<script src="/js/job/jquery.scrollbar.min.js" type="text/javascript"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/statistics.js" type="text/javascript"></script>
+<script src="/js/counter.js" type="text/javascript"></script>
+<div th:insert="login-template :: login"></div>
+<script src="/js/login.js"></script>
+<script src="/js/registration.js"></script>
+<script src="/js/social-media.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#empDiv").toggle();
+        $("#employeeDiv").toggle();
+        $("#forgot-password").toggle(1000);
+        var url88 = "/find-address";
+
+        $.get(url88, function (data, status) {
+            console.log(data.hodEmail);
+            $('#comp-tel').html(data.companyAddress);
+            $('#adabraka-email').html(data.hodEmail);
+        });
+
+        $("#empClick").click(function (e) {
+            e.preventDefault();
+            var text = $(this).html();
+            if (text === "Read More") {
+                $(this).html("Read Less");
+            } else {
+                $(this).html("Read More");
+            }
+
+            $("#empDiv").toggle("slow", function () {
+                // Animation complete.
+            });
+        });
+        $("#employeeClick").click(function (e) {
+            e.preventDefault();
+            var text2 = $(this).html();
+
+            if (text2 === "Read More") {
+                $(this).html("Read Less");
+            } else {
+                $(this).html("Read More");
+            }
+
+            $("#employeeDiv").toggle("slow", function () {
+                // Animation complete.
+            });
+        });
+
+        $('.lozad').Lazy();
+
+        $('#login').submit(function (event) {
+            //stop submit the form, we will post it manually.
+            event.preventDefault();
+
+
+            var name = $('#fullName').val();
+            var email = $('#em').val();
+            var tel = $('#phone').val();
+
+            // name,String email, String tel 
+            var url = "/create-cv-request?name=" + name + "&email=" + email + "&tel=" + tel;
+            var modal = $('#cvConfirmModal');
+
+            // disabled the submit button
+            $("#btnSave").prop("disabled", true);
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    if (data) {
+                        modal.modal('hide');
+                        swal({
+                            title: "Success!",
+                            text: "Your request has been submitted Successfully, We will get back to you shortly!",
+                            type: "success",
+                            icon: "success",
+                            button: "Ok!"
+                        }).then((value) => {
+                            $("#btnSave").prop("disabled", false);
+                        });
+                    } else {
+                        swal({
+                            title: "Unsuccessful!",
+                            text: "Sorry, we couldn't submit your request, Try again next time!",
+                            type: "error",
+                            icon: "danger",
+                            button: "Ok!"
+                        });
+
+                        $("#btnSave").prop("disabled", false);
+                        modal.modal('hide');
+                    }
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, we couldn't submit your request, Try again next time!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!"
+                    });
+                    $("#btnSave").prop("disabled", false);
+                }
+
+            });
+
+        });
+
+
+        //Find User's location
+        var city = null;
+        fetch('https://extreme-ip-lookup.com/json/')
+            .then(res => res.json())
+            .then(response => {
+                $("#mylocation").val(response.city);
+                city = response.city;
+
+                if (city !== null) {
+
+                    $("#myJobCountry").html("Jobs In " + city);
+                    findJobs(city);
+
+                }
+            })
+            .catch((data, status) => {
+                console.log('Request failed');
+            });
+
+        function findJobs(value) {
+
+            var url = "/find-job-by-city?city=" + value;
+            $.get(url, function (data, status) {
+                $("#myJobCountryCount").html(data);
+
+            });
+            var url2 = "/job-by-city?ct=" + value;
+            document.getElementById("advertUrl").href = url2;
+        }
+
+
+        $("#empForm").toggle(1000);
+        $("#jobSeekerForm").toggle(1000);
+
+        $("#job_seeker").click(function () {
+
+            if ($("#empForm").is(":visible")) {
+                $("#empForm").toggle(1000);
+            }
+            if ($("#jobSeekerForm").is(":visible")) {
+
+            } else {
+                $("#jobSeekerForm").toggle(1000);
+
+            }
+
+        });
+        $("#job_employer").click(function () {
+
+            if ($("#jobSeekerForm").is(":visible")) {
+                $("#jobSeekerForm").toggle(1000);
+            }
+            if ($("#empForm").is(":visible")) {
+
+            } else {
+                $("#empForm").toggle(1000);
+
+            }
+        });
+
+        function rowClicked(value) {
+            var url = "/authenticated";
+
+            $.get(url, function (data) {
+                if (!data) {
+                    swal("Unauthenticated!", "You must login!", "error");
+
+                } else {
+                    saveJob(value);
+                }
+            });
+
+        }
+
+        function saveJob(value) {
+            var url = "/save-jobs?id=" + value;
+            $.ajax({
+                type: "POST",
+                url: url,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+
+                success: function (data) {
+
+                    swal({
+                        title: "Success!",
+                        text: "Your profile has been updated successfully!",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    });
+
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, We couldn't update your profile!",
+                        type: "error",
+                        icon: "danger",
+                        button: "Ok!"
+                    });
+
+
+                }
+
+            });
+        }
+
+
+    });//End of document.ready    
+</script>
+</body>
+</html>
+

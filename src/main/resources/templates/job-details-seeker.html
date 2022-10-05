@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="" name="keywords"/>
+    <meta content="" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs- Job Portal" name="description"/>
+    <meta content="xjobs- Job Portal" property="og:title"/>
+    <meta content="xjobs- Job Portal" property="og:description"/>
+    <meta content="xjobs- Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>xjobs Job -Job Detail</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- STYLESHEETS -->
+    <link href="/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/templete.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/skin/skin-1.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/mycss.css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+    <!-- header -->
+    <header class="site-header mo-left header border-bottom  fullwidth">
+        <div th:insert="header :: header"></div>
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/bnr1.jpg);">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Job Detail</h1>
+                    <!-- Breadcrumb row -->
+                    <div class="breadcrumb-row">
+                        <ul class="list-inline">
+                            <li><a href="#">Home</a></li>
+                            <li>Job Detail</li>
+                        </ul>
+                    </div>
+                    <!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+            <!-- Job Detail -->
+            <div class="section-full content-inner-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+
+                            <div class="sticky-top">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-6">
+                                        <div class="m-b30">
+                                            <img alt="" src="/images/3504.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6">
+
+                                        <div class="widget bg-white p-lr20 p-t20  widget_getintuch radius-sm">
+                                            <h4 class="text-black font-weight-700 p-t10 m-b15">Job Details</h4>
+                                            <ul>
+                                                <li><i class="ti-location-pin"></i><strong
+                                                        class="font-weight-700 text-black">Address</strong><span
+                                                        class="text-black-light"> [(${job.location})] </span></li>
+                                                <li><i class="ti-money"></i><strong class="font-weight-700 text-black">Salary</strong>
+                                                    [(${#numbers.formatDecimal(job.renumeration, 0,'COMMA',2,'POINT')})]
+                                                    -
+                                                    [(${#numbers.formatDecimal(job.toRenumeration,
+                                                    0,'COMMA',2,'POINT')})]
+                                                </li>
+                                                <li><i class="ti-shield"></i><strong class="font-weight-700 text-black">Experience</strong>[(${job.minYearsExperience})]
+                                                    Year Experience
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="job-info-box">
+                                <h3 class="m-t0 m-b10 font-weight-700 title-head">
+                                    <a class="text-secondry m-r30" href="javascript:void(0);">[(${job.profession})]</a>
+                                </h3>
+                                <ul class="job-info">
+                                    <li><strong>Job Type:</strong> [(${job.jobType})]</li>
+                                    <li><strong>Deadline:</strong> [(${job.expireDate})]</li>
+                                    <li><i class="ti-location-pin text-black m-r5"></i> [(${job.location})]</li>
+                                </ul>
+
+                                <h5 class="font-weight-600">Job Description</h5>
+                                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                                <p>
+                                    <span th:utext="${job.jobDescription}"></span>
+                                </p>
+                                <h5 class="font-weight-600">How to Apply</h5>
+                                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+                                <p>
+                                    <label th:utext="${job.howToApply}">
+
+                                    </label>
+                                </p>
+                                <h5 class="font-weight-600">Job Requirements</h5>
+                                <div class="dez-divider divider-2px bg-gray-dark mb-4 mt-0"></div>
+
+                                <ul class="list-num-count no-round">
+                                                                    <span class="list-arrow" th:each="req: ${jreqList}"
+                                                                          th:remove="tag">
+									<li>[(${req})]</li>
+                                                                    </span>
+                                </ul>
+
+                                <form id="recForm">
+                                    <label for="rec">Recruiter</label>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+
+                                                <select class="form-control" id="recruiterId" required>
+
+                                                    <option value="">----Please select Recruiter----</option>
+                                                    <option id="pass1" th:each="country: ${recruiters}"
+                                                            th:text="${country.firstName}"
+                                                            th:value="${country.employeeid}"/>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12">
+                                            <div class="form-group">
+                                                <button class="site-button" id="recBtn"
+                                                        onclick="submitForm()" th:href="@{/apply-for-job(id=${job.id})}"
+                                                        type="submit">Assign to Recruiter
+                                                </button>
+
+                                                <a class="site-button"
+                                                   id="editBtn2"
+                                                   th:href="@{/rec-post-jobs(id=${job.id})}"><i
+                                                        class="fa fa-pencil"></i> Edit</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Job Detail -->
+            <!-- Our Jobs -->
+            <div class="section-full content-inner">
+                <div class="container">
+
+                </div>
+            </div>
+            <!-- Our Jobs END -->
+        </div>
+    </div>
+    <!-- Content END-->
+    <!-- Modal Box -->
+    <div class="modal fade lead-form-modal" id="car-details" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body row m-a0 clearfix">
+                    <div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0"
+                         style="background-image: url(images/background/bg3.jpg);  background-position:center; background-size:cover;">
+                        <div class="form-info text-white align-self-center">
+                            <h3 class="m-b15">Login To You Now</h3>
+                            <p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                has been the industry.</p>
+                            <ul class="list-inline m-a0">
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="m-r10 text-white" href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 p-a0">
+                        <div class="lead-form browse-job text-left">
+                            <form>
+                                <h3 class="m-t0">Personal Details</h3>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Name" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Mobile Number" value=""/>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn-primary site-button btn-block" type="button">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box End -->
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer :: footer"></div>
+
+    </footer>
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="/plugins/imagesloaded/imagesloaded.js"></script><!-- IMAGESLOADED -->
+<script src="/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+<script src="/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+
+<script>
+    $(document.ready(function () {
+        $('#editBtn').on('click', function (e) {
+            alert('editBtn....');
+            e.preventDefault();
+            var url = $(this).attr('href');
+            window.location.href = url;
+        });
+    }));
+
+    function submitForm() {
+        event.preventDefault();
+
+        var url_string = window.location.href;
+        var url2 = new URL(url_string);
+
+        var jobId = url2.searchParams.get("id");
+        var recruiterId = $('#recruiterId').val();
+
+
+        var url = "/assign-to-recruiter?jobId=" + jobId + "&recruiterId=" + recruiterId;
+        console.log(url);
+
+        $("#btnSubmit").prop("disabled", true);
+
+        $.ajax({
+            type: "POST",
+            url: url,
+
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Job assigned successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#recBtn").prop("disabled", false);
+
+                    });
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update job!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!",
+
+                });
+
+                $("#recBtn").prop("disabled", false);
+
+            }
+
+        });
+
+
+    }
+</script>
+</body>
+</html>

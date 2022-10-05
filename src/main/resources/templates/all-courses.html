@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from grandetest.com/theme/jobhunt-html/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Apr 2021 15:35:11 GMT -->
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Assessment | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="js/job/sweetalert.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup" style="background-color: #edf1f7;">
+
+    <div th:insert="index-menu2 :: index-menu2"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/job_list.png"
+                 data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header wform">
+                            <div class="job-search-sec">
+                                <div class="job-search">
+                                    <h4>All Courses</h4>
+                                    <form action="/findJobs">
+                                        <div class="row">
+                                            <div class="col-lg-11 col-md-5 col-sm-12 col-xs-12">
+                                                <div class="job-field">
+                                                    <input name="q"
+                                                           placeholder="Explore Courses With Just Simple Search..."
+                                                           type="text"/>
+                                                    <i class="la la-keyboard-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                                <button type="submit"><i class="la la-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f4f5fa;">
+        <div class="block">
+            <div class="container">
+
+                <!--                <div class="row d-flex">-->
+                <!--                    &lt;!&ndash;          <div class="col-lg-3 col-md-4 col-sm-6 col-12">&ndash;&gt;-->
+
+                <!--                    <div th:each="course: ${courses}" class="card my-1 mx-2 border-0" style="width: 20rem;">-->
+                <!--                        <a th:href="@{'/course-details/'+${course.id}}">-->
+                <!--                            <div class="card mx-1 border-0" style="width: 20rem;">-->
+                <!--                                <img class="card-img-top img-responsive" th:src="@{'/uploads/'+${course.picture}}"-->
+                <!--                                     style="height:200px;">-->
+                <!--                                <div class="card-body">-->
+                <!--                                    <h4 th:text="${course.courseTitle}" class="card-title" style="padding-top: -5px"/>-->
+                <!--                                    <p th:text="${course.category}" class="card-text text-truncate" style="max-width: 300px;"/>-->
+                <!--                                    <h5 style="max-width: 300px;">-->
+                <!--                                        <span th:if="${course.price == 0}" class="text-success fw-bold">Free</span>-->
+                <!--                                        <span th:unless="${course.price == 0}" class="text-success">-->
+                <!--                                           GH₵ <span th:text="${course.price}"/>-->
+                <!--                                        </span>-->
+                <!--                                    </h5>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+
+
+                <!--                </div>-->
+                <div class="row d-flex">
+                    <!--          <div class="col-lg-3 col-md-4 col-sm-6 col-12">-->
+
+                    <div class="card my-2 mx-3 mt-4 border-0 flex-column justify-content-center" style="width: 18rem;"
+                         th:each="course: ${courses}">
+
+                        <img class="card-img-top img-responsive" style="height:200px;"
+                             th:src="@{'/uploads/'+${course.picture}}">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">
+                                <span th:text="${course.courseTitle}"/>
+                            </h5>
+                            <p class="card-text">
+                                <span th:text="${course.category}"/>
+                            </p>
+                            <h4 class="card-text" style="color: #fb236a; font-weight: bold;">
+                                <span th:if="${course.price != 0}">
+                                       GH¢ <span th:text="${course.price}"/>
+                                    </span>
+                                <span th:unless="${course.price != 0}">
+                                        <span style="color: #fb236a; font-weight: bold;">Free</span>
+                                    </span>
+
+                            </h4>
+                        </div>
+                        <div class="mt-auto job-grid">
+                            <a th:href="@{'/course-details/'+${course.id}}">View Details</a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div><!-- comment -->
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+        <span>Click To Login With Demo User</span>
+        <div class="select-user">
+            <span>Candidate</span>
+            <span>Employer</span>
+        </div>
+        <form>
+            <div class="cfield">
+                <input placeholder="Username" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="cb" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+            <a href="#" title="">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-login">
+            <span>Or</span>
+            <div class="login-social">
+                <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+                <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</div><!-- LOGIN POPUP -->
+
+<div class="account-popup-area signin-popup-box">
+    <div class="account-popup">
+        <span class="close-popup"><i class="la la-close"></i></span>
+        <h3>User Login</h3>
+
+        <div class="select-user">
+
+        </div>
+        <form autocomplete="on" class="tab-pane active col-12 p-a0 " id="tggl" method='POST'
+              name='f' th:action="@{/j_spring_security_check}">
+            <div class="cfield">
+                <input name='username' placeholder="Username" required="required" type="text"/>
+                <i class="la la-user"></i>
+            </div>
+            <div class="cfield">
+                <input name="password" placeholder="********" type="password"/>
+                <i class="la la-key"></i>
+            </div>
+            <p class="remember-label">
+                <input id="cb1" name="rememberme" type="checkbox"><label for="cb1">Remember me</label>
+            </p>
+
+            <a class="white-text forget-pass pull-right m-t15" data-toggle="tab" href="#forgot-password"><i
+                    class="fa fa-unlock-alt"></i> Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="#" class="tab-pane col-12 p-a0" id="forgot-password" method="post" role="form"
+              th:action="@{/forgot}">
+
+            <p>We will send you an email to reset your password. </p>
+            <div class="cfield">
+                <input id="form23" name="email" placeholder="Your email" required="required" type="text">
+                <i class="la la-envelope"></i>
+            </div>
+
+            <div class="text-left">
+                <a class="btn-link back" data-toggle="tab" href="#login">Back to login</a>
+                <button class="btn btn-indigo btn-rounded pull-right">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<script src="/js/job/category-jobs.js"></script>
+<script src="/js/job/control-job-application.js"></script>
+
+
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/jquery.min.js"></script>
+
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/js/notify.min.js"></script>
+<div th:insert="login-template :: login"></div>
+<script src="/js/login.js"></script>
+<script src="/js/registration.js"></script>
+<script src="/js/statistics.js"></script>
+<script src="/js/index.js"></script>
+
+</body>
+
+<!-- Mirrored from grandetest.com/theme/jobhunt-html/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Apr 2021 15:35:11 GMT -->
+</html>
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:00:52 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>xjobs - Dashboard</title>
+    <!-- Vendors Style-->
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+</head>
+
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xl-9 col-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-12">
+                                <div class="box">
+                                    <div class="box-body py-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="text-fade">Hired</h5>
+                                                <h2 class="font-weight-500 mb-0"><a href="#" id="total-hired">0</a></h2>
+                                            </div>
+                                            <div>
+                                                <div id="revenue1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="box">
+                                    <div class="box-body py-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="text-fade">Shortlisted</h5>
+                                                <h2 class="font-weight-500 mb-0"><a href="#"
+                                                                                    id="total-shortlisted">0</a></h2>
+                                            </div>
+                                            <div>
+                                                <div id="revenue2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="box">
+                                    <div class="box-body py-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="text-fade">On Hold</h5>
+                                                <h2 class="font-weight-500 mb-0"><a href="#" id="total-on-hold">0</a>
+                                                </h2>
+                                            </div>
+                                            <div>
+                                                <div id="revenue3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxxl-8 col-xl-7 col-12">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h4 class="box-title">Active Jobs</h4>
+                                        <ul class="box-controls pull-right d-md-flex d-none">
+                                            <li class="dropdown">
+                                                <button class="btn btn-primary px-10 " data-toggle="dropdown" href="#">
+                                                    View List
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="active_jobs"></div>
+                                    </div>
+                                    <div class="box-body" id="job-title-app">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxxl-4 col-xl-5 col-12">
+                                <div class="box" id="applications-statistics">
+
+                                </div>
+                                <div class="box">
+                                    <div class="box-header with-border">
+                                        <h4 class="box-title" id="totalRecords">New Applications</h4>
+                                        <ul class="box-controls pull-right d-md-flex d-none">
+                                            <li class="dropdown">
+                                                <button class="btn btn-primary px-10 " data-toggle="dropdown" href="#"
+                                                        style="color: white">View List
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="box-body" id="new-applications">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="box no-shadow">
+                                    <div class="form-group">
+                                        <label>Date range:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input class="form-control pull-right" id="reservation" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="box-title mb-30">Scheduled Meeting</h4>
+                                    <button class="btn btn-primary btn-sm pull-right" data-target="#modal-right"
+                                            data-toggle="modal"
+                                            type="button">
+                                        Add
+                                    </button>
+                                    <div id="meeting-shedule">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+<div class="modal modal-right fade" id="modal-right" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Meeting Schedule</h5>
+                <button class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="meeting-frm">
+
+                <div class="modal-body">
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="title">Title</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="title" placeholder="Event Title" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="event-date">Date</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="event-date" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="time-from">From</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="time-from" type="time" value="00:00:00">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="time-to">To</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="time-to" type="time" value="00:00:00">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="comment">Comment</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="comment" placeholder="Comment" rows="5"></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer modal-footer-uniform">
+                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary float-right" id="btnSaveSales" type="submit">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Vendor JS -->
+<script src="/js/vendors.min.js"></script>
+<script src="/js/pages/chat-popup.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+
+<script src="../../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+<script src="../../assets/vendor_components/moment/min/moment.min.js"></script>
+<script src="../../assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../../assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../../assets/vendor_components/fullcalendar/fullcalendar.js"></script>
+<script src="../../assets/vendor_components/jquery-toast-plugin-master/src/jquery.toast.js"></script>
+<!-- Joblly App -->
+<script src="/js/template.js"></script>
+<script src="/js/pages/dashboard.js"></script>
+<script src="/js/pages/calendar-dash.js"></script>
+<script src="/js/pages/app-main.js"></script>
+<script src="../../assets/vendor_components/PACE/pace.min.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+</body>
+
+</html>

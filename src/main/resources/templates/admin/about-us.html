@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <title>XJobs | About Us Setup</title>
+
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title">About Us</h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <div th:if="${msg_success}">
+                                    <div class="alert alert-success">
+                                        <span th:text="${msg_success}"></span>
+                                    </div>
+
+                                </div>
+
+                                <div th:if="${errorMessage}">
+                                    <div class="alert alert-danger">
+                                        <span th:text="${errorMessage}"></span>
+                                    </div>
+                                </div>
+
+                                <form action="/admin/about-us" id="jobform2" method="post">
+
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                                                <textarea class="textarea" name="file"
+                                                                          placeholder="About Us Page Text"
+                                                                          style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
+                                                                          th:text="${aboutUs}"></textarea>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary  m-b30 pull-right" id="rt" type="submit">Update About
+                                        Us
+                                    </button>
+                                    <a class="btn btn-default m-b30 pull-right" href="/admin/about-us"
+                                       id="rt2">Refresh</a>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:insert="dashboard-footer :: dashboard-footer"></div>
+
+    <div th:insert="dashboard-sidebar :: dashboard-sidebar"></div>
+    <!-- Control Sidebar -->
+
+    <!-- /.control-sidebar -->
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+<!-- Page Content overlay -->
+
+
+<!-- Vendor JS -->
+<!-- Vendor JS -->
+<script src="/js/vendors.min.js"></script>
+<script src="/assets/icons/feather-icons/feather.min.js"></script>
+<!-- Joblly App -->
+<script src="/js/template.js"></script>
+
+<script src="/assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="/js/aboutUs.js"></script>
+
+</body>
+
+</html>

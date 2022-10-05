@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> Jobs Categories | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="js/job/sweetalert.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu-admin :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/slide1.jpg"
+                 data-velocity="-.1"
+                 style="background:   repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3 th:if="${user != null}" th:text="'Welcome ' + ${user.fullName}">Welcome </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec" id="menus">
+                                Menus Here
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <h3>Manage Jobs Category</h3>
+                                <a class="btn btn-success btn-sm addBtn pull-left editBtn" rel="tooltip"
+                                   style="color:white" title="Add Job Category">Add Job Category
+                                    <i class="fa fa-plus"></i>
+
+
+                                </a>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Job Category</td>
+                                        <td class="disabled-sorting text-center">Actions</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="country: ${list}">
+
+                                        <td th:if="country" th:text="${country.entryDate}"></td>
+                                        <td>
+                                            <i th:class="'fa fa-'+${country.catIcon}"></i> <em
+                                                th:text="${country.name}"></em>
+                                        </td>
+
+                                        <td class="td-actions text-center" th:if="country">
+
+                                            <a class="btn btn-info btn-sm editBtn2"
+                                               rel="tooltip"
+                                               th:href="@{/findOneCategory/{id}(id=${country.id})}"
+                                               title="Edit Job Category">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+
+                                            <a class="btn btn-danger btn-sm delete-action"
+                                               data-request-type="delete"
+                                               th:href="@{/deleteCategory/{id}(id=${country.id})}"
+                                               title="Delete Job Category">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                <ul class="pagination" th:if="${totalPages >1}">
+
+                                    <li class="previous">
+                                        <a th:hidden="${currentPage}==1"
+                                           th:href="@{/job-categories(page=${currentPage-1})}"><i
+                                                class="ti-arrow-left"></i> Prev</a></li>
+                                    <li th:each="i : ${#numbers.sequence(1, totalPages)}">
+                                        <a class="${currentPage}==${i}? 'active':''"
+                                           th:href="@{/job-categories(page=${i})}" th:text="${i}"></a>
+                                    </li>
+
+                                    <li class="next"><a th:hidden="${currentPage}>=${totalPages}"
+                                                        th:href="@{/job-categories(page=${currentPage+1})}">Next <i
+                                            class="ti-arrow-right"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-9 column">
+
+                        <br/><br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/job/jquery.scrollbar.min.js" type="text/javascript"></script>
+<script src="/js/job/sweetalert.js"></script>
+<script src="/js/menus.js" type="text/javascript"></script>
+
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info" id="deleteConfirmModal"
+     role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Deleting a category</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to delete this Job Category.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return to the page.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="deleteConfirm" type="button">Delete Category</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="deleteLabel" class="modal fade modal-bx-info" id="deleteConfirmModal"
+     role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteLabel">Deleting Job Category</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have selected to delete this Job Category.</p>
+                <p>
+                    If this was the action that you wanted to do,
+                    please confirm your choice, or cancel and return to the page.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-danger" id="deleteConfirm" type="button">Delete Category</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-bx-info" id="signupModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-signup" role="document">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <h5 class="modal-title card-title">Edit Job Category</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form id="myform" method="post">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group pf-field">
+                                    <input id="jobId" type="hidden" value="0">
+                                    <a href="https://fontawesome.com/icons?d=gallery&p=2&c=interfaces"
+                                       target="_blank"></a>
+                                </div>
+
+                                <div class="form-group pf-field">
+                                    <input class="form-control" id="name" placeholder="Job Category" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-success" id="btnSubmit" type="submit">Save</button>
+                        <button class="btn btn-danger waves-effect waves-light m-l-10" data-dismiss="modal"
+                                type="button">Cancel
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade modal-bx-info" id="myModal10" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog modal-small">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" class="close" data-dismiss="modal" type="button"><i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to do this?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-link" data-dismiss="modal" type="button">Never mind</button>
+                <a class="btn btn-success btn-link" href="" id="delRef">Yes
+                    <div class="ripple-container"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+    $(function () {
+
+        $('.lozad').Lazy();
+
+        $('a.editBtn2').click(function (e) {
+            e.preventDefault();
+
+            var modal = $('#signupModal');
+            modal.data('url', $(this).attr('href'));
+            modal.data('request_type', $(this).data('request-type'));
+            var href = modal.data('url');
+
+            $.get(href, function (user, status) { //Declare a GET that takes in href
+                $('#jobId').val(user.id);
+                $('#name').val(user.name);
+                $('#jobIcon').val(user.catIcon);
+            });
+            modal.modal('show');
+        });
+
+        $('a.editBtn').click(function (e) {
+            e.preventDefault();
+
+            $('#jobId').val(0);
+            $('#name').val("");
+            $('#jobIcon').val("");
+
+            var modal = $('#signupModal');
+            modal.modal('show');
+        });
+
+        $('#myform').on("submit", function (e) {
+
+            e.preventDefault();
+
+            var name = $('#name').val();
+            var jobId = $('#jobId').val();
+            var jobIcon = $('#jobIcon').val();
+
+
+            var url = `/create-job-category?name=${name}&id=${jobId}&jobIcon=${jobIcon}`;
+            var modal = $('#signupModal');
+            // disabled the submit button
+            $("#btnSubmit").prop("disabled", true);
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+
+                success: function (data) {
+
+                    swal({
+                        title: "Success!",
+                        text: "Job category updated successfully!",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    });
+                    modal.modal('hide')
+                    $("#btnSubmit").prop("disabled", false);
+                    location.reload();
+
+
+                },
+                error: function (e) {
+                    swal({
+                        title: "Unsuccessful!",
+                        text: "Sorry, We couldn't update job category!",
+                        type: "error",
+                        icon: "error",
+                        button: "Ok!"
+                    });
+
+                    $("#btnSubmit").prop("disabled", false);
+                    modal.modal('hide');
+                }
+
+            });
+
+        });
+
+        $('a.delete-action').on("click", function (e) {
+            e.preventDefault();
+
+
+            var url = $(this).attr('href');
+            var row = $(this).parents("tr");
+            swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this job category!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel plx!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.get(url, function (del) {
+                            if (del) {
+                                swal("Deleted!", "Your job category has been deleted.", "success");
+                                row.remove();
+
+                            } else {
+                                swal("Error", "Sorry we couldnt delete your job category :)", "error");
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your job category is safe :)", "error");
+                    }
+                });
+        });
+
+        $('#deleteConfirm').click(function () {
+
+            var modal = $('#deleteConfirmModal');
+            var url = modal.data('url');
+
+
+            $.get(url, function (data, status) { //Declare a GET that takes in href
+                if (data == true) {
+                    swal({
+                        title: "Success!",
+                        text: "Job category deleted successfully!",
+                        type: "success",
+                        icon: "success",
+                        button: "Ok!"
+                    })
+                        .then((value) => {
+                            $("#btnSubmit").prop("disabled", false);
+                            location.reload();
+                        });
+                    modal.modal('hide');
+                }
+            });
+
+
+            modal.modal('hide');
+        });
+
+
+    });
+
+
+</script>
+
+</body>
+</html>
+
+ 
+

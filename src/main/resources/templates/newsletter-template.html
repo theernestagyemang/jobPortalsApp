@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #001f3f;
+        }
+
+        .coupon {
+            border: 5px solid #bbb;
+            width: 80%;
+            border-radius: 15px;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .container-x {
+            padding: 2px 16px;
+            background-color: #f1f1f1;
+        }
+
+        .promo {
+            background: #ccc;
+            padding: 3px;
+        }
+
+        .expire {
+            color: red;
+        }
+
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="coupon">
+
+    <div class="container-x">
+        <h3><img alt="" style="padding-top: 0px;padding-bottom: 0;border-radius: 20px;height: 45px"
+                 th:src="${appUrl}+'/images/laine.jpg'"/></h3>
+    </div>
+
+    <img alt="Avatar" style="width:100%;" th:src="${appUrl}+'/images/about_us_1.png'">
+
+
+    <table class="table table-hover table-dark">
+
+        <tbody style="background-color: #f1f1f1">
+        <tr th:each="country: ${list}">
+            <td>
+                <center>
+                    <h2><a href="#" th:href="'' + ${appUrl}+'/job-details?id='+${country.id}" title="">[(${country.profession})]</a>
+                    </h2>
+
+                    <p><i class="la la-map-marker"></i> [(${country.location})], [(${country.country})]</p>
+
+                    <span>
+                                [(${#numbers.formatDecimal(country.renumeration, 0,'COMMA',2,'POINT')})] -
+                                [(${#numbers.formatDecimal(country.toRenumeration, 0,'COMMA',2,'POINT')})]
+                            </span>
+                    <p class="expire">Expires: [(${#dates.format(country.expireDate, 'dd-MM-yyyy')})]</p>
+                </center>
+
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+    <div class="container-x">
+        <center>
+
+            <p style="font-size: 12px"> You are receiving this email because you have subscribed to xjobs job alert
+                system.</p>
+
+            <p style="font-size: 12px"> If you are receiving this by error or want to completely unsubscribe from all
+                alerts, please click here:
+                <a href="#" th:href="'' + ${appUrl}+'/unsubscribe/'+${token}" title="Unsubscribe">Unsubscribe</a> from
+                Job Alert</p>
+
+        </center>
+    </div>
+
+</div>
+
+
+</body>
+</html> 

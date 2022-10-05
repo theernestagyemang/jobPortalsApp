@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Employment | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.gif"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background: repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <h3>Welcome [(${seeker.fullName})]</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="block no-padding">
+            <div class="container">
+                <div class="row no-gape">
+                    <aside class="col-lg-3 column border-right">
+                        <div class="widget">
+                            <div class="tree_widget-sec">
+                                <ul>
+                                    <li><a href="/candidate-dashboard" title=""><i class="la la-dashboard"></i>Candidate
+                                        Dashboard</a></li>
+                                    <li><a href="/personal-details" title=""><i class="la la-user"></i>Personal Details</a>
+                                    </li>
+                                    <li><a href="/my-profile" title=""><i class="la la-file-text"></i>My Profile</a>
+                                    </li>
+                                    <li><a href="/saved-jobs" title=""><i class="la la-money"></i>Saved Job</a></li>
+                                    <li><a href="/applied-job" title=""><i class="la la-paper-plane"></i>Applied Job</a>
+                                    </li>
+                                    <li><a href="/jobs-alerts" title=""><i class="la la-briefcase"></i>Job Alerts</a>
+                                    </li>
+                                    <li><a href="/cover-letter" title=""><i class="la la-file-text"></i>Cover Letter</a>
+                                    </li>
+                                    <li><a href="/change-password" title=""><i class="la la-lock"></i>Change
+                                        Password</a></li>
+                                    <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget">
+
+                        </div>
+                    </aside>
+                    <div class="col-lg-9 column">
+                        <div class="padding-left">
+                            <div class="manage-jobs-sec">
+                                <h3>Employment <em class="pull-right"> Step 4/13 </em></h3>
+
+
+                                <span class="pf-title">
+                                                                    Please click on the 
+                                                                    <a class="btn-primary"
+                                                                       data-target="#employment" data-toggle="modal"
+                                                                       href="javascript:void(0);"> Add Company</a>
+                                                                           button to add your company and then click <span
+                                        style="color: red; font-style: 16px">next</span> button when you are done
+                                                                
+                                                                    <a class="btn btn-primary site-button"
+                                                                       data-target="#employment" data-toggle="modal"
+                                                                       href="javascript:void(0);"><i
+                                                                            class="fa fa-plus m-r5"></i> Add Company</a>
+                                                                           
+                                                                </span>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Company Name</td>
+                                        <td>Current Company</td>
+                                        <td>Start From</td>
+                                        <td>Worked Till</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr th:each="country: ${wlist}">
+                                        <td>
+                                            <div class="table-list-title" th:text="${country.companyName}"></div>
+                                        </td>
+                                        <td class="application text-primary">
+                                            <a href="javascript:void(0);"> [(${country.stillWorkThere})] </a>
+                                        </td>
+
+                                        <td>
+                                            <span th:text="${country.monthStartedWork}"></span><br/>
+                                            <span th:text="${country.yearStartedWork}"></span>
+                                        </td>
+
+                                        <td>
+                                            <span th:text="${country.monthStopedWork}"></span><br/>
+                                            <span th:text="${country.yearStopedWork}"></span>
+                                        </td>
+
+                                        <td>
+                                            <ul class="action_job">
+                                                <li><span>Edit</span><a class="confirm-action" href="#"
+                                                                        th:href="@{/edit-work/{id}(id=${country.id})}"
+                                                                        title=""><i class="la la-pencil"></i></a></li>
+                                                <li><span>Delete</span><a class="delete-action" href="#"
+                                                                          th:href="@{/delete-work/{id}(id=${country.id})}"
+                                                                          title=""><i class="la la-trash-o"></i></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-lg-12 ">
+                                <a class="btn btn-success pull-right" href="/education" title="Next to Education"><i
+                                        class="la la-arrow-right m-r5"></i> Next</a>
+                                <a class="btn btn-success pull-right" href="/key-skills" title="Back to key-skills"><i
+                                        class="la la-arrow-left m-r5"></i> Back</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+<div class="profile-sidebar">
+    <span class="close-profile"><i class="la la-close"></i></span>
+</div><!-- Profile Sidebar -->
+
+<div aria-hidden="true" aria-labelledby="EmploymentModalLongTitle" class="modal fade modal-bx-info editor"
+     id="employment"
+     role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EmploymentModalLongTitle">Add/Edit 1 Employment</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <div id="fromDiv" style="overflow-y: scroll; height:500px;">
+
+                <form id="educationFrm">
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6">
+                                <span class="pf-title">Your Position</span>
+                                <div class="pf-field">
+                                    <input class="form-control" id="designation" name="designation"
+                                           placeholder="Enter Your Position"
+                                           required type="text">
+                                    <input id="seekerId" th:field="${seeker.id}" type="hidden"/>
+                                    <input id="eduId" type="hidden" value="0"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <span class="pf-title">Your Organization</span>
+                                <div class="pf-field">
+                                    <input class="form-control" id="org" maxlength="50" name="org"
+                                           placeholder="Enter Your Organization" required type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <span class="pf-title">Is this your current company?</span>
+                                <div class="pf-field">
+                                    <select class="chosen" id="curComp" name="startMonth">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Started Working From</span>
+                                    <div class="row">
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+
+                                            <select class="chosen" id="startMonth" name="startMonth">
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">Jun</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 pf-field">
+                                            <input class="form-control" id="startYear" name="startYear"
+                                                   placeholder="Year Started Work"
+                                                   type="number"/>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Worked Till</span>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                            <select class="chosen" id="endMonth" name="endMonth">
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">Jun</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 pf-field">
+                                            <input class="form-control" id="endYear" name="endYear"
+                                                   placeholder="Year Ended Work"
+                                                   type="number"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <span class="pf-title">Describe your Job Profile</span>
+                                    <div class="pf-field">
+                                        <textarea class="form-control" id="jobProfile" name="jobProfile"
+                                                  placeholder="Type Description" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" type="reset"><i class="la la-times"></i>Cancel
+                        </button>
+                        <button class="btn btn-success" id="schoolBtn" type="submit"><i class="la la-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/job/jquery.min.js" type="text/javascript"></script>
+<script data-cfasync="false" src="css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js" type="text/javascript"></script>
+<script src="/js/job/cript.js" type="text/javascript"></script>
+<script src="/js/job/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/job/wow.min.js" type="text/javascript"></script>
+<script src="/js/job/slick.min.js" type="text/javascript"></script>
+<script src="/js/job/parallax.js" type="text/javascript"></script>
+<script src="/js/job/select-chosen.js" type="text/javascript"></script>
+<script src="/js/jquery.lazy.min.js" type="text/javascript"></script>
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+
+        $('.lozad').Lazy();
+
+        $('a.confirm-action').click(function (e) {
+            e.preventDefault();
+            var modal = $('#employment');
+            modal.data('url', $(this).attr('href'));
+
+            var url = $(this).attr('href');
+            $.get(url, function (data) {
+
+                $('#designation').val(data.jobTitle);
+                // $('#rsSeekerId').val(data.jobSeekerId);
+                $('#org').val(data.companyName);
+                $('#curComp').val(data.stillWorkThere);
+                $("#startYear").val(data.yearStartedWork);
+                $("#startMonth").val(data.monthStartedWork);
+                $("#endYear").val(data.yearStopedWork);
+                $("#endMonth").val(data.monthStopedWork);
+                $("#jobProfile").summernote("code", data.jobProfile);
+                $('#stillWork').val(data.stillWorkThere);
+                $('#eduId').val(data.id);
+                var status = (data.stillWorkThere) == 'Yes';
+
+                $('#employ_no').prop('checked', !status);
+                $('#employ_yes').prop('checked', status);
+            });
+
+            modal.modal('show');
+        });
+
+
+        $('a.delete-action').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr("href");
+
+            swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this !",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel plx!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.get(url, function (del) {
+                            if (del) {
+                                swal("Deleted!", "Your work experience has been deleted.", "success");
+                                table.$('tr.selected').remove().draw(false);
+                            } else {
+                                swal("Error", "Sorry we couldnt delete your work experienc :)", "error");
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your work experienc is safe :)", "error");
+                    }
+                });
+
+        });
+
+        $("#educationFrm").on("submit", function (e) {
+            e.preventDefault();
+
+            updateEmployment();
+        });
+
+        $('#jobProfile').summernote({
+            placeholder: 'Please type your message here',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    });
+
+
+    function updateEmployment() {
+        //stop submit the form, we will post it manually.
+
+
+        var designation = $('#designation').val();
+        var id = parseInt($('#seekerId').val());
+        var org = $('#org').val();
+        var curComp = $("#curComp option:selected").val();
+        var startYear = $("#startYear").val();
+
+        var startMonth = $("#startMonth option:selected").val();
+        var endYear = $("#endYear").val();
+        var endMonth = $("#endMonth option:selected").text();
+        var jobProfile = $('#jobProfile').val();
+        var stillWork = $('#stillWork').val();
+        var strEdu = $('#eduId').val();
+        var eduId = parseInt(strEdu);
+
+        console.log(stillWork)
+        console.log(jobProfile)
+        var url = `/seeker/update-employment`;
+        const data = {
+            designation: designation,
+            org: org,
+            curComp: curComp,
+            startYear: startYear,
+            startMonth: startMonth,
+            endYear: endYear,
+            endMonth: endMonth,
+            jobProfile: jobProfile,
+            stillWork: stillWork,
+            id: id,
+            eduId: eduId
+        }
+        var modal = $('#employment');
+        // disabled the submit button
+        $("#educationBtn").prop("disabled", true);
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            processData: false,
+            contentType: "application/json",
+            cache: false,
+            timeout: 600000,
+            data: JSON.stringify(data),
+            success: function (data) {
+
+                swal({
+                    title: "Success!",
+                    text: "Your profile has been updated successfully!",
+                    type: "success",
+                    icon: "success",
+                    button: "Ok!"
+                })
+                    .then((value) => {
+                        $("#educationBtn").prop("disabled", false);
+                        location.reload();
+                    });
+                modal.modal('hide');
+            },
+            error: function (e) {
+                swal({
+                    title: "Unsuccessful!",
+                    text: "Sorry, We couldn't update your profile!",
+                    type: "error",
+                    icon: "danger",
+                    button: "Ok!"
+                });
+
+                $("#educationBtn").prop("disabled", false);
+
+            }
+
+        });
+
+    }
+</script>
+
+
+</body>
+</html>
+

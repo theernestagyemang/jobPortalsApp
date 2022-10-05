@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+<div th:fragment="awards-modal" th:remove="tag">
+    <div aria-hidden="true" aria-labelledby="AwardsModalLongTitle" class="modal fade modal-bx-info editor" id="awards"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="AwardsModalLongTitle">Awards</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="frm">
+                    <div class="modal-body">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12">
+
+                                <div class="form-group">
+                                    <span class="pf-title">Title</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="title" name="title" placeholder="Title"
+                                               type="text">
+                                        <input id="awardId" type="hidden" value="0"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <span class="pf-title">From Year</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="fromYear" maxlength="50" name="fromYear"
+                                               placeholder="From Year" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <span class="pf-title">To Year</span>
+                                    <div class="pf-field">
+                                        <input class="form-control" id="toYear" maxlength="15" name="toYear"
+                                               placeholder="To Year" type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" type="reset"><i class="la la-times"></i>
+                            Cancel
+                        </button>
+                        <button class="btn btn-success" id="schoolBtn2" type="submit"><i class="la la-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

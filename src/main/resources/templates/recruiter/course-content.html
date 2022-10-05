@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from joblly-admin-template-dashboard.multipurposethemes.com/bs4/main/sample_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Jan 2022 16:03:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+
+    <link href="/css/vendors_css.css" rel="stylesheet">
+    <link href="/css/style_2.css" rel="stylesheet">
+    <link href="/css/skin_color.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet">
+    <link href="/css/pagination.css" rel="stylesheet" type="text/css">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <title>XJobs | Courses List</title>
+
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination a {
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            border-radius: 5px;
+        }
+
+        .pagination a {
+            transition: background-color .3s;
+        }
+    </style>
+
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary">
+
+<div class="wrapper">
+    <div id="loader"></div>
+    <div th:insert="dashboard-header :: dashboard-header"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="page-title text-center">All Contents of <span th:text="${course.courseTitle}"/></h3>
+                        <input id="global-course-id" th:field="${course.id}" type="hidden">
+                    </div>
+                    <!--                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal2" class="btn btn-success mt-10 d-block text-center pull-right">+ Add New Courses</a>-->
+
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-10">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h5>Text Content</h5>
+
+                            </div>
+                            <a class="btn btn-success btn-sm my-2 mx-2 d-block text-center pull-right"
+                               data-target="#myModal2" data-toggle="modal"
+                               href="javascript:void(0)">+ Add New Text
+                                Content</a>
+
+                        </div>
+
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="contentTable">
+                                        <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Parent</th>
+                                            <th>Title</th>
+                                            <th>Display Order</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-10">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h5>Video Content</h5>
+
+                            </div>
+                            <a class="btn btn-success btn-sm my-2 mx-2 d-block text-center pull-right"
+                               data-target="#myModal" data-toggle="modal"
+                               href="javascript:void(0)">+ Add Video
+                                Content</a>
+
+                        </div>
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="videoTable">
+                                        <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Parent</th>
+                                            <th>Name</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- content of quiz for the course -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-auto">
+                                <h5>Quiz question</h5>
+
+                            </div>
+                            <select class="form-control mx-3" id="question-number" style="width:35%">
+                                <option>How many options do you want for this question ?</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                            <a class="btn btn-success btn-sm my-2 mx-2 d-block text-center pull-right"
+                               data-target="#myModalQuiz" data-toggle="modal"
+                               href="javascript:void(0)">+ Add New
+                                Quiz</a>
+
+                        </div>
+                        <div class="box">
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 w-p100" id="quizTable">
+                                        <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Question</th>
+                                            <th>Answer</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div>
+        <footer class="main-footer">
+            <div class="pull-right d-none d-sm-inline-block">
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">V 1.7</a>
+                    </li>
+                </ul>
+            </div>
+            &copy; 2020 <a href="https://aoholdings.net/">Synergy Center </a>. All Rights Reserved.
+        </footer>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in" id="myModal2" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Course Text Content</h4>
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                </div>
+                <!--                <div id="dropzone">-->
+                <!--                    <form action="/file-upload" class="dropzone dz-clickable" id="my-dropzone">-->
+                <!--                        <input name="id" type="hidden"/>-->
+
+                <!--                    </form>-->
+                <!--                    &lt;!&ndash;                    <form class="dropzone needsclick p-2" id="demo-upload" action="/content-upload">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        <div class="dz-message needsclick">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                            Click here to upload files.&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        </div>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </form>&ndash;&gt;-->
+                <!--                </div>-->
+                <form class="userFrm" id="add-content-form" method="post">
+                    <div class="modal-body">
+                        <div class="alert card-alert card  alert-dismissible alert-danger hide">
+                            <div class="card-content white-text">
+                                <p>
+                                    <i class="material-icons" id="successIcon">error</i> <em id="status"></em>
+                                </p>
+                            </div>
+                            <button aria-label="Close" class="close white-text" data-dismiss="alert" type="button">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Title</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" id="title" required type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Course</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" disabled id="course" th:field="${course.courseTitle}"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Display Order</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" id="display-content-order" required type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Introduction</label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" id="introduction" required type="text"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Content</label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" id="content" required type="text"></textarea>
+                                </div>
+                            </div>
+                            <input id="course-content-id" th:field="${course.id}" type="hidden">
+                            <input id="userId" type="hidden" value="0">
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-save" type="submit">Save</button>
+                        <button class="btn btn-default float-right" data-dismiss="modal" type="button">Cancel</button>
+                        <!--                    <button type="submit" class="btn btn-warning" style="color:white" id="update-button">Update Course</button>-->
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- Control Sidebar -->
+
+        <!-- /.control-sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in" id="myModal" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalLabel">Course Video</h4>
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                </div>
+
+                <form class="userFrm" id="add-video-form" method="post">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Name</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" id="name" required type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Course</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" disabled id="course-video"
+                                           th:field="${course.courseTitle}" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Display Order</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" id="display-video-order" required type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Youtube Link</label>
+                                <div class="col-lg-12">
+                                    <input class="form-control" id="url" required type="text">
+                                </div>
+                            </div>
+                            <input id="course-video-id" th:field="${course.id}" type="hidden">
+                            <input id="userId1" type="hidden" value="0">
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-save" type="submit">Save</button>
+                        <button class="btn btn-default float-right" data-dismiss="modal" type="button">Cancel</button>
+                        <!--                    <button type="submit" class="btn btn-warning" style="color:white" id="update-button">Update Course</button>-->
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+        <!-- Control Sidebar -->
+
+        <!-- /.control-sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in" id="myModalQuiz" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabelQuiz">Add Quiz</h4>
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                </div>
+
+                <form class="userFrm" id="add-quiz-form" method="post">
+                    <div class="modal-body">
+                        <div class="alert card-alert card  alert-dismissible alert-danger hide">
+                            <div class="card-content white-text">
+                                <p>
+                                    <i class="material-icons" id="successIcon1">error</i> <em id="status1"></em>
+                                </p>
+                            </div>
+                            <button aria-label="Close" class="close white-text" data-dismiss="alert" type="button">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="form-group">
+
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Question</label>
+                                <div class="col-lg-12 my-1">
+                                    <input class="form-control" id="quiz" placeholder="question" required type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-12">Answer</label>
+                                <div class="col-lg-12 my-1">
+                                    <input class="form-control" id="answer" required type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row my-1" id="add-option">
+
+                            </div>
+
+                            <input id="course-quiz-id" th:field="${course.id}" type="hidden">
+                            <input id="user-quiz-id" type="hidden" value="0">
+
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-save" type="submit">Save</button>
+                        <button class="btn btn-default float-right" data-dismiss="modal" type="button">Cancel</button>
+                        <!--                    <button type="submit" class="btn btn-warning" style="color:white" id="update-button">Update Course</button>-->
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- Control Sidebar -->
+
+        <!-- /.control-sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in" id="myModalVideo" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-id">
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+
+        <!-- Control Sidebar -->
+
+        <!-- /.control-sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+</div>
+
+<!-- ./wrapper -->
+
+<!-- ./side demo panel -->
+
+<!-- Sidebar -->
+
+<!-- Page Content overlay -->
+
+
+<!-- Vendor JS -->
+<!-- Vendor JS -->
+<script src="/js/vendors.min.js"></script>
+<script src="../../assets/icons/feather-icons/feather.min.js"></script>
+<script src="/js/template.js"></script>
+<script src="../../assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="../../assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+<script src="/js/job/app-globaljs.js"></script>
+<script src="/js/job/app-course-content.js"></script>
+<!--    <script src="/js/dropzone.js"></script>-->
+<script src="../../assets/vendor_components/PACE/pace.min.js"></script>
+<script src="/js/job/dropzone.js?v=6"></script>
+<script src="/js/dropzone-amd-module.js"></script>
+
+<script>
+    document.getElementById('question-number').addEventListener('blur', () => {
+        const optionNumber = document.getElementById('question-number').value
+        document.getElementById('add-option').innerHTML += `
+                         <div class="form-group" style="width:100%;">
+                            <h5 class="mt-3 px-3">Options details</h5>
+                        </div>
+        `
+        for (let i = 0; i < optionNumber; i++) {
+            var optionId = `option${i}`;
+            var placeholder = `option ${i + 1}`;
+            var radioId = `flexRadioDefault${i + 1}`;
+            var labelFor = `flexRadioDefault${i + 1}`;
+            var option = `option${i + 1}`;
+
+            document.getElementById('add-option').innerHTML += `
+                <div class="form-group" style="width:100%;">
+                       <div class="col-12">
+                           <input type="text" class="form-control" id="${optionId}"  placeholder="${placeholder}" required>
+                       </div>
+
+                </div>
+            `
+        }
+
+    })
+
+</script>
+
+</body>
+
+</html>

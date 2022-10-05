@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Jobs, L'aine Jogs" name="keywords"/>
+    <meta content="Synergy OSL" name="author"/>
+    <meta content="" name="robots"/>
+    <meta content="xjobs -  Job Portal" name="description"/>
+    <meta content="xjobs -  Job Portal" property="og:title"/>
+    <meta content="xjobs -  Job Portal" property="og:description"/>
+    <meta content="xjobs -  Job Portal" property="og:image"/>
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- FAVICONS ICON -->
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title> My Profile | xjobs </title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Styles -->
+    <link href="/css/job/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/icons.css" rel="stylesheet">
+    <link href="/css/job/animate.min.css" rel="stylesheet">
+    <link href="/css/job/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/chosen.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/job/colors/colors.css" rel="stylesheet" type="text/css"/>
+
+
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+          rel="stylesheet">
+
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+          integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" rel="stylesheet">
+    <link href="/css/uploadpic.css" rel="stylesheet" type="text/css">
+    <link class="skin" href="/css/sweet-alert.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="page-loading">
+    <img alt="" src="/images/loader.jpg"/>
+    <span>Skip Loader</span>
+</div>
+
+<div class="theme-layout" id="scrollup">
+
+    <div th:insert="menu :: header"></div>
+
+    <section class="overlape">
+        <div class="block no-padding">
+            <div class="parallax scrolly-invisible no-parallax lozad" data-src="/images/bnr1.jpg"
+                 data-velocity="-.1"
+                 style="background:  repeat scroll 50% 422.28px transparent;"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div class="container fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inner-header">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="skills-btn">
+                                            <!--                                            <a href="#" title="Primary Contact" th:text="${seeker.primaryContact}?:' No Number'">Photoshop</a>-->
+                                            <!--                                            <a href="#" title="Home Town" th:text="${seeker.homeTown}?:' No Home Town'">Designers</a>-->
+                                            <!--                                            <a href="#" title="Marital Status" th:text="${seeker.maritalStatus}?:' No Status'">Illustrator</a>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="action-inner">
+                                            <a href="#" title=""><i class="la la-envelope-o"></i><span
+                                                    th:text="${user.fullName}?: 'No Name'">Contact David</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="block">
+            <div class="container">
+
+                <div class="row" th:if="${videoFirst != null}">
+                    <input id="course-id" th:value="${videoFirst.course.id}" type="hidden">
+                    <div class="col-9 videos" id="media">
+                        <div th:id="'media' + ${videoFirst.id}">
+                            <iframe allowfullscreen class="embed-responsive-item"
+                                    frameborder="0"
+                                    height="500"
+                                    th:src="${videoFirst.url}"
+                                    th:title="${videoFirst.name}"
+                                    width="750">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-3" style="background:#cce7e8">
+
+                        <div class="p-a25">
+                            <p class="pt-2"><strong>Course Videos </strong>
+                            <hr>
+                            </p>
+                            <ul class="list-check primary">
+                                <li th:each="vid: ${courseVideos}" th:id="'video' + ${vid.id}">
+                                    <strong th:text="${vid.displayOrder}"></strong>. <a class="px-1" href="#"
+                                                                                        style="margin-right: 4rem"
+                                                                                        th:text="${vid.name}"></a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <div class="dez-divider bg-gray-dark"></div>
+                            <h6 class="font-14">Why xjobs</h6>
+                            <!--                            <p class="m-b10"><strong class="text-black m-r10">Course Status </strong> Not Completed</p>-->
+                            <p class="m-b10"><strong class="text-black m-r10">100,000+</strong> CV searches daily</p>
+                            <p th:if="${transaction.status == true}">
+                                <a class="btn" style="background-color: #49a997; color: #fff; width:100%"
+                                   th:href="@{'/seeker/quiz-exam/'+${videoFirst.course.id}}">Take The Quiz</a>
+                            </p>
+                            <p class="text-primary" th:unless="${transaction.status == true}">
+                                <strong>course completed with
+                                    <strong class="text-danger" th:text="${quiz.score}"/>
+                                    <strong class="text-danger">%</strong>
+                                </strong>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="control-sidebar-bg"></div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <section>
+
+        <div class="container mt-2">
+            <div class="row d-flex justify-content-center" th:if="${courseContents == null}">
+                <div class="alert alert-success" role="alert">
+                    There is no content in this course at the moment.
+                </div>
+
+            </div>
+            <div class="row" th:unless="${courseContents == null}">
+
+                <div class="col-12" th:each="content: ${courseContents}">
+                    <hr>
+                    <h5><strong> Title:</strong> <span th:text="${content.title}"></span></h5>
+                    <p>
+                    <h5><strong>Introduction: </strong></h5>
+                    <span th:text="${content.introduction}">
+                        </span>
+                    </p>
+                    <h5><strong>Content: </strong></h5>
+                    <p th:text="${content.content}">
+
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <footer class="site-footer" style="margin-top:40px">
+        <div th:insert="footer-1 :: footer"></div>
+
+    </footer>
+
+</div>
+
+
+<script src="/js/job/jquery.min.js"></script>
+<script data-cfasync="false" src="/css/job/email-decode.min.js"></script>
+<script src="/js/job/modernizr.js"></script>
+<script src="/js/job/cript.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+<script src="/js/job/wow.min.js"></script>
+<script src="/js/job/slick.min.js"></script>
+<script src="/js/job/parallax.js"></script>
+<script src="/js/job/select-chosen.js"></script>
+<script src="/js/jquery.lazy.min.js"></script>
+<script src="/js/job/jquery.scrollbar.min.js"></script>
+<script src="/js/work-experiece.js"></script>
+<script src="/js/education.js"></script>
+<script src="/js/job/app-course-contents.js"></script>
+<script src="/js/profile-summary.js"></script>
+<script src="/js/awards.js"></script>
+<script src="/js/sweetAlert.js"></script><!-- SORTCODE FUCTIONS  -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.js"></script>
+
+<!--<script>-->
+<!--    var videos = [[${courseVideos}]];-->
+<!--    console.log("hello")-->
+<!--    console.log(videos)-->
+<!--    document.getElementById("item1").addEventListener("click",()=>{-->
+
+<!--        var x = document.getElementById("myDIV");-->
+<!--        if (x.style.display === "none") {-->
+<!--             x.style.display = "block";-->
+<!--        } else {-->
+<!--            x.style.display = "none";-->
+<!--        }-->
+
+<!--    })-->
+<!--</script>-->
+</body>
+</html>
+
