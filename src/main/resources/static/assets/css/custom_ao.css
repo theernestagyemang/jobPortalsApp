@@ -1,0 +1,21 @@
+.aoprimary_btn {
+    background: #0E365A !important;
+    color:#FFFFFF!important;
+}
+
+.aoprimary_btn:hover {
+    /*background: #FFAA17 !important;*/
+    /*color:#0E365A;*/
+}
+
+.aoprimary_btns {
+    border: 1px solid #0E365A !important;
+    color:#0E365A!important;
+}
+
+.thdcolor{
+    color:white!important;
+}
+.aoprimary_color {
+    color:#FFAA17;
+}
