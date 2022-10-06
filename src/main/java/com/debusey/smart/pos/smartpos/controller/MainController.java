@@ -853,7 +853,7 @@ public class MainController {
             Users users = new Users();
 
             users.setFullName(comp);
-            users.setActive(false);
+            users.setActive(true);
             users.setPassword(encoder.encode(password));
             users.setUsername(email);
             users.setUserType("Company");
@@ -900,7 +900,7 @@ public class MainController {
             Users users = new Users();
 
             users.setFullName(fullName);
-            users.setActive(false);
+            users.setActive(true);
             users.setPassword(encoder.encode(password));
             users.setUsername(email);
             users.setUserType("Individual");
